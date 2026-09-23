@@ -1,5 +1,18 @@
 # Toolgate: tool selection before model inference
 
+![Status: experimental](docs/assets/status-experimental.svg)
+![Cores: Go and Rust](docs/assets/cores-go-rust.svg)
+![SDK: TypeScript](docs/assets/sdk-typescript.svg)
+
+An experimental comparison of direct MCP and three Toolgate designs, with Go/Rust
+cores and one TypeScript SDK.
+
+[Architecture](#research-question-and-architecture) ·
+[Single-Choice results](#experiment-1-single-choice-results) ·
+[Parallel binary results](#experiment-2-parallel-binary-suitability) ·
+[Reproduce the experiments](docs/REPRODUCTION.md) ·
+[Connect your MCP](docs/PROVIDER_INTEGRATION.md)
+
 ## Abstract
 
 Toolgate separates tool selection from business execution. A remote Go or Rust

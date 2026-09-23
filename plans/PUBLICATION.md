@@ -37,3 +37,22 @@ punctuation. The staged tree is checked against the source allowlist. Evidence:
 [diagram rendering](../verification/readme-diagrams.json) and
 [publication checks](../verification/publication-check.json). No new runtime
 dependency was added for diagram validation.
+
+## Repository presentation
+
+The user authorized improving the repository About and visible presentation.
+The description summarizes the MCP selection benchmarks and measured outcomes.
+The homepage points to the existing reproduction guide; nine relevant topics
+identify MCP, agents, benchmarking, languages and Jev. Repository-hosted SVG status/technology
+badges and navigation links provide a short entry point to the paper, diagrams,
+results and integration guides. All labels and repository metadata are English.
+No license, CI status or performance claim is invented. Runtime code, measurements
+and the four verified diagrams are unchanged.
+
+Verification: repository/link/punctuation checks, both numerical report checks,
+and a read-back of GitHub metadata. The presentation change uses an English commit.
+
+The external badge endpoint returned HTTP 403 during validation. The final badges
+are self-contained local SVG assets with accessible titles and no external fonts,
+scripts or service dependency. The repository description labels API cost as an
+estimate.

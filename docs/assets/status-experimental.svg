@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="24" viewBox="0 0 160 24" role="img" aria-label="Status: Experimental">
+  <title>Status: Experimental</title>
+  <clipPath id="badge"><rect width="160" height="24" rx="3"/></clipPath>
+  <g clip-path="url(#badge)">
+    <rect width="52" height="24" fill="#334155"/>
+    <rect x="52" width="108" height="24" fill="#b45309"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana, Geneva, DejaVu Sans, sans-serif" font-size="11">
+    <text x="26" y="16">Status</text>
+    <text x="106" y="16">Experimental</text>
+  </g>
+</svg>

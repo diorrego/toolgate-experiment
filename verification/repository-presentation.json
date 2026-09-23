@@ -1,0 +1,22 @@
+{
+  "description": "Reproducible benchmarks of direct MCP and remote tool selection with Go, Rust, TypeScript, and Jev. Compares latency, token usage, estimated API cost, and query correctness.",
+  "homepage": "https://github.com/diorrego/toolgate-experiment/blob/main/docs/REPRODUCTION.md",
+  "topics": [
+    "ai-agents",
+    "benchmarking",
+    "golang",
+    "jev",
+    "mcp",
+    "model-context-protocol",
+    "rust",
+    "tool-calling",
+    "typescript"
+  ],
+  "visibility": "public",
+  "default_branch": "main",
+  "license_declared": false,
+  "local_svg_badges": 3,
+  "unchanged_verified_diagrams": 4,
+  "documentation_link_checks": "passed",
+  "numerical_reports": "unchanged and recomputed"
+}
