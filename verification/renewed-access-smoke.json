@@ -1,0 +1,16 @@
+{
+  "language": "en",
+  "outside_main_matrix": true,
+  "mode": "direct",
+  "case": "Q01",
+  "expected_query": true,
+  "tool_errors": 0,
+  "cost": {
+    "agent_usd": 0.244928,
+    "jev_usd": 0.0,
+    "total_usd": 0.244928,
+    "jev_input_tokens": 0,
+    "jev_output_tokens": 0,
+    "actual_billed_usd": null
+  }
+}

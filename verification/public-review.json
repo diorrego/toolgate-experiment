@@ -1,0 +1,8 @@
+{
+  "runId": "2026-09-23T15-41-24-430Z",
+  "known_local_credential_values_absent": true,
+  "bound_corpus_identifiers_absent": true,
+  "private_key_and_jwt_patterns_absent": true,
+  "business_payloads_excluded": true,
+  "limitations": "Pattern and known-value checks are not a universal secret detector. Public fields and per-case export were also reviewed. No publication was performed."
+}

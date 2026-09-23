@@ -1,0 +1,29 @@
+{
+  "status": "completed",
+  "core_checks_per_language": {
+    "http_postgres_baseline": 29,
+    "durable_sdk": 11,
+    "binary_parallel": 19
+  },
+  "sdk_tests": 20,
+  "host_tests": 11,
+  "analysis_tests": 10,
+  "woku_typecheck_exit": 0,
+  "sdk_installed_tarball": "toolgate-sdk-8809435a98f46c40.tgz",
+  "live_matrix_records": 150,
+  "jev_requests": 1426,
+  "initial_failures": [
+    "Regression tests failed before their implementations",
+    "Rust async Send bound required boxed request-owned futures",
+    "Two helper commands used an incorrect working directory; corrected without changing target source or manifests"
+  ],
+  "closing_gates": [
+    "Root Go check",
+    "Rust fmt/release Clippy/tests/build/audit/deny",
+    "SDK check and tarball",
+    "Publication package make check",
+    "Publication package make unit report-check",
+    "Publication package make integration (baseline and binary)"
+  ],
+  "closing_exit_codes": 0
+}

@@ -1,0 +1,20 @@
+make: Entering directory '<LAB>/backend-go'
+go vet ./...
+go test -count=1 ./...
+?   	toolgate.local/backend-go/cmd/toolgate	[no test files]
+ok  	toolgate.local/backend-go/internal/config	0.055s
+ok  	toolgate.local/backend-go/internal/core	0.134s
+ok  	toolgate.local/backend-go/internal/httpapi	0.020s
+go test -race -count=1 ./...
+?   	toolgate.local/backend-go/cmd/toolgate	[no test files]
+ok  	toolgate.local/backend-go/internal/config	1.138s
+ok  	toolgate.local/backend-go/internal/core	1.345s
+ok  	toolgate.local/backend-go/internal/httpapi	1.101s
+go run honnef.co/go/tools/cmd/staticcheck@v0.8.1 ./...
+go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+No vulnerabilities found.
+go build -trimpath -o bin/toolgate ./cmd/toolgate
+python3 ../tools/contract.py check
+Contract 0.1.0 15e027fb04911d5e3fdce091e273074bdf167ca9f9a2176a959f9307d30e2185: source lock and generated schema verified
+Static validation only; runtime conformance is a separate gate
+make: Leaving directory '<LAB>/backend-go'

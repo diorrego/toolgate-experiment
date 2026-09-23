@@ -1,0 +1,27 @@
+{
+  "core": "rust",
+  "passed": true,
+  "fixture_only": true,
+  "checks": [
+    "publish",
+    "parallel ready",
+    "22 actual HTTP calls",
+    "one authorized tool per call",
+    "22 in-flight requests before release",
+    "all usage measured",
+    "overlap measured separately",
+    "idempotency does not fan out again",
+    "decision does not infer",
+    "no authorized tools means no requests",
+    "ambiguous counts all attempts",
+    "stable ambiguity",
+    "resolve without 22 new calls",
+    "none counts all attempts",
+    "abstains",
+    "invalid counts all attempts",
+    "one invalid response rejects entire batch",
+    "timeout counts all attempts",
+    "timeout preserves unknown usage"
+  ],
+  "count": 19
+}

@@ -1,0 +1,11 @@
+{
+  "source_only_copy": true,
+  "excluded_runtime_state": true,
+  "checks": [
+    "repository structure",
+    "contract generation and lock",
+    "Python tests",
+    "Node host and adapter tests"
+  ],
+  "passed": true
+}

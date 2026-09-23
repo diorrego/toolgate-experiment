@@ -1,0 +1,37 @@
+{
+  "name": "toolgate-typescript-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": "24.x",
+    "npm": "11.x"
+  },
+  "packageManager": "npm@11.16.0",
+  "scripts": {
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test packages/sdk/test/*.test.ts",
+    "test:types": "tsc --noEmit",
+    "build": "tsc -p packages/sdk/tsconfig.build.json",
+    "pack:check": "npm run build && node scripts/pack-check.mjs",
+    "audit:deps": "npm audit --audit-level=high",
+    "generate:capabilities": "node scripts/generate-capabilities.mjs",
+    "check:generated": "python3 ../tools/contract.py check && node scripts/generate-capabilities.mjs --check && node scripts/generate-wire.mjs --check",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run test:types && npm run pack:check && npm run check:generated"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "@types/node": "24.10.1",
+    "@types/pg": "8.15.6",
+    "eslint": "9.39.1",
+    "json-schema-to-typescript": "15.0.4",
+    "prettier": "3.7.4",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.48.1"
+  }
+}

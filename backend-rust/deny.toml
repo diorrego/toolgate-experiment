@@ -1,0 +1,30 @@
+[advisories]
+version = 2
+[licenses]
+version = 2
+allow = ["MIT", "Apache-2.0", "Unicode-3.0", "BSD-3-Clause", "ISC", "MIT-0", "Zlib"]
+[licenses.private]
+ignore = true
+[bans]
+multiple-versions = "deny"
+wildcards = "deny"
+# Reviewed incompatible transitive majors; security advisories remain enforced.
+# hyper-util uses base64 0.22; jsonschema uses 0.23.
+# ahash uses getrandom 0.3; UUID/Postgres use 0.4.
+# Syn 2/3 are build-time macro dependencies; wasi/r-efi target alternate platforms.
+skip = [
+  { name = "base64", version = "0.22.1" },
+  { name = "getrandom", version = "0.3.4" },
+  { name = "syn", version = "2.0.119" },
+  { name = "r-efi", version = "5.3.0" },
+  { name = "wasi", version = "0.11.1+wasi-snapshot-preview1" },
+]
+[sources]
+unknown-registry = "deny"
+unknown-git = "deny"
+
+# Trust-root data bundled by rustls-platform-verifier; reviewed separately from code.
+[[licenses.exceptions]]
+name = "webpki-root-certs"
+version = "=1.0.9"
+allow = ["CDLA-Permissive-2.0"]

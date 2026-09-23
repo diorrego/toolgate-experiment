@@ -1,0 +1,10 @@
+{
+  "runId": "2026-09-23T22-02-49-878Z",
+  "notes": [
+    "Q06 / Go single Choice: the model used nine fractional-second digits in the inclusive upper bound. The strict timestamp oracle rejects that difference. Node Date.getTime() maps it to the same millisecond as the expected bound, and the business result matches direct MCP. The automatic grade is preserved; this equivalent query is identified separately by review.",
+    "Q09 / both binary profiles: initial preparation returned no_match and the agent made no execution call. These are failed-query outcomes despite successful transport and final explanatory answers. They remain in global latency/cost statistics and are excluded only from the explicitly labeled paired-correct subset. The aggregate capture does not distinguish all-negative votes from a single insufficient positive.",
+    "Configuration review: both PostgreSQL pools have maximum size 16. Go sets MinIdleConns=4; Rust does not configure a matching minimum. This policy is unchanged between Choice and binary profiles within each language, but is an additional confound for cross-language comparisons. An earlier README description incorrectly implied matching idle minima and has been corrected. No runtime configuration was changed during measurement.",
+    "Q24: response differences in Rust Choice, Go binary and Rust binary are limited to the order of the same five statsByDestination entries. All values match. The raw arrays were not sorted or replaced to make them compare equal.",
+    "Q30: every condition performed the requested limit=5 read and an additional limit=50 read. Rust binary and Go Choice first attempted changing the already executed operation and received DECISION_MISMATCH, then prepared a new operation. All additional reads, selections and model work remain in the capture. This adds one new selection batch per SDK condition: 1 request in Choice and 22 in binary. The matching-query grade does not certify the absence of unnecessary broader reads."
+  ]
+}

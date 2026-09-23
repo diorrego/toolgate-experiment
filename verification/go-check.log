@@ -1,0 +1,18 @@
+go vet ./...
+go test -count=1 ./...
+?   	toolgate.local/backend-go/cmd/toolgate	[no test files]
+ok  	toolgate.local/backend-go/internal/config	0.022s
+ok  	toolgate.local/backend-go/internal/core	0.059s
+ok  	toolgate.local/backend-go/internal/httpapi	0.030s
+go test -race -count=1 ./...
+?   	toolgate.local/backend-go/cmd/toolgate	[no test files]
+ok  	toolgate.local/backend-go/internal/config	1.127s
+ok  	toolgate.local/backend-go/internal/core	1.265s
+ok  	toolgate.local/backend-go/internal/httpapi	1.100s
+go run honnef.co/go/tools/cmd/staticcheck@v0.8.1 ./...
+go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+No vulnerabilities found.
+go build -trimpath -o bin/toolgate ./cmd/toolgate
+python3 ../tools/contract.py check
+Contract 0.1.0 34735acc922c2261570bed30a849007f3165c7752ab0312547f50ef011aed24f: source lock and generated schema verified
+Static validation only; runtime conformance is a separate gate

@@ -1,0 +1,168 @@
+{
+  "specification_profile": "2026-07-28; legacy 2025-11-25 is a separate adapter",
+  "note": "Definitions only, not a full JSON-RPC response. Adapters MUST construct version-correct envelopes. Dynamic selected schemas live in results, not global tool registration.",
+  "tools": [
+    {
+      "name": "prepare_action",
+      "description": "Find an available business tool for the requested intent. Returns one selected input schema, missing fields, an ambiguity or no match. Does not execute business actions. To resolve an ambiguity, call again with operation_id, operation_revision, tool_choice and all known_arguments. Never invent identifiers or credentials. Operations expire after 15 minutes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "intent": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 8192
+          },
+          "known_arguments": {
+            "type": "object",
+            "maxProperties": 256,
+            "additionalProperties": true,
+            "description": "JSON object. Apply tg-jsonschema-1 value/byte/depth restrictions; no coercion or implicit merge."
+          },
+          "operation_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "operation_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "tool_choice": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+          },
+          "locale": {
+            "type": "string",
+            "enum": [
+              "es",
+              "en"
+            ]
+          }
+        },
+        "required": [],
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "intent",
+              "known_arguments"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "operation_id"
+                  ]
+                },
+                {
+                  "required": [
+                    "operation_revision"
+                  ]
+                },
+                {
+                  "required": [
+                    "tool_choice"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "required": [
+              "operation_id",
+              "operation_revision",
+              "tool_choice",
+              "known_arguments"
+            ],
+            "not": {
+              "required": [
+                "intent"
+              ]
+            }
+          }
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": false,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "execute_read_action",
+      "description": "Execute a previously prepared read-only operation. Send its operation_id, latest operation_revision and complete arguments. Never use for writes. Missing or invalid arguments are returned together. Approval and authorization remain with the provider.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "operation_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "arguments": {
+            "type": "object",
+            "maxProperties": 256,
+            "additionalProperties": true,
+            "description": "JSON object. Apply tg-jsonschema-1 value/byte/depth restrictions; no coercion or implicit merge."
+          }
+        },
+        "required": [
+          "operation_id",
+          "operation_revision",
+          "arguments"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "execute_write_action",
+      "description": "Execute a previously prepared action that may modify, delete or disclose data. Requires provider authorization and any required approval for the exact selected tool and arguments. Do not assume preparing an operation is approval. Unknown-effect tools also use this entry point.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "operation_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "operation_revision": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "arguments": {
+            "type": "object",
+            "maxProperties": 256,
+            "additionalProperties": true,
+            "description": "JSON object. Apply tg-jsonschema-1 value/byte/depth restrictions; no coercion or implicit merge."
+          }
+        },
+        "required": [
+          "operation_id",
+          "operation_revision",
+          "arguments"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "stateFile": "../.local/lab.json",
+  "apiKeyFile": "../.env",
+  "tlsKeyFile": "../.local/tls/key.pem",
+  "tlsCertFile": "../.local/tls/cert.pem",
+  "privateDir": "../.local/parallel-services",
+  "selectorModeFile": "../.local/selector-mode.json",
+  "artifacts": {
+    "go": "../backend-go/bin/toolgate",
+    "rust": "../backend-rust/target/release/toolgate-core"
+  }
+}

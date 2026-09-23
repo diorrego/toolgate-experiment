@@ -1,0 +1,1 @@
+Dedicated PostgreSQL ready on port 55449; three test databases with scoped roles. Secrets are stored only in the private state file.

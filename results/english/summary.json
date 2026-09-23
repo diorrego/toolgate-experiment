@@ -1,0 +1,2152 @@
+{
+  "run_id": "2026-09-23T15-41-24-430Z",
+  "state": "finished",
+  "primary_boundary": "question submission BEFORE host prepare/turn start to complete final answer",
+  "expected_per_mode": 30,
+  "samples_per_question_mode": 1,
+  "percentile_method": "median; p95 nearest rank",
+  "environment": {
+    "node": "v24.18.0",
+    "codex": "codex-cli 0.155.1",
+    "platform": "linux",
+    "release": "7.0.0-31-generic",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+    "totalMemoryBytes": 33519669248,
+    "concurrency": 1,
+    "postgres": "17.11-alpine",
+    "coreAffinity": "0,1",
+    "connectTimeoutMs": 1000,
+    "jevTimeoutMs": 2200,
+    "coreTimeoutMs": 3000,
+    "sdkTimeoutMs": 3500,
+    "mcpProfile": "2025-11-25",
+    "model": "gpt-6-astra",
+    "effort": "high",
+    "jevModel": "jev-1.13.0",
+    "providerFramework": "NestJS 11.1.12",
+    "providerMcpSdk": "1.29.0",
+    "resourceMeasurement": "agentHost measures only the npm launcher; native worker tree and remote model resources are unmeasured",
+    "pricingBasis": "Standard API equivalent; actual invoice unobserved",
+    "dataset": "Private authorized provider data; not distributed."
+  },
+  "hashes": {
+    "runSafety": "a6cb4235e3cc2653c1558b8ce3a79eb637b4ccaa9df4c68153059a41c82cbfeb",
+    "go": "f20b1999317c7186a3586136ddce809acb792ed7ab8fba8c886f9c55fff17e61",
+    "rust": "61be799e57c755c345318a15ccfcaada2a93a6bba1033333f5cbda8988a415c5",
+    "sdkRemote": "f48bd57b3ebbb4d7241b372257523a5a6c407103ba399b552f45f1c5e2b97d7a",
+    "sdkProvider": "b9f7fd2a03e36b6cb00debfdfd0e203ab1f854e9840267d369edff79e3a256c8",
+    "providerAdapter": "361783a1e46177f41fffb484ba24d4da3ed2243c4ecea3cbba9d7d810d53ddc3",
+    "corpus": "187be8e88abd77dbd00c91bbda62ee3ecafc694ce418bb59cbe178fc6a01f159",
+    "config": "14716ef05a3415405bb84d2f5e010a6196f30c4a322c4b48fdc95cf653f6e111",
+    "configurationLoader": "ee6a168e456ac3afa1e36749486b8988d5e662dc79957c6c564c1aef63c5d91a",
+    "wireContract": "a6d91561aebb1be1dc04cf24e77fe05b558d69c3c1feda00aafb0a5d1ddea560",
+    "repositoryContract": "41949209125eaedc209734ffa4f1c4c643c6cc822f1015c6c2411662d1db3d52",
+    "runner": "9fa5f986f730f1911221096c499a3a325988328fc20ccf327c059e13cb31788e",
+    "host": "49977204406eb35e0c2412ef3ac74b06c00acb4a8bb8849cfb6fcb6eb076fb49",
+    "master": "c34e40fda6713daff66735d19dcaf8828621b33edd565a2effe8fdf18b832e4a",
+    "pricing": "799a3275479156d88780fcb398ac6077e69445137460a9525496b05942e3bf37"
+  },
+  "modes": {
+    "direct": {
+      "attempts": 30,
+      "final_answers": 30,
+      "without_final_answer": 0,
+      "initial_selection_matches": 0,
+      "initial_selection_cases": 0,
+      "initial_selection_ambiguous": 0,
+      "initial_selection_no_match": 0,
+      "timeouts": 0,
+      "expected_queries": 30,
+      "p50_final_ms": 19402.35643,
+      "correct_answers_measured": 30,
+      "correct_p50_final_ms": 19402.35643,
+      "correct_p95_final_ms": 28886.019719999997,
+      "p95_final_ms": 28886.019719999997,
+      "max_final_ms": 32620.856832,
+      "mean_final_ms": 19851.866085733334,
+      "mcp_calls": 31,
+      "host_mcp_calls": 0,
+      "agent_mcp_calls": 31,
+      "host_prepare_ms": 0,
+      "phases": {
+        "first_agent_tool_p50_ms": 8497.847170500001,
+        "first_agent_tool_cases": 30,
+        "after_last_tool_p50_ms": 8979.915487,
+        "after_last_tool_cases": 30
+      },
+      "mcp_errors": 0,
+      "core_attempts": 0,
+      "jev_attempts": 0,
+      "jev_ms": 0,
+      "core_attempts_without_headers": 0,
+      "sdk_remote_wall_ms": 0,
+      "api_equivalent_cost": {
+        "cases": 30,
+        "actual_billed_usd": null,
+        "agent_usd": 5.658768,
+        "agent_usd_known_subtotal": 5.658768,
+        "agent_usd_measured_cases": 30,
+        "agent_usd_per_attempt": 0.1886256,
+        "agent_usd_per_correct_query": 0.1886256,
+        "jev_usd": 0.0,
+        "jev_usd_known_subtotal": 0.0,
+        "jev_usd_measured_cases": 30,
+        "jev_usd_per_attempt": 0.0,
+        "jev_usd_per_correct_query": 0.0,
+        "total_usd": 5.658768,
+        "total_usd_known_subtotal": 5.658768,
+        "total_usd_measured_cases": 30,
+        "total_usd_per_attempt": 0.1886256,
+        "total_usd_per_correct_query": 0.1886256,
+        "jev_input_tokens": 0,
+        "jev_input_tokens_known_subtotal": 0,
+        "jev_input_tokens_measured_cases": 30,
+        "jev_output_tokens": 0,
+        "jev_output_tokens_known_subtotal": 0,
+        "jev_output_tokens_measured_cases": 30
+      },
+      "token_cases": 30,
+      "cache_write_input_tokens": 0,
+      "uncached_input_tokens": 364153,
+      "input_tokens": 1893241,
+      "cached_input_tokens": 1529088,
+      "output_tokens": 9763,
+      "reasoning_output_tokens": 58,
+      "resources": {
+        "provider": {
+          "cpu_ms": 11360,
+          "peak_rss_kib": 656156,
+          "cases_measured": 30
+        },
+        "go": {
+          "cpu_ms": 30,
+          "peak_rss_kib": 22616,
+          "cases_measured": 30
+        },
+        "rust": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 18880,
+          "cases_measured": 30
+        },
+        "proxy": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 74912,
+          "cases_measured": 30
+        },
+        "agentHost": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 50504,
+          "cases_measured": 30
+        }
+      }
+    },
+    "go": {
+      "attempts": 30,
+      "final_answers": 30,
+      "without_final_answer": 0,
+      "initial_selection_matches": 28,
+      "initial_selection_cases": 28,
+      "initial_selection_ambiguous": 0,
+      "initial_selection_no_match": 0,
+      "timeouts": 0,
+      "expected_queries": 28,
+      "p50_final_ms": 25434.3480985,
+      "correct_answers_measured": 28,
+      "correct_p50_final_ms": 25453.926233,
+      "correct_p95_final_ms": 42728.380544,
+      "p95_final_ms": 42728.380544,
+      "max_final_ms": 45363.993382,
+      "mean_final_ms": 26083.176001233332,
+      "mcp_calls": 63,
+      "host_mcp_calls": 0,
+      "agent_mcp_calls": 63,
+      "host_prepare_ms": 0,
+      "phases": {
+        "first_agent_tool_p50_ms": 8222.806866,
+        "first_agent_tool_cases": 30,
+        "after_last_tool_p50_ms": 9226.592082000001,
+        "after_last_tool_cases": 30
+      },
+      "mcp_errors": 5,
+      "core_attempts": 58,
+      "jev_attempts": 29,
+      "jev_ms": 14284.288,
+      "core_attempts_without_headers": 0,
+      "sdk_remote_wall_ms": 18877.312189007178,
+      "api_equivalent_cost": {
+        "cases": 30,
+        "actual_billed_usd": null,
+        "agent_usd": 4.917558,
+        "agent_usd_known_subtotal": 4.917558,
+        "agent_usd_measured_cases": 30,
+        "agent_usd_per_attempt": 0.1639186,
+        "agent_usd_per_correct_query": 0.17562707142857142,
+        "jev_usd": null,
+        "jev_usd_known_subtotal": 0.0034016220000000004,
+        "jev_usd_measured_cases": 28,
+        "jev_usd_per_attempt": null,
+        "jev_usd_per_correct_query": null,
+        "total_usd": null,
+        "total_usd_known_subtotal": 4.629609622,
+        "total_usd_measured_cases": 28,
+        "total_usd_per_attempt": null,
+        "total_usd_per_correct_query": null,
+        "jev_input_tokens": null,
+        "jev_input_tokens_known_subtotal": 80991,
+        "jev_input_tokens_measured_cases": 28,
+        "jev_output_tokens": null,
+        "jev_output_tokens_known_subtotal": 7830,
+        "jev_output_tokens_measured_cases": 28
+      },
+      "token_cases": 30,
+      "cache_write_input_tokens": 0,
+      "uncached_input_tokens": 245894,
+      "input_tokens": 2093062,
+      "cached_input_tokens": 1847168,
+      "output_tokens": 12229,
+      "reasoning_output_tokens": 129,
+      "resources": {
+        "provider": {
+          "cpu_ms": 26020,
+          "peak_rss_kib": 656760,
+          "cases_measured": 30
+        },
+        "go": {
+          "cpu_ms": 1080,
+          "peak_rss_kib": 22736,
+          "cases_measured": 30
+        },
+        "rust": {
+          "cpu_ms": 10,
+          "peak_rss_kib": 18880,
+          "cases_measured": 30
+        },
+        "proxy": {
+          "cpu_ms": 690,
+          "peak_rss_kib": 74976,
+          "cases_measured": 30
+        },
+        "agentHost": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 50508,
+          "cases_measured": 30
+        }
+      }
+    },
+    "rust": {
+      "attempts": 30,
+      "final_answers": 30,
+      "without_final_answer": 0,
+      "initial_selection_matches": 30,
+      "initial_selection_cases": 30,
+      "initial_selection_ambiguous": 0,
+      "initial_selection_no_match": 0,
+      "timeouts": 0,
+      "expected_queries": 30,
+      "p50_final_ms": 26000.405172500003,
+      "correct_answers_measured": 30,
+      "correct_p50_final_ms": 26000.405172500003,
+      "correct_p95_final_ms": 37696.615316999996,
+      "p95_final_ms": 37696.615316999996,
+      "max_final_ms": 42033.972959,
+      "mean_final_ms": 26763.507334,
+      "mcp_calls": 63,
+      "host_mcp_calls": 0,
+      "agent_mcp_calls": 63,
+      "host_prepare_ms": 0,
+      "phases": {
+        "first_agent_tool_p50_ms": 8569.805840999998,
+        "first_agent_tool_cases": 30,
+        "after_last_tool_p50_ms": 9418.8732015,
+        "after_last_tool_cases": 30
+      },
+      "mcp_errors": 1,
+      "core_attempts": 62,
+      "jev_attempts": 31,
+      "jev_ms": 24375.869,
+      "core_attempts_without_headers": 0,
+      "sdk_remote_wall_ms": 29911.0529639991,
+      "api_equivalent_cost": {
+        "cases": 30,
+        "actual_billed_usd": null,
+        "agent_usd": 5.438722,
+        "agent_usd_known_subtotal": 5.438722,
+        "agent_usd_measured_cases": 30,
+        "agent_usd_per_attempt": 0.18129073333333334,
+        "agent_usd_per_correct_query": 0.18129073333333334,
+        "jev_usd": 0.0036364440000000004,
+        "jev_usd_known_subtotal": 0.0036364440000000004,
+        "jev_usd_measured_cases": 30,
+        "jev_usd_per_attempt": 0.00012121480000000001,
+        "jev_usd_per_correct_query": 0.00012121480000000001,
+        "total_usd": 5.442358444,
+        "total_usd_known_subtotal": 5.442358444,
+        "total_usd_measured_cases": 30,
+        "total_usd_per_attempt": 0.18141194813333333,
+        "total_usd_per_correct_query": 0.18141194813333333,
+        "jev_input_tokens": 86582,
+        "jev_input_tokens_known_subtotal": 86582,
+        "jev_input_tokens_measured_cases": 30,
+        "jev_output_tokens": 8370,
+        "jev_output_tokens_known_subtotal": 8370,
+        "jev_output_tokens_measured_cases": 30
+      },
+      "token_cases": 30,
+      "cache_write_input_tokens": 0,
+      "uncached_input_tokens": 302663,
+      "input_tokens": 2096455,
+      "cached_input_tokens": 1793792,
+      "output_tokens": 12366,
+      "reasoning_output_tokens": 32,
+      "resources": {
+        "provider": {
+          "cpu_ms": 27150,
+          "peak_rss_kib": 656804,
+          "cases_measured": 30
+        },
+        "go": {
+          "cpu_ms": 80,
+          "peak_rss_kib": 22536,
+          "cases_measured": 30
+        },
+        "rust": {
+          "cpu_ms": 770,
+          "peak_rss_kib": 18880,
+          "cases_measured": 30
+        },
+        "proxy": {
+          "cpu_ms": 760,
+          "peak_rss_kib": 75416,
+          "cases_measured": 30
+        },
+        "agentHost": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 50524,
+          "cases_measured": 30
+        }
+      }
+    },
+    "go-first": {
+      "attempts": 30,
+      "final_answers": 30,
+      "without_final_answer": 0,
+      "initial_selection_matches": 30,
+      "initial_selection_cases": 30,
+      "initial_selection_ambiguous": 0,
+      "initial_selection_no_match": 0,
+      "timeouts": 0,
+      "expected_queries": 30,
+      "p50_final_ms": 19964.288413000002,
+      "correct_answers_measured": 30,
+      "correct_p50_final_ms": 19964.288413000002,
+      "correct_p95_final_ms": 33149.432523999996,
+      "p95_final_ms": 33149.432523999996,
+      "max_final_ms": 35789.463531,
+      "mean_final_ms": 21665.16137553333,
+      "mcp_calls": 62,
+      "host_mcp_calls": 30,
+      "agent_mcp_calls": 32,
+      "host_prepare_ms": 27153.722573,
+      "phases": {
+        "first_agent_tool_p50_ms": 9991.938961,
+        "first_agent_tool_cases": 30,
+        "after_last_tool_p50_ms": 8525.177469,
+        "after_last_tool_cases": 30
+      },
+      "mcp_errors": 0,
+      "core_attempts": 62,
+      "jev_attempts": 31,
+      "jev_ms": 14253.905999999999,
+      "core_attempts_without_headers": 0,
+      "sdk_remote_wall_ms": 19044.705100991763,
+      "api_equivalent_cost": {
+        "cases": 30,
+        "actual_billed_usd": null,
+        "agent_usd": 5.080328,
+        "agent_usd_known_subtotal": 5.080328,
+        "agent_usd_measured_cases": 30,
+        "agent_usd_per_attempt": 0.16934426666666666,
+        "agent_usd_per_correct_query": 0.16934426666666666,
+        "jev_usd": 0.0036374520000000002,
+        "jev_usd_known_subtotal": 0.0036374520000000002,
+        "jev_usd_measured_cases": 30,
+        "jev_usd_per_attempt": 0.0001212484,
+        "jev_usd_per_correct_query": 0.0001212484,
+        "total_usd": 5.083965452,
+        "total_usd_known_subtotal": 5.083965452,
+        "total_usd_measured_cases": 30,
+        "total_usd_per_attempt": 0.16946551506666668,
+        "total_usd_per_correct_query": 0.16946551506666668,
+        "jev_input_tokens": 86606,
+        "jev_input_tokens_known_subtotal": 86606,
+        "jev_input_tokens_measured_cases": 30,
+        "jev_output_tokens": 8370,
+        "jev_output_tokens_known_subtotal": 8370,
+        "jev_output_tokens_measured_cases": 30
+      },
+      "token_cases": 30,
+      "cache_write_input_tokens": 0,
+      "uncached_input_tokens": 327479,
+      "input_tokens": 1574967,
+      "cached_input_tokens": 1247488,
+      "output_tokens": 11161,
+      "reasoning_output_tokens": 42,
+      "resources": {
+        "provider": {
+          "cpu_ms": 24330,
+          "peak_rss_kib": 656812,
+          "cases_measured": 30
+        },
+        "go": {
+          "cpu_ms": 1110,
+          "peak_rss_kib": 22616,
+          "cases_measured": 30
+        },
+        "rust": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 18880,
+          "cases_measured": 30
+        },
+        "proxy": {
+          "cpu_ms": 680,
+          "peak_rss_kib": 75152,
+          "cases_measured": 30
+        },
+        "agentHost": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 50520,
+          "cases_measured": 30
+        }
+      }
+    },
+    "rust-first": {
+      "attempts": 30,
+      "final_answers": 30,
+      "without_final_answer": 0,
+      "initial_selection_matches": 30,
+      "initial_selection_cases": 30,
+      "initial_selection_ambiguous": 0,
+      "initial_selection_no_match": 0,
+      "timeouts": 0,
+      "expected_queries": 29,
+      "p50_final_ms": 21355.2700665,
+      "correct_answers_measured": 29,
+      "correct_p50_final_ms": 21510.568632000002,
+      "correct_p95_final_ms": 33770.818525,
+      "p95_final_ms": 33770.818525,
+      "max_final_ms": 33799.271606999995,
+      "mean_final_ms": 22472.0514039,
+      "mcp_calls": 62,
+      "host_mcp_calls": 30,
+      "agent_mcp_calls": 32,
+      "host_prepare_ms": 36696.640432,
+      "phases": {
+        "first_agent_tool_p50_ms": 10955.1388405,
+        "first_agent_tool_cases": 30,
+        "after_last_tool_p50_ms": 8646.294793999998,
+        "after_last_tool_cases": 30
+      },
+      "mcp_errors": 0,
+      "core_attempts": 62,
+      "jev_attempts": 31,
+      "jev_ms": 22849.362,
+      "core_attempts_without_headers": 0,
+      "sdk_remote_wall_ms": 28513.026970000006,
+      "api_equivalent_cost": {
+        "cases": 30,
+        "actual_billed_usd": null,
+        "agent_usd": 4.256962,
+        "agent_usd_known_subtotal": 4.256962,
+        "agent_usd_measured_cases": 30,
+        "agent_usd_per_attempt": 0.14189873333333333,
+        "agent_usd_per_correct_query": 0.14679179310344825,
+        "jev_usd": 0.0036367380000000005,
+        "jev_usd_known_subtotal": 0.0036367380000000005,
+        "jev_usd_measured_cases": 30,
+        "jev_usd_per_attempt": 0.00012122460000000002,
+        "jev_usd_per_correct_query": 0.00012540475862068967,
+        "total_usd": 4.260598738,
+        "total_usd_known_subtotal": 4.260598738,
+        "total_usd_measured_cases": 30,
+        "total_usd_per_attempt": 0.14201995793333333,
+        "total_usd_per_correct_query": 0.14691719786206894,
+        "jev_input_tokens": 86589,
+        "jev_input_tokens_known_subtotal": 86589,
+        "jev_input_tokens_measured_cases": 30,
+        "jev_output_tokens": 8370,
+        "jev_output_tokens_known_subtotal": 8370,
+        "jev_output_tokens_measured_cases": 30
+      },
+      "token_cases": 30,
+      "cache_write_input_tokens": 0,
+      "uncached_input_tokens": 235817,
+      "input_tokens": 1575209,
+      "cached_input_tokens": 1339392,
+      "output_tokens": 11188,
+      "reasoning_output_tokens": 13,
+      "resources": {
+        "provider": {
+          "cpu_ms": 28180,
+          "peak_rss_kib": 651852,
+          "cases_measured": 30
+        },
+        "go": {
+          "cpu_ms": 90,
+          "peak_rss_kib": 22616,
+          "cases_measured": 30
+        },
+        "rust": {
+          "cpu_ms": 720,
+          "peak_rss_kib": 18880,
+          "cases_measured": 30
+        },
+        "proxy": {
+          "cpu_ms": 730,
+          "peak_rss_kib": 74912,
+          "cases_measured": 30
+        },
+        "agentHost": {
+          "cpu_ms": 0,
+          "peak_rss_kib": 50516,
+          "cases_measured": 30
+        }
+      }
+    }
+  },
+  "pricing": {
+    "as_of": "2026-09-23",
+    "currency": "USD",
+    "basis": "API-equivalent Standard, short context; not actual OAuth billing",
+    "agent_model": "gpt-6-astra",
+    "agent_usd_per_million": {
+      "input": 10,
+      "cached_input": 1,
+      "cache_write_input": 12.5,
+      "output": 50
+    },
+    "short_context_max_input": 272000,
+    "jev_model": "jev-1.13.0",
+    "jev_usd_per_million": {
+      "input": 0.042,
+      "output": 0
+    },
+    "sources": [
+      "https://developers.openai.com/api/docs/pricing",
+      "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "https://docs.typesafe.ai/models",
+      "https://docs.typesafe.ai/api",
+      "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "https://developers.openai.com/api/docs/guides/reasoning"
+    ],
+    "exclusions": [
+      "Actual invoices, discounts, taxes and subscription credits",
+      "Infrastructure, hosting, database and network charges",
+      "Fast mode, regional uplifts, Batch/Flex discounts"
+    ],
+    "method": "Cache reads and writes partition input; reasoning is included in output. Cumulative turn input <=272000 proves every request fits short context; larger turns require per-request pricing and remain unpriced. Missing usage remains unknown."
+  },
+  "case_costs": [
+    {
+      "case": "Q01",
+      "mode": "direct",
+      "agent_usd": 0.244978,
+      "jev_usd": 0.0,
+      "total_usd": 0.244978,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q01",
+      "mode": "go",
+      "agent_usd": 0.104448,
+      "jev_usd": 0.00011705400000000001,
+      "total_usd": 0.104565054,
+      "jev_input_tokens": 2787,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q01",
+      "mode": "rust",
+      "agent_usd": 0.20928,
+      "jev_usd": 0.00011705400000000001,
+      "total_usd": 0.209397054,
+      "jev_input_tokens": 2787,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q01",
+      "mode": "go-first",
+      "agent_usd": 0.306322,
+      "jev_usd": 0.000117138,
+      "total_usd": 0.306439138,
+      "jev_input_tokens": 2789,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q01",
+      "mode": "rust-first",
+      "agent_usd": 0.223942,
+      "jev_usd": 0.000117138,
+      "total_usd": 0.224059138,
+      "jev_input_tokens": 2789,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q02",
+      "mode": "go",
+      "agent_usd": 0.247802,
+      "jev_usd": 0.000117012,
+      "total_usd": 0.247919012,
+      "jev_input_tokens": 2786,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q02",
+      "mode": "rust",
+      "agent_usd": 0.31995,
+      "jev_usd": 0.000117012,
+      "total_usd": 0.32006701200000004,
+      "jev_input_tokens": 2786,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q02",
+      "mode": "go-first",
+      "agent_usd": 0.218638,
+      "jev_usd": 0.000117096,
+      "total_usd": 0.218755096,
+      "jev_input_tokens": 2788,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q02",
+      "mode": "rust-first",
+      "agent_usd": 0.219248,
+      "jev_usd": 0.000117096,
+      "total_usd": 0.219365096,
+      "jev_input_tokens": 2788,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q02",
+      "mode": "direct",
+      "agent_usd": 0.241298,
+      "jev_usd": 0.0,
+      "total_usd": 0.241298,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q03",
+      "mode": "rust",
+      "agent_usd": 0.276712,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.276829306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q03",
+      "mode": "go-first",
+      "agent_usd": 0.248528,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.248645348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q03",
+      "mode": "rust-first",
+      "agent_usd": 0.248468,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.24858534799999998,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q03",
+      "mode": "direct",
+      "agent_usd": 0.165616,
+      "jev_usd": 0.0,
+      "total_usd": 0.165616,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q03",
+      "mode": "go",
+      "agent_usd": 0.276492,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.276609306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q04",
+      "mode": "go-first",
+      "agent_usd": 0.331952,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.33206934800000004,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q04",
+      "mode": "rust-first",
+      "agent_usd": 0.19278,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.192897348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q04",
+      "mode": "direct",
+      "agent_usd": 0.1499,
+      "jev_usd": 0.0,
+      "total_usd": 0.1499,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q04",
+      "mode": "go",
+      "agent_usd": 0.249292,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.249409222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q04",
+      "mode": "rust",
+      "agent_usd": 0.212228,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.212345222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q05",
+      "mode": "rust-first",
+      "agent_usd": 0.191878,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.191995306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q05",
+      "mode": "direct",
+      "agent_usd": 0.139786,
+      "jev_usd": 0.0,
+      "total_usd": 0.139786,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q05",
+      "mode": "go",
+      "agent_usd": 0.112876,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.11299326400000001,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q05",
+      "mode": "rust",
+      "agent_usd": 0.253552,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.253669264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q05",
+      "mode": "go-first",
+      "agent_usd": 0.201644,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.201761306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q06",
+      "mode": "direct",
+      "agent_usd": 0.278012,
+      "jev_usd": 0.0,
+      "total_usd": 0.278012,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q06",
+      "mode": "go",
+      "agent_usd": 0.201886,
+      "jev_usd": null,
+      "total_usd": null,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q06",
+      "mode": "rust",
+      "agent_usd": 0.212806,
+      "jev_usd": 0.00011772600000000002,
+      "total_usd": 0.212923726,
+      "jev_input_tokens": 2803,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q06",
+      "mode": "go-first",
+      "agent_usd": 0.081882,
+      "jev_usd": 0.00011785200000000001,
+      "total_usd": 0.081999852,
+      "jev_input_tokens": 2806,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q06",
+      "mode": "rust-first",
+      "agent_usd": 0.186274,
+      "jev_usd": 0.00011785200000000001,
+      "total_usd": 0.186391852,
+      "jev_input_tokens": 2806,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q07",
+      "mode": "go",
+      "agent_usd": 0.256926,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.257043264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q07",
+      "mode": "rust",
+      "agent_usd": 0.257506,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.257623264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q07",
+      "mode": "go-first",
+      "agent_usd": 0.094786,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.094903264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q07",
+      "mode": "rust-first",
+      "agent_usd": 0.312996,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.313113264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q07",
+      "mode": "direct",
+      "agent_usd": 0.141156,
+      "jev_usd": 0.0,
+      "total_usd": 0.141156,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q08",
+      "mode": "rust",
+      "agent_usd": 0.126242,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.126359222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q08",
+      "mode": "go-first",
+      "agent_usd": 0.227922,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.228039222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q08",
+      "mode": "rust-first",
+      "agent_usd": 0.086906,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.087023222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q08",
+      "mode": "direct",
+      "agent_usd": 0.244998,
+      "jev_usd": 0.0,
+      "total_usd": 0.244998,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q08",
+      "mode": "go",
+      "agent_usd": 0.218882,
+      "jev_usd": 0.00011718000000000001,
+      "total_usd": 0.21899918,
+      "jev_input_tokens": 2790,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q09",
+      "mode": "go-first",
+      "agent_usd": 0.346488,
+      "jev_usd": 0.000117516,
+      "total_usd": 0.346605516,
+      "jev_input_tokens": 2798,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q09",
+      "mode": "rust-first",
+      "agent_usd": 0.099876,
+      "jev_usd": 0.000117516,
+      "total_usd": 0.099993516,
+      "jev_input_tokens": 2798,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q09",
+      "mode": "direct",
+      "agent_usd": 0.152368,
+      "jev_usd": 0.0,
+      "total_usd": 0.152368,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q09",
+      "mode": "go",
+      "agent_usd": 0.11954,
+      "jev_usd": 0.000117516,
+      "total_usd": 0.11965751599999999,
+      "jev_input_tokens": 2798,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q09",
+      "mode": "rust",
+      "agent_usd": 0.373268,
+      "jev_usd": 0.000117516,
+      "total_usd": 0.373385516,
+      "jev_input_tokens": 2798,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q10",
+      "mode": "rust-first",
+      "agent_usd": 0.087286,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.087403222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q10",
+      "mode": "direct",
+      "agent_usd": 0.285612,
+      "jev_usd": 0.0,
+      "total_usd": 0.285612,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q10",
+      "mode": "go",
+      "agent_usd": 0.120806,
+      "jev_usd": 0.000117096,
+      "total_usd": 0.120923096,
+      "jev_input_tokens": 2788,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q10",
+      "mode": "rust",
+      "agent_usd": 0.216228,
+      "jev_usd": 0.000117096,
+      "total_usd": 0.21634509600000001,
+      "jev_input_tokens": 2788,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q10",
+      "mode": "go-first",
+      "agent_usd": 0.086956,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.087073222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q11",
+      "mode": "direct",
+      "agent_usd": 0.158928,
+      "jev_usd": 0.0,
+      "total_usd": 0.158928,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q11",
+      "mode": "go",
+      "agent_usd": 0.127132,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.127249306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q11",
+      "mode": "rust",
+      "agent_usd": 0.130954,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.131071306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q11",
+      "mode": "go-first",
+      "agent_usd": 0.240424,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.240541306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q11",
+      "mode": "rust-first",
+      "agent_usd": 0.111734,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.111851306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q12",
+      "mode": "go",
+      "agent_usd": 0.254892,
+      "jev_usd": 0.00011705400000000001,
+      "total_usd": 0.255009054,
+      "jev_input_tokens": 2787,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q12",
+      "mode": "rust",
+      "agent_usd": 0.113106,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.113223306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q12",
+      "mode": "go-first",
+      "agent_usd": 0.186848,
+      "jev_usd": 0.00011718000000000001,
+      "total_usd": 0.18696517999999998,
+      "jev_input_tokens": 2790,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q12",
+      "mode": "rust-first",
+      "agent_usd": 0.089298,
+      "jev_usd": 0.00011718000000000001,
+      "total_usd": 0.08941518,
+      "jev_input_tokens": 2790,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q12",
+      "mode": "direct",
+      "agent_usd": 0.247698,
+      "jev_usd": 0.0,
+      "total_usd": 0.247698,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q13",
+      "mode": "rust",
+      "agent_usd": 0.225594,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.225711264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q13",
+      "mode": "go-first",
+      "agent_usd": 0.239054,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.239171264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q13",
+      "mode": "rust-first",
+      "agent_usd": 0.097568,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.09768526400000001,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q13",
+      "mode": "direct",
+      "agent_usd": 0.149466,
+      "jev_usd": 0.0,
+      "total_usd": 0.149466,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q13",
+      "mode": "go",
+      "agent_usd": 0.120452,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.12056926400000001,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q14",
+      "mode": "go-first",
+      "agent_usd": 0.085722,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.08583939,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q14",
+      "mode": "rust-first",
+      "agent_usd": 0.191074,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.19119139,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q14",
+      "mode": "direct",
+      "agent_usd": 0.174986,
+      "jev_usd": 0.0,
+      "total_usd": 0.174986,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q14",
+      "mode": "go",
+      "agent_usd": 0.113874,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.11399139,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q14",
+      "mode": "rust",
+      "agent_usd": 0.216832,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.21694939,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q15",
+      "mode": "rust-first",
+      "agent_usd": 0.093424,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.09354138999999999,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q15",
+      "mode": "direct",
+      "agent_usd": 0.284092,
+      "jev_usd": 0.0,
+      "total_usd": 0.284092,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q15",
+      "mode": "go",
+      "agent_usd": 0.120346,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.12046338999999999,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q15",
+      "mode": "rust",
+      "agent_usd": 0.107784,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.10790139,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q15",
+      "mode": "go-first",
+      "agent_usd": 0.228018,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.22813539,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q16",
+      "mode": "direct",
+      "agent_usd": 0.138026,
+      "jev_usd": 0.0,
+      "total_usd": 0.138026,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q16",
+      "mode": "go",
+      "agent_usd": 0.108514,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.108631348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q16",
+      "mode": "rust",
+      "agent_usd": 0.115646,
+      "jev_usd": 0.00011730600000000002,
+      "total_usd": 0.115763306,
+      "jev_input_tokens": 2793,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q16",
+      "mode": "go-first",
+      "agent_usd": 0.102278,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.102395348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q16",
+      "mode": "rust-first",
+      "agent_usd": 0.082162,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.082279348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q17",
+      "mode": "go",
+      "agent_usd": 0.246126,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.24624326400000002,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q17",
+      "mode": "rust",
+      "agent_usd": 0.119376,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.119493264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q17",
+      "mode": "go-first",
+      "agent_usd": 0.181942,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.18205934799999998,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q17",
+      "mode": "rust-first",
+      "agent_usd": 0.078166,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.078283348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q17",
+      "mode": "direct",
+      "agent_usd": 0.136896,
+      "jev_usd": 0.0,
+      "total_usd": 0.136896,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q18",
+      "mode": "rust",
+      "agent_usd": 0.26463,
+      "jev_usd": 0.000117432,
+      "total_usd": 0.26474743199999995,
+      "jev_input_tokens": 2796,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q18",
+      "mode": "go-first",
+      "agent_usd": 0.104862,
+      "jev_usd": 0.000117432,
+      "total_usd": 0.104979432,
+      "jev_input_tokens": 2796,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q18",
+      "mode": "rust-first",
+      "agent_usd": 0.099684,
+      "jev_usd": 0.000117432,
+      "total_usd": 0.099801432,
+      "jev_input_tokens": 2796,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q18",
+      "mode": "direct",
+      "agent_usd": 0.157258,
+      "jev_usd": 0.0,
+      "total_usd": 0.157258,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q18",
+      "mode": "go",
+      "agent_usd": 0.26457,
+      "jev_usd": 0.000117432,
+      "total_usd": 0.264687432,
+      "jev_input_tokens": 2796,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q19",
+      "mode": "go-first",
+      "agent_usd": 0.223118,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.223235222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q19",
+      "mode": "rust-first",
+      "agent_usd": 0.081522,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.081639222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q19",
+      "mode": "direct",
+      "agent_usd": 0.243228,
+      "jev_usd": 0.0,
+      "total_usd": 0.243228,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q19",
+      "mode": "go",
+      "agent_usd": 0.250872,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.25098922199999996,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q19",
+      "mode": "rust",
+      "agent_usd": 0.106,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.106117222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q20",
+      "mode": "rust-first",
+      "agent_usd": 0.081562,
+      "jev_usd": 0.00011747400000000001,
+      "total_usd": 0.081679474,
+      "jev_input_tokens": 2797,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q20",
+      "mode": "direct",
+      "agent_usd": 0.138406,
+      "jev_usd": 0.0,
+      "total_usd": 0.138406,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q20",
+      "mode": "go",
+      "agent_usd": 0.109856,
+      "jev_usd": 0.00011747400000000001,
+      "total_usd": 0.109973474,
+      "jev_input_tokens": 2797,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q20",
+      "mode": "rust",
+      "agent_usd": 0.116528,
+      "jev_usd": 0.00011747400000000001,
+      "total_usd": 0.11664547400000001,
+      "jev_input_tokens": 2797,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q20",
+      "mode": "go-first",
+      "agent_usd": 0.088294,
+      "jev_usd": 0.00011747400000000001,
+      "total_usd": 0.088411474,
+      "jev_input_tokens": 2797,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q21",
+      "mode": "direct",
+      "agent_usd": 0.142518,
+      "jev_usd": 0.0,
+      "total_usd": 0.142518,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q21",
+      "mode": "go",
+      "agent_usd": 0.13354,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.13365734799999998,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q21",
+      "mode": "rust",
+      "agent_usd": 0.246432,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.246549348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q21",
+      "mode": "go-first",
+      "agent_usd": 0.079226,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.07934334800000001,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q21",
+      "mode": "rust-first",
+      "agent_usd": 0.088668,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.088785348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q22",
+      "mode": "go",
+      "agent_usd": 0.098078,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.098195222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q22",
+      "mode": "rust",
+      "agent_usd": 0.097858,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.097975222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q22",
+      "mode": "go-first",
+      "agent_usd": 0.212682,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.212799222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q22",
+      "mode": "rust-first",
+      "agent_usd": 0.190524,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.190641222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q22",
+      "mode": "direct",
+      "agent_usd": 0.128256,
+      "jev_usd": 0.0,
+      "total_usd": 0.128256,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q23",
+      "mode": "rust",
+      "agent_usd": 0.121626,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.121743222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q23",
+      "mode": "go-first",
+      "agent_usd": 0.085002,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.085119222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q23",
+      "mode": "rust-first",
+      "agent_usd": 0.090376,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.090493222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q23",
+      "mode": "direct",
+      "agent_usd": 0.139956,
+      "jev_usd": 0.0,
+      "total_usd": 0.139956,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q23",
+      "mode": "go",
+      "agent_usd": 0.110296,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.110413222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q24",
+      "mode": "go-first",
+      "agent_usd": 0.12293,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.123047348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q24",
+      "mode": "rust-first",
+      "agent_usd": 0.116298,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.116415348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q24",
+      "mode": "direct",
+      "agent_usd": 0.195314,
+      "jev_usd": 0.0,
+      "total_usd": 0.195314,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q24",
+      "mode": "go",
+      "agent_usd": 0.152592,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.152709348,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q24",
+      "mode": "rust",
+      "agent_usd": 0.14581,
+      "jev_usd": 0.00011734800000000002,
+      "total_usd": 0.14592734799999998,
+      "jev_input_tokens": 2794,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q25",
+      "mode": "rust-first",
+      "agent_usd": 0.095378,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.095495222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q25",
+      "mode": "direct",
+      "agent_usd": 0.252452,
+      "jev_usd": 0.0,
+      "total_usd": 0.252452,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q25",
+      "mode": "go",
+      "agent_usd": 0.142414,
+      "jev_usd": 0.00011718000000000001,
+      "total_usd": 0.14253118,
+      "jev_input_tokens": 2790,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q25",
+      "mode": "rust",
+      "agent_usd": 0.135552,
+      "jev_usd": 0.00011718000000000001,
+      "total_usd": 0.13566918,
+      "jev_input_tokens": 2790,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q25",
+      "mode": "go-first",
+      "agent_usd": 0.095088,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.095205222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q26",
+      "mode": "direct",
+      "agent_usd": 0.146356,
+      "jev_usd": 0.0,
+      "total_usd": 0.146356,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q26",
+      "mode": "go",
+      "agent_usd": 0.11857,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.11868738999999999,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q26",
+      "mode": "rust",
+      "agent_usd": 0.128772,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.12888939,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q26",
+      "mode": "go-first",
+      "agent_usd": 0.089088,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.08920539,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q26",
+      "mode": "rust-first",
+      "agent_usd": 0.19438,
+      "jev_usd": 0.00011739,
+      "total_usd": 0.19449739,
+      "jev_input_tokens": 2795,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q27",
+      "mode": "go",
+      "agent_usd": 0.12207,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.122187222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q27",
+      "mode": "rust",
+      "agent_usd": 0.129382,
+      "jev_usd": 0.00011722200000000001,
+      "total_usd": 0.129499222,
+      "jev_input_tokens": 2791,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q27",
+      "mode": "go-first",
+      "agent_usd": 0.092968,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.093085264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q27",
+      "mode": "rust-first",
+      "agent_usd": 0.10072,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.10083726400000001,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q27",
+      "mode": "direct",
+      "agent_usd": 0.147806,
+      "jev_usd": 0.0,
+      "total_usd": 0.147806,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q28",
+      "mode": "rust",
+      "agent_usd": 0.126896,
+      "jev_usd": 0.00011705400000000001,
+      "total_usd": 0.12701305400000001,
+      "jev_input_tokens": 2787,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q28",
+      "mode": "go-first",
+      "agent_usd": 0.206538,
+      "jev_usd": 0.00011705400000000001,
+      "total_usd": 0.206655054,
+      "jev_input_tokens": 2787,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q28",
+      "mode": "rust-first",
+      "agent_usd": 0.110848,
+      "jev_usd": 0.00011705400000000001,
+      "total_usd": 0.11096505400000001,
+      "jev_input_tokens": 2787,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q28",
+      "mode": "direct",
+      "agent_usd": 0.299882,
+      "jev_usd": 0.0,
+      "total_usd": 0.299882,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q28",
+      "mode": "go",
+      "agent_usd": 0.089464,
+      "jev_usd": null,
+      "total_usd": null,
+      "jev_input_tokens": null,
+      "jev_output_tokens": null,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q29",
+      "mode": "go-first",
+      "agent_usd": 0.081704,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.081821264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q29",
+      "mode": "rust-first",
+      "agent_usd": 0.10199,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.102107264,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q29",
+      "mode": "direct",
+      "agent_usd": 0.137736,
+      "jev_usd": 0.0,
+      "total_usd": 0.137736,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q29",
+      "mode": "go",
+      "agent_usd": 0.107646,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.10776326400000001,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q29",
+      "mode": "rust",
+      "agent_usd": 0.107796,
+      "jev_usd": 0.00011726400000000001,
+      "total_usd": 0.10791326400000001,
+      "jev_input_tokens": 2792,
+      "jev_output_tokens": 270,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q30",
+      "mode": "rust-first",
+      "agent_usd": 0.311932,
+      "jev_usd": 0.00023473800000000001,
+      "total_usd": 0.312166738,
+      "jev_input_tokens": 5589,
+      "jev_output_tokens": 540,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q30",
+      "mode": "direct",
+      "agent_usd": 0.195784,
+      "jev_usd": 0.0,
+      "total_usd": 0.195784,
+      "jev_input_tokens": 0,
+      "jev_output_tokens": 0,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q30",
+      "mode": "go",
+      "agent_usd": 0.217304,
+      "jev_usd": 0.00023536800000000001,
+      "total_usd": 0.217539368,
+      "jev_input_tokens": 5604,
+      "jev_output_tokens": 540,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q30",
+      "mode": "rust",
+      "agent_usd": 0.224376,
+      "jev_usd": 0.00023515800000000001,
+      "total_usd": 0.224611158,
+      "jev_input_tokens": 5599,
+      "jev_output_tokens": 540,
+      "actual_billed_usd": null
+    },
+    {
+      "case": "Q30",
+      "mode": "go-first",
+      "agent_usd": 0.189424,
+      "jev_usd": 0.00023545200000000004,
+      "total_usd": 0.189659452,
+      "jev_input_tokens": 5606,
+      "jev_output_tokens": 540,
+      "actual_billed_usd": null
+    }
+  ],
+  "paired": {
+    "direct__go": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": 6205.5892465,
+      "second_faster": 1,
+      "both_correct_pairs": 28,
+      "both_correct_median_second_minus_first_ms": 6690.826304999999
+    },
+    "direct__rust": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": 6596.117789499998,
+      "second_faster": 0,
+      "both_correct_pairs": 30,
+      "both_correct_median_second_minus_first_ms": 6596.117789499998
+    },
+    "direct__go-first": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": 2091.0547669999996,
+      "second_faster": 5,
+      "both_correct_pairs": 30,
+      "both_correct_median_second_minus_first_ms": 2091.0547669999996
+    },
+    "direct__rust-first": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": 2962.744981,
+      "second_faster": 6,
+      "both_correct_pairs": 29,
+      "both_correct_median_second_minus_first_ms": 2971.0624879999996
+    },
+    "go__rust": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": 975.2753594999995,
+      "second_faster": 14,
+      "both_correct_pairs": 28,
+      "both_correct_median_second_minus_first_ms": 455.4166809999988
+    },
+    "go__go-first": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": -4703.769670500002,
+      "second_faster": 26,
+      "both_correct_pairs": 28,
+      "both_correct_median_second_minus_first_ms": -4729.6164615
+    },
+    "go__rust-first": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": -3084.5730889999995,
+      "second_faster": 26,
+      "both_correct_pairs": 28,
+      "both_correct_median_second_minus_first_ms": -3303.664227999998
+    },
+    "rust__go-first": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": -4997.079797499999,
+      "second_faster": 30,
+      "both_correct_pairs": 30,
+      "both_correct_median_second_minus_first_ms": -4997.079797499999
+    },
+    "rust__rust-first": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": -4042.9669465000006,
+      "second_faster": 27,
+      "both_correct_pairs": 29,
+      "both_correct_median_second_minus_first_ms": -3900.6236610000014
+    },
+    "go-first__rust-first": {
+      "completed_pairs": 30,
+      "median_second_minus_first_ms": 766.424262999999,
+      "second_faster": 10,
+      "both_correct_pairs": 29,
+      "both_correct_median_second_minus_first_ms": 790.4865869999994
+    }
+  },
+  "response_differences": [
+    {
+      "case": "Q24",
+      "mode": "go"
+    },
+    {
+      "case": "Q24",
+      "mode": "rust"
+    },
+    {
+      "case": "Q24",
+      "mode": "go-first"
+    },
+    {
+      "case": "Q24",
+      "mode": "rust-first"
+    }
+  ],
+  "language": "en",
+  "expected_records": 150,
+  "all_expected_recorded": true,
+  "all_90_recorded": false,
+  "review_notes": [
+    "Q06 / SDK + Go: two prepare_action calls were rejected with INVALID_REQUEST. The first omitted required known_arguments; the second supplied an unsupported request field. No SDK-to-core trace was captured for this case. The failed query, final answer latency and agent usage remain in the observations. Missing Jev telemetry is kept unknown, not priced as zero.",
+    "Q06 / Rust with host-first preparation: the upper date bound used nine fractional digits instead of the oracle's three. The strict timestamp grader reports a mismatch. The measured Node provider parses both strings to the same millisecond (1790121599999) using Date.getTime(), and the business result equals direct MCP. This is a grading precision limitation, not a demonstrated wrong date window. The original grade remains unchanged; the manually reviewed semantic match is reported separately.",
+    "Q24: observed business-response differences are confined to the order of five statsByDestination entries. The entries and their values match as a multiset. The raw arrays were not sorted or replaced to obtain equality.",
+    "Q28 / SDK + Go: prepare_action first omitted required known_arguments, then used an unsupported user_intent field. Both calls returned INVALID_REQUEST and no SDK-to-core trace was captured. This is a second failed query caused by model arguments at the MCP boundary, not evidence of a Go core selection failure. Its latency and measured agent usage remain included; Jev usage stays unknown.",
+    "Q30: after the requested limit=5 query, all five conditions queried again with limit=50. The expected-query metric means at least one matching successful call occurred, not that every call matched the oracle or no broader read occurred. Go and Rust each tried changing arguments on an already executed operation, received DECISION_MISMATCH, then prepared a new read operation. These additional calls, model turns, selection attempts and costs are retained. This is not a retry after EXECUTION_UNKNOWN."
+  ]
+}

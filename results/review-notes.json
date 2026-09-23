@@ -1,0 +1,10 @@
+{
+  "runId": "2026-09-23T15-41-24-430Z",
+  "notes": [
+    "Q06 / SDK + Go: two prepare_action calls were rejected with INVALID_REQUEST. The first omitted required known_arguments; the second supplied an unsupported request field. No SDK-to-core trace was captured for this case. The failed query, final answer latency and agent usage remain in the observations. Missing Jev telemetry is kept unknown, not priced as zero.",
+    "Q06 / Rust with host-first preparation: the upper date bound used nine fractional digits instead of the oracle's three. The strict timestamp grader reports a mismatch. The measured Node provider parses both strings to the same millisecond (1790121599999) using Date.getTime(), and the business result equals direct MCP. This is a grading precision limitation, not a demonstrated wrong date window. The original grade remains unchanged; the manually reviewed semantic match is reported separately.",
+    "Q24: observed business-response differences are confined to the order of five statsByDestination entries. The entries and their values match as a multiset. The raw arrays were not sorted or replaced to obtain equality.",
+    "Q28 / SDK + Go: prepare_action first omitted required known_arguments, then used an unsupported user_intent field. Both calls returned INVALID_REQUEST and no SDK-to-core trace was captured. This is a second failed query caused by model arguments at the MCP boundary, not evidence of a Go core selection failure. Its latency and measured agent usage remain included; Jev usage stays unknown.",
+    "Q30: after the requested limit=5 query, all five conditions queried again with limit=50. The expected-query metric means at least one matching successful call occurred, not that every call matched the oracle or no broader read occurred. Go and Rust each tried changing arguments on an already executed operation, received DECISION_MISMATCH, then prepared a new read operation. These additional calls, model turns, selection attempts and costs are retained. This is not a retry after EXECUTION_UNKNOWN."
+  ]
+}

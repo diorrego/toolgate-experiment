@@ -1,0 +1,30 @@
+python3 -m unittest discover -s tools/tests
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 0.021s
+
+OK
+node --test tools/tests/*.test.mjs
+✔ configuration is relative, keeps model identity fixed and switches only trusted deployment state (24.976838ms)
+✔ binding never invents IDs and safely preserves JSON string values (2.298278ms)
+✔ adapter preserves trusted identity, separates preparation and execution, and rejects writes (8.347415ms)
+✔ adapter reports uncertain execution without exposing arbitrary exception text (3.468328ms)
+✔ authentication failures stop the matrix even when the model finishes an answer (5.378838ms)
+✔ initialization failures stop without retrying or discarding the failed record (1.022925ms)
+✔ an empty or wrong MCP surface is rejected before paid inference (3.292551ms)
+✔ host sends only the literal question, never expected tool or arguments (17.365046ms)
+✔ invalid preparation fails closed without execution or hidden fallback (3.091523ms)
+✔ abstention and ambiguity reach the model unchanged, no invented choice (13.099473ms)
+✔ failed host attempts remain in telemetry (3.370161ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 558.260078
+python3 tools/check-results.py
+Recomputed all 150 public observations: summary and report match exactly
+python3 tools/check-results.py --name binary
+Recomputed all 150 public observations: summary and report match exactly

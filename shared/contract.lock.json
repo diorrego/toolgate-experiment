@@ -1,0 +1,18 @@
+{
+  "contract_version": "0.1.0",
+  "files": {
+    "shared/ARCHITECTURE.md": "af2b6021c5f77f0a19ba542c1583ba853deaada4ba792baa0f2d49a79a308541",
+    "shared/CONTRACT.md": "fa730152b349c6584fc5fcb30ff8e5d8a6855f8c7e0430e7a4b48a9b47cf121c",
+    "shared/DATABASE.md": "907d6f701af396eac4855e3bef9f79349ab1d3e1b20e09aad4e9fde1a33157c0",
+    "shared/JSON_SCHEMA_PROFILE.md": "9724409817ca71ac9cca12e1602e0520ef4f7568252e47aab58beb80038a2f5c",
+    "shared/PRODUCT.md": "90c9b8d4bb9941bf52bb754acda28b4e89a1415c6776d0e74c0d8a0afb42a051",
+    "shared/SECURITY.md": "5542d5d76f5308da28a804b072c5da53536b08e33b1390cc5546618811a8ee3a",
+    "shared/SELECTION.md": "1fc4b58a8864cd446ac8da18a1a7f3965b800a30aa9f7a0bfacd201d3834471a",
+    "shared/STATE_MACHINE.md": "b1f4bda6b53f9907e80fc14791a026cbcb8e6a36a093ef74fc6ef2d5f2af3da8",
+    "shared/limits.yaml": "11636a343b95b1ed8b91c83245c100b26ce18ffd29b1741667f3a9887830f1e7",
+    "shared/mcp-tools.json": "741ce0335e4d2f7f88a9716f18e93c0fd85842164b18b94d724c4f812c011c77",
+    "shared/openapi.yaml": "a6d91561aebb1be1dc04cf24e77fe05b558d69c3c1feda00aafb0a5d1ddea560"
+  },
+  "format": "toolgate-reconstructed-contract-lock-v1",
+  "sha256": "3738ee131340ac2e23f2823efc79f47dbe19e7ec17fd763042fd23e17860b2d2"
+}

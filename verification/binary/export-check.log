@@ -1,0 +1,210 @@
+python3 tools/contract.py check
+Contract 0.1.0 3738ee131340ac2e23f2823efc79f47dbe19e7ec17fd763042fd23e17860b2d2: source lock and generated schema verified
+Static validation only; runtime conformance is a separate gate
+python3 tools/check-repository.py
+Checked 163 publishable text files: no private paths, excluded provider source, broken local links or forbidden punctuation
+make report-check
+make[1]: Entering directory '<LAB>/toolgate'
+python3 tools/check-results.py
+Recomputed all 150 public observations: summary and report match exactly
+make[1]: Leaving directory '<LAB>/toolgate'
+make -C backend-go check
+make[1]: Entering directory '<LAB>/toolgate/backend-go'
+go vet ./...
+go test -count=1 ./...
+?   	toolgate.local/backend-go/cmd/toolgate	[no test files]
+ok  	toolgate.local/backend-go/internal/config	0.026s
+ok  	toolgate.local/backend-go/internal/core	0.098s
+ok  	toolgate.local/backend-go/internal/httpapi	0.026s
+go test -race -count=1 ./...
+?   	toolgate.local/backend-go/cmd/toolgate	[no test files]
+ok  	toolgate.local/backend-go/internal/config	1.053s
+ok  	toolgate.local/backend-go/internal/core	1.373s
+ok  	toolgate.local/backend-go/internal/httpapi	1.069s
+go run honnef.co/go/tools/cmd/staticcheck@v0.8.1 ./...
+go run golang.org/x/vuln/cmd/govulncheck@v1.8.0 ./...
+No vulnerabilities found.
+go build -trimpath -o bin/toolgate ./cmd/toolgate
+python3 ../tools/contract.py check
+Contract 0.1.0 3738ee131340ac2e23f2823efc79f47dbe19e7ec17fd763042fd23e17860b2d2: source lock and generated schema verified
+Static validation only; runtime conformance is a separate gate
+make[1]: Leaving directory '<LAB>/toolgate/backend-go'
+make -C backend-rust check
+make[1]: Entering directory '<LAB>/toolgate/backend-rust'
+cargo fmt --all -- --check
+cargo clippy --release --workspace --all-targets --all-features --locked -- -D warnings
+    Checking futures-task v0.3.34
+    Checking slab v0.4.12
+    Checking futures-util v0.3.34
+    Checking tower v0.5.3
+    Checking hyper-util v0.1.20
+    Checking tokio-postgres v0.7.18
+    Checking tower-http v0.6.11
+    Checking hyper-rustls v0.27.10
+    Checking axum v0.8.8
+    Checking reqwest v0.13.5
+    Checking deadpool-postgres v0.14.2
+    Checking toolgate-core v0.1.0 (<LAB>/toolgate/backend-rust)
+    Finished `release` profile [optimized] target(s) in 28.33s
+cargo test --release --workspace --all-features --locked
+   Compiling slab v0.4.12
+   Compiling futures-task v0.3.34
+   Compiling futures-util v0.3.34
+   Compiling hyper-util v0.1.20
+   Compiling tower v0.5.3
+   Compiling tokio-postgres v0.7.18
+   Compiling tower-http v0.6.11
+   Compiling hyper-rustls v0.27.10
+   Compiling axum v0.8.8
+   Compiling reqwest v0.13.5
+   Compiling deadpool-postgres v0.14.2
+   Compiling toolgate-core v0.1.0 (<LAB>/toolgate/backend-rust)
+    Finished `release` profile [optimized] target(s) in 2m 21s
+     Running unittests src/lib.rs (target/release/deps/toolgate_core-f0ee63de6ae886ff)
+
+running 2 tests
+test runtime::selection::binary_tests::binary_reduction_preserves_ambiguity_and_abstention ... ok
+test runtime::selection::usage_tests::preserves_unknown_and_accumulates_attempts ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/release/deps/toolgate_core-26732168b8e93306)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/health.rs (target/release/deps/health-135ddaca1c7193ce)
+
+running 2 tests
+test local_configuration ... ok
+test health_contract ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/runtime.rs (target/release/deps/runtime-92eaa3c23912f2a6)
+
+running 2 tests
+test canonical_and_closed_choice ... ok
+test rejects_duplicate_and_unsafe_json ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests toolgate_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+cargo build --release --locked
+    Finished `release` profile [optimized] target(s) in 0.55s
+cargo-audit audit
+    Fetching advisory database from `https://github.com/RustSec/advisory-db.git`
+      Loaded 1267 security advisories (from <HOME>/.cargo/advisory-db)
+    Updating crates.io index
+    Scanning Cargo.lock for vulnerabilities (268 crate dependencies)
+cargo-deny check
+advisories ok, bans ok, licenses ok, sources ok
+python3 ../tools/contract.py check
+Contract 0.1.0 3738ee131340ac2e23f2823efc79f47dbe19e7ec17fd763042fd23e17860b2d2: source lock and generated schema verified
+Static validation only; runtime conformance is a separate gate
+make[1]: Leaving directory '<LAB>/toolgate/backend-rust'
+cd sdk-typescript && npm run check
+
+> toolgate-typescript-workspace@0.1.0 check
+> npm run format:check && npm run lint && npm run typecheck && npm test && npm run test:types && npm run pack:check && npm run check:generated
+
+
+> toolgate-typescript-workspace@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> toolgate-typescript-workspace@0.1.0 lint
+> eslint .
+
+
+> toolgate-typescript-workspace@0.1.0 typecheck
+> tsc --noEmit
+
+
+> toolgate-typescript-workspace@0.1.0 test
+> node --experimental-strip-types --test packages/sdk/test/*.test.ts
+
+✔ validates configuration without invoking credentials or network (4.609877ms)
+✔ rejects unsafe URLs without exposing embedded credentials (4.688346ms)
+✔ HTTP development opt-in is restricted to literal loopback (2.003795ms)
+✔ timeouts must be finite positive integral milliseconds (2.797174ms)
+✔ rejects invalid JavaScript configuration at runtime (1.05825ms)
+✔ wire parser preserves JSON values and escapes without coercion (10.213917ms)
+✔ wire parser rejects duplicate keys before JSON.parse could erase them (3.252715ms)
+✔ remote usage keeps missing headers unknown and counts even invalid response bodies (195.531599ms)
+✔ registry rejects writes in the explicit read-only experiment and unsupported schemas (224.303684ms)
+✔ request-bound handlers reuse the immutable catalogue without widening their allowlist (77.22675ms)
+✔ negotiates generated capabilities with service headers and fixed origin (50.983365ms)
+✔ rejects unsupported contract and unknown fields without coercion (22.638874ms)
+✔ rejects invalid raw JSON, duplicate escaped keys, invalid UTF-8 and oversized bodies (42.851257ms)
+✔ rejects wrong content type, HTTP errors and redirects without retry (10.277121ms)
+✔ abort before call never resolves credentials or opens network (1.736491ms)
+✔ deadline includes a stalled credential resolver (32.493538ms)
+✔ abort and close cancel in-flight calls even when injected transport stalls (4.224152ms)
+✔ credentials and thrown transport errors cannot escape through SDK errors (4.676073ms)
+✔ actual fetch never follows a redirect carrying credentials (141.943491ms)
+✔ deadline includes streamed response body and cancels its reader (18.674938ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1938.265966
+
+> toolgate-typescript-workspace@0.1.0 test:types
+> tsc --noEmit
+
+
+> toolgate-typescript-workspace@0.1.0 pack:check
+> npm run build && node scripts/pack-check.mjs
+
+
+> toolgate-typescript-workspace@0.1.0 build
+> tsc -p packages/sdk/tsconfig.build.json
+
+External tarball runtime and type consumer passed: /tmp/toolgate-pack-QSStRf
+
+> toolgate-typescript-workspace@0.1.0 check:generated
+> python3 ../tools/contract.py check && node scripts/generate-capabilities.mjs --check && node scripts/generate-wire.mjs --check
+
+Contract 0.1.0 3738ee131340ac2e23f2823efc79f47dbe19e7ec17fd763042fd23e17860b2d2: source lock and generated schema verified
+Static validation only; runtime conformance is a separate gate
+make unit
+make[1]: Entering directory '<LAB>/toolgate'
+python3 -m unittest discover -s tools/tests
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.016s
+
+OK
+node --test tools/tests/*.test.mjs
+✔ configuration is relative, keeps model identity fixed and switches only trusted deployment state (23.827687ms)
+✔ binding never invents IDs and safely preserves JSON string values (2.280632ms)
+✔ adapter preserves trusted identity, separates preparation and execution, and rejects writes (5.556395ms)
+✔ adapter reports uncertain execution without exposing arbitrary exception text (2.097567ms)
+✔ authentication failures stop the matrix even when the model finishes an answer (5.36364ms)
+✔ initialization failures stop without retrying or discarding the failed record (1.038037ms)
+✔ an empty or wrong MCP surface is rejected before paid inference (3.848253ms)
+✔ host sends only the literal question, never expected tool or arguments (10.216261ms)
+✔ invalid preparation fails closed without execution or hidden fallback (3.742116ms)
+✔ abstention and ambiguity reach the model unchanged, no invented choice (8.29861ms)
+✔ failed host attempts remain in telemetry (3.839742ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 415.250278
+make[1]: Leaving directory '<LAB>/toolgate'

@@ -1,0 +1,17 @@
+{
+  "runId": "2026-09-23T22-02-49-878Z",
+  "state": "finished",
+  "records": 150,
+  "finalAnswers": 150,
+  "strictExpectedQueries": 147,
+  "additionalManuallyEquivalentQueries": 1,
+  "mcpErrors": 2,
+  "jevRequests": 1426,
+  "completeCostCases": 150,
+  "frozenHashesVerified": true,
+  "profileVerificationCases": 120,
+  "publicPrivateNumericalParity": true,
+  "rawCaptureUnchanged": true,
+  "restoredProviderMode": "direct",
+  "restoredSelectorProfile": "choice"
+}

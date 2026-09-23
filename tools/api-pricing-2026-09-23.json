@@ -1,0 +1,32 @@
+{
+  "as_of": "2026-09-23",
+  "currency": "USD",
+  "basis": "API-equivalent Standard, short context; not actual OAuth billing",
+  "agent_model": "gpt-6-astra",
+  "agent_usd_per_million": {
+    "input": 10,
+    "cached_input": 1,
+    "cache_write_input": 12.5,
+    "output": 50
+  },
+  "short_context_max_input": 272000,
+  "jev_model": "jev-1.13.0",
+  "jev_usd_per_million": {
+    "input": 0.042,
+    "output": 0
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing",
+    "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "https://docs.typesafe.ai/models",
+    "https://docs.typesafe.ai/api",
+    "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "https://developers.openai.com/api/docs/guides/reasoning"
+  ],
+  "exclusions": [
+    "Actual invoices, discounts, taxes and subscription credits",
+    "Infrastructure, hosting, database and network charges",
+    "Fast mode, regional uplifts, Batch/Flex discounts"
+  ],
+  "method": "Cache reads and writes partition input; reasoning is included in output. Cumulative turn input <=272000 proves every request fits short context; larger turns require per-request pricing and remain unpriced. Missing usage remains unknown."
+}

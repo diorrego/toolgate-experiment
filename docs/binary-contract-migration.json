@@ -1,0 +1,9 @@
+{
+  "reason": "User-authorized optional binary-parallel selection profile, ADR 0003",
+  "old_sha256": "34735acc922c2261570bed30a849007f3165c7752ab0312547f50ef011aed24f",
+  "new_sha256": "3738ee131340ac2e23f2823efc79f47dbe19e7ec17fd763042fd23e17860b2d2",
+  "changed_manifest_sources": [
+    "shared/SELECTION.md"
+  ],
+  "wire_schema_unchanged": true
+}

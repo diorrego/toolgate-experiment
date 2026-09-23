@@ -1,0 +1,17 @@
+{
+  "provider_mode": "direct",
+  "experimental_supervisor_stopped": true,
+  "normal_two_core_supervisor_restored": true,
+  "verified_tls_capabilities": [
+    {
+      "core": "go",
+      "status": 200,
+      "selector_profile": "choice"
+    },
+    {
+      "core": "rust",
+      "status": 200,
+      "selector_profile": "choice"
+    }
+  ]
+}

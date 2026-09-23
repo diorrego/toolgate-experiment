@@ -1,0 +1,7 @@
+
+> toolgate-typescript-workspace@0.1.0 build
+> tsc -p packages/sdk/tsconfig.build.json
+
+
+added 25 packages in 9s
+SDK tarball consumer installed in .local/consumer

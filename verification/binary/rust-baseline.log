@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "checks": [
+    "jev_usage_over_http",
+    "prepare_no_dispatch",
+    "local_dispatch",
+    "durable_replay",
+    "actor_isolation",
+    "argument_binding",
+    "revoked_authorization",
+    "needs_arguments",
+    "repair_without_reselection",
+    "process_restart_replay",
+    "two_process_claim"
+  ],
+  "handler_invocations": 3,
+  "authorizations": 7,
+  "child_outcomes": [
+    {
+      "ok": true
+    },
+    {
+      "ok": false,
+      "code": "EXECUTION_IN_PROGRESS"
+    }
+  ]
+}
+{
+  "checks": [
+    "auth required",
+    "capabilities",
+    "runtime cannot publish",
+    "publish",
+    "cross tenant catalog",
+    "prepare status",
+    "prepare ready",
+    "prepare replay",
+    "different body same key",
+    "operation ownership",
+    "policy revision",
+    "decision",
+    "decision status",
+    "no extra inference",
+    "decision replay new key",
+    "different args after decision",
+    "issued cannot cancel",
+    "missing arguments",
+    "missing path",
+    "complete without reselection",
+    "complete inference count",
+    "ambiguity",
+    "resolve",
+    "choice binding",
+    "resolve inference count",
+    "empty allowlist",
+    "concurrent single operation",
+    "duplicates bounded",
+    "raw duplicate keys"
+  ],
+  "count": 29,
+  "jev_calls": 4,
+  "fixture_only": true
+}

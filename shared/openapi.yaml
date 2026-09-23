@@ -1,0 +1,1698 @@
+openapi: 3.1.1
+info:
+  title: Toolgate Remote Core API
+  version: 0.1.0
+  description: Normative draft contract shared by Go, Rust and the TypeScript SDK. Business execution
+    remains in the provider backend. This file specifies a product to implement; it is not a deployed
+    API.
+servers:
+- url: https://toolgate.example.invalid
+  description: Documentation placeholder; replace only through deployment config.
+security:
+- ServiceKey: []
+tags:
+- name: runtime
+- name: catalog:read
+- name: catalog:write
+- name: health
+paths:
+  /health/live:
+    get:
+      operationId: getLiveness
+      summary: Process liveness, no dependency checks
+      tags:
+      - health
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+      x-required-key-scope: health
+      security: []
+  /health/ready:
+    get:
+      operationId: getReadiness
+      summary: Private readiness; DB and catalog bootstrap, not Jev availability
+      tags:
+      - health
+      parameters: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+        '503':
+          description: Not ready; private network listener only
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+      x-required-key-scope: health
+      security: []
+  /v1/capabilities:
+    get:
+      operationId: getCapabilities
+      summary: Negotiate Toolgate contract, not MCP protocol
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Capabilities'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+  /v1/catalogs/{catalog_id}/versions/{version}:
+    put:
+      operationId: putCatalogVersion
+      summary: Register immutable metadata; never executable code
+      tags:
+      - catalog:write
+      parameters:
+      - $ref: '#/components/parameters/CatalogID'
+      - $ref: '#/components/parameters/CatalogVersion'
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogInfo'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: catalog:write
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CatalogUpload'
+    get:
+      operationId: getCatalogVersion
+      summary: Get a version private to this integration
+      tags:
+      - catalog:read
+      parameters:
+      - $ref: '#/components/parameters/CatalogID'
+      - $ref: '#/components/parameters/CatalogVersion'
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogDocument'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: catalog:read
+  /v1/operations:
+    post:
+      operationId: prepareOperation
+      summary: Choose a tool or return missing information; no provider effects
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationView'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrepareRequest'
+  /v1/operations/{operation_id}/resolve:
+    post:
+      operationId: resolveOperation
+      summary: Resolve a pinned ambiguity, without calling Jev again
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/OperationID'
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationView'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResolveRequest'
+  /v1/operations/{operation_id}/execution-decisions:
+    post:
+      operationId: issueExecutionDecision
+      summary: Validate final arguments and atomically issue a decision, not execute
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/OperationID'
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecisionResponse'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DecisionRequest'
+  /v1/operations/{operation_id}/inspect:
+    post:
+      operationId: inspectOperation
+      summary: Inspect state bound to caller; no effects
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/OperationID'
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationView'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InspectRequest'
+  /v1/operations/{operation_id}/cancel:
+    post:
+      operationId: cancelOperation
+      summary: Cancel only an unissued operation
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/OperationID'
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CancelledOperation'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CancelRequest'
+  /v1/operations/{operation_id}/receipts:
+    post:
+      operationId: recordReceipt
+      summary: Optional execution outcome metadata, never tool output
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/OperationID'
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReceiptResponse'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReceiptRequest'
+components:
+  securitySchemes:
+    ServiceKey:
+      type: http
+      scheme: bearer
+      description: Opaque service credential bound to tenant/project/integration and scopes. NEVER forward
+        the MCP user access token.
+  parameters:
+    CatalogID:
+      name: catalog_id
+      in: path
+      required: true
+      schema: &id001
+        type: string
+        minLength: 1
+        maxLength: 128
+        pattern: ^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$
+    CatalogVersion:
+      name: version
+      in: path
+      required: true
+      schema: &id002
+        type: string
+        pattern: ^[a-f0-9]{64}$
+    OperationID:
+      name: operation_id
+      in: path
+      required: true
+      schema: &id008
+        type: string
+        format: uuid
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema:
+        type: string
+        minLength: 16
+        maxLength: 128
+        pattern: ^[A-Za-z0-9._:-]+$
+    ContractVersion:
+      name: X-Toolgate-Contract
+      in: header
+      required: true
+      schema:
+        const: '0.1'
+    Traceparent:
+      name: traceparent
+      in: header
+      required: false
+      schema:
+        type: string
+        minLength: 1
+        maxLength: 128
+  schemas:
+    Actor:
+      type: object
+      properties:
+        principal_ref: *id001
+        workspace_ref: *id001
+        authorization_revision:
+          type: string
+          minLength: 1
+          maxLength: 128
+        allowed_tool_ids:
+          type: array
+          items: *id001
+          minItems: 0
+          maxItems: 10000
+          uniqueItems: true
+      required:
+      - principal_ref
+      - workspace_ref
+      - authorization_revision
+      - allowed_tool_ids
+      additionalProperties: false
+      description: Built exclusively by trusted provider code. Not accepted from MCP arguments. Service
+        tenant/project/integration derive from the API credential.
+    ToolEffect:
+      type: string
+      enum:
+      - read
+      - write
+      - destructive
+      - unknown
+    ToolDescriptor:
+      type: object
+      properties:
+        tool_id: *id001
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 4096
+        aliases:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 160
+          minItems: 0
+          maxItems: 32
+        tags:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 64
+          minItems: 0
+          maxItems: 32
+        effect:
+          $ref: '#/components/schemas/ToolEffect'
+        open_world:
+          type: boolean
+        input_schema:
+          type: object
+          additionalProperties: true
+        output_schema:
+          type: object
+          additionalProperties: true
+        schema_profile:
+          const: tg-jsonschema-1
+      required:
+      - tool_id
+      - name
+      - title
+      - description
+      - aliases
+      - tags
+      - effect
+      - open_world
+      - input_schema
+      - schema_profile
+      additionalProperties: false
+    CatalogUpload:
+      type: object
+      properties:
+        schema_profile:
+          const: tg-jsonschema-1
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolDescriptor'
+          minItems: 1
+          maxItems: 10000
+      required:
+      - schema_profile
+      - tools
+      additionalProperties: false
+      description: Version in path = SHA-256(JCS(body)). Sort tools by tool_id before canonicalizing.
+        Immutable and private to credential integration.
+    CatalogInfo:
+      type: object
+      properties:
+        catalog_id: *id001
+        catalog_version: *id002
+        tool_count: &id003
+          type: integer
+          minimum: 1
+          maximum: 10000
+        schema_profile: &id004
+          const: tg-jsonschema-1
+        created_at: &id005
+          type: string
+          format: date-time
+      required:
+      - catalog_id
+      - catalog_version
+      - tool_count
+      - schema_profile
+      - created_at
+      additionalProperties: false
+    CatalogDocument:
+      type: object
+      properties:
+        catalog_id: *id001
+        catalog_version: *id002
+        tool_count: *id003
+        schema_profile: *id004
+        created_at: *id005
+        tools:
+          type: array
+          items:
+            $ref: '#/components/schemas/ToolDescriptor'
+          minItems: 1
+          maxItems: 10000
+      required:
+      - catalog_id
+      - catalog_version
+      - tool_count
+      - schema_profile
+      - created_at
+      - tools
+      additionalProperties: false
+    PrepareRequest:
+      type: object
+      properties:
+        catalog_id: *id001
+        catalog_version: *id002
+        actor:
+          $ref: '#/components/schemas/Actor'
+        intent:
+          type: string
+          minLength: 1
+          maxLength: 8192
+        context_summary:
+          type: string
+          minLength: 0
+          maxLength: 16384
+        locale:
+          type: string
+          enum:
+          - es
+          - en
+          default: es
+        known_arguments: &id006
+          type: object
+          maxProperties: 256
+          additionalProperties: true
+          description: JSON object. Apply tg-jsonschema-1 value/byte/depth restrictions; no coercion or
+            implicit merge.
+      required:
+      - catalog_id
+      - catalog_version
+      - actor
+      - intent
+      - known_arguments
+      additionalProperties: false
+    ResolveRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/Actor'
+        expected_revision: &id007
+          type: integer
+          minimum: 1
+          maximum: 9007199254740991
+        tool_choice: *id001
+        arguments: *id006
+      required:
+      - actor
+      - expected_revision
+      - tool_choice
+      - arguments
+      additionalProperties: false
+    DecisionRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/Actor'
+        expected_revision: *id007
+        arguments: *id006
+      required:
+      - actor
+      - expected_revision
+      - arguments
+      additionalProperties: false
+      description: Complete replacement arguments, not a patch. Validates and issues a decision; NEVER
+        invokes the provider handler.
+    InspectRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/Actor'
+      required:
+      - actor
+      additionalProperties: false
+    CancelRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/Actor'
+        expected_revision: *id007
+      required:
+      - actor
+      - expected_revision
+      additionalProperties: false
+    ValidationIssue:
+      type: object
+      properties:
+        code:
+          type: string
+          enum:
+          - required
+          - type
+          - enum
+          - const
+          - additional_property
+          - minimum
+          - maximum
+          - length
+          - items
+          - one_of
+          - any_of
+          - all_of
+          - unsupported_value
+        instance_path:
+          type: string
+          minLength: 0
+          maxLength: 2048
+        schema_path:
+          type: string
+          minLength: 1
+          maxLength: 2048
+        message_key:
+          type: string
+          minLength: 1
+          maxLength: 128
+      required:
+      - code
+      - instance_path
+      - schema_path
+      - message_key
+      additionalProperties: false
+      description: Paths are RFC6901 JSON Pointers. Never include raw values. Branch failures do not mean
+        union of branch requirements.
+    SelectedTool:
+      type: object
+      properties:
+        tool_id: *id001
+        name:
+          type: string
+          minLength: 1
+          maxLength: 128
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 4096
+        effect:
+          $ref: '#/components/schemas/ToolEffect'
+        open_world:
+          type: boolean
+        input_schema:
+          type: object
+          additionalProperties: true
+        schema_digest: *id002
+      required:
+      - tool_id
+      - name
+      - title
+      - description
+      - effect
+      - open_world
+      - input_schema
+      - schema_digest
+      additionalProperties: false
+    Candidate:
+      type: object
+      properties:
+        tool_id: *id001
+        title:
+          type: string
+          minLength: 1
+          maxLength: 200
+        description:
+          type: string
+          minLength: 1
+          maxLength: 768
+        effect:
+          $ref: '#/components/schemas/ToolEffect'
+      required:
+      - tool_id
+      - title
+      - description
+      - effect
+      additionalProperties: false
+    ReadyOperation:
+      type: object
+      properties:
+        operation_id: *id008
+        revision: *id007
+        catalog_id: *id001
+        catalog_version: *id002
+        expires_at: *id005
+        status:
+          const: ready
+        selected_tool:
+          $ref: '#/components/schemas/SelectedTool'
+        arguments_digest: *id002
+        next_tool:
+          type: string
+          enum:
+          - execute_read_action
+          - execute_write_action
+      required:
+      - operation_id
+      - revision
+      - catalog_id
+      - catalog_version
+      - expires_at
+      - status
+      - selected_tool
+      - arguments_digest
+      - next_tool
+      additionalProperties: false
+      description: Selection and schema validation succeeded. This is NOT permission to bypass provider
+        authorization or approval.
+    NeedsArgumentsOperation:
+      type: object
+      properties:
+        operation_id: *id008
+        revision: *id007
+        catalog_id: *id001
+        catalog_version: *id002
+        expires_at: *id005
+        status:
+          const: needs_arguments
+        selected_tool:
+          $ref: '#/components/schemas/SelectedTool'
+        missing_paths:
+          type: array
+          items:
+            type: string
+            minLength: 1
+            maxLength: 2048
+          minItems: 0
+          maxItems: 128
+          uniqueItems: true
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationIssue'
+          minItems: 1
+          maxItems: 128
+        next_tool:
+          type: string
+          enum:
+          - execute_read_action
+          - execute_write_action
+      required:
+      - operation_id
+      - revision
+      - catalog_id
+      - catalog_version
+      - expires_at
+      - status
+      - selected_tool
+      - missing_paths
+      - issues
+      - next_tool
+      additionalProperties: false
+    NeedsChoiceOperation:
+      type: object
+      properties:
+        operation_id: *id008
+        revision: *id007
+        catalog_id: *id001
+        catalog_version: *id002
+        expires_at: *id005
+        status:
+          const: needs_choice
+        candidates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Candidate'
+          minItems: 2
+          maxItems: 5
+        reason:
+          type: string
+          enum:
+          - ambiguous_intent
+          - low_confidence
+        next_tool:
+          const: prepare_action
+      required:
+      - operation_id
+      - revision
+      - catalog_id
+      - catalog_version
+      - expires_at
+      - status
+      - candidates
+      - reason
+      - next_tool
+      additionalProperties: false
+    NoMatchOperation:
+      type: object
+      properties:
+        operation_id: *id008
+        revision: *id007
+        catalog_id: *id001
+        catalog_version: *id002
+        expires_at: *id005
+        status:
+          const: no_match
+        reason:
+          type: string
+          enum:
+          - no_authorized_tools
+          - no_retrieval_match
+          - selector_abstained
+        message_key:
+          const: toolgate.no_match.refine_intent
+      required:
+      - operation_id
+      - revision
+      - catalog_id
+      - catalog_version
+      - expires_at
+      - status
+      - reason
+      - message_key
+      additionalProperties: false
+    CancelledOperation:
+      type: object
+      properties:
+        operation_id: *id008
+        revision: *id007
+        catalog_id: *id001
+        catalog_version: *id002
+        expires_at: *id005
+        status:
+          const: cancelled
+      required:
+      - operation_id
+      - revision
+      - catalog_id
+      - catalog_version
+      - expires_at
+      - status
+      additionalProperties: false
+    ExecutionDecision:
+      type: object
+      properties:
+        decision_id: *id008
+        operation_id: *id008
+        operation_revision: *id007
+        catalog_id: *id001
+        catalog_version: *id002
+        tool_id: *id001
+        schema_digest: *id002
+        arguments_digest: *id002
+        effect:
+          $ref: '#/components/schemas/ToolEffect'
+        execution_key:
+          type: string
+          minLength: 1
+          maxLength: 200
+        issued_at: *id005
+        not_after: *id005
+      required:
+      - decision_id
+      - operation_id
+      - operation_revision
+      - catalog_id
+      - catalog_version
+      - tool_id
+      - schema_digest
+      - arguments_digest
+      - effect
+      - execution_key
+      - issued_at
+      - not_after
+      additionalProperties: false
+      description: Server-to-server decision, not a bearer permission. Bind to tenant/integration/principal/workspace/operation.
+        SDK MUST independently authorize, approve, validate and atomically deduplicate.
+    IssuedOperation:
+      type: object
+      properties:
+        operation_id: *id008
+        revision: *id007
+        catalog_id: *id001
+        catalog_version: *id002
+        expires_at: *id005
+        status:
+          const: decision_issued
+        selected_tool:
+          $ref: '#/components/schemas/SelectedTool'
+        decision:
+          $ref: '#/components/schemas/ExecutionDecision'
+      required:
+      - operation_id
+      - revision
+      - catalog_id
+      - catalog_version
+      - expires_at
+      - status
+      - selected_tool
+      - decision
+      additionalProperties: false
+    OperationView:
+      oneOf:
+      - $ref: '#/components/schemas/ReadyOperation'
+      - $ref: '#/components/schemas/NeedsArgumentsOperation'
+      - $ref: '#/components/schemas/NeedsChoiceOperation'
+      - $ref: '#/components/schemas/NoMatchOperation'
+      - $ref: '#/components/schemas/CancelledOperation'
+      - $ref: '#/components/schemas/IssuedOperation'
+    DecisionIssuedResponse:
+      type: object
+      properties:
+        status:
+          const: decision_issued
+        decision:
+          $ref: '#/components/schemas/ExecutionDecision'
+      required:
+      - status
+      - decision
+      additionalProperties: false
+    DecisionResponse:
+      oneOf:
+      - $ref: '#/components/schemas/DecisionIssuedResponse'
+      - $ref: '#/components/schemas/NeedsArgumentsOperation'
+    ReceiptRequest:
+      type: object
+      properties:
+        actor:
+          $ref: '#/components/schemas/Actor'
+        decision_id: *id008
+        outcome:
+          type: string
+          enum:
+          - succeeded
+          - failed_before_dispatch
+          - failed_after_dispatch
+          - unknown
+        duration_ms:
+          type: integer
+          minimum: 0
+          maximum: 86400000
+        error_code:
+          type: string
+          minLength: 1
+          maxLength: 100
+      required:
+      - actor
+      - decision_id
+      - outcome
+      - duration_ms
+      additionalProperties: false
+      description: Optional metadata only. No raw arguments, results, URLs, stack traces or customer records.
+    ReceiptResponse:
+      type: object
+      properties:
+        recorded:
+          const: true
+      required:
+      - recorded
+      additionalProperties: false
+    ErrorDetail:
+      type: object
+      properties:
+        code:
+          type: string
+          minLength: 1
+          maxLength: 100
+          pattern: ^[A-Z][A-Z0-9_]*$
+        message_key:
+          type: string
+          minLength: 1
+          maxLength: 160
+        retryable:
+          type: boolean
+        request_id:
+          type: string
+          minLength: 1
+          maxLength: 128
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationIssue'
+          minItems: 0
+          maxItems: 128
+      required:
+      - code
+      - message_key
+      - retryable
+      - request_id
+      additionalProperties: false
+    Error:
+      type: object
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorDetail'
+      required:
+      - error
+      additionalProperties: false
+    Health:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - ok
+          - not_ready
+      required:
+      - status
+      additionalProperties: false
+    Capabilities:
+      type: object
+      properties:
+        contract_version:
+          const: 0.1.0
+        schema_profiles:
+          type: array
+          items:
+            const: tg-jsonschema-1
+          minItems: 1
+          maxItems: 1
+        max_catalog_tools:
+          const: 10000
+        max_catalog_bytes:
+          const: 16777216
+        max_request_bytes:
+          const: 262144
+        operation_ttl_seconds:
+          const: 900
+        decision_ttl_seconds:
+          const: 60
+        mcp_execution_owner:
+          const: provider-sdk
+      required:
+      - contract_version
+      - schema_profiles
+      - max_catalog_tools
+      - max_catalog_bytes
+      - max_request_bytes
+      - operation_ttl_seconds
+      - decision_ttl_seconds
+      - mcp_execution_owner
+      additionalProperties: false

@@ -1,0 +1,39 @@
+{
+  "mermaid": "11.12.0",
+  "validation_only_dependency": true,
+  "diagrams": 4,
+  "browser_rendered": true,
+  "syntax_errors": 0,
+  "initial_failures": [
+    "Local preview server missing-resource handling was corrected",
+    "A semicolon in diagram 4 note text was replaced with a comma to satisfy the parser"
+  ],
+  "designs": [
+    "Direct MCP control",
+    "Agent-initiated preparation",
+    "Host-first single Choice",
+    "Host-first parallel binary"
+  ],
+  "dimensions": [
+    {
+      "width": 1091,
+      "height": 686,
+      "text": false
+    },
+    {
+      "width": 1410,
+      "height": 874.515625,
+      "text": false
+    },
+    {
+      "width": 1410,
+      "height": 759.3125,
+      "text": false
+    },
+    {
+      "width": 1410,
+      "height": 1117.546875,
+      "text": false
+    }
+  ]
+}

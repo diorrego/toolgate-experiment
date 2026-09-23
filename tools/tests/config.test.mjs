@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {mkdtempSync,writeFileSync,readFileSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {loadConfig,switchMode} from '../experiment-config.mjs';
+import {bindCorpus} from '../bind-corpus.mjs';
+await test('configuration is relative, keeps model identity fixed and switches only trusted deployment state',()=>{
+ const dir=mkdtempSync(join(tmpdir(),'toolgate-config-'));
+ const config={version:1,model:'gpt-6-astra',effort:'high',corpusFile:'corpus.json',privateDir:'private',provider:{serverName:'provider',url:'http://127.0.0.1:8081/mcp',disableServers:[],modeFile:'mode.json',traceFile:'trace.jsonl'}};
+ const corpus={language:'en',cases:Array.from({length:30},(_,i)=>({id:'Q'+i,question:'Read a record',tool:'read',arguments:{}}))};
+ writeFileSync(join(dir,'corpus.json'),JSON.stringify(corpus));writeFileSync(join(dir,'config.json'),JSON.stringify(config));
+ const loaded=loadConfig(join(dir,'config.json'));assert.equal(loaded.corpusFile,join(dir,'corpus.json'));
+ switchMode(loaded,'go-first');assert.deepEqual(JSON.parse(readFileSync(join(dir,'mode.json'),'utf8')),{mode:'go'});
+ assert.throws(()=>switchMode(loaded,'unsafe'));
+ config.experiment='binary-parallel-v1';config.provider.selectorModeFile='selector.json';
+ writeFileSync(join(dir,'config.json'),JSON.stringify(config));
+ const binary=loadConfig(join(dir,'config.json'));
+ assert.equal(binary.modes.length,5);assert.ok(binary.modes.includes('go-binary-first'));
+ switchMode(binary,'go-binary-first');assert.deepEqual(JSON.parse(readFileSync(join(dir,'selector.json'),'utf8')),{mode:'binary-parallel-v1'});
+ assert.deepEqual(JSON.parse(readFileSync(join(dir,'mode.json'),'utf8')),{mode:'go'});
+ switchMode(binary,'direct');assert.deepEqual(JSON.parse(readFileSync(join(dir,'selector.json'),'utf8')),{mode:'choice'});
+ config.model='unpriced-model';writeFileSync(join(dir,'config.json'),JSON.stringify(config));assert.throws(()=>loadConfig(join(dir,'config.json')));
+});
+await test('binding never invents IDs and safely preserves JSON string values',()=>{
+ const source={question:'Read {{id}}',arguments:{id:'{{id}}'}};
+ assert.throws(()=>bindCorpus(source,{}));
+ const bound=bindCorpus(source,{id:'quoted"identifier'});assert.equal(bound.arguments.id,'quoted"identifier');
+ assert.deepEqual(JSON.parse(JSON.stringify(bound)),bound);assert.equal(source.arguments.id,'{{id}}');
+});

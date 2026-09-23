@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "model": "gpt-6-astra",
+  "effort": "high",
+  "corpusFile": "../.local/corpus.json",
+  "privateDir": "../.local/binary-runs",
+  "provider": {
+    "serverName": "benchmark_provider",
+    "url": "http://127.0.0.1:8081/mcp",
+    "modeFile": "../.local/provider-mode.json",
+    "traceFile": "../.local/provider-traces.jsonl",
+    "disableServers": [],
+    "selectorModeFile": "../.local/selector-mode.json"
+  },
+  "artifacts": {
+    "go": "../backend-go/bin/toolgate",
+    "rust": "../backend-rust/target/release/toolgate-core",
+    "sdkRemote": "../sdk-typescript/packages/sdk/dist/remote.js",
+    "sdkProvider": "../sdk-typescript/packages/sdk/dist/provider.js",
+    "labSupervisor": "../tools/parallel-core-lab.mjs"
+  },
+  "pidFiles": {
+    "go": "../.local/parallel-services/go-choice.pid",
+    "rust": "../.local/parallel-services/rust-choice.pid",
+    "provider": "../.local/provider.pid",
+    "goBinary": "../.local/parallel-services/go-binary.pid",
+    "rustBinary": "../.local/parallel-services/rust-binary.pid",
+    "proxy": "../.local/parallel-services/proxy.pid"
+  },
+  "environment": {
+    "dataset": "Replace with the authorized dataset description, without identifiers",
+    "postgres": "17.11-alpine",
+    "coreAffinity": "0,1",
+    "connectTimeoutMs": 1000,
+    "jevTimeoutMs": 2200,
+    "coreTimeoutMs": 3000,
+    "sdkTimeoutMs": 3500,
+    "mcpProfile": "2025-11-25",
+    "selectorProfiles": [
+      "choice",
+      "binary-parallel-v1"
+    ],
+    "maximumJevConcurrency": 22,
+    "coreProcesses": 4,
+    "profileRouting": "Trusted local TLS proxy state; fixed profile per process; switches only between completed questions"
+  },
+  "experiment": "binary-parallel-v1"
+}

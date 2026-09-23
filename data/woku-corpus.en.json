@@ -1,0 +1,348 @@
+{
+  "version": 2,
+  "purpose": "Fixed read-only question corpus; tool names are the direct baseline oracle, never an instruction to the remote selector.",
+  "cases": [
+    {
+      "id": "Q01",
+      "question": "What is the profile of the connected company?",
+      "tool": "get_company",
+      "arguments": {}
+    },
+    {
+      "id": "Q02",
+      "question": "Give me the company feedback statistics summary.",
+      "tool": "get_company_statistics",
+      "arguments": {
+        "metric": "summary"
+      }
+    },
+    {
+      "id": "Q03",
+      "question": "Show me the daily Woku statistics for 2026.",
+      "tool": "get_company_statistics",
+      "arguments": {
+        "metric": "wokus",
+        "year": 2026
+      }
+    },
+    {
+      "id": "Q04",
+      "question": "Show me the daily NPS statistics for 2026.",
+      "tool": "get_company_statistics",
+      "arguments": {
+        "metric": "nps",
+        "year": 2026
+      }
+    },
+    {
+      "id": "Q05",
+      "question": "List up to 5 NPS tools belonging to the company.",
+      "tool": "list_nps_tools",
+      "arguments": {
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q06",
+      "question": "What are the NPS statistics from January 1 through September 22, 2026, inclusive in UTC?",
+      "tool": "get_nps_statistics",
+      "arguments": {
+        "from": "2026-01-01T00:00:00Z",
+        "to": "2026-09-22T23:59:59.999Z"
+      }
+    },
+    {
+      "id": "Q07",
+      "question": "Show up to 5 NPS responses from detractors.",
+      "tool": "list_nps_responses",
+      "arguments": {
+        "classification": "detractor",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q08",
+      "question": "Show up to 5 NPS responses from promoters.",
+      "tool": "list_nps_responses",
+      "arguments": {
+        "classification": "promoter",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q09",
+      "question": "Show up to 5 responses to the general NPS survey, without an associated tool.",
+      "tool": "list_nps_responses",
+      "arguments": {
+        "scope": "general",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q10",
+      "question": "What are the CSAT metrics for the entire company?",
+      "tool": "get_csat_metrics",
+      "arguments": {}
+    },
+    {
+      "id": "Q11",
+      "question": "Show the first 5 CSAT responses that include a comment.",
+      "tool": "list_csat_responses",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "withComment": true
+      }
+    },
+    {
+      "id": "Q12",
+      "question": "What are the CES metrics for the entire company?",
+      "tool": "get_ces_metrics",
+      "arguments": {}
+    },
+    {
+      "id": "Q13",
+      "question": "Show the first 5 CES responses that include a comment.",
+      "tool": "list_ces_responses",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "withComment": true
+      }
+    },
+    {
+      "id": "Q14",
+      "question": "List the first page of Wokus, with 5 items per page.",
+      "tool": "list_wokus",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q15",
+      "question": "List the second page of Wokus, with 5 items per page.",
+      "tool": "list_wokus",
+      "arguments": {
+        "page": 2,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q16",
+      "question": "List the first 5 Wokus that are not inside any folder.",
+      "tool": "list_wokus",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "folderId": "root"
+      }
+    },
+    {
+      "id": "Q17",
+      "question": "Give me the details of the Woku with ID {{woku_id}}.",
+      "tool": "get_woku",
+      "arguments": {
+        "wokuId": "{{woku_id}}"
+      }
+    },
+    {
+      "id": "Q18",
+      "question": "Show the first 5 reviews of the Woku with ID {{woku_id}}.",
+      "tool": "list_woku_reviews",
+      "arguments": {
+        "wokuId": "{{woku_id}}",
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q19",
+      "question": "List the first 5 root folders of the company.",
+      "tool": "list_folders",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q20",
+      "question": "List the first 5 active trackers and include how many Wokus use each one.",
+      "tool": "list_trackers",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "includeInactive": false,
+        "includeUsage": true
+      }
+    },
+    {
+      "id": "Q21",
+      "question": "List the first page of flows, with 5 items per page.",
+      "tool": "list_flows",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q22",
+      "question": "List up to 5 forms belonging to the company.",
+      "tool": "list_forms",
+      "arguments": {
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q23",
+      "question": "List the first 5 clients belonging to the company.",
+      "tool": "list_clients",
+      "arguments": {
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q24",
+      "question": "List the first 5 tickets and include statistics by origin and destination.",
+      "tool": "list_tickets",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "includeStats": true
+      }
+    },
+    {
+      "id": "Q25",
+      "question": "List the first 5 high-severity tickets.",
+      "tool": "list_tickets",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "severity": "high"
+      }
+    },
+    {
+      "id": "Q26",
+      "question": "List the first page of action plans, with 5 items per page.",
+      "tool": "list_action_plans",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q27",
+      "question": "List the first 5 high-priority action plans.",
+      "tool": "list_action_plans",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "priority": "high"
+      }
+    },
+    {
+      "id": "Q28",
+      "question": "List the company action plan groups.",
+      "tool": "list_action_plan_groups",
+      "arguments": {}
+    },
+    {
+      "id": "Q29",
+      "question": "Show goal compliance for up to 5 Woku goals.",
+      "tool": "get_goals_compliance",
+      "arguments": {
+        "tool": "woku",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q30",
+      "question": "List up to 5 report definitions belonging to the company.",
+      "tool": "list_report_definitions",
+      "arguments": {
+        "limit": 5
+      }
+    }
+  ],
+  "language": "en",
+  "argumentDefaults": {
+    "get_company_statistics": {
+      "metric": "summary"
+    },
+    "list_wokus": {
+      "page": 1,
+      "limit": 20,
+      "search": ""
+    },
+    "list_woku_reviews": {
+      "page": 1,
+      "limit": 20
+    },
+    "list_folders": {
+      "page": 1,
+      "limit": 20
+    },
+    "list_trackers": {
+      "page": 1,
+      "limit": 20,
+      "includeInactive": false,
+      "includeUsage": false
+    },
+    "list_flows": {
+      "page": 1,
+      "limit": 20
+    },
+    "list_tickets": {
+      "page": 1,
+      "limit": 20,
+      "includeStats": false,
+      "search": ""
+    },
+    "list_action_plans": {
+      "page": 1,
+      "limit": 20,
+      "search": ""
+    },
+    "list_csat_responses": {
+      "page": 1,
+      "limit": 20,
+      "withComment": false
+    },
+    "list_ces_responses": {
+      "page": 1,
+      "limit": 20,
+      "withComment": false
+    },
+    "list_nps_responses": {
+      "scope": "combined",
+      "limit": 20
+    },
+    "list_nps_tools": {
+      "limit": 20
+    },
+    "list_forms": {
+      "limit": 20
+    },
+    "list_clients": {
+      "limit": 20,
+      "search": ""
+    },
+    "list_report_definitions": {
+      "limit": 20
+    },
+    "get_goals_compliance": {
+      "limit": 20
+    }
+  },
+  "ignoredArgumentRules": [
+    {
+      "tool": "get_company_statistics",
+      "when": {
+        "metric": "summary"
+      },
+      "ignore": [
+        "year"
+      ]
+    }
+  ]
+}

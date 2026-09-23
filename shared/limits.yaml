@@ -1,0 +1,55 @@
+contract: 0.1.0
+status: proposed-defaults-not-measurements
+catalog:
+  max_tools: 10000
+  max_bytes: 16777216
+  max_schema_bytes: 65536
+  max_description_chars: 4096
+request:
+  max_bytes: 262144
+  max_intent_chars: 8192
+  max_context_chars: 16384
+  max_arguments_bytes: 65536
+  max_depth: 32
+  max_object_properties: 256
+  max_array_items: 1000
+  max_validation_issues: 128
+selection:
+  initial_candidates: 32
+  expanded_candidates: 64
+  max_passes: 2
+  max_options_including_none: 255
+  max_query_tokens: 256
+  max_provider_response_bytes: 262144
+  transport_retries: 0
+timeouts_ms:
+  core_request: 3000
+  sdk_request: 3500
+  jev_call: 2200
+  http_connect: 300
+  db_acquire: 250
+  shutdown_grace: 10000
+concurrency:
+  core_global_inflight: 128
+  integration_inflight: 16
+  pending_queue: 0
+  db_pool_max: 16
+  db_pool_idle: 4
+ttl_seconds:
+  operation: 900
+  decision: 60
+  idempotency: 86400
+  sdk_terminal_ledger: 86400
+  capabilities_cache: 300
+retry:
+  sdk_max_attempts: 2
+  base_backoff_ms: 50
+  max_backoff_ms: 200
+  jitter: full
+  mutation_same_key_required: true
+quotas:
+  requests_per_minute_per_integration: 600
+  burst_per_second: 20
+  distributed_enforcement: transactional-postgresql
+  note: Benchmark profile may explicitly override limits equally for both implementations;
+    never silently disable them.

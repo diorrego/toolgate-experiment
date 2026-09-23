@@ -1,0 +1,10 @@
+import {mkdirSync,existsSync,chmodSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import {resolve} from 'node:path';
+const root=fileURLToPath(new URL('../',import.meta.url));
+const directory=resolve(root,'.local/tls');mkdirSync(directory,{recursive:true,mode:0o700});
+const key=resolve(directory,'key.pem'),cert=resolve(directory,'cert.pem');
+if(existsSync(key)||existsSync(cert))throw Error('TLS files already exist; inspect expiry and renew explicitly without overwriting them blindly');
+execFileSync('openssl',['req','-x509','-newkey','rsa:2048','-nodes','-days','7','-subj','/CN=localhost','-addext','subjectAltName=DNS:localhost,IP:127.0.0.1','-keyout',key,'-out',cert],{stdio:'ignore'});
+chmodSync(key,0o600);console.log('Local test certificate created; trust it explicitly in the provider process only');

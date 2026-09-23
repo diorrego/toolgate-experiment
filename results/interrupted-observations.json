@@ -1,0 +1,1506 @@
+{
+  "runId": "2026-09-23T15-30-21-730Z",
+  "state": "interrupted",
+  "language": "en",
+  "modes": [
+    "direct",
+    "go",
+    "rust",
+    "go-first",
+    "rust-first"
+  ],
+  "primaryBoundary": "question submission BEFORE host prepare/turn start to complete final answer",
+  "hashes": {
+    "go": "f20b1999317c7186a3586136ddce809acb792ed7ab8fba8c886f9c55fff17e61",
+    "rust": "61be799e57c755c345318a15ccfcaada2a93a6bba1033333f5cbda8988a415c5",
+    "sdkRemote": "f48bd57b3ebbb4d7241b372257523a5a6c407103ba399b552f45f1c5e2b97d7a",
+    "sdkProvider": "b9f7fd2a03e36b6cb00debfdfd0e203ab1f854e9840267d369edff79e3a256c8",
+    "providerAdapter": "361783a1e46177f41fffb484ba24d4da3ed2243c4ecea3cbba9d7d810d53ddc3",
+    "corpus": "187be8e88abd77dbd00c91bbda62ee3ecafc694ce418bb59cbe178fc6a01f159",
+    "config": "14716ef05a3415405bb84d2f5e010a6196f30c4a322c4b48fdc95cf653f6e111",
+    "configurationLoader": "ee6a168e456ac3afa1e36749486b8988d5e662dc79957c6c564c1aef63c5d91a",
+    "wireContract": "a6d91561aebb1be1dc04cf24e77fe05b558d69c3c1feda00aafb0a5d1ddea560",
+    "repositoryContract": "41949209125eaedc209734ffa4f1c4c643c6cc822f1015c6c2411662d1db3d52",
+    "runner": "58a0a3d67c5f9d159db283c9e6f32a2e63ed57dbf79dd4761f6405e0df989d62",
+    "host": "49977204406eb35e0c2412ef3ac74b06c00acb4a8bb8849cfb6fcb6eb076fb49",
+    "master": "af6a199f5b31a9d420cc5b48c5c4ff937344a10939471a327bf61be58453f0d1",
+    "pricing": "799a3275479156d88780fcb398ac6077e69445137460a9525496b05942e3bf37"
+  },
+  "environment": {
+    "node": "v24.18.0",
+    "codex": "codex-cli 0.155.1",
+    "platform": "linux",
+    "release": "7.0.0-31-generic",
+    "arch": "x64",
+    "cpu": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+    "totalMemoryBytes": 33519669248,
+    "concurrency": 1,
+    "postgres": "17.11-alpine",
+    "coreAffinity": "0,1",
+    "connectTimeoutMs": 1000,
+    "jevTimeoutMs": 2200,
+    "coreTimeoutMs": 3000,
+    "sdkTimeoutMs": 3500,
+    "mcpProfile": "2025-11-25",
+    "model": "gpt-6-astra",
+    "effort": "high",
+    "jevModel": "jev-1.13.0",
+    "providerFramework": "NestJS 11.1.12",
+    "providerMcpSdk": "1.29.0",
+    "resourceMeasurement": "agentHost measures only the npm launcher; native worker tree and remote model resources are unmeasured",
+    "pricingBasis": "Standard API equivalent; actual invoice unobserved",
+    "dataset": "Private authorized provider data; not distributed."
+  },
+  "sanitized": true,
+  "cases": [
+    {
+      "id": "Q01",
+      "question": "What is the profile of the connected company?",
+      "tool": "get_company",
+      "arguments": {}
+    },
+    {
+      "id": "Q02",
+      "question": "Give me the company feedback statistics summary.",
+      "tool": "get_company_statistics",
+      "arguments": {
+        "metric": "summary"
+      }
+    },
+    {
+      "id": "Q03",
+      "question": "Show me the daily Woku statistics for 2026.",
+      "tool": "get_company_statistics",
+      "arguments": {
+        "metric": "wokus",
+        "year": 2026
+      }
+    },
+    {
+      "id": "Q04",
+      "question": "Show me the daily NPS statistics for 2026.",
+      "tool": "get_company_statistics",
+      "arguments": {
+        "metric": "nps",
+        "year": 2026
+      }
+    },
+    {
+      "id": "Q05",
+      "question": "List up to 5 NPS tools belonging to the company.",
+      "tool": "list_nps_tools",
+      "arguments": {
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q06",
+      "question": "What are the NPS statistics from January 1 through September 22, 2026, inclusive in UTC?",
+      "tool": "get_nps_statistics",
+      "arguments": {
+        "from": "2026-01-01T00:00:00Z",
+        "to": "2026-09-22T23:59:59.999Z"
+      }
+    },
+    {
+      "id": "Q07",
+      "question": "Show up to 5 NPS responses from detractors.",
+      "tool": "list_nps_responses",
+      "arguments": {
+        "classification": "detractor",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q08",
+      "question": "Show up to 5 NPS responses from promoters.",
+      "tool": "list_nps_responses",
+      "arguments": {
+        "classification": "promoter",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q09",
+      "question": "Show up to 5 responses to the general NPS survey, without an associated tool.",
+      "tool": "list_nps_responses",
+      "arguments": {
+        "scope": "general",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q10",
+      "question": "What are the CSAT metrics for the entire company?",
+      "tool": "get_csat_metrics",
+      "arguments": {}
+    },
+    {
+      "id": "Q11",
+      "question": "Show the first 5 CSAT responses that include a comment.",
+      "tool": "list_csat_responses",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "withComment": true
+      }
+    },
+    {
+      "id": "Q12",
+      "question": "What are the CES metrics for the entire company?",
+      "tool": "get_ces_metrics",
+      "arguments": {}
+    },
+    {
+      "id": "Q13",
+      "question": "Show the first 5 CES responses that include a comment.",
+      "tool": "list_ces_responses",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "withComment": true
+      }
+    },
+    {
+      "id": "Q14",
+      "question": "List the first page of Wokus, with 5 items per page.",
+      "tool": "list_wokus",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q15",
+      "question": "List the second page of Wokus, with 5 items per page.",
+      "tool": "list_wokus",
+      "arguments": {
+        "page": 2,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q16",
+      "question": "List the first 5 Wokus that are not inside any folder.",
+      "tool": "list_wokus",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "folderId": "root"
+      }
+    },
+    {
+      "id": "Q17",
+      "question": "Give me the details of the Woku with ID {{woku_id}}.",
+      "tool": "get_woku",
+      "arguments": {
+        "wokuId": "{{woku_id}}"
+      }
+    },
+    {
+      "id": "Q18",
+      "question": "Show the first 5 reviews of the Woku with ID {{woku_id}}.",
+      "tool": "list_woku_reviews",
+      "arguments": {
+        "wokuId": "{{woku_id}}",
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q19",
+      "question": "List the first 5 root folders of the company.",
+      "tool": "list_folders",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q20",
+      "question": "List the first 5 active trackers and include how many Wokus use each one.",
+      "tool": "list_trackers",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "includeInactive": false,
+        "includeUsage": true
+      }
+    },
+    {
+      "id": "Q21",
+      "question": "List the first page of flows, with 5 items per page.",
+      "tool": "list_flows",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q22",
+      "question": "List up to 5 forms belonging to the company.",
+      "tool": "list_forms",
+      "arguments": {
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q23",
+      "question": "List the first 5 clients belonging to the company.",
+      "tool": "list_clients",
+      "arguments": {
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q24",
+      "question": "List the first 5 tickets and include statistics by origin and destination.",
+      "tool": "list_tickets",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "includeStats": true
+      }
+    },
+    {
+      "id": "Q25",
+      "question": "List the first 5 high-severity tickets.",
+      "tool": "list_tickets",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "severity": "high"
+      }
+    },
+    {
+      "id": "Q26",
+      "question": "List the first page of action plans, with 5 items per page.",
+      "tool": "list_action_plans",
+      "arguments": {
+        "page": 1,
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q27",
+      "question": "List the first 5 high-priority action plans.",
+      "tool": "list_action_plans",
+      "arguments": {
+        "page": 1,
+        "limit": 5,
+        "priority": "high"
+      }
+    },
+    {
+      "id": "Q28",
+      "question": "List the company action plan groups.",
+      "tool": "list_action_plan_groups",
+      "arguments": {}
+    },
+    {
+      "id": "Q29",
+      "question": "Show goal compliance for up to 5 Woku goals.",
+      "tool": "get_goals_compliance",
+      "arguments": {
+        "tool": "woku",
+        "limit": 5
+      }
+    },
+    {
+      "id": "Q30",
+      "question": "List up to 5 report definitions belonging to the company.",
+      "tool": "list_report_definitions",
+      "arguments": {
+        "limit": 5
+      }
+    }
+  ],
+  "records": [
+    {
+      "caseId": "Q01",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 15517.972155,
+      "turnCompleteMs": 15576.032520999997,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.0053520000001299195,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 60180,
+          "inputTokens": 60095,
+          "cachedInputTokens": 37632,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 85,
+          "reasoningOutputTokens": 0
+        },
+        "last": {
+          "totalTokens": 22143,
+          "inputTokens": 22116,
+          "cachedInputTokens": 21888,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 27,
+          "reasoningOutputTokens": 0
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50392
+        },
+        "go": {
+          "cpuMs": 0,
+          "peakRssKiB": 21548
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 260,
+          "peakRssKiB": 613556
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 1,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [
+        {
+          "tool": "get_company",
+          "status": "failed",
+          "error": false,
+          "result": {
+            "isError": false
+          }
+        }
+      ],
+      "hostTools": [],
+      "toolTimeline": [
+        {
+          "event": "item/started",
+          "tool": "get_company",
+          "elapsedMs": 10742.639790000001
+        },
+        {
+          "event": "item/completed",
+          "tool": "get_company",
+          "elapsedMs": 11418.102693
+        }
+      ],
+      "trace": []
+    },
+    {
+      "caseId": "Q01",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q01",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q01",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q01",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q02",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q02",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q02",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q02",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q02",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 8754.437707,
+      "turnCompleteMs": 8841.565213,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.005291999999826658,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 31167,
+          "inputTokens": 31079,
+          "cachedInputTokens": 15360,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 88,
+          "reasoningOutputTokens": 19
+        },
+        "last": {
+          "totalTokens": 15623,
+          "inputTokens": 15568,
+          "cachedInputTokens": 15360,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 55,
+          "reasoningOutputTokens": 19
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50392
+        },
+        "go": {
+          "cpuMs": 0,
+          "peakRssKiB": 21144
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 100,
+          "peakRssKiB": 613720
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q03",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q03",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q03",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q03",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 10236.171429999999,
+      "turnCompleteMs": 10331.950173000001,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.0033889999999701104,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 31002,
+          "inputTokens": 30883,
+          "cachedInputTokens": 15232,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 119,
+          "reasoningOutputTokens": 44
+        },
+        "last": {
+          "totalTokens": 15556,
+          "inputTokens": 15470,
+          "cachedInputTokens": 15232,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 86,
+          "reasoningOutputTokens": 44
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50448
+        },
+        "go": {
+          "cpuMs": 0,
+          "peakRssKiB": 21144
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 90,
+          "peakRssKiB": 613788
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q03",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q04",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q04",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q04",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 8050.7512879999995,
+      "turnCompleteMs": 8150.766212,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.005491000000120039,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 31187,
+          "inputTokens": 31087,
+          "cachedInputTokens": 15360,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 100,
+          "reasoningOutputTokens": 29
+        },
+        "last": {
+          "totalTokens": 15639,
+          "inputTokens": 15572,
+          "cachedInputTokens": 15360,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 67,
+          "reasoningOutputTokens": 29
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50432
+        },
+        "go": {
+          "cpuMs": 0,
+          "peakRssKiB": 21144
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 100,
+          "peakRssKiB": 613820
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q04",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q04",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q05",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q05",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 7939.272797,
+      "turnCompleteMs": 8020.806089,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.003492000000051121,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 30970,
+          "inputTokens": 30884,
+          "cachedInputTokens": 30464,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 86,
+          "reasoningOutputTokens": 24
+        },
+        "last": {
+          "totalTokens": 15524,
+          "inputTokens": 15470,
+          "cachedInputTokens": 15232,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 54,
+          "reasoningOutputTokens": 24
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50444
+        },
+        "go": {
+          "cpuMs": 10,
+          "peakRssKiB": 21148
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 90,
+          "peakRssKiB": 613828
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q05",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q05",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q05",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q06",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 9335.241782,
+      "turnCompleteMs": 9416.864567,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.005221000000119602,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 31048,
+          "inputTokens": 30904,
+          "cachedInputTokens": 15232,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 144,
+          "reasoningOutputTokens": 37
+        },
+        "last": {
+          "totalTokens": 15592,
+          "inputTokens": 15480,
+          "cachedInputTokens": 15232,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 112,
+          "reasoningOutputTokens": 37
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50464
+        },
+        "go": {
+          "cpuMs": 0,
+          "peakRssKiB": 21148
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 110,
+          "peakRssKiB": 613836
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q06",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q06",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q06",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q06",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q07",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q07",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q07",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q07",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q07",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 8746.184228999999,
+      "turnCompleteMs": 8784.280132,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.002672999999958847,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 31178,
+          "inputTokens": 31086,
+          "cachedInputTokens": 15360,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 92,
+          "reasoningOutputTokens": 30
+        },
+        "last": {
+          "totalTokens": 15631,
+          "inputTokens": 15571,
+          "cachedInputTokens": 15360,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 60,
+          "reasoningOutputTokens": 30
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50432
+        },
+        "go": {
+          "cpuMs": 0,
+          "peakRssKiB": 21148
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 50,
+          "peakRssKiB": 613992
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q08",
+      "mode": "rust",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q08",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q08",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q08",
+      "mode": "direct",
+      "model": "gpt-6-astra",
+      "status": "completed",
+      "answerCompleteMs": 9412.753664,
+      "turnCompleteMs": 9457.923069999999,
+      "hostPrepareMs": null,
+      "turnStartOffsetMs": 0.00502500000004602,
+      "tokenUsage": {
+        "total": {
+          "totalTokens": 30995,
+          "inputTokens": 30881,
+          "cachedInputTokens": 15232,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 114,
+          "reasoningOutputTokens": 46
+        },
+        "last": {
+          "totalTokens": 15550,
+          "inputTokens": 15469,
+          "cachedInputTokens": 15232,
+          "cacheWriteInputTokens": 0,
+          "outputTokens": 81,
+          "reasoningOutputTokens": 46
+        },
+        "modelContextWindow": 828400
+      },
+      "resources": {
+        "agentHost": {
+          "cpuMs": 0,
+          "peakRssKiB": 50416
+        },
+        "go": {
+          "cpuMs": 0,
+          "peakRssKiB": 21148
+        },
+        "rust": {
+          "cpuMs": 0,
+          "peakRssKiB": 18820
+        },
+        "provider": {
+          "cpuMs": 70,
+          "peakRssKiB": 614088
+        },
+        "proxy": {
+          "cpuMs": 0,
+          "peakRssKiB": 72756
+        }
+      },
+      "finalAnswerPresent": true,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q08",
+      "mode": "go",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q09",
+      "mode": "go-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q09",
+      "mode": "rust-first",
+      "status": "runner_failed",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    },
+    {
+      "caseId": "Q09",
+      "mode": "direct",
+      "status": "interrupted",
+      "answerCompleteMs": null,
+      "turnCompleteMs": null,
+      "resources": {},
+      "finalAnswerPresent": false,
+      "grade": {
+        "expected_query": false,
+        "tool_errors": 0,
+        "initial_selection_status": null,
+        "initial_tool_matches": null
+      },
+      "tools": [],
+      "hostTools": [],
+      "toolTimeline": [],
+      "trace": []
+    }
+  ],
+  "response_differences": [],
+  "privacy": "Answers, arguments, identifiers, trace IDs and local paths are excluded. Exported correctness grades require the private source for independent regrading.",
+  "reviewNotes": [],
+  "privateSourceSha256": "868f937fa8e7c037dca8fd5dafc5fc4116f9293a6b968342e2dbd04b9aa1a6bc",
+  "publicCorpusSha256": "67055505b95a5287d761bde69a928974bc2a21ed1dd011945261e40ffb7cbcdf"
+}

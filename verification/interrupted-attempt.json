@@ -1,0 +1,14 @@
+{
+  "runId": "2026-09-23T15-30-21-730Z",
+  "state": "interrupted",
+  "reason": "MCP access token was rejected; later initialization exposed no tools. Stopped by the operator; not resumed.",
+  "records": 43,
+  "statuses": {
+    "completed": 8,
+    "runner_failed": 34,
+    "interrupted": 1
+  },
+  "expectedQueries": 0,
+  "accounting": "Aborted setup attempt, separate from the complete English matrix. Unknown costs remain unknown.",
+  "newGuard": "Stop on authentication challenge or runner initialization failure; reject an empty direct MCP surface before inference."
+}

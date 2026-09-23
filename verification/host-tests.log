@@ -1,0 +1,16 @@
+✔ configuration is relative, keeps model identity fixed and switches only trusted deployment state (27.571078ms)
+✔ binding never invents IDs and safely preserves JSON string values (2.153301ms)
+✔ adapter preserves trusted identity, separates preparation and execution, and rejects writes (8.882563ms)
+✔ adapter reports uncertain execution without exposing arbitrary exception text (3.686815ms)
+✔ host sends only the literal question, never expected tool or arguments (10.022258ms)
+✔ invalid preparation fails closed without execution or hidden fallback (3.868637ms)
+✔ abstention and ambiguity reach the model unchanged, no invented choice (8.455388ms)
+✔ failed host attempts remain in telemetry (5.414022ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 579.699106

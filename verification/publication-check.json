@@ -1,0 +1,14 @@
+{
+  "file_count": 193,
+  "source_only_copy": true,
+  "known_credentials_absent": true,
+  "bound_identifiers_absent": true,
+  "key_jwt_patterns_absent": true,
+  "english_and_punctuation_checks": true,
+  "local_links_valid_without_ignored_files": true,
+  "unit_and_both_report_checks_exit": 0,
+  "diagrams_rendered": 4,
+  "readme_sha256": "21dadb0c9a82273ddbe28b6cc0455cf228e532fbe6bf7f439cc0e297fae1157d",
+  "remote": "git@github.com:diorrego/toolgate-experiment.git",
+  "branch": "main"
+}

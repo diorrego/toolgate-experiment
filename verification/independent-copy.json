@@ -1,0 +1,35 @@
+{
+  "source_only_copy": true,
+  "provider_source_present": false,
+  "private_source_state_copied": false,
+  "database": "Dedicated disposable export database; credentials passed externally",
+  "commands": [
+    {
+      "command": "npm ci --ignore-scripts",
+      "directory": "sdk-typescript",
+      "exit_code": 0
+    },
+    {
+      "command": "make check",
+      "directory": ".",
+      "exit_code": 0
+    },
+    {
+      "command": "make integration",
+      "directory": ".",
+      "exit_code": 2
+    },
+    {
+      "command": "docker start toolgate-repro-pg",
+      "directory": "repository root",
+      "exit_code": 0,
+      "reason": "The dedicated test container was stopped (previous exit 0). No migrations or seeds repeated."
+    },
+    {
+      "command": "make integration",
+      "directory": ".",
+      "exit_code": 0,
+      "attempt": 2
+    }
+  ]
+}

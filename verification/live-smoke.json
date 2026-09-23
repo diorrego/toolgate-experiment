@@ -1,0 +1,36 @@
+{
+  "language": "en",
+  "outside_main_matrix": true,
+  "checks": [
+    {
+      "condition": "go-first",
+      "case": "Q01",
+      "expected_query": true,
+      "host_calls": 1,
+      "agent_calls": 1,
+      "cost": {
+        "agent_usd": 0.33261,
+        "jev_usd": 0.000117138,
+        "total_usd": 0.33272713800000003,
+        "jev_input_tokens": 2789,
+        "jev_output_tokens": 270,
+        "actual_billed_usd": null
+      }
+    },
+    {
+      "condition": "rust-first",
+      "case": "Q20",
+      "expected_query": true,
+      "host_calls": 1,
+      "agent_calls": 1,
+      "cost": {
+        "agent_usd": 0.186394,
+        "jev_usd": 0.00011747400000000001,
+        "total_usd": 0.186511474,
+        "jev_input_tokens": 2797,
+        "jev_output_tokens": 270,
+        "actual_billed_usd": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Operation and local execution state
+
+Preparation produces no_match, needs_choice, needs_arguments or ready. Internal
+selection is not a public operation state. Resolution fixes one original candidate.
+A valid execution decision transitions ready/needs_arguments to decision_issued.
+Preparing, resolving and issuing decisions never execute business handlers.
+
+Initial revision is 1. Accepted resolve/cancel/decision requests increment revision
+once, including decision validation that still returns needs_arguments. Replays,
+inspection, receipts and rejected guard checks do not increment it. Local SDK
+validation does not mutate remote revision. ready/needs_arguments/needs_choice may
+be cancelled. no_match is terminal; an issued operation cannot be cancelled as if
+its effect had been rolled back. Expiry is checked before state transitions, after
+ownership checks.
+
+The durable provider ledger is scoped by integration, principal, workspace and
+execution key. It records prepared, claimed, dispatching, succeeded,
+failed_before_dispatch, failed_after_dispatch or unknown. Claim uses transactional
+compare-and-set/fencing. Persist dispatching before entering a handler. Only a
+local ledger may retain the business result for authorized replay.
+
+After a possible effect, timeout, process death, invalid result or a lost response
+can mean unknown. Do not retry the handler automatically or create a replacement
+operation to conceal uncertainty. Distributed exactly-once execution is not
+promised. Cancellation of a wait does not prove cancellation of the effect.
+
+ready means structurally valid, not approved. Decision-issued means bound for a
+possible dispatch, not executed. Local authorization and any required approval must
+remain valid for the exact identity, tool, arguments, effect and expiry. A model
+argument cannot grant approval. Read execution must reject write/unknown effects.
+The current experimental SDK supports only read operations with text MCP results.

@@ -1,0 +1,69 @@
+
+> toolgate-typescript-workspace@0.1.0 check
+> npm run format:check && npm run lint && npm run typecheck && npm test && npm run test:types && npm run pack:check && npm run check:generated
+
+
+> toolgate-typescript-workspace@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> toolgate-typescript-workspace@0.1.0 lint
+> eslint .
+
+
+> toolgate-typescript-workspace@0.1.0 typecheck
+> tsc --noEmit
+
+
+> toolgate-typescript-workspace@0.1.0 test
+> node --experimental-strip-types --test packages/sdk/test/*.test.ts
+
+✔ validates configuration without invoking credentials or network (3.787347ms)
+✔ rejects unsafe URLs without exposing embedded credentials (7.171817ms)
+✔ HTTP development opt-in is restricted to literal loopback (1.596272ms)
+✔ timeouts must be finite positive integral milliseconds (1.993097ms)
+✔ rejects invalid JavaScript configuration at runtime (1.169818ms)
+✔ wire parser preserves JSON values and escapes without coercion (21.445652ms)
+✔ wire parser rejects duplicate keys before JSON.parse could erase them (6.66687ms)
+✔ remote usage keeps missing headers unknown and counts even invalid response bodies (325.958929ms)
+✔ registry rejects writes in the explicit read-only experiment and unsupported schemas (454.373808ms)
+✔ request-bound handlers reuse the immutable catalogue without widening their allowlist (253.208563ms)
+✔ negotiates generated capabilities with service headers and fixed origin (48.006595ms)
+✔ rejects unsupported contract and unknown fields without coercion (26.918933ms)
+✔ rejects invalid raw JSON, duplicate escaped keys, invalid UTF-8 and oversized bodies (45.93789ms)
+✔ rejects wrong content type, HTTP errors and redirects without retry (12.092187ms)
+✔ abort before call never resolves credentials or opens network (5.069929ms)
+✔ deadline includes a stalled credential resolver (53.268922ms)
+✔ abort and close cancel in-flight calls even when injected transport stalls (3.348159ms)
+✔ credentials and thrown transport errors cannot escape through SDK errors (4.320048ms)
+✔ actual fetch never follows a redirect carrying credentials (138.009867ms)
+✔ deadline includes streamed response body and cancels its reader (21.877323ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4225.310952
+
+> toolgate-typescript-workspace@0.1.0 test:types
+> tsc --noEmit
+
+
+> toolgate-typescript-workspace@0.1.0 pack:check
+> npm run build && node scripts/pack-check.mjs
+
+
+> toolgate-typescript-workspace@0.1.0 build
+> tsc -p packages/sdk/tsconfig.build.json
+
+External tarball runtime and type consumer passed: /tmp/toolgate-pack-ZIDHrr
+
+> toolgate-typescript-workspace@0.1.0 check:generated
+> python3 ../tools/contract.py check && node scripts/generate-capabilities.mjs --check && node scripts/generate-wire.mjs --check
+
+Contract 0.1.0 34735acc922c2261570bed30a849007f3165c7752ab0312547f50ef011aed24f: source lock and generated schema verified
+Static validation only; runtime conformance is a separate gate
