@@ -14,7 +14,8 @@ Provision random 256-bit secrets, support revocation, and never log credentials.
 Treat intentions, descriptions and selector responses as untrusted. Validate
 closed choices and bounded JSON at runtime. Forbid injected URLs, remote schema
 references, redirect-based credential forwarding and arbitrary handler dispatch.
-Unknown effects use the write path. The current read-only SDK rejects that path.
+Unknown effects use the write path. The SDK requires explicit mutation registration and a provider approval callback
+for that path; absent approval fails closed.
 
 Preserve tenant-scoped caches, operations, idempotency and ledger keys. PostgreSQL
 runtime roles must have neither superuser nor BYPASSRLS. Use transaction-local scope

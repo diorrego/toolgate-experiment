@@ -1,0 +1,19 @@
+{
+  "ownedExperimentServicesStopped": true,
+  "verifiedFreePorts": [
+    8182,
+    6390,
+    19091,
+    19093,
+    19441,
+    19443,
+    55459,
+    27029
+  ],
+  "containersStopped": [
+    "toolgate-v2-pg",
+    "toolgate-v2-mongo"
+  ],
+  "dataDeleted": false,
+  "unrelatedServicesUntouched": true
+}

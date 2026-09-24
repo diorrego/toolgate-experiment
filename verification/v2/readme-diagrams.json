@@ -1,0 +1,36 @@
+{
+  "mermaid": "11.12.0",
+  "validation_only_dependency": true,
+  "diagrams": 4,
+  "browser_rendered": true,
+  "syntax_errors": 0,
+  "version": 2,
+  "designs": [
+    "Direct MCP control",
+    "Agent-initiated preparation",
+    "Host-first single Choice",
+    "Host-first parallel binary"
+  ],
+  "dimensions": [
+    {
+      "width": 1043,
+      "height": 616,
+      "text": false
+    },
+    {
+      "width": 1410,
+      "height": 785.484375,
+      "text": false
+    },
+    {
+      "width": 1410,
+      "height": 676.75,
+      "text": false
+    },
+    {
+      "width": 1410,
+      "height": 829.859375,
+      "text": false
+    }
+  ]
+}

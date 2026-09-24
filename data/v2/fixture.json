@@ -1,0 +1,487 @@
+{
+  "version": 2,
+  "synthetic": true,
+  "source": "Native handler oracle snapshot after get_company, before measured runs",
+  "restoreThroughProviderModels": true,
+  "encryptBeforeStorage": [
+    "Client.email"
+  ],
+  "baseline": {
+    "Report": [
+      {
+        "_id": "000000000000000000001000",
+        "companyId": "000000000000000000000100",
+        "wokuId": "000000000000000000000102",
+        "recognitions": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb0"
+        },
+        "improvements": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb1"
+        },
+        "ratingPhrases": {
+          "_id": "6ab5142536492c5ff3c07fb2"
+        },
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      },
+      {
+        "_id": "000000000000000000001001",
+        "companyId": "000000000000000000000100",
+        "folderId": "000000000000000000000103",
+        "recognitions": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb5"
+        },
+        "improvements": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb6"
+        },
+        "ratingPhrases": {
+          "_id": "6ab5142536492c5ff3c07fb7"
+        },
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "User": [
+      {
+        "_id": "000000000000000000000101",
+        "name": "Synthetic Operator",
+        "email": "operator@example.invalid",
+        "lockedUntil": null,
+        "lastLoginAt": null,
+        "passwordChangedAt": null,
+        "preferredLocale": null,
+        "environment": "production",
+        "integrityHash": null,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "ssoIdentities": [],
+        "oauthIdentities": []
+      }
+    ],
+    "Company": [
+      {
+        "_id": "000000000000000000000100",
+        "name": "Synthetic V2 Company",
+        "createdBy": "000000000000000000000101",
+        "users": [],
+        "admins": [],
+        "defaultLocale": "es",
+        "timezone": "America/Santiago",
+        "followUpAgentEnabled": false,
+        "ipAllowlist": {
+          "enabled": false,
+          "cidrs": []
+        },
+        "ssoEnabled": false,
+        "ssoEmailDomains": [],
+        "integrityHashEnabled": false,
+        "integrityHash": null,
+        "sandboxEnabled": false,
+        "environment": "sandbox",
+        "userInactivationDays": 90,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "UserCompany": [
+      {
+        "_id": "000000000000000000001004",
+        "companyId": "000000000000000000000100",
+        "userId": "000000000000000000000101",
+        "role": "owner",
+        "status": "active",
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "Folder": [
+      {
+        "_id": "000000000000000000000103",
+        "name": "Main Folder",
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "visits": 0,
+        "converted": 0,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": []
+      },
+      {
+        "_id": "000000000000000000000104",
+        "name": "Destination Folder",
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "visits": 0,
+        "converted": 0,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": []
+      }
+    ],
+    "Woku": [
+      {
+        "_id": "000000000000000000000102",
+        "description": "Synthetic Reception",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "description": "Synthetic Reception"
+          }
+        ],
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "users": [],
+        "reviewCount": 0,
+        "file": {
+          "filename": "synthetic.png",
+          "type": "image/png",
+          "_id": "6ab5142536492c5ff3c07fc4"
+        },
+        "qualifications": [],
+        "textnotes": [],
+        "voicemails": [],
+        "folderId": "000000000000000000000103",
+        "anonymousDisabled": false,
+        "reviewsDisabled": false,
+        "closed": false,
+        "onlyOneReviewPerClient": false,
+        "environment": "sandbox",
+        "integrityHash": null,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": []
+      }
+    ],
+    "Flow": [
+      {
+        "_id": "000000000000000000000105",
+        "name": "Baseline Journey",
+        "companyId": "000000000000000000000100",
+        "wokusIds": [
+          "000000000000000000000102"
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "NPSTool": [
+      {
+        "_id": "000000000000000000000106",
+        "companyId": "000000000000000000000100",
+        "name": "Baseline NPS",
+        "npsMessage": "our service",
+        "audienceType": "a colleague",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "npsMessage": "our service",
+            "audienceType": "a colleague"
+          }
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "CsatTool": [
+      {
+        "_id": "000000000000000000000107",
+        "companyId": "000000000000000000000100",
+        "createdBy": "000000000000000000000101",
+        "name": "Baseline CSAT",
+        "question": "How satisfied are you?",
+        "subject": "our service",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "question": "How satisfied are you?",
+            "subject": "our service"
+          }
+        ],
+        "responseCount": 0,
+        "environment": "production",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "CesTool": [
+      {
+        "_id": "000000000000000000000108",
+        "companyId": "000000000000000000000100",
+        "createdBy": "000000000000000000000101",
+        "name": "Baseline CES",
+        "question": "How easy was the process?",
+        "action": "complete the process",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "question": "How easy was the process?",
+            "action": "complete the process"
+          }
+        ],
+        "responseCount": 0,
+        "environment": "production",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "Form": [
+      {
+        "_id": "000000000000000000000109",
+        "companyId": "000000000000000000000100",
+        "name": "Baseline Form",
+        "description": "Synthetic form",
+        "fields": [
+          {
+            "id": "00000000-0000-4000-8000-000000000001",
+            "label": "Comments",
+            "type": "text",
+            "required": false,
+            "options": [],
+            "order": 0
+          }
+        ],
+        "settings": {
+          "allowAnonymous": true,
+          "clientIdentifier": "email",
+          "oneResponsePerClient": false
+        },
+        "closed": false,
+        "status": "active",
+        "createdBy": "000000000000000000000101",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "name": "Baseline Form"
+          }
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "Client": [
+      {
+        "_id": "00000000000000000000010a",
+        "email": "baseline@example.invalid",
+        "companyId": "000000000000000000000100",
+        "phone": "",
+        "followUpOptOut": false,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "createdBy": "000000000000000000000101"
+      }
+    ],
+    "Ticket": [
+      {
+        "_id": "00000000000000000000010b",
+        "companyId": "000000000000000000000100",
+        "title": "Synthetic delivery issue",
+        "severity": "medium",
+        "aiSummary": "A synthetic issue",
+        "aiCategory": "Delivery",
+        "historyHighlights": [],
+        "criteria": [],
+        "generatedByAI": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "timeline": []
+      }
+    ],
+    "ActionPlanGroup": [
+      {
+        "_id": "00000000000000000000010f",
+        "companyId": "000000000000000000000100",
+        "name": "Service Team",
+        "conditions": [],
+        "members": [
+          {
+            "userId": "000000000000000000000101",
+            "role": "admin"
+          }
+        ],
+        "threshold": 300,
+        "enabled": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "counterSince": "2026-09-24T12:14:29.562Z"
+      }
+    ],
+    "ActionPlan": [
+      {
+        "_id": "00000000000000000000010c",
+        "companyId": "000000000000000000000100",
+        "groupId": "00000000000000000000010f",
+        "title": "Service Improvement",
+        "summary": "Synthetic plan",
+        "objective": "Improve callbacks",
+        "expectedImpact": "Fewer missed calls",
+        "tasks": [
+          {
+            "text": "Original first task",
+            "order": 0,
+            "status": "todo",
+            "_id": "00000000000000000000010d"
+          },
+          {
+            "text": "Original second task",
+            "order": 1,
+            "status": "todo",
+            "_id": "00000000000000000000010e"
+          }
+        ],
+        "sources": [],
+        "status": "draft",
+        "priority": "medium",
+        "evidence": {
+          "windowFrom": "2026-09-01T00:00:00.000Z",
+          "windowTo": "2026-09-02T00:00:00.000Z",
+          "conditionsSnapshot": [],
+          "negatives": 0,
+          "positives": 0,
+          "total": 0,
+          "quotes": []
+        },
+        "generation": {
+          "model": "synthetic-fixture",
+          "promptVersion": "v2",
+          "generatedAt": "2026-09-01T00:00:00.000Z"
+        },
+        "aiGenerated": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "patterns": []
+      }
+    ],
+    "CompanyExternalTracker": [
+      {
+        "_id": "000000000000000000000110",
+        "companyId": "000000000000000000000100",
+        "name": "Baseline Tracker",
+        "system": "Internal CRM",
+        "active": true,
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "Quarantine": [
+      {
+        "_id": "000000000000000000000111",
+        "companyId": "000000000000000000000100",
+        "name": "Baseline Guard",
+        "respondentIdentifier": "email",
+        "windowDurationMin": 60,
+        "maxResponsesPerRespondent": 5,
+        "enabled": true,
+        "priority": 0,
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "metrics": {
+          "totalBlocked": 0,
+          "totalAllowed": 0,
+          "lastBlockedAt": null,
+          "_id": "6ab5142536492c5ff3c07fdd"
+        }
+      }
+    ],
+    "DataFlow": [
+      {
+        "_id": "000000000000000000000114",
+        "companyId": "000000000000000000000100",
+        "name": "Synthetic Data Flow",
+        "description": "Test only",
+        "sourceName": "Synthetic source",
+        "status": "draft",
+        "code": "",
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "conversation": []
+      }
+    ],
+    "DataFlowVersion": [
+      {
+        "_id": "000000000000000000001014",
+        "companyId": "000000000000000000000100",
+        "dataFlowId": "000000000000000000000114",
+        "versionNumber": 1,
+        "code": "",
+        "name": "Synthetic Data Flow",
+        "description": "Test only",
+        "sourceName": "Synthetic source",
+        "note": "Initial version",
+        "author": {
+          "userId": "000000000000000000000101",
+          "name": "Synthetic Operator"
+        },
+        "runsCount": 1,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "DataFlowRun": [
+      {
+        "_id": "000000000000000000001015",
+        "companyId": "000000000000000000000100",
+        "dataFlowId": "000000000000000000000114",
+        "versionNumber": 1,
+        "runBy": {
+          "userId": "000000000000000000000101",
+          "name": "Synthetic Operator"
+        },
+        "status": "completed",
+        "realSends": false,
+        "recordsReviewed": 0,
+        "totalSent": 0,
+        "surveyType": null,
+        "breakdown": {
+          "recordsReviewed": 0,
+          "sentWhatsapp": 0,
+          "sentEmail": 0,
+          "noConditions": 0,
+          "noChannel": 0,
+          "errors": 0
+        },
+        "records": [],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "WokuExternalTracker": [],
+    "ExternalTrackerValue": []
+  },
+  "caseOverrides": {
+    "V2-60": {
+      "model": "Woku",
+      "id": "000000000000000000000102",
+      "set": {
+        "closed": true
+      }
+    }
+  }
+}

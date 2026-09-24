@@ -28,4 +28,6 @@ ready means structurally valid, not approved. Decision-issued means bound for a
 possible dispatch, not executed. Local authorization and any required approval must
 remain valid for the exact identity, tool, arguments, effect and expiry. A model
 argument cannot grant approval. Read execution must reject write/unknown effects.
-The current experimental SDK supports only read operations with text MCP results.
+The SDK supports text MCP results. Mutation registration is an explicit trusted
+opt-in. executeWrite requires a provider approval callback, with checks before
+dispatch and replay; executeRead rejects every non-read effect.

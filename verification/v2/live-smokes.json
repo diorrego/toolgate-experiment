@@ -1,0 +1,28 @@
+{
+  "rawSha256": "61bb0eb01e01a2a726d2f4b8f04c551cdd493f293aebc69f427b5e1f1230ab33",
+  "fingerprints": {
+    "go": "880c583b603e23cdc90e7615b0d0922d616a973dd1efe065c67904c2f66db73e",
+    "runner": "9fa697b402a1e85ee256d1dc4301f37a21e5f6d3a332982b0b3826b9878319dd",
+    "metrics": "df59fc4370ae1326e1859a631fa0bab7e6c32103fad412e8725e192fc67fc818",
+    "sdk": "07942e2c052d04e51bcad1102ec3abd84a438ace7c07a3a2897e3844de628e32",
+    "provider": "e61367cc7a7f91635ca903bd19728e38114297c7bfe4f9e93cc770d4d6de4a94",
+    "contract": "bd745a5fe9703bc3900c2d8b82841b14cd64cea3cd85e6c8f4bad5d26749c7ff",
+    "stateOracle": "99f59c1cd5d0f152832f4b2e27c5b43cc606c5f60ad5359929e4830498f31998",
+    "apiClient": "24f18fc453deb2dbc2c36cb36e8ca962d917ef786d9dee99af8f2b6b99f3173d",
+    "coreSupervisor": "0aed47817b2e76d755299f034e8ea063d3cdb5f5960b239043c9ab872ee86b18",
+    "providerAdapter": "57ea72fdd9628d1c9a36fc4e48348557155530f1cd8455515f650de393f50ae6",
+    "wokuBuildManifest": "d8f61b8c1551aa386d797ba0accac995286167793b0c2a9212f564a08462f7a3",
+    "environment": "0ca35f3fe61dccba0bf01a243029ad5a4f41d8d0ce80fbce4bcbaed3261a5715",
+    "config": "60148ce7ce31ee440bc9ecbf662dc019e905871dd95c53799045f2d84b2744df",
+    "corpus": "847d87e9a68eddb87ff73590c9fe8cfce84c8943e4d293b9804e3dc8b08a7807",
+    "catalog": "1ba87eeb85a646a7b68899b11dccb71bfc29e289adb10be1879bec71c7845e3e"
+  },
+  "cases": 8,
+  "complete": true,
+  "allExpectedHandlersSucceeded": true,
+  "allMutationStatesCorrect": true,
+  "model": "gpt-6-luna",
+  "modelCalls": 21,
+  "jevCalls": 132,
+  "notInMainMatrix": true
+}

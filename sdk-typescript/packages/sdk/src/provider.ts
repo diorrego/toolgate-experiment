@@ -1,3 +1,4 @@
+import { createRequire } from "node:module";
 import { Ajv2020 } from "ajv/dist/2020.js";
 import type { ValidateFunction, ErrorObject } from "ajv";
 import { decodeWire, jsonValue, jcs, sha } from "./codec.ts";
@@ -22,10 +23,18 @@ export interface LocalTool {
   ) => Promise<unknown>;
 }
 const supported = new Set(
-  "$schema $id $defs $ref type properties required additionalProperties enum const minimum maximum exclusiveMinimum exclusiveMaximum minLength maxLength minItems maxItems items minProperties maxProperties allOf anyOf oneOf title description default examples deprecated readOnly writeOnly format".split(
+  "$schema $id $defs $ref type properties required additionalProperties enum const minimum maximum exclusiveMinimum exclusiveMaximum minLength maxLength minItems maxItems items minProperties maxProperties allOf anyOf oneOf title description default examples deprecated readOnly writeOnly format pattern".split(
     " ",
   ),
 );
+const wokuPatterns = new Set([
+  String.raw`^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$`,
+  String.raw`\S`,
+  String.raw`^(?=.*[0-9])[+]?[0-9()\-\s.]+$`,
+  String.raw`^[a-f0-9]{24}$`,
+  String.raw`^[0-9a-fA-F]{24}$`,
+  String.raw`\D`,
+]);
 function record(v: unknown): v is Record<string, unknown> {
   return typeof v === "object" && v !== null && !Array.isArray(v);
 }
@@ -52,11 +61,36 @@ function profile(schema: Record<string, unknown>): void {
     if (depth > 64) throw new RemoteError("SCHEMA_UNSUPPORTED");
     if (typeof node === "boolean") return;
     if (!record(node)) throw new RemoteError("SCHEMA_UNSUPPORTED");
+    if (
+      schema["$schema"] === "http://json-schema.org/draft-07/schema#" &&
+      "$ref" in node &&
+      Object.keys(node).some(
+        (key) =>
+          ![
+            "$ref",
+            "title",
+            "description",
+            "default",
+            "examples",
+            "deprecated",
+            "readOnly",
+            "writeOnly",
+            "format",
+          ].includes(key),
+      )
+    )
+      throw new RemoteError("SCHEMA_UNSUPPORTED");
     for (const [key, value] of Object.entries(node)) {
       if (!supported.has(key)) throw new RemoteError("SCHEMA_UNSUPPORTED");
       if (
         key === "$schema" &&
-        value !== "https://json-schema.org/draft/2020-12/schema"
+        value !== "https://json-schema.org/draft/2020-12/schema" &&
+        value !== "http://json-schema.org/draft-07/schema#"
+      )
+        throw new RemoteError("SCHEMA_UNSUPPORTED");
+      if (
+        key === "pattern" &&
+        (typeof value !== "string" || !wokuPatterns.has(value))
       )
         throw new RemoteError("SCHEMA_UNSUPPORTED");
       if (key === "$ref") {
@@ -85,13 +119,20 @@ function profile(schema: Record<string, unknown>): void {
   };
   walk(schema, new Set(), 0);
 }
-/** Explicit immutable metadata and local handler references; read-only lab profile. */
+/** Explicit metadata and provider-local handlers; mutation registration is opt-in. */
 export class ToolRegistry {
   readonly version: string;
+  readonly allowMutations: boolean;
   private readonly tools = new Map<string, LocalTool>();
   private readonly validators = new Map<string, ValidateFunction>();
   private readonly upload: CatalogUpload;
-  constructor(definitions: LocalTool[], template?: ToolRegistry) {
+  constructor(
+    definitions: LocalTool[],
+    template?: ToolRegistry,
+    options: { allowMutations?: boolean } = {},
+  ) {
+    this.allowMutations =
+      template?.allowMutations ?? options.allowMutations === true;
     const ajv = template
       ? null
       : new Ajv2020({
@@ -102,13 +143,19 @@ export class ToolRegistry {
           useDefaults: false,
           removeAdditional: false,
         });
+    if (ajv) {
+      const require = createRequire(import.meta.url);
+      const draft7: unknown = require("ajv/dist/refs/json-schema-draft-07.json");
+      if (!record(draft7)) throw new RemoteError("SCHEMA_UNSUPPORTED");
+      ajv.addMetaSchema(draft7);
+    }
     const metadata: ToolDescriptor[] = [];
     for (const tool of definitions) {
       const clean = decodeWire(
         "ToolDescriptor",
         JSON.parse(jcs(tool.metadata)) as unknown,
       );
-      if (clean.effect !== "read")
+      if (clean.effect !== "read" && !this.allowMutations)
         throw new RemoteError("READ_ONLY_CATALOG_REQUIRED");
       if (this.tools.has(clean.tool_id))
         throw new RemoteError("CATALOG_INVALID");
@@ -220,6 +267,12 @@ export interface ProviderOptions {
   registry: ToolRegistry;
   client: RemoteClient;
   store: PostgresStore;
+  /** Required for every mutation, including replay. The model cannot provide this approval. */
+  approve?: (
+    actor: Actor,
+    toolId: string,
+    args: Record<string, unknown>,
+  ) => Promise<boolean>;
   authorize: (
     actor: Actor,
     toolId: string,
@@ -306,7 +359,6 @@ export class ToolgateProvider {
       throw new RemoteError("CATALOG_MISMATCH");
     const local = this.options.registry.get(selected.tool_id).metadata;
     if (
-      selected.effect !== "read" ||
       local.effect !== selected.effect ||
       sha(local.input_schema) !== selected.schema_digest ||
       sha(selected.input_schema) !== selected.schema_digest
@@ -339,6 +391,33 @@ export class ToolgateProvider {
     input: ExecuteInput,
     options: CallOptions = {},
   ): Promise<unknown> {
+    return this.execute(actor, input, false, options);
+  }
+  async executeWrite(
+    actor: Actor,
+    input: ExecuteInput,
+    options: CallOptions = {},
+  ): Promise<unknown> {
+    return this.execute(actor, input, true, options);
+  }
+  private async permitted(
+    actor: Actor,
+    toolId: string,
+    args: Record<string, unknown>,
+    mutation: boolean,
+  ): Promise<boolean> {
+    return (
+      (await this.options.authorize(actor, toolId, args)) &&
+      (!mutation ||
+        (await this.options.approve?.(actor, toolId, args)) === true)
+    );
+  }
+  private async execute(
+    actor: Actor,
+    input: ExecuteInput,
+    mutation: boolean,
+    options: CallOptions,
+  ): Promise<unknown> {
     const args = frozenArguments(input.arguments);
     const snapshot = await this.options.store.get(actor, input.operation_id);
     if (
@@ -348,8 +427,10 @@ export class ToolgateProvider {
     )
       throw new RemoteError("OPERATION_STATE_INVALID");
     const selected = snapshot.selected_tool;
+    if ((selected.effect !== "read") !== mutation)
+      throw new RemoteError("EFFECT_MISMATCH");
     this.bindings(snapshot, selected, actor);
-    if (!(await this.options.authorize(actor, selected.tool_id, args)))
+    if (!(await this.permitted(actor, selected.tool_id, args, mutation)))
       throw new RemoteError("TOOL_NOT_ALLOWED");
     const issues = this.options.registry.validate(selected.tool_id, args);
     const firstIssue = issues[0];
@@ -362,7 +443,7 @@ export class ToolgateProvider {
         expires_at: snapshot.expires_at,
         status: "needs_arguments",
         selected_tool: selected,
-        next_tool: "execute_read_action",
+        next_tool: mutation ? "execute_write_action" : "execute_read_action",
         issues: [firstIssue, ...issues.slice(1)],
         missing_paths: issues
           .filter((i) => i.code === "required")
@@ -409,11 +490,15 @@ export class ToolgateProvider {
     await this.options.store.put(actor, issued);
     if (
       Date.parse(decision.not_after) <= Date.now() ||
-      !(await this.options.authorize(actor, selected.tool_id, args))
+      !(await this.permitted(actor, selected.tool_id, args, mutation))
     )
       throw new RemoteError("TOOL_NOT_ALLOWED");
     const claim = await this.options.store.claim(actor, decision);
-    if ("replay" in claim) return claim.replay;
+    if ("replay" in claim) {
+      if (!(await this.permitted(actor, selected.tool_id, args, mutation)))
+        throw new RemoteError("TOOL_NOT_ALLOWED");
+      return claim.replay;
+    }
     if (!claim.fence) throw new RemoteError("STORE_UNAVAILABLE");
     const fence = claim.fence;
     if (

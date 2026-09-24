@@ -1,0 +1,8 @@
+{
+  "state": "../.local/lab.json",
+  "apiKeyFile": "../.env",
+  "privateDir": "../.local/v2",
+  "goBinary": "../backend-go/bin/toolgate",
+  "tlsKey": "../.local/tls/key.pem",
+  "tlsCert": "../.local/tls/cert.pem"
+}

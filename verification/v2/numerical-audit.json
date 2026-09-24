@@ -1,0 +1,37 @@
+{
+  "independentLanguage": "Python Decimal and statistics",
+  "passed": true,
+  "allModelResponsesPinned": true,
+  "allUsageComplete": true,
+  "allMatrixCellsUnique": true,
+  "byMode": [
+    {
+      "mode": "direct",
+      "cases": 60,
+      "totalCostUSD": 0.071341305,
+      "medianMs": 10480.76814900004,
+      "profileVerified": true
+    },
+    {
+      "mode": "design-1",
+      "cases": 60,
+      "totalCostUSD": 0.048590167,
+      "medianMs": 9526.37333849998,
+      "profileVerified": true
+    },
+    {
+      "mode": "design-2",
+      "cases": 60,
+      "totalCostUSD": 0.034458875,
+      "medianMs": 4409.011080999975,
+      "profileVerified": true
+    },
+    {
+      "mode": "design-3",
+      "cases": 60,
+      "totalCostUSD": 0.104032707,
+      "medianMs": 5754.356886499911,
+      "profileVerified": true
+    }
+  ]
+}

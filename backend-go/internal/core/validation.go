@@ -73,6 +73,7 @@ func compileTool(schema map[string]any) (*js.Schema, error) {
 		return nil, err
 	}
 	c := compiler()
+	c.UseRegexpEngine(compileWokuPattern)
 	if err := c.AddResource("https://toolgate.invalid/tool", schema); err != nil {
 		return nil, err
 	}
@@ -127,7 +128,7 @@ func validateCompiled(compiled *js.Schema, args map[string]any) ([]Issue, []stri
 			code = "minimum"
 		case "exclusiveMaximum":
 			code = "maximum"
-		case "minProperties", "maxProperties":
+		case "pattern", "minProperties", "maxProperties":
 			code = "unsupported_value"
 		case "oneOf":
 			code = "one_of"
@@ -189,7 +190,7 @@ func schemaProfile(root map[string]any) error {
 		return errors.New("schema limits")
 	}
 	supported := map[string]bool{}
-	for _, k := range strings.Fields("$schema $id $defs $ref type properties required additionalProperties enum const minimum maximum exclusiveMinimum exclusiveMaximum minLength maxLength minItems maxItems items minProperties maxProperties allOf anyOf oneOf title description default examples deprecated readOnly writeOnly format") {
+	for _, k := range strings.Fields("$schema $id $defs $ref type properties required additionalProperties enum const minimum maximum exclusiveMinimum exclusiveMaximum minLength maxLength minItems maxItems items minProperties maxProperties allOf anyOf oneOf title description default examples deprecated readOnly writeOnly format pattern") {
 		supported[k] = true
 	}
 	var walk func(any, map[string]bool, int) error
@@ -204,13 +205,27 @@ func schemaProfile(root map[string]any) error {
 		if !ok {
 			return errors.New("invalid schema")
 		}
+		if root["$schema"] == "http://json-schema.org/draft-07/schema#" {
+			if _, hasRef := obj["$ref"]; hasRef {
+				for key := range obj {
+					if !contains(strings.Fields("$ref title description default examples deprecated readOnly writeOnly format"), key) {
+						return errors.New("draft-07 ref siblings outside common subset")
+					}
+				}
+			}
+		}
 		for k, value := range obj {
 			if !supported[k] {
 				return fmt.Errorf("unsupported schema keyword")
 			}
 			switch k {
+			case "pattern":
+				p, ok := value.(string)
+				if !ok || !wokuPatterns[p] {
+					return errors.New("unsupported pattern")
+				}
 			case "$schema":
-				if value != "https://json-schema.org/draft/2020-12/schema" {
+				if value != "https://json-schema.org/draft/2020-12/schema" && value != "http://json-schema.org/draft-07/schema#" {
 					return errors.New("schema dialect")
 				}
 			case "$ref":

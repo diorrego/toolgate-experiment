@@ -1,0 +1,71 @@
+{
+  "notPartOfMainMatrix": true,
+  "captures": [
+    {
+      "name": "run-2026-09-24T12-17-21-536Z.json",
+      "sha256": "b06015287257c0bb9bda3a0fe34dece922b49cd59b588d761a8d9c2ed861ecf0",
+      "smoke": false,
+      "complete": false,
+      "cases": 42,
+      "modelCalls": 117,
+      "jevCalls": 728,
+      "knownOpenaiCostUSD": 0.02614299,
+      "knownJevCostUSD": 0.017825808000000002,
+      "usageComplete": true
+    },
+    {
+      "name": "smoke-2026-09-24T12-05-44-609Z.json",
+      "sha256": "a0f625c53f79b703fefafeba48ac4b257cd5fb3b4136b9b45f219c1cb08375d3",
+      "smoke": true,
+      "complete": false,
+      "cases": 4,
+      "modelCalls": 10,
+      "jevCalls": 66,
+      "knownOpenaiCostUSD": 0.005527755,
+      "knownJevCostUSD": 0.001514142,
+      "usageComplete": true
+    },
+    {
+      "name": "smoke-2026-09-24T12-15-10-649Z.json",
+      "sha256": "60d8442946a277ba6eccde158e773b96897889724591aa74df3a0707677841e2",
+      "smoke": true,
+      "complete": true,
+      "cases": 8,
+      "modelCalls": 20,
+      "jevCalls": 132,
+      "knownOpenaiCostUSD": 0.004378705,
+      "knownJevCostUSD": 0.0030953160000000003,
+      "usageComplete": true
+    },
+    {
+      "name": "smoke-2026-09-24T12-29-36-176Z.json",
+      "sha256": "61bb0eb01e01a2a726d2f4b8f04c551cdd493f293aebc69f427b5e1f1230ab33",
+      "smoke": true,
+      "complete": true,
+      "cases": 8,
+      "modelCalls": 21,
+      "jevCalls": 132,
+      "knownOpenaiCostUSD": 0.00458682,
+      "knownJevCostUSD": 0.0030953160000000003,
+      "usageComplete": true
+    }
+  ],
+  "compatibilityProbe": {
+    "model": "gpt-6-luna",
+    "httpStatus": 200,
+    "tools": 143,
+    "rawSha256": "7cc72bc41d2f0c0b60787bf9011d9d5f0ea1e1274d179aaef86be4377d6511b9",
+    "usage": {
+      "input_tokens": 27962,
+      "input_tokens_details": {
+        "cache_write_tokens": 27887,
+        "cached_tokens": 0
+      },
+      "output_tokens": 5,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 27967
+    }
+  }
+}

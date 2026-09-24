@@ -4,8 +4,8 @@
     "shared/ARCHITECTURE.md": "af2b6021c5f77f0a19ba542c1583ba853deaada4ba792baa0f2d49a79a308541",
     "shared/CONTRACT.md": "fa730152b349c6584fc5fcb30ff8e5d8a6855f8c7e0430e7a4b48a9b47cf121c",
     "shared/DATABASE.md": "907d6f701af396eac4855e3bef9f79349ab1d3e1b20e09aad4e9fde1a33157c0",
-    "shared/JSON_SCHEMA_PROFILE.md": "04bfd28428dfc803ba266625a8758758dc75f712da138828399265bd7f12a57b",
-    "shared/PRODUCT.md": "a410477bd713ecc833d9b5cf2598d5102bbcc9af0913757cf84bca48c2810267",
+    "shared/JSON_SCHEMA_PROFILE.md": "fa3b5e38005280f9384b670e79ce9e831afceffa3a501d4f6b7157569e60a9bb",
+    "shared/PRODUCT.md": "90c9b8d4bb9941bf52bb754acda28b4e89a1415c6776d0e74c0d8a0afb42a051",
     "shared/SECURITY.md": "d2d8c6a7fc8d8e61bae0c498697f8d0699e49f3a31d1a364a64e1f26366dcafe",
     "shared/SELECTION.md": "1fc4b58a8864cd446ac8da18a1a7f3965b800a30aa9f7a0bfacd201d3834471a",
     "shared/STATE_MACHINE.md": "997fd6e88f6a8b2a5d72aed24cb4ccb6bd041c251e0bac616a00c920310e8f4d",
@@ -14,5 +14,5 @@
     "shared/openapi.yaml": "a6d91561aebb1be1dc04cf24e77fe05b558d69c3c1feda00aafb0a5d1ddea560"
   },
   "format": "toolgate-reconstructed-contract-lock-v1",
-  "sha256": "431b6fc5be13e9b6bea0bebb17bf0d834312bf30862e52ca4b02f18434a48f96"
+  "sha256": "920d202a45799fbeabc89d0810f6c5d5bf2a3c8b77e397b36ee35e8406c8cf0b"
 }

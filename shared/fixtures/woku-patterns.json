@@ -1,0 +1,932 @@
+[
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "#abc",
+    "valid": true
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "#ABCDEF",
+    "valid": true
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "#1234",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "#abc\n",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "#abc\r\n",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "123456789012345678901234",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "abcdefabcdefabcdefabcdef",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "ABCDEFABCDEFABCDEFABCDEF",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "a",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "1",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "\n",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "\r",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "\t",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "\u000b",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "\f",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "﻿",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "١",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "+1 (234) 567-8900",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "+ .",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "\n1",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "1\n",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "1\n2",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "x1",
+    "valid": false
+  },
+  {
+    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+    "value": "1x",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "#abc",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "#ABCDEF",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "#1234",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "#abc\n",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "#abc\r\n",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "123456789012345678901234",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "abcdefabcdefabcdefabcdef",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "ABCDEFABCDEFABCDEFABCDEF",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "a",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "1",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "\n",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "\r",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "\t",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "\u000b",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "\f",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "﻿",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "\\S",
+    "value": "١",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "+1 (234) 567-8900",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "+ .",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "\n1",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "1\n",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "1\n2",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "x1",
+    "valid": true
+  },
+  {
+    "pattern": "\\S",
+    "value": "1x",
+    "valid": true
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "#abc",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "#ABCDEF",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "#1234",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "#abc\n",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "#abc\r\n",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "123456789012345678901234",
+    "valid": true
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "abcdefabcdefabcdefabcdef",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "ABCDEFABCDEFABCDEFABCDEF",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "a",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "1",
+    "valid": true
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "\n",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "\r",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "\t",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "\u000b",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "\f",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "﻿",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "١",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "+1 (234) 567-8900",
+    "valid": true
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "+ .",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "\n1",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "1\n",
+    "valid": true
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "1\n2",
+    "valid": true
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "x1",
+    "valid": false
+  },
+  {
+    "pattern": "^(?=.*[0-9])[+]?[0-9()\\-\\s.]+$",
+    "value": "1x",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "#abc",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "#ABCDEF",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "#1234",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "#abc\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "#abc\r\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "123456789012345678901234",
+    "valid": true
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "abcdefabcdefabcdefabcdef",
+    "valid": true
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "ABCDEFABCDEFABCDEFABCDEF",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "a",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "1",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "\r",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "\t",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "\u000b",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "\f",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "﻿",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "١",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "+1 (234) 567-8900",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "+ .",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "\n1",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "1\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "1\n2",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "x1",
+    "valid": false
+  },
+  {
+    "pattern": "^[a-f0-9]{24}$",
+    "value": "1x",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "#abc",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "#ABCDEF",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "#1234",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "#abc\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "#abc\r\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "123456789012345678901234",
+    "valid": true
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "abcdefabcdefabcdefabcdef",
+    "valid": true
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "ABCDEFABCDEFABCDEFABCDEF",
+    "valid": true
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "a",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "1",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "\r",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "\t",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "\u000b",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "\f",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "﻿",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": " ",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "١",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "+1 (234) 567-8900",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "+ .",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "\n1",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "1\n",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "1\n2",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "x1",
+    "valid": false
+  },
+  {
+    "pattern": "^[0-9a-fA-F]{24}$",
+    "value": "1x",
+    "valid": false
+  },
+  {
+    "pattern": "\\D",
+    "value": "",
+    "valid": false
+  },
+  {
+    "pattern": "\\D",
+    "value": "#abc",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "#ABCDEF",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "#1234",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "#abc\n",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "#abc\r\n",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "123456789012345678901234",
+    "valid": false
+  },
+  {
+    "pattern": "\\D",
+    "value": "abcdefabcdefabcdefabcdef",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "ABCDEFABCDEFABCDEFABCDEF",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "a",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "1",
+    "valid": false
+  },
+  {
+    "pattern": "\\D",
+    "value": " ",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "\n",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "\r",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "\t",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "\u000b",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "\f",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": " ",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "﻿",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": " ",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": " ",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": " ",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "١",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "+1 (234) 567-8900",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "+ .",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "\n1",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "1\n",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "1\n2",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "x1",
+    "valid": true
+  },
+  {
+    "pattern": "\\D",
+    "value": "1x",
+    "valid": true
+  }
+]

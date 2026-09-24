@@ -11,9 +11,11 @@ nor a performance improvement is assumed. One operation selects one tool. Missin
 values, ambiguity and abstention remain visible; no component invents identifiers,
 permissions or business arguments. The agent receives the selected input schema.
 
-The executable scope in this repository is the experimental read-only path. Write
-and unknown-effect execution is denied by the SDK. Text MCP results are supported
-in that path. This is not a production release or a claim of universal MCP support.
+The SDK defaults to read-only registration. The V2 experimental scope also supports
+explicitly enabled write, destructive and unknown-effect operations, with provider
+authorization, provider-owned approval, remote decisions and the durable local
+ledger. Only text MCP results are supported. This is not a production release or a
+claim of universal MCP support; see ADR 0004 for the opt-in boundaries.
 
 Required boundaries include immutable versioned metadata, tenant and integration
 isolation, authenticated provider actor context, authorization before candidate

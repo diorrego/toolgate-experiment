@@ -1,3 +1,5 @@
+> This page reproduces the V1 latency experiments. See [V2 accuracy](V2-ACCURACY.md) for the 143-tool, 60-requirement API experiment.
+
 # Reproduce the experiment
 
 ## What is and is not included

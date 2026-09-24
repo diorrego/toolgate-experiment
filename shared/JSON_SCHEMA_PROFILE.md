@@ -8,7 +8,7 @@ minItems, maxItems, items, minProperties, maxProperties, allOf, anyOf and oneOf.
 Allowed annotations are title, description, default, examples, deprecated,
 readOnly, writeOnly and format. Format is an annotation, not a security validator.
 
-Reject remote/file/recursive references, dynamic references/anchors, pattern,
+Reject remote/file/recursive references, dynamic references/anchors, arbitrary patterns,
 patternProperties, multipleOf, uniqueItems, contains, prefixItems, unevaluated*,
 dependent*, if/then/else, not and unregistered extensions. This profile applies
 to catalog tool schemas, not to OpenAPI or the three public MCP entry-point schemas.
@@ -33,3 +33,24 @@ useDefaults and removeAdditional are forbidden.
 Use RFC 8785 canonicalization for runtime catalog/schema/argument digests, including
 number rendering and UTF-16 key ordering. Plain sorted JSON is not a general JCS
 implementation. Contract-file manifests use their separately documented encoding.
+
+## V2 finite Woku compatibility
+
+The common keyword subset also accepts the declaration
+`http://json-schema.org/draft-07/schema#`. Catalog metadata is not rewritten.
+Draft-07 `$ref` nodes may have annotation siblings only; validation siblings are
+rejected to avoid differing draft semantics across validators.
+The `pattern` keyword accepts only the six expressions specified and exercised
+in fixtures/woku-patterns.json, with ECMAScript character and boundary semantics.
+All other expressions remain unsupported. Pattern failures use unsupported_value.
+See ADR 0004 for consumer compatibility and compile-only normalization.
+
+
+The accepted pattern strings are exactly:
+
+- `^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$`
+- `\S`
+- `^(?=.*[0-9])[+]?[0-9()\-\s.]+$`
+- `^[a-f0-9]{24}$`
+- `^[0-9a-fA-F]{24}$`
+- `\D`

@@ -1,0 +1,54 @@
+{
+  "date": "2026-09-24",
+  "checks": {
+    "Go check": {
+      "sha256": "6a018168c50b3e66465f98a03b7e7c203b88e4f242d98f867b6ada7b02c2dbe5",
+      "exitCode": 0
+    },
+    "Rust check": {
+      "sha256": "4001f915b669148b26359439a1bdd547b866f78336bc420ee817bbbf9bdb5202",
+      "exitCode": 0
+    },
+    "SDK check": {
+      "sha256": "c7e3c9c0166623513d45cb084969bf490a87185172b92c3d84d4a0681b4f299c",
+      "exitCode": 0
+    },
+    "SDK tarball consumer": {
+      "sha256": "57370e2d0167db7ea54a84717724d33ac256c6e08a74ddb2f63fc9c0198090d0",
+      "exitCode": 0
+    },
+    "Go durable mutation integration": {
+      "sha256": "005fcd2994c921efa3727c651c06a71e4ab164471e323a0223f81d97746952e5",
+      "exitCode": 0
+    },
+    "Rust durable mutation integration": {
+      "sha256": "2e441a9a244210a0047356d66b2a33be5dc1fdafc5b4458a295c50941fc49a98",
+      "exitCode": 0
+    },
+    "Host unit tests": {
+      "sha256": "55ebe68f7fd227fe738ca57b04f8e7ac72261a77427588941878677819e78c03",
+      "exitCode": 0
+    },
+    "V2 host regressions": {
+      "sha256": "c64b0d0605f128c014b3a003e4b04e469e49fb86ebf378caaddfaf915bf08bc4",
+      "exitCode": 0
+    },
+    "Historical numerical reports": {
+      "sha256": "e8242627ace043f69573ef958714c39a85912ab7a16dfe9aaac8f88101ce1311",
+      "exitCode": 0
+    },
+    "Native business oracles": {
+      "sha256": "82628adad1d69649f47d4eff16e2bf2219cb67d5266a83b5446a8cb676b4f8ff",
+      "exitCode": 0
+    },
+    "MCP validation and catalog": {
+      "sha256": "40294d55984e7bee1f551171dfe243529aa80af8683e783d82f70b02cdc2726d",
+      "exitCode": 0
+    }
+  },
+  "nativeCases": 60,
+  "readCases": 30,
+  "mutationCases": 30,
+  "allNativeHandlersPassed": true,
+  "allMutationStateOraclesPassed": true
+}

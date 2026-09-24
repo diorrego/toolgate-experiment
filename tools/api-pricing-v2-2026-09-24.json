@@ -1,0 +1,24 @@
+{
+  "date": "2026-09-24",
+  "currency": "USD",
+  "basis": "Published API token prices; estimates, not invoices",
+  "openai": {
+    "model": "gpt-6-luna",
+    "endpoint": "https://api.openai.com/v1/responses",
+    "requestedServiceTier": "default",
+    "inputPerMillion": 0.1,
+    "cachedInputPerMillion": 0.01,
+    "cacheWritePerMillion": 0.125,
+    "outputPerMillion": 0.5,
+    "longContextThreshold": 272000,
+    "longContextInputMultiplier": 2,
+    "longContextOutputMultiplier": 1.5,
+    "source": "https://developers.openai.com/api/docs/pricing"
+  },
+  "jev": {
+    "model": "jev-1.13.0",
+    "inputPerMillion": 0.042,
+    "outputPerMillion": 0,
+    "source": "https://docs.typesafe.ai/models"
+  }
+}

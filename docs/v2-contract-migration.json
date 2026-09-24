@@ -1,0 +1,18 @@
+{
+  "from": "3738ee131340ac2e23f2823efc79f47dbe19e7ec17fd763042fd23e17860b2d2",
+  "wireVersion": "0.1.0",
+  "wireSchemasUnchanged": true,
+  "migrationsUnchanged": true,
+  "changes": [
+    "finite Woku pattern vocabulary",
+    "common draft-07 subset with annotation-only ref siblings",
+    "opt-in SDK mutations with provider approval and durable ledger"
+  ],
+  "adr": "shared/adr/0004-v2-catalog-and-mutations.md",
+  "measured": "920d202a45799fbeabc89d0810f6c5d5bf2a3c8b77e397b36ee35e8406c8cf0b",
+  "publication": "431b6fc5be13e9b6bea0bebb17bf0d834312bf30862e52ca4b02f18434a48f96",
+  "postMeasurementDocumentationOnly": [
+    "Align PRODUCT executable-scope wording with already implemented ADR 0004",
+    "Spell out the existing six-expression vocabulary in the locked schema profile"
+  ]
+}

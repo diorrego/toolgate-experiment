@@ -23,3 +23,4 @@ build:
 report-check:
 	python3 tools/check-results.py
 	python3 tools/check-results.py --name binary
+	node tools/v2/analyze.mjs --check

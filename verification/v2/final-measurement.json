@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "records": 240,
+  "recordsPerCondition": 60,
+  "finalAnswers": 239,
+  "expectedHandlerSuccesses": 237,
+  "correctMutationStates": 120,
+  "modelCalls": 732,
+  "jevCalls": 3926,
+  "rawSha256": "eee1d69b824dc06e8951da5bcc2f0211c7cc162600facd574ce680fa97a1ba56",
+  "measuredRuntimeArtifactsUnchanged": true,
+  "postMeasurementDocumentationChanges": [
+    "contract"
+  ],
+  "totalEstimatedApiCostUSD": 0.258423054,
+  "observations": "results/v2/observations.json",
+  "reviewNotes": "results/v2/review-notes.json"
+}

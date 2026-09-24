@@ -1,0 +1,650 @@
+{
+  "version": 2,
+  "language": "en",
+  "syntheticIds": {
+    "company": "000000000000000000000100",
+    "user": "000000000000000000000101",
+    "woku": "000000000000000000000102",
+    "folder": "000000000000000000000103",
+    "parent": "000000000000000000000104",
+    "flow": "000000000000000000000105",
+    "nps": "000000000000000000000106",
+    "csat": "000000000000000000000107",
+    "ces": "000000000000000000000108",
+    "form": "000000000000000000000109",
+    "client": "00000000000000000000010a",
+    "ticket": "00000000000000000000010b",
+    "plan": "00000000000000000000010c",
+    "task": "00000000000000000000010d",
+    "task2": "00000000000000000000010e",
+    "group": "00000000000000000000010f",
+    "tracker": "000000000000000000000110",
+    "quarantine": "000000000000000000000111",
+    "report": "000000000000000000000112",
+    "dataApp": "000000000000000000000113",
+    "dataFlow": "000000000000000000000114"
+  },
+  "cases": [
+    {
+      "id": "V2-01",
+      "question": "Show the connected company profile, including its name and settings.",
+      "tool": "get_company",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "company"
+    },
+    {
+      "id": "V2-02",
+      "question": "List the members of this company and their roles.",
+      "tool": "list_company_members",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "company"
+    },
+    {
+      "id": "V2-03",
+      "question": "Show the overall company dashboard statistics.",
+      "tool": "get_company_statistics",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "company"
+    },
+    {
+      "id": "V2-04",
+      "question": "List our Net Promoter Score survey instruments, not their responses.",
+      "tool": "list_nps_tools",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "nps"
+    },
+    {
+      "id": "V2-05",
+      "question": "What is the company-wide NPS score and numeric response distribution?",
+      "tool": "get_nps_statistics",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "nps"
+    },
+    {
+      "id": "V2-06",
+      "question": "List individual NPS survey responses for survey 000000000000000000000106.",
+      "tool": "list_nps_responses",
+      "arguments": {
+        "npsToolId": "000000000000000000000106"
+      },
+      "effect": "read",
+      "toolset": "nps"
+    },
+    {
+      "id": "V2-07",
+      "question": "Show customer satisfaction metrics for CSAT survey 000000000000000000000107.",
+      "tool": "get_csat_metrics",
+      "arguments": {
+        "csatToolId": "000000000000000000000107"
+      },
+      "effect": "read",
+      "toolset": "csat_ces"
+    },
+    {
+      "id": "V2-08",
+      "question": "Show customer effort metrics for CES survey 000000000000000000000108.",
+      "tool": "get_ces_metrics",
+      "arguments": {
+        "cesToolId": "000000000000000000000108"
+      },
+      "effect": "read",
+      "toolset": "csat_ces"
+    },
+    {
+      "id": "V2-09",
+      "question": "List the feedback collection instruments called wokus.",
+      "tool": "list_wokus",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "wokus"
+    },
+    {
+      "id": "V2-10",
+      "question": "Show the configuration and details of woku 000000000000000000000102.",
+      "tool": "get_woku",
+      "arguments": {
+        "wokuId": "000000000000000000000102"
+      },
+      "effect": "read",
+      "toolset": "wokus"
+    },
+    {
+      "id": "V2-11",
+      "question": "List individual reviews submitted to woku 000000000000000000000102.",
+      "tool": "list_woku_reviews",
+      "arguments": {
+        "wokuId": "000000000000000000000102"
+      },
+      "effect": "read",
+      "toolset": "wokus"
+    },
+    {
+      "id": "V2-12",
+      "question": "Show the generated AI narrative report and word cloud for woku 000000000000000000000102; do not list raw reviews.",
+      "tool": "get_woku_report",
+      "arguments": {
+        "wokuId": "000000000000000000000102"
+      },
+      "effect": "read",
+      "toolset": "reports"
+    },
+    {
+      "id": "V2-13",
+      "question": "Show the details of folder 000000000000000000000103.",
+      "tool": "get_folder",
+      "arguments": {
+        "folderId": "000000000000000000000103"
+      },
+      "effect": "read",
+      "toolset": "folders"
+    },
+    {
+      "id": "V2-14",
+      "question": "Show the generated narrative summary and word cloud for folder 000000000000000000000103.",
+      "tool": "get_folder_report",
+      "arguments": {
+        "folderId": "000000000000000000000103"
+      },
+      "effect": "read",
+      "toolset": "reports"
+    },
+    {
+      "id": "V2-15",
+      "question": "Show the survey sequence configured in flow 000000000000000000000105.",
+      "tool": "get_flow",
+      "arguments": {
+        "flowId": "000000000000000000000105"
+      },
+      "effect": "read",
+      "toolset": "flows"
+    },
+    {
+      "id": "V2-16",
+      "question": "Show the fields and settings of form 000000000000000000000109, not submitted answers.",
+      "tool": "get_form",
+      "arguments": {
+        "formId": "000000000000000000000109"
+      },
+      "effect": "read",
+      "toolset": "forms"
+    },
+    {
+      "id": "V2-17",
+      "question": "List submitted answers to form 000000000000000000000109.",
+      "tool": "list_form_responses",
+      "arguments": {
+        "formId": "000000000000000000000109"
+      },
+      "effect": "read",
+      "toolset": "forms"
+    },
+    {
+      "id": "V2-18",
+      "question": "Show aggregated feedback statistics for client 00000000000000000000010a.",
+      "tool": "get_client_stats",
+      "arguments": {
+        "clientId": "00000000000000000000010a"
+      },
+      "effect": "read",
+      "toolset": "clients"
+    },
+    {
+      "id": "V2-19",
+      "question": "List the NPS feedback left by client 00000000000000000000010a.",
+      "tool": "list_client_feedback",
+      "arguments": {
+        "clientId": "00000000000000000000010a",
+        "source": "nps"
+      },
+      "effect": "read",
+      "toolset": "clients"
+    },
+    {
+      "id": "V2-20",
+      "question": "Show support ticket 00000000000000000000010b.",
+      "tool": "get_ticket",
+      "arguments": {
+        "ticketId": "00000000000000000000010b"
+      },
+      "effect": "read",
+      "toolset": "tickets"
+    },
+    {
+      "id": "V2-21",
+      "question": "Show action plan 00000000000000000000010c and its tasks.",
+      "tool": "get_action_plan",
+      "arguments": {
+        "planId": "00000000000000000000010c"
+      },
+      "effect": "read",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-22",
+      "question": "Show the audit timeline of action plan 00000000000000000000010c, not its discussion messages.",
+      "tool": "get_action_plan_events",
+      "arguments": {
+        "planId": "00000000000000000000010c"
+      },
+      "effect": "read",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-23",
+      "question": "Show the discussion thread of action plan 00000000000000000000010c, not its audit events.",
+      "tool": "get_action_plan_conversation",
+      "arguments": {
+        "planId": "00000000000000000000010c"
+      },
+      "effect": "read",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-24",
+      "question": "List the groups that route and manage action plans.",
+      "tool": "list_action_plan_groups",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-25",
+      "question": "List the external tracker definitions for this company.",
+      "tool": "list_trackers",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "trackers"
+    },
+    {
+      "id": "V2-26",
+      "question": "List the anti-spam quarantine rules; do not create or change any rule.",
+      "tool": "list_quarantines",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "alerts"
+    },
+    {
+      "id": "V2-27",
+      "question": "Show the generated NPS narrative report and suggested improvements, not the numeric score distribution.",
+      "tool": "get_company_nps_report",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "reports"
+    },
+    {
+      "id": "V2-28",
+      "question": "List the connected external integrations and their connection status.",
+      "tool": "list_integration_connections",
+      "arguments": {},
+      "effect": "read",
+      "toolset": "integrations"
+    },
+    {
+      "id": "V2-29",
+      "question": "Show saved execution runs of data flow 000000000000000000000114, not its version history.",
+      "tool": "list_data_flow_runs",
+      "arguments": {
+        "dataFlowId": "000000000000000000000114"
+      },
+      "effect": "read",
+      "toolset": "data_flows"
+    },
+    {
+      "id": "V2-30",
+      "question": "Show the version history of data flow 000000000000000000000114, not execution runs.",
+      "tool": "list_data_flow_versions",
+      "arguments": {
+        "dataFlowId": "000000000000000000000114"
+      },
+      "effect": "read",
+      "toolset": "data_flows"
+    },
+    {
+      "id": "V2-31",
+      "question": "Create a new folder named \"Service Quality\" at the company root.",
+      "tool": "create_folder",
+      "arguments": {
+        "name": "Service Quality"
+      },
+      "effect": "write",
+      "toolset": "folders"
+    },
+    {
+      "id": "V2-32",
+      "question": "Move existing folder 000000000000000000000103 under parent folder 000000000000000000000104.",
+      "tool": "move_folder",
+      "arguments": {
+        "folderId": "000000000000000000000103",
+        "parentFolderId": "000000000000000000000104"
+      },
+      "effect": "write",
+      "toolset": "folders"
+    },
+    {
+      "id": "V2-33",
+      "question": "Create a survey sequence named \"Checkout Journey\" containing only woku 000000000000000000000102.",
+      "tool": "create_flow",
+      "arguments": {
+        "name": "Checkout Journey",
+        "wokusIds": [
+          "000000000000000000000102"
+        ]
+      },
+      "effect": "write",
+      "toolset": "flows"
+    },
+    {
+      "id": "V2-34",
+      "question": "Rename survey flow 000000000000000000000105 to \"Renewal Journey\".",
+      "tool": "update_flow",
+      "arguments": {
+        "flowId": "000000000000000000000105",
+        "name": "Renewal Journey"
+      },
+      "effect": "write",
+      "toolset": "flows"
+    },
+    {
+      "id": "V2-35",
+      "question": "Delete survey flow 000000000000000000000105. I confirm its deletion.",
+      "tool": "delete_flow",
+      "arguments": {
+        "flowId": "000000000000000000000105",
+        "confirm": true
+      },
+      "effect": "destructive",
+      "toolset": "flows"
+    },
+    {
+      "id": "V2-36",
+      "question": "Rename woku 000000000000000000000102, which has no reviews, to \"Reception Feedback\".",
+      "tool": "update_woku",
+      "arguments": {
+        "wokuId": "000000000000000000000102",
+        "title": "Reception Feedback"
+      },
+      "effect": "write",
+      "toolset": "wokus"
+    },
+    {
+      "id": "V2-37",
+      "question": "Stop accepting new reviews for woku 000000000000000000000102 by disabling reviews. Leave its name and other settings unchanged.",
+      "tool": "update_woku_settings",
+      "arguments": {
+        "wokuId": "000000000000000000000102",
+        "reviewsDisabled": true
+      },
+      "effect": "write",
+      "toolset": "wokus"
+    },
+    {
+      "id": "V2-38",
+      "question": "Move woku 000000000000000000000102 into folder 000000000000000000000104.",
+      "tool": "move_woku",
+      "arguments": {
+        "wokuId": "000000000000000000000102",
+        "folderId": "000000000000000000000104"
+      },
+      "effect": "write",
+      "toolset": "wokus"
+    },
+    {
+      "id": "V2-39",
+      "question": "Delete woku 000000000000000000000102, which has no reviews. I confirm its deletion.",
+      "tool": "delete_woku",
+      "arguments": {
+        "wokuId": "000000000000000000000102",
+        "confirm": true
+      },
+      "effect": "destructive",
+      "toolset": "wokus"
+    },
+    {
+      "id": "V2-40",
+      "question": "Rename NPS survey 000000000000000000000106 to \"Relationship NPS\" without changing its question.",
+      "tool": "update_nps_tool",
+      "arguments": {
+        "npsToolId": "000000000000000000000106",
+        "name": "Relationship NPS"
+      },
+      "effect": "write",
+      "toolset": "nps"
+    },
+    {
+      "id": "V2-41",
+      "question": "Delete NPS survey 000000000000000000000106. I confirm its deletion.",
+      "tool": "delete_nps_tool",
+      "arguments": {
+        "npsToolId": "000000000000000000000106",
+        "confirm": true
+      },
+      "effect": "destructive",
+      "toolset": "nps"
+    },
+    {
+      "id": "V2-42",
+      "question": "Rename CSAT survey 000000000000000000000107 to \"Support Satisfaction\" without changing its question.",
+      "tool": "update_csat_tool",
+      "arguments": {
+        "csatToolId": "000000000000000000000107",
+        "name": "Support Satisfaction"
+      },
+      "effect": "write",
+      "toolset": "csat_ces"
+    },
+    {
+      "id": "V2-43",
+      "question": "Delete CSAT survey 000000000000000000000107. I confirm its deletion.",
+      "tool": "delete_csat_tool",
+      "arguments": {
+        "csatToolId": "000000000000000000000107",
+        "confirm": true
+      },
+      "effect": "destructive",
+      "toolset": "csat_ces"
+    },
+    {
+      "id": "V2-44",
+      "question": "Rename CES survey 000000000000000000000108 to \"Resolution Effort\" without changing its question.",
+      "tool": "update_ces_tool",
+      "arguments": {
+        "cesToolId": "000000000000000000000108",
+        "name": "Resolution Effort"
+      },
+      "effect": "write",
+      "toolset": "csat_ces"
+    },
+    {
+      "id": "V2-45",
+      "question": "Delete CES survey 000000000000000000000108. I confirm its deletion.",
+      "tool": "delete_ces_tool",
+      "arguments": {
+        "cesToolId": "000000000000000000000108",
+        "confirm": true
+      },
+      "effect": "destructive",
+      "toolset": "csat_ces"
+    },
+    {
+      "id": "V2-46",
+      "question": "Set form 000000000000000000000109 to inactive so it is no longer visible.",
+      "tool": "update_form",
+      "arguments": {
+        "formId": "000000000000000000000109",
+        "status": "inactive"
+      },
+      "effect": "write",
+      "toolset": "forms"
+    },
+    {
+      "id": "V2-47",
+      "question": "Change the email address of client 00000000000000000000010a to \"updated@example.invalid\".",
+      "tool": "update_client",
+      "arguments": {
+        "clientId": "00000000000000000000010a",
+        "email": "updated@example.invalid"
+      },
+      "effect": "write",
+      "toolset": "clients"
+    },
+    {
+      "id": "V2-48",
+      "question": "Set the severity of support ticket 00000000000000000000010b to high. Do not change its other fields.",
+      "tool": "update_ticket",
+      "arguments": {
+        "ticketId": "00000000000000000000010b",
+        "severity": "high"
+      },
+      "effect": "write",
+      "toolset": "tickets"
+    },
+    {
+      "id": "V2-49",
+      "question": "Add a task \"Review callback procedure\" to action plan 00000000000000000000010c.",
+      "tool": "create_action_plan_task",
+      "arguments": {
+        "planId": "00000000000000000000010c",
+        "text": "Review callback procedure"
+      },
+      "effect": "write",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-50",
+      "question": "Change the text of task 00000000000000000000010d in action plan 00000000000000000000010c to \"Verify customer callback\".",
+      "tool": "update_action_plan_task",
+      "arguments": {
+        "planId": "00000000000000000000010c",
+        "taskId": "00000000000000000000010d",
+        "text": "Verify customer callback"
+      },
+      "effect": "write",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-51",
+      "question": "Remove task 00000000000000000000010d from action plan 00000000000000000000010c. I confirm its deletion.",
+      "tool": "delete_action_plan_task",
+      "arguments": {
+        "planId": "00000000000000000000010c",
+        "taskId": "00000000000000000000010d",
+        "confirm": true
+      },
+      "effect": "destructive",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-52",
+      "question": "Reorder the two tasks in action plan 00000000000000000000010c: first 00000000000000000000010e, then 00000000000000000000010d.",
+      "tool": "reorder_action_plan_tasks",
+      "arguments": {
+        "planId": "00000000000000000000010c",
+        "orderedTaskIds": [
+          "00000000000000000000010e",
+          "00000000000000000000010d"
+        ]
+      },
+      "effect": "write",
+      "toolset": "action_plans"
+    },
+    {
+      "id": "V2-53",
+      "question": "Create an external tracker named \"Branch Code\" for the system \"Internal CRM\".",
+      "tool": "create_tracker",
+      "arguments": {
+        "name": "Branch Code",
+        "system": "Internal CRM"
+      },
+      "effect": "write",
+      "toolset": "trackers"
+    },
+    {
+      "id": "V2-54",
+      "question": "Rename external tracker 000000000000000000000110 to \"Store Code\". Keep its current system.",
+      "tool": "update_tracker",
+      "arguments": {
+        "trackerId": "000000000000000000000110",
+        "name": "Store Code"
+      },
+      "effect": "write",
+      "toolset": "trackers"
+    },
+    {
+      "id": "V2-55",
+      "question": "Deactivate external tracker 000000000000000000000110 so it cannot receive new values.",
+      "tool": "set_tracker_active",
+      "arguments": {
+        "trackerId": "000000000000000000000110",
+        "active": false
+      },
+      "effect": "write",
+      "toolset": "trackers"
+    },
+    {
+      "id": "V2-56",
+      "question": "Attach external tracker 000000000000000000000110 with value \"BR-007\" to woku 000000000000000000000102.",
+      "tool": "assign_tracker_to_woku",
+      "arguments": {
+        "wokuId": "000000000000000000000102",
+        "trackerId": "000000000000000000000110",
+        "value": "BR-007"
+      },
+      "effect": "write",
+      "toolset": "trackers"
+    },
+    {
+      "id": "V2-57",
+      "question": "Create an anti-spam quarantine rule named \"Repeat Email Guard\", identified by email, with a 60-minute window and at most 3 responses per respondent.",
+      "tool": "create_quarantine",
+      "arguments": {
+        "name": "Repeat Email Guard",
+        "respondentIdentifier": "email",
+        "windowDurationMin": 60,
+        "maxResponsesPerRespondent": 3
+      },
+      "effect": "write",
+      "toolset": "alerts"
+    },
+    {
+      "id": "V2-58",
+      "question": "Pause quarantine rule 000000000000000000000111 by setting it to disabled. Do not delete it.",
+      "tool": "update_quarantine",
+      "arguments": {
+        "quarantineId": "000000000000000000000111",
+        "enabled": false
+      },
+      "effect": "write",
+      "toolset": "alerts"
+    },
+    {
+      "id": "V2-59",
+      "question": "Delete quarantine rule 000000000000000000000111. I confirm its deletion.",
+      "tool": "delete_quarantine",
+      "arguments": {
+        "quarantineId": "000000000000000000000111",
+        "confirm": true
+      },
+      "effect": "destructive",
+      "toolset": "alerts"
+    },
+    {
+      "id": "V2-60",
+      "question": "Reopen woku 000000000000000000000102 by setting closed to false. Leave review acceptance and other flags unchanged.",
+      "tool": "update_woku_settings",
+      "arguments": {
+        "wokuId": "000000000000000000000102",
+        "closed": false
+      },
+      "effect": "write",
+      "toolset": "wokus",
+      "initialState": {
+        "wokuClosed": true
+      }
+    }
+  ]
+}

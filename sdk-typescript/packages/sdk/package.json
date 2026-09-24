@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "type": "module",
   "private": true,
-  "description": "Experimental remote Toolgate client and durable read-only provider executor",
+  "description": "Experimental remote Toolgate client and durable provider-local executor",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

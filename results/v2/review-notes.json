@@ -1,0 +1,98 @@
+{
+  "rawSha256": "eee1d69b824dc06e8951da5bcc2f0211c7cc162600facd574ce680fa97a1ba56",
+  "gradingUnchanged": true,
+  "allMutationFinalArgumentsMatched": true,
+  "persistedMutationCases": 120,
+  "correctPersistedMutations": 120,
+  "nonTargetMutationCalls": 0,
+  "mutationHandlerInvocations": 121,
+  "notes": [
+    {
+      "cases": [
+        "V2-06"
+      ],
+      "mode": "design-2",
+      "finding": "Host-first preparation returned SELECTOR_INVALID_RESPONSE. No task tool was selected or executed; the agent explained the failure. Counted as a failed selection/execution, with usage retained."
+    },
+    {
+      "cases": [
+        "V2-15"
+      ],
+      "mode": "design-3",
+      "finding": "The binary selector returned no_match. No business tool was executed. Aggregate telemetry cannot distinguish all-negative verdicts from a single insufficiently confident positive."
+    },
+    {
+      "cases": [
+        "V2-28"
+      ],
+      "mode": "design-3",
+      "finding": "The selector chose list_integration_connections correctly, but the agent supplied a different operation ID to execute_read_action. The local store rejected it as OPERATION_NOT_FOUND. Selection and execution grades intentionally differ."
+    },
+    {
+      "cases": [
+        "V2-15"
+      ],
+      "mode": "design-1",
+      "finding": "The expected get_flow handler ran, followed by additional get_woku work. The agent reached the fixed eight-turn limit before a final answer. Handler success is retained, final-answer completion is false."
+    },
+    {
+      "cases": [
+        "V2-33"
+      ],
+      "mode": "design-1",
+      "finding": "The first create_flow attempt included the word woku inside an ID string. The native handler rejected that invalid ID before the creation command. A fresh operation with the correct bare ID succeeded. Both invocations and their cost remain counted; final state contains the baseline flow and exactly one new flow."
+    },
+    {
+      "mode": "direct",
+      "finding": "17 cases started with a non-reference business read after optional guide discovery, but all 60 eventually executed the reference handler. Those strict first-reference misses are not evidence of 17 unsafe or failed tasks."
+    },
+    {
+      "mode": "direct",
+      "finding": "Seven cases differ from the strict complete-argument oracle, mostly through additional query defaults or limits. Tool selection, exact arguments and handler success remain separate; no grading was relaxed after measurement."
+    },
+    {
+      "mode": "design-3",
+      "finding": "25 first preparations were ambiguous; all included the reference tool. The agent resolved among those candidates without another Jev inference."
+    },
+    {
+      "cases": [
+        "V2-15",
+        "V2-23"
+      ],
+      "mode": "design-1",
+      "finding": "Three SELECTOR_INVALID_RESPONSE errors were followed by fresh agent-requested preparations. The expected handlers eventually ran; all attempts remain in latency, Jev usage, cost and MCP-error totals. The first-reference metric concerns an accepted tool proposal, not the first inference attempt."
+    }
+  ],
+  "mcpErrors": [
+    {
+      "mode": "design-1",
+      "code": "NATIVE_ARGUMENT_ERROR",
+      "count": 1
+    },
+    {
+      "mode": "design-1",
+      "code": "OPERATION_STATE_INVALID",
+      "count": 31
+    },
+    {
+      "mode": "design-1",
+      "code": "SELECTOR_INVALID_RESPONSE",
+      "count": 3
+    },
+    {
+      "mode": "design-2",
+      "code": "SELECTOR_INVALID_RESPONSE",
+      "count": 1
+    },
+    {
+      "mode": "design-3",
+      "code": "OPERATION_NOT_FOUND",
+      "count": 1
+    },
+    {
+      "mode": "design-3",
+      "code": "OPERATION_STATE_INVALID",
+      "count": 4
+    }
+  ]
+}

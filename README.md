@@ -5,15 +5,59 @@
 ![SDK: TypeScript](docs/assets/sdk-typescript.svg)
 
 An experimental comparison of direct MCP and three Toolgate designs, with Go/Rust
-cores and one TypeScript SDK.
+cores and one TypeScript SDK. V1 studies latency with 22 read-only tools and Codex;
+V2 studies selection accuracy with all 143 active Woku tools and GPT-6 Luna API calls.
 
+[V2 accuracy results](#v2-selection-accuracy-with-the-complete-catalog) ·
 [Architecture](#research-question-and-architecture) ·
-[Single-Choice results](#experiment-1-single-choice-results) ·
-[Parallel binary results](#experiment-2-parallel-binary-suitability) ·
+[V1 single-Choice results](#experiment-1-single-choice-results) ·
+[V1 parallel binary results](#experiment-2-parallel-binary-suitability) ·
 [Reproduce the experiments](docs/REPRODUCTION.md) ·
 [Connect your MCP](docs/PROVIDER_INTEGRATION.md)
 
-## Abstract
+## V2: selection accuracy with the complete catalog
+
+**143 active Woku tools, 60 English requirements per condition, 240 evaluated cases.**
+The evaluated agent is `gpt-6-luna` through the Responses API with `high` reasoning,
+not the Codex app server. Go is fixed across the three Toolgate conditions.
+The corpus contains 30 reads and 30 mutations, executed by real Woku handlers on
+an isolated synthetic database restored before each case.
+
+| Condition | First reference tool | Expected handler succeeded | Median task time | Estimated USD per 60 cases |
+|---|---:|---:|---:|---:|
+| Direct MCP | 43/60 | 60/60 | 10.48 s | $0.071341 |
+| Design 1: agent prepares | 60/60 | 60/60 | 9.53 s | $0.048590 |
+| Design 2: host-first Choice | 59/60 | 59/60 | 4.41 s | $0.034459 |
+| Design 3: host-first binary | 59/60 | 58/60 | 5.75 s | $0.104033 |
+
+All four conditions produced the requested persisted change in **30/30 mutations**;
+no non-target mutation calls were observed. This is a limited synthetic test, not
+evidence of production safety. There were 239 final answers: design 1 executed the
+expected tool in one case but reached its eight-turn limit before answering.
+
+The first-reference metric excludes `woku_guide`, but counts other preparatory reads.
+Direct MCP's 43/60 therefore does **not** mean 17 unsafe or failed tasks: it reached
+the expected handler in all 60 cases, often after additional discovery. Design 2
+had one invalid selector response. Design 3 had one abstention and one correctly
+selected tool whose operation ID the agent copied incorrectly before execution.
+All failures remain in the results.
+
+Design 2 had the lowest observed median task time and estimated cost. Design 3 did
+not improve correct-tool execution: it made 3,769 Jev requests versus design 2's 63,
+with 25 ambiguities that all contained the expected tool. The larger catalog uses
+the existing lexical prefilter: at most 64 candidates reach Jev, with binary
+concurrency capped at 22. The direct API agent receives all 143 tool definitions.
+
+These are contemporaneous comparisons within V2. V1 used a different model,
+catalog and dataset. Costs use published token prices, including cache reads and
+writes; they are estimates, not invoices. Task time includes failed/limited cases;
+completed-answer latency is also available in the numerical summary.
+
+[Full results](results/v2/report.md) · [Protocol](docs/V2-ACCURACY.md) ·
+[60 requirements](data/v2/corpus.en.json) · [143-tool catalog](data/v2/catalog.json) ·
+[Observations](results/v2/observations.json) · [Verification](verification/v2/VERIFICATION.md)
+
+## V1 abstract
 
 Toolgate separates tool selection from business execution. A remote Go or Rust
 core selects an authorized tool with Jev, while one TypeScript SDK validates the
@@ -39,22 +83,24 @@ without removing authorization, remote validation or durable execution controls?
 Does replacing one multi-option Choice with parallel binary suitability checks
 improve that workflow?
 
-The four diagrams below show the control and the three evaluated Toolgate designs.
+The four diagrams below show V2: one API agent backed by GPT-6 Luna, 143 active
+Woku tools, and a Go core. V1 used Codex, 22 read-only tools and both alternative
+cores; its measurements below retain their original methods and source hashes.
 MCP discovery happens before the measured question submission. Toolgate execution
 arrows show an accepted selection: `needs_choice` adds explicit resolution without
 another Jev call, while `no_match` stops before business execution.
 
 ### Control: direct MCP
 
-Codex sees the 22 authorized business tools, selects one, supplies its arguments,
+The API agent sees all 143 authorized business tools, selects one, supplies its arguments,
 and calls the existing provider MCP. There is no Toolgate or Jev request.
 
 ```mermaid
 sequenceDiagram
     actor U as User
-    participant A as Codex
+    participant A as API agent - GPT-6 Luna
     participant P as Provider MCP
-    Note over A,P: Discovery exposes 22 authorized business tools
+    Note over A,P: Discovery exposes all 143 authorized business tools
     U->>A: Question - start timer
     A->>A: Select tool and construct arguments
     A->>P: Call business tool through authenticated MCP
@@ -66,30 +112,32 @@ sequenceDiagram
 
 ### Design 1: agent-initiated Toolgate preparation
 
-Codex initiates preparation, receives the selected schema, then makes another MCP
-call to execute. Jev selects among all 22 authorized candidates in one API request.
+The API agent initiates preparation, receives the selected schema, then makes another MCP
+call to execute. Lexical retrieval retains up to 64 authorized candidates. Choice starts with up to
+32 and can expand once to 64 within the same deadline.
 
 ```mermaid
 sequenceDiagram
     actor U as User
-    participant A as Codex
+    participant A as API agent - GPT-6 Luna
     participant P as Provider MCP + TypeScript SDK
-    participant C as Toolgate core - Go or Rust
+    participant C as Independent Go core
     participant J as Jev API
     Note over A,P: Discovery exposes three Toolgate entry points
     U->>A: Question - start timer
     A->>P: prepare_action with intent and known arguments
     P->>C: Prepare with trusted actor, allowlist and catalog reference
-    C->>C: Filter authorized candidates
-    C->>J: One Choice request - 22 candidates plus none
-    J-->>C: Selected candidate and probabilities
+    C->>C: Filter authorization and retrieve up to 64 candidates
+    C->>J: Choice - up to 32 candidates plus none
+    J-->>C: Candidate probabilities or abstention
+    Note over C,J: Choice may expand once to at most 64 candidates
     C->>C: Validate and persist operation
     C-->>P: Operation, selected schema and missing fields
     P-->>A: Preparation result
-    A->>P: execute_read_action with complete arguments
+    A->>P: execute_read_action or execute_write_action with complete arguments
     P->>C: Request remote execution decision
     C-->>P: Bound decision after validation
-    P->>P: Verify decision, reauthorize and claim durable ledger
+    P->>P: Verify decision, authorization, approval and durable ledger
     P->>P: Execute local handler and persist result
     P-->>A: Business result
     A-->>U: Complete final answer - stop timer
@@ -97,7 +145,7 @@ sequenceDiagram
 
 ### Design 2: host-first Toolgate preparation
 
-The host sends the literal question to Toolgate before model inference. Codex
+The host sends the literal question to Toolgate before model inference. The API agent
 receives the selected schema as untrusted context and constructs the arguments.
 The remote decision and local execution controls remain in place.
 
@@ -105,24 +153,25 @@ The remote decision and local execution controls remain in place.
 sequenceDiagram
     actor U as User
     participant H as Experiment host
-    participant A as Codex
+    participant A as API agent - GPT-6 Luna
     participant P as Provider MCP + TypeScript SDK
-    participant C as Toolgate core - Go or Rust
+    participant C as Independent Go core
     participant J as Jev API
     U->>H: Question - start timer
     H->>P: prepare_action with literal question and empty arguments
     P->>C: Prepare with trusted actor, allowlist and catalog reference
-    C->>C: Filter authorized candidates
-    C->>J: One Choice request - 22 candidates plus none
-    J-->>C: Selected candidate and probabilities
+    C->>C: Filter authorization and retrieve up to 64 candidates
+    C->>J: Choice - up to 32 candidates plus none
+    J-->>C: Candidate probabilities or abstention
+    Note over C,J: Choice may expand once to at most 64 candidates
     C->>C: Validate and persist operation
     C-->>P: Operation and selected schema
     P-->>H: Preparation result
     H->>A: Question plus preparation as untrusted context
-    A->>P: execute_read_action with complete arguments
+    A->>P: execute_read_action or execute_write_action with complete arguments
     P->>C: Request remote execution decision
     C-->>P: Bound decision after validation
-    P->>P: Verify decision, reauthorize and claim durable ledger
+    P->>P: Verify decision, authorization, approval and durable ledger
     P->>P: Execute local handler and persist result
     P-->>A: Business result
     A-->>U: Complete final answer - stop timer
@@ -130,33 +179,30 @@ sequenceDiagram
 
 ### Design 3: host-first parallel binary suitability
 
-Each of the 22 independent requests asks whether one authorized tool serves the
+Each independent request asks whether one retrieved authorized tool serves the
 question, using a two-option Choice: that tool or `none`. The core waits for the
 whole batch and applies the acceptance and ambiguity rules. These are separate
-HTTP requests, not one request containing 22 questions.
+HTTP requests. At most 64 tools are evaluated, with at most 22 requests in flight.
 
 ```mermaid
 sequenceDiagram
     actor U as User
     participant H as Experiment host
-    participant A as Codex
+    participant A as API agent - GPT-6 Luna
     participant P as Provider MCP + TypeScript SDK
-    participant C as Toolgate core - Go or Rust
+    participant C as Independent Go core
     participant J as Jev API
     U->>H: Question - start timer
     H->>P: prepare_action with literal question and empty arguments
     P->>C: Prepare with trusted actor, allowlist and catalog reference
-    C->>C: Filter authorized candidates
-    Note over C,J: 22 independent HTTP requests, at most 22 in flight
+    C->>C: Filter authorization and retrieve up to 64 candidates
+    Note over C,J: One request per retrieved tool, at most 22 in flight
     par Tool 1
         C->>J: Question + tool 1 versus none
         J-->>C: Verdict and probabilities for tool 1
-    and Tools 2 through 21
-        C->>J: 20 separate one-tool requests
-        J-->>C: 20 independent verdicts and probabilities
-    and Tool 22
-        C->>J: Question + tool 22 versus none
-        J-->>C: Verdict and probabilities for tool 22
+    and Other retrieved tools
+        C->>J: Separate one-tool requests with bounded concurrency
+        J-->>C: Independent verdicts and probabilities
     end
     C->>C: Wait for all results, validate, apply threshold and margin
     Note over C: Reject incomplete batches, preserve ambiguity or abstention
@@ -164,10 +210,10 @@ sequenceDiagram
     C-->>P: Operation and selected schema for an accepted choice
     P-->>H: Preparation result
     H->>A: Question plus preparation as untrusted context
-    A->>P: execute_read_action with complete arguments
+    A->>P: execute_read_action or execute_write_action with complete arguments
     P->>C: Request remote execution decision - no new Jev calls
     C-->>P: Bound decision after validation
-    P->>P: Verify decision, reauthorize and claim durable ledger
+    P->>P: Verify decision, authorization, approval and durable ledger
     P->>P: Execute local handler and persist result
     P-->>A: Business result
     A-->>U: Complete final answer - stop timer
@@ -175,13 +221,13 @@ sequenceDiagram
 
 Go and Rust are alternative implementations, never consecutive services. The core
 never executes provider handlers. Host-first preparation calls the same provider
-MCP with the literal question and empty known arguments, then gives Codex the
-validated operation as untrusted context. Codex supplies complete arguments and
+MCP with the literal question and empty known arguments, then gives the API agent the
+validated operation as untrusted context. The agent supplies complete arguments and
 requests execution. All SDK conditions retain two remote-core phases and the
 provider's authorization and durable ledger. No local selector or permission
 fallback is added to the SDK.
 
-## Methods
+## V1 methods
 
 Two English matrices cover the three Toolgate designs. Both use the same 30
 questions over 22 read-only tools of an authorized Woku development backend.
@@ -214,7 +260,7 @@ All questions and the agent prompt are in English. The provider's existing data
 and metadata are unchanged. The results below describe the English experiment
 measured in the stated environment.
 
-## Technologies and execution environment
+## V1 technologies and execution environment
 
 | Component | Measured version or setting |
 |---|---|
@@ -479,7 +525,7 @@ this repository. For a provider using a bearer token instead of OAuth, configure
 Codex's `--bearer-token-env-var` option and supply the token through your environment,
 not JSON or Git. Use only the access needed for the read-only workload.
 
-## Limitations
+## V1 limitations
 
 1. This is one observational pass with 30 distinct questions per condition. Shared
    upstream load, cache state, temporal drift and model stochasticity remain.
@@ -493,7 +539,8 @@ not JSON or Git. Use only the access needed for the read-only workload.
    high concurrency, tail SLOs or resource costs of a deployed service.
 6. Host-first orchestration is implemented in the experimental host, not as a
    universal interception feature in ordinary Codex or ChatGPT interfaces.
-7. This is an experimental read-only implementation, not a full production release.
+7. V1 used the experimental read-only path. V2 adds explicit mutation support,
+   provider approval and persisted-state checks; neither version is a production release.
    Broader recovery, adversarial, load, lifecycle and compatibility gates remain.
 
 ## Future challenges

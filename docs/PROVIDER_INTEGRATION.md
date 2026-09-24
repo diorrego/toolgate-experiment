@@ -1,3 +1,5 @@
+> The walkthrough below reproduces the V1 read-only profile. V2 mutation support is described at the end.
+
 # Bring your own backend with MCP
 
 No provider server is bundled. The observed experiments used an authorized Woku
@@ -121,3 +123,25 @@ agent. A changed language, catalog or workload defines a new experiment.
 The original Woku database and its responses are private. Public results permit
 numerical reanalysis, but independent regrading and exact dataset replay require
 the original authorized data. New backends reproduce the protocol, not those data.
+
+## V2 mutation opt-in
+
+The registry still defaults to read-only registration. For a provider that implements
+current authorization and approval, construct it with
+`new ToolRegistry(definitions, undefined, { allowMutations: true })` and provide the
+`approve(actor, toolId, arguments)` callback in `ToolgateProvider` options. The
+callback belongs to the trusted provider; a model argument is not approval. Missing
+approval is denied. Call `executeWrite` for write, destructive and unknown effects;
+`executeRead` rejects those effects.
+
+The same remote execution decision, actor/catalog/schema/argument bindings and
+durable local ledger protect both paths. Approval is checked before dispatch and
+before returning a stored mutation result. A lost result after dispatch remains
+uncertain and never triggers an automatic handler retry. Mutation support still
+returns text MCP results; it does not add arbitrary result-block compatibility.
+
+The V2 provider adapter in `tools/v2/provider.mjs` runs inside the provider process
+and validates the exact three entry-point schemas before any SDK call. The measured
+Woku integration supplies its real native handlers and an explicit synthetic test
+authorization policy. See [the V2 protocol](V2-ACCURACY.md) for its boundaries and
+fixture requirements.

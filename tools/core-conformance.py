@@ -107,7 +107,7 @@ if __name__=='__main__':
     port=19081 if mode=='go' else 19082
     env={**os.environ,'TOOLGATE_LISTEN_ADDR':f'127.0.0.1:{port}','TOOLGATE_DATABASE_URL':f"postgres://tg_runtime:{cfg['runtime_password']}@127.0.0.1:{cfg.get('port',55439)}/toolgate_{mode}?sslmode=disable",'TOOLGATE_KEY_PEPPER':cfg['pepper'],'TOOLGATE_JEV_BASE_URL':f'http://127.0.0.1:{http.server_port}/v1/systemone','TYPESAFE_AI_API_KEY':'synthetic','TOOLGATE_JEV_MODEL':'jev-fixture'}
     binary=ROOT/('backend-go/bin/toolgate' if mode=='go' else 'backend-rust/target/release/toolgate-core')
-    with (ROOT/f'verification/{mode}-conformance-server.log').open('w') as log:
+    with (Path(os.environ.get('TOOLGATE_VERIFICATION_DIR',str(ROOT/'verification')))/f'{mode}-conformance-server.log').open('w') as log:
         process=subprocess.Popen([str(binary)],env=env,stdout=log,stderr=log)
         try:
             for _ in range(60):
