@@ -1,0 +1,851 @@
+{
+  "version": 3,
+  "synthetic": true,
+  "syntheticIds": {
+    "company": "000000000000000000000100",
+    "user": "000000000000000000000101",
+    "woku": "000000000000000000000102",
+    "folder": "000000000000000000000103",
+    "parent": "000000000000000000000104",
+    "flow": "000000000000000000000105",
+    "nps": "000000000000000000000106",
+    "csat": "000000000000000000000107",
+    "ces": "000000000000000000000108",
+    "form": "000000000000000000000109",
+    "client": "00000000000000000000010a",
+    "ticket": "00000000000000000000010b",
+    "plan": "00000000000000000000010c",
+    "task": "00000000000000000000010d",
+    "task2": "00000000000000000000010e",
+    "group": "00000000000000000000010f",
+    "tracker": "000000000000000000000110",
+    "quarantine": "000000000000000000000111",
+    "report": "000000000000000000000112",
+    "dataApp": "000000000000000000000113",
+    "dataFlow": "000000000000000000000114",
+    "woku2": "000000000000000000000302",
+    "wokuDecoy": "000000000000000000000303",
+    "tracker2": "000000000000000000000304",
+    "tracker3": "000000000000000000000305",
+    "wokuValue": "000000000000000000000306",
+    "wokuValue2": "000000000000000000000307",
+    "flowValue": "000000000000000000000308",
+    "formValue": "000000000000000000000309",
+    "npsValue": "000000000000000000000310"
+  },
+  "baseline": {
+    "Report": [
+      {
+        "_id": "000000000000000000001000",
+        "companyId": "000000000000000000000100",
+        "wokuId": "000000000000000000000102",
+        "recognitions": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb0"
+        },
+        "improvements": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb1"
+        },
+        "ratingPhrases": {
+          "_id": "6ab5142536492c5ff3c07fb2"
+        },
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "wokuSummary": {
+          "summary": "Reception feedback highlights shorter waiting times.",
+          "frequency": 3
+        }
+      },
+      {
+        "_id": "000000000000000000001001",
+        "companyId": "000000000000000000000100",
+        "folderId": "000000000000000000000103",
+        "recognitions": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb5"
+        },
+        "improvements": {
+          "frequency": 0,
+          "_id": "6ab5142536492c5ff3c07fb6"
+        },
+        "ratingPhrases": {
+          "_id": "6ab5142536492c5ff3c07fb7"
+        },
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "folderSummary": {
+          "summary": "Service Desk feedback highlights clear callback ownership.",
+          "frequency": 3
+        }
+      }
+    ],
+    "User": [
+      {
+        "_id": "000000000000000000000101",
+        "name": "Synthetic Operator",
+        "email": "operator@example.invalid",
+        "lockedUntil": null,
+        "lastLoginAt": null,
+        "passwordChangedAt": null,
+        "preferredLocale": null,
+        "environment": "production",
+        "integrityHash": null,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "ssoIdentities": [],
+        "oauthIdentities": []
+      }
+    ],
+    "Company": [
+      {
+        "_id": "000000000000000000000100",
+        "name": "Synthetic V2 Company",
+        "createdBy": "000000000000000000000101",
+        "users": [],
+        "admins": [],
+        "defaultLocale": "es",
+        "timezone": "America/Santiago",
+        "followUpAgentEnabled": false,
+        "ipAllowlist": {
+          "enabled": false,
+          "cidrs": []
+        },
+        "ssoEnabled": false,
+        "ssoEmailDomains": [],
+        "integrityHashEnabled": false,
+        "integrityHash": null,
+        "sandboxEnabled": false,
+        "environment": "sandbox",
+        "userInactivationDays": 90,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "UserCompany": [
+      {
+        "_id": "000000000000000000001004",
+        "companyId": "000000000000000000000100",
+        "userId": "000000000000000000000101",
+        "role": "owner",
+        "status": "active",
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "Folder": [
+      {
+        "_id": "000000000000000000000103",
+        "name": "Service Desk",
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "visits": 0,
+        "converted": 0,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": []
+      },
+      {
+        "_id": "000000000000000000000104",
+        "name": "Archive Desk",
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "visits": 0,
+        "converted": 0,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": []
+      }
+    ],
+    "Woku": [
+      {
+        "_id": "000000000000000000000102",
+        "description": "Mercury Reception",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "description": "Mercury Reception"
+          }
+        ],
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "users": [],
+        "reviewCount": 0,
+        "file": {
+          "filename": "synthetic.png",
+          "type": "image/png",
+          "_id": "6ab5142536492c5ff3c07fc4"
+        },
+        "qualifications": [],
+        "textnotes": [],
+        "voicemails": [],
+        "folderId": "000000000000000000000103",
+        "anonymousDisabled": false,
+        "reviewsDisabled": false,
+        "closed": false,
+        "onlyOneReviewPerClient": true,
+        "environment": "sandbox",
+        "integrityHash": null,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": [],
+        "title": "Mercury Reception"
+      },
+      {
+        "_id": "000000000000000000000302",
+        "description": "Mercury Delivery",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "description": "Mercury Delivery"
+          }
+        ],
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "users": [],
+        "reviewCount": 0,
+        "file": {
+          "filename": "synthetic.png",
+          "type": "image/png",
+          "_id": "6ab5142536492c5ff3c07fc4"
+        },
+        "qualifications": [],
+        "textnotes": [],
+        "voicemails": [],
+        "folderId": "000000000000000000000103",
+        "anonymousDisabled": false,
+        "reviewsDisabled": false,
+        "closed": false,
+        "onlyOneReviewPerClient": false,
+        "environment": "sandbox",
+        "integrityHash": null,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": [],
+        "title": "Mercury Delivery"
+      },
+      {
+        "_id": "000000000000000000000303",
+        "description": "Orion Reception",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "description": "Orion Reception"
+          }
+        ],
+        "createdBy": "000000000000000000000101",
+        "companyId": "000000000000000000000100",
+        "users": [],
+        "reviewCount": 0,
+        "file": {
+          "filename": "synthetic.png",
+          "type": "image/png",
+          "_id": "6ab5142536492c5ff3c07fc4"
+        },
+        "qualifications": [],
+        "textnotes": [],
+        "voicemails": [],
+        "folderId": "000000000000000000000104",
+        "anonymousDisabled": false,
+        "reviewsDisabled": false,
+        "closed": true,
+        "onlyOneReviewPerClient": true,
+        "environment": "sandbox",
+        "integrityHash": null,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "whatsappIds": [],
+        "title": "Orion Reception"
+      }
+    ],
+    "Flow": [
+      {
+        "_id": "000000000000000000000105",
+        "name": "Aftercare Journey",
+        "companyId": "000000000000000000000100",
+        "wokusIds": [
+          "000000000000000000000102",
+          "000000000000000000000302"
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      },
+      {
+        "_id": "000000000000000000000400",
+        "name": "Archived Aftercare Journey",
+        "companyId": "000000000000000000000100",
+        "wokusIds": [
+          "000000000000000000000102",
+          "000000000000000000000302"
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "NPSTool": [
+      {
+        "_id": "000000000000000000000106",
+        "companyId": "000000000000000000000100",
+        "name": "Delivery Pulse",
+        "npsMessage": "our service",
+        "audienceType": "a colleague",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "npsMessage": "our service",
+            "audienceType": "a colleague"
+          }
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      },
+      {
+        "_id": "000000000000000000000406",
+        "companyId": "000000000000000000000100",
+        "name": "Archived Delivery Pulse",
+        "npsMessage": "our service",
+        "audienceType": "a colleague",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "npsMessage": "our service",
+            "audienceType": "a colleague"
+          }
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "CsatTool": [
+      {
+        "_id": "000000000000000000000107",
+        "companyId": "000000000000000000000100",
+        "createdBy": "000000000000000000000101",
+        "name": "Baseline CSAT",
+        "question": "How satisfied are you?",
+        "subject": "our service",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "question": "How satisfied are you?",
+            "subject": "our service"
+          }
+        ],
+        "responseCount": 0,
+        "environment": "production",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "CesTool": [
+      {
+        "_id": "000000000000000000000108",
+        "companyId": "000000000000000000000100",
+        "createdBy": "000000000000000000000101",
+        "name": "Baseline CES",
+        "question": "How easy was the process?",
+        "action": "complete the process",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "question": "How easy was the process?",
+            "action": "complete the process"
+          }
+        ],
+        "responseCount": 0,
+        "environment": "production",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "Form": [
+      {
+        "_id": "000000000000000000000109",
+        "companyId": "000000000000000000000100",
+        "name": "Callback Request",
+        "description": "Request a service callback",
+        "fields": [
+          {
+            "id": "00000000-0000-4000-8000-000000000001",
+            "label": "Callback reason",
+            "type": "text",
+            "required": true,
+            "order": 0
+          }
+        ],
+        "settings": {
+          "allowAnonymous": true,
+          "clientIdentifier": "email",
+          "oneResponsePerClient": false
+        },
+        "closed": false,
+        "status": "active",
+        "createdBy": "000000000000000000000101",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "name": "Callback Request"
+          }
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      },
+      {
+        "_id": "000000000000000000000401",
+        "companyId": "000000000000000000000100",
+        "name": "Archived Callback Request",
+        "description": "Request a service callback",
+        "fields": [
+          {
+            "id": "00000000-0000-4000-8000-000000000001",
+            "label": "Callback reason",
+            "type": "text",
+            "required": true,
+            "order": 0
+          }
+        ],
+        "settings": {
+          "allowAnonymous": true,
+          "clientIdentifier": "email",
+          "oneResponsePerClient": false
+        },
+        "closed": false,
+        "status": "active",
+        "createdBy": "000000000000000000000101",
+        "availableLocales": [
+          "en"
+        ],
+        "defaultLocale": "en",
+        "localizedContent": [
+          {
+            "locale": "en",
+            "name": "Callback Request"
+          }
+        ],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "Client": [
+      {
+        "_id": "00000000000000000000010a",
+        "email": "morgan@example.invalid",
+        "companyId": "000000000000000000000100",
+        "phone": "+15550102020",
+        "followUpOptOut": false,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "createdBy": "000000000000000000000101"
+      },
+      {
+        "_id": "000000000000000000000402",
+        "email": "morgan.archive@example.invalid",
+        "companyId": "000000000000000000000100",
+        "phone": "+15550102020",
+        "followUpOptOut": false,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "createdBy": "000000000000000000000101"
+      }
+    ],
+    "Ticket": [
+      {
+        "_id": "00000000000000000000010b",
+        "companyId": "000000000000000000000100",
+        "title": "Parcel arrived damaged",
+        "severity": "medium",
+        "aiSummary": "Outer carton was torn",
+        "aiCategory": "Delivery",
+        "historyHighlights": [],
+        "criteria": [],
+        "generatedByAI": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "timeline": [],
+        "caseDescription": "Corner damage on arrival",
+        "suggestedResolution": "Inspect the packaging before dispatch"
+      },
+      {
+        "_id": "000000000000000000000403",
+        "companyId": "000000000000000000000100",
+        "title": "Parcel arrived late",
+        "severity": "medium",
+        "aiSummary": "Outer carton was torn",
+        "aiCategory": "Delivery",
+        "historyHighlights": [],
+        "criteria": [],
+        "generatedByAI": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "timeline": [],
+        "caseDescription": "Corner damage on arrival",
+        "suggestedResolution": "Inspect the packaging before dispatch"
+      }
+    ],
+    "ActionPlanGroup": [
+      {
+        "_id": "00000000000000000000010f",
+        "companyId": "000000000000000000000100",
+        "name": "Callback Team",
+        "conditions": [],
+        "members": [
+          {
+            "userId": "000000000000000000000101",
+            "role": "admin"
+          }
+        ],
+        "threshold": 300,
+        "enabled": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "counterSince": "2026-09-24T12:14:29.562Z",
+        "description": "Callback quality team"
+      },
+      {
+        "_id": "000000000000000000000405",
+        "companyId": "000000000000000000000100",
+        "name": "Archived Callback Team",
+        "conditions": [],
+        "members": [
+          {
+            "userId": "000000000000000000000101",
+            "role": "admin"
+          }
+        ],
+        "threshold": 300,
+        "enabled": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "counterSince": "2026-09-24T12:14:29.562Z",
+        "description": "Callback quality team"
+      }
+    ],
+    "ActionPlan": [
+      {
+        "_id": "00000000000000000000010c",
+        "companyId": "000000000000000000000100",
+        "groupId": "00000000000000000000010f",
+        "title": "Callback Recovery",
+        "summary": "Synthetic plan",
+        "objective": "Reduce missed callbacks",
+        "expectedImpact": "Fewer repeat calls",
+        "tasks": [
+          {
+            "text": "Check callback queue",
+            "order": 0,
+            "status": "todo",
+            "_id": "00000000000000000000010d"
+          },
+          {
+            "text": "Call waiting customers",
+            "order": 1,
+            "status": "todo",
+            "_id": "00000000000000000000010e"
+          }
+        ],
+        "sources": [],
+        "status": "draft",
+        "priority": "medium",
+        "evidence": {
+          "windowFrom": "2026-09-01T00:00:00.000Z",
+          "windowTo": "2026-09-02T00:00:00.000Z",
+          "conditionsSnapshot": [],
+          "negatives": 0,
+          "positives": 0,
+          "total": 0,
+          "quotes": []
+        },
+        "generation": {
+          "model": "synthetic-fixture",
+          "promptVersion": "v2",
+          "generatedAt": "2026-09-01T00:00:00.000Z"
+        },
+        "aiGenerated": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "patterns": []
+      },
+      {
+        "_id": "000000000000000000000404",
+        "companyId": "000000000000000000000100",
+        "groupId": "00000000000000000000010f",
+        "title": "Archived Callback Recovery",
+        "summary": "Synthetic plan",
+        "objective": "Reduce missed callbacks",
+        "expectedImpact": "Fewer repeat calls",
+        "tasks": [
+          {
+            "text": "Check callback queue",
+            "order": 0,
+            "status": "todo",
+            "_id": "00000000000000000000010d"
+          },
+          {
+            "text": "Call waiting customers",
+            "order": 1,
+            "status": "todo",
+            "_id": "00000000000000000000010e"
+          }
+        ],
+        "sources": [],
+        "status": "draft",
+        "priority": "medium",
+        "evidence": {
+          "windowFrom": "2026-09-01T00:00:00.000Z",
+          "windowTo": "2026-09-02T00:00:00.000Z",
+          "conditionsSnapshot": [],
+          "negatives": 0,
+          "positives": 0,
+          "total": 0,
+          "quotes": []
+        },
+        "generation": {
+          "model": "synthetic-fixture",
+          "promptVersion": "v2",
+          "generatedAt": "2026-09-01T00:00:00.000Z"
+        },
+        "aiGenerated": true,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "patterns": []
+      }
+    ],
+    "CompanyExternalTracker": [
+      {
+        "_id": "000000000000000000000110",
+        "companyId": "000000000000000000000100",
+        "name": "Support Region",
+        "system": "Service CRM",
+        "active": true,
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "description": "Service region code"
+      },
+      {
+        "_id": "000000000000000000000304",
+        "companyId": "000000000000000000000100",
+        "name": "Receipt Code",
+        "system": "Order Desk",
+        "active": true,
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "description": "Receipt reference"
+      },
+      {
+        "_id": "000000000000000000000305",
+        "companyId": "000000000000000000000100",
+        "name": "Route Code",
+        "system": "Routing Desk",
+        "active": true,
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "description": "Delivery route"
+      }
+    ],
+    "Quarantine": [
+      {
+        "_id": "000000000000000000000111",
+        "companyId": "000000000000000000000100",
+        "name": "Email Burst Guard",
+        "respondentIdentifier": "email",
+        "windowDurationMin": 60,
+        "maxResponsesPerRespondent": 5,
+        "enabled": true,
+        "priority": 0,
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "metrics": {
+          "totalBlocked": 0,
+          "totalAllowed": 0,
+          "lastBlockedAt": null,
+          "_id": "6ab5142536492c5ff3c07fdd"
+        }
+      },
+      {
+        "_id": "000000000000000000000408",
+        "companyId": "000000000000000000000100",
+        "name": "Phone Burst Guard",
+        "respondentIdentifier": "email",
+        "windowDurationMin": 60,
+        "maxResponsesPerRespondent": 5,
+        "enabled": true,
+        "priority": 0,
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "metrics": {
+          "totalBlocked": 0,
+          "totalAllowed": 0,
+          "lastBlockedAt": null,
+          "_id": "6ab5142536492c5ff3c07fdd"
+        }
+      }
+    ],
+    "DataFlow": [
+      {
+        "_id": "000000000000000000000114",
+        "companyId": "000000000000000000000100",
+        "name": "Weekly Callback Import",
+        "description": "Import synthetic callbacks",
+        "sourceName": "Callback CSV",
+        "status": "draft",
+        "code": "",
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "conversation": []
+      },
+      {
+        "_id": "000000000000000000000407",
+        "companyId": "000000000000000000000100",
+        "name": "Archived Weekly Callback Import",
+        "description": "Import synthetic callbacks",
+        "sourceName": "Callback CSV",
+        "status": "draft",
+        "code": "",
+        "createdBy": "000000000000000000000101",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "conversation": []
+      }
+    ],
+    "DataFlowVersion": [
+      {
+        "_id": "000000000000000000001014",
+        "companyId": "000000000000000000000100",
+        "dataFlowId": "000000000000000000000114",
+        "versionNumber": 1,
+        "code": "",
+        "name": "Weekly Callback Import",
+        "description": "Test only",
+        "sourceName": "Callback CSV",
+        "note": "Baseline import mapping",
+        "author": {
+          "userId": "000000000000000000000101",
+          "name": "Synthetic Operator"
+        },
+        "runsCount": 1,
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "DataFlowRun": [
+      {
+        "_id": "000000000000000000001015",
+        "companyId": "000000000000000000000100",
+        "dataFlowId": "000000000000000000000114",
+        "versionNumber": 1,
+        "runBy": {
+          "userId": "000000000000000000000101",
+          "name": "Synthetic Operator"
+        },
+        "status": "completed",
+        "realSends": false,
+        "recordsReviewed": 12,
+        "totalSent": 0,
+        "surveyType": null,
+        "breakdown": {
+          "recordsReviewed": 0,
+          "sentWhatsapp": 0,
+          "sentEmail": 0,
+          "noConditions": 0,
+          "noChannel": 0,
+          "errors": 0
+        },
+        "records": [],
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z"
+      }
+    ],
+    "WokuExternalTracker": [
+      {
+        "companyId": "000000000000000000000100",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "_id": "000000000000000000000306",
+        "wokuId": "000000000000000000000102",
+        "trackerId": "000000000000000000000110",
+        "value": "Central"
+      },
+      {
+        "companyId": "000000000000000000000100",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "_id": "000000000000000000000307",
+        "wokuId": "000000000000000000000102",
+        "trackerId": "000000000000000000000304",
+        "value": "RC-410"
+      }
+    ],
+    "ExternalTrackerValue": [
+      {
+        "companyId": "000000000000000000000100",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "_id": "000000000000000000000308",
+        "entityType": "flow",
+        "entityId": "000000000000000000000105",
+        "trackerId": "000000000000000000000110",
+        "value": "Journey-West"
+      },
+      {
+        "companyId": "000000000000000000000100",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "_id": "000000000000000000000309",
+        "entityType": "form",
+        "entityId": "000000000000000000000109",
+        "trackerId": "000000000000000000000110",
+        "value": "Callback-East"
+      },
+      {
+        "companyId": "000000000000000000000100",
+        "createdAt": "2026-09-01T12:00:00.000Z",
+        "updatedAt": "2026-09-01T12:00:00.000Z",
+        "_id": "000000000000000000000310",
+        "entityType": "nps",
+        "entityId": "000000000000000000000106",
+        "trackerId": "000000000000000000000110",
+        "value": "Delivery-North"
+      }
+    ]
+  },
+  "idPolicy": "Replace every 24-hex identifier using HMAC(private run seed, case id + identifier), identical across all four conditions."
+}

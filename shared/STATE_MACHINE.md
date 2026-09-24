@@ -31,3 +31,12 @@ argument cannot grant approval. Read execution must reject write/unknown effects
 The SDK supports text MCP results. Mutation registration is an explicit trusted
 opt-in. executeWrite requires a provider approval callback, with checks before
 dispatch and replay; executeRead rejects every non-read effect.
+
+
+## V3 experimental workflow preparation
+
+See [ADR 0005](adr/0005-v3-workflow-preparation.md) for the explicitly authorized
+additive `/v1/workflows` API. It returns up to eight independent single-tool
+operations. The agent orders their execution; all existing per-operation identity,
+validation, decision, approval and durable dispatch rules still apply.
+Legacy single-tool preparation and historical experiments retain their semantics.

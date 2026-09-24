@@ -34,3 +34,12 @@ approval, limits or TLS to improve a benchmark. Bound concurrency, payloads, tim
 and retries. Uncertain business effects are not automatically retried. Backups,
 retention, SBOM, broader adversarial tests and independent security review remain
 release responsibilities; a successful laboratory run does not certify production.
+
+
+## V3 experimental workflow preparation
+
+See [ADR 0005](adr/0005-v3-workflow-preparation.md) for the explicitly authorized
+additive `/v1/workflows` API. It returns up to eight independent single-tool
+operations. The agent orders their execution; all existing per-operation identity,
+validation, decision, approval and durable dispatch rules still apply.
+Legacy single-tool preparation and historical experiments retain their semantics.

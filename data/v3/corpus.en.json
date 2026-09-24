@@ -1,0 +1,1167 @@
+{
+  "version": 3,
+  "language": "en",
+  "cases": [
+    {
+      "id": "V3-01",
+      "question": "For the woku described as \"Mercury Reception\", show every assigned external tracker value together with its tracker name and external system. I do not know any IDs.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "values",
+          "tool": "list_entity_trackers",
+          "arguments": {
+            "entityType": "woku",
+            "entityId": "@woku"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Support Region",
+        "Central",
+        "Service CRM",
+        "Receipt Code",
+        "RC-410",
+        "Order Desk"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-02",
+      "question": "Find \"Mercury Reception\" inside the \"Service Desk\" folder and tell me its default language and whether it allows only one review per client.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "folder",
+          "tool": "list_folders",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [],
+          "resultIncludes": [
+            "@folder"
+          ]
+        },
+        {
+          "id": "find",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [],
+          "resultIncludes": [
+            "@woku"
+          ]
+        },
+        {
+          "id": "detail",
+          "tool": "get_woku",
+          "arguments": {
+            "wokuId": "@woku"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "en"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-03",
+      "question": "In the \"Aftercare Journey\" flow, what are the titles and default languages of its wokus, in journey order?",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_flows",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "first",
+          "tool": "get_woku",
+          "arguments": {
+            "wokuId": "@woku"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "second",
+          "tool": "get_woku",
+          "arguments": {
+            "wokuId": "@woku2"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Mercury Reception",
+        "Mercury Delivery",
+        "en"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-04",
+      "question": "Show the field labels, field types and required flags for the \"Callback Request\" form, along with its respondent identification setting.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_forms",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "detail",
+          "tool": "get_form",
+          "arguments": {
+            "formId": "@form"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Callback reason",
+        "text",
+        "email"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-05",
+      "question": "Find the client morgan@example.invalid and report their review, NPS and form-response statistics.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_clients",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "stats",
+          "tool": "get_client_stats",
+          "arguments": {
+            "clientId": "@client"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "morgan@example.invalid"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-06",
+      "question": "Find the ticket titled \"Parcel arrived damaged\" and show its full case description and suggested resolution.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_tickets",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "detail",
+          "tool": "get_ticket",
+          "arguments": {
+            "ticketId": "@ticket"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Corner damage",
+        "Inspect the packaging"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-07",
+      "question": "For the \"Callback Recovery\" action plan, list its tasks in order and explain its objective and expected impact.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_action_plans",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "detail",
+          "tool": "get_action_plan",
+          "arguments": {
+            "planId": "@plan"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Check callback queue",
+        "Call waiting customers",
+        "Reduce missed callbacks"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-08",
+      "question": "Who is on the \"Callback Team\" action-plan group, what are their roles, and how many plans has the group generated?",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_action_plan_groups",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "detail",
+          "tool": "get_action_plan_group",
+          "arguments": {
+            "groupId": "@group"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "admin"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-09",
+      "question": "For the data flow named \"Weekly Callback Import\", show the saved run history and version notes without running it.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_data_flows",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "runs",
+          "tool": "list_data_flow_runs",
+          "arguments": {
+            "dataFlowId": "@dataFlow"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "versions",
+          "tool": "list_data_flow_versions",
+          "arguments": {
+            "dataFlowId": "@dataFlow"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Baseline import mapping",
+        "12"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-10",
+      "question": "What external tracker names and values are attached to the \"Delivery Pulse\" NPS tool?",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_nps_tools",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "values",
+          "tool": "list_entity_trackers",
+          "arguments": {
+            "entityType": "nps",
+            "entityId": "@nps"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Support Region",
+        "Delivery-North"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-11",
+      "question": "What external tracker names and values are attached to the \"Callback Request\" form?",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_forms",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "values",
+          "tool": "list_entity_trackers",
+          "arguments": {
+            "entityType": "form",
+            "entityId": "@form"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Support Region",
+        "Callback-East"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-12",
+      "question": "Show the external tracker names and values attached to the \"Aftercare Journey\" flow.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_flows",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "values",
+          "tool": "list_entity_trackers",
+          "arguments": {
+            "entityType": "flow",
+            "entityId": "@flow"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Support Region",
+        "Journey-West"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-13",
+      "question": "Find the \"Service Desk\" folder and summarize its saved AI feedback report.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_folders",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "report",
+          "tool": "get_folder_report",
+          "arguments": {
+            "folderId": "@folder"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "callback ownership"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-14",
+      "question": "Find the woku described as \"Mercury Reception\" and summarize its saved AI feedback report.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "report",
+          "tool": "get_woku_report",
+          "arguments": {
+            "wokuId": "@woku"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "waiting times"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-15",
+      "question": "For the \"Callback Recovery\" action plan, show the task details and its complete recorded history timeline.",
+      "effect": "read",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_action_plans",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "detail",
+          "tool": "get_action_plan",
+          "arguments": {
+            "planId": "@plan"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "history",
+          "tool": "get_action_plan_events",
+          "arguments": {
+            "planId": "@plan"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [
+        "Check callback queue",
+        "Call waiting customers"
+      ],
+      "state": null
+    },
+    {
+      "id": "V3-16",
+      "question": "Close the woku described as \"Mercury Reception\". Leave the other reception wokus unchanged.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "write",
+          "tool": "update_woku_settings",
+          "arguments": {
+            "wokuId": "@woku",
+            "closed": true
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "Woku",
+        "id": "@woku",
+        "fields": {
+          "closed": true
+        }
+      }
+    },
+    {
+      "id": "V3-17",
+      "question": "Move \"Mercury Reception\" to the folder named \"Archive Desk\". Keep all its other settings.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "folder",
+          "tool": "list_folders",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "move_woku",
+          "arguments": {
+            "wokuId": "@woku",
+            "folderId": "@parent"
+          },
+          "dependsOn": [
+            "find",
+            "folder"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "Woku",
+        "id": "@woku",
+        "fields": {
+          "folderId": "@parent"
+        }
+      }
+    },
+    {
+      "id": "V3-18",
+      "question": "Change the \"Aftercare Journey\" flow so its full woku sequence is \"Mercury Delivery\" first, then \"Mercury Reception\". Keep its name.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_flows",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "wokus",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "update_flow",
+          "arguments": {
+            "flowId": "@flow",
+            "wokusIds": [
+              "@woku2",
+              "@woku"
+            ]
+          },
+          "dependsOn": [
+            "find",
+            "wokus"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "Flow",
+        "id": "@flow",
+        "fields": {
+          "wokusIds": [
+            "@woku2",
+            "@woku"
+          ]
+        }
+      }
+    },
+    {
+      "id": "V3-19",
+      "question": "Close the form named \"Callback Request\" to new responses without changing its fields or deleting it.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_forms",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "write",
+          "tool": "update_form",
+          "arguments": {
+            "formId": "@form",
+            "closed": true
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "Form",
+        "id": "@form",
+        "fields": {
+          "closed": true
+        }
+      }
+    },
+    {
+      "id": "V3-20",
+      "question": "Change the phone number of the client morgan@example.invalid to +15550103030. Keep their email and custom fields.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_clients",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "update_client",
+          "arguments": {
+            "clientId": "@client",
+            "phone": "+15550103030"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "Client",
+        "id": "@client",
+        "fields": {
+          "phone": "15550103030"
+        }
+      }
+    },
+    {
+      "id": "V3-21",
+      "question": "Raise the severity of the ticket titled \"Parcel arrived damaged\" to high. Leave the late-parcel ticket alone.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_tickets",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "write",
+          "tool": "update_ticket",
+          "arguments": {
+            "ticketId": "@ticket",
+            "severity": "high"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "Ticket",
+        "id": "@ticket",
+        "fields": {
+          "severity": "high"
+        }
+      }
+    },
+    {
+      "id": "V3-22",
+      "question": "In the \"Callback Recovery\" action plan, rename the task \"Check callback queue\" to \"Review the callback queue every morning\". Keep the other task unchanged.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_action_plans",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "detail",
+          "tool": "get_action_plan",
+          "arguments": {
+            "planId": "@plan"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "update_action_plan_task",
+          "arguments": {
+            "planId": "@plan",
+            "taskId": "@task",
+            "text": "Review the callback queue every morning"
+          },
+          "dependsOn": [
+            "detail"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "ActionPlan",
+        "id": "@plan",
+        "fields": {
+          "tasks": {
+            "taskText": {
+              "id": "@task",
+              "text": "Review the callback queue every morning"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "V3-23",
+      "question": "Append a task called \"Publish callback ownership roster\" to the \"Callback Recovery\" action plan without approving or starting it.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_action_plans",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "write",
+          "tool": "create_action_plan_task",
+          "arguments": {
+            "planId": "@plan",
+            "text": "Publish callback ownership roster"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "ActionPlan",
+        "id": "@plan",
+        "fields": {
+          "tasks": {
+            "appendText": "Publish callback ownership roster"
+          }
+        }
+      }
+    },
+    {
+      "id": "V3-24",
+      "question": "In the \"Callback Recovery\" action plan, put \"Call waiting customers\" before \"Check callback queue\". Keep exactly the current tasks.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_action_plans",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "detail",
+          "tool": "get_action_plan",
+          "arguments": {
+            "planId": "@plan"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "reorder_action_plan_tasks",
+          "arguments": {
+            "planId": "@plan",
+            "orderedTaskIds": [
+              "@task2",
+              "@task"
+            ]
+          },
+          "dependsOn": [
+            "detail"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "ActionPlan",
+        "id": "@plan",
+        "fields": {
+          "tasks": {
+            "order": [
+              "@task2",
+              "@task"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "V3-25",
+      "question": "Disable the action-plan group named \"Callback Team\" without deleting it or altering its members.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_action_plan_groups",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "set_action_plan_group_enabled",
+          "arguments": {
+            "groupId": "@group",
+            "enabled": false
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "ActionPlanGroup",
+        "id": "@group",
+        "fields": {
+          "enabled": false
+        }
+      }
+    },
+    {
+      "id": "V3-26",
+      "question": "Rename the external tracker \"Receipt Code\" to \"Receipt Reference\". Preserve its external system and existing assignments.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "update_tracker",
+          "arguments": {
+            "trackerId": "@tracker2",
+            "name": "Receipt Reference"
+          },
+          "dependsOn": [
+            "catalog"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "CompanyExternalTracker",
+        "id": "@tracker2",
+        "fields": {
+          "name": "Receipt Reference"
+        }
+      }
+    },
+    {
+      "id": "V3-27",
+      "question": "Deactivate the external tracker named \"Route Code\". Keep the other tracker definitions active.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "set_tracker_active",
+          "arguments": {
+            "trackerId": "@tracker3",
+            "active": false
+          },
+          "dependsOn": [
+            "catalog"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "CompanyExternalTracker",
+        "id": "@tracker3",
+        "fields": {
+          "active": false
+        }
+      }
+    },
+    {
+      "id": "V3-28",
+      "question": "Assign the existing \"Route Code\" external tracker value \"R-22\" to the woku described as \"Mercury Delivery\". Do not create a tracker definition.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "assign_tracker_to_woku",
+          "arguments": {
+            "wokuId": "@woku2",
+            "trackerId": "@tracker3",
+            "value": "R-22"
+          },
+          "dependsOn": [
+            "find",
+            "catalog"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "WokuExternalTracker",
+        "create": {
+          "wokuId": "@woku2",
+          "trackerId": "@tracker3",
+          "value": "R-22"
+        }
+      }
+    },
+    {
+      "id": "V3-29",
+      "question": "Remove only the \"Receipt Code\" tracker assignment from \"Mercury Reception\". Preserve its \"Support Region\" assignment and the tracker definitions. I confirm this assignment removal.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_wokus",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": [
+            "search"
+          ]
+        },
+        {
+          "id": "catalog",
+          "tool": "list_trackers",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "values",
+          "tool": "list_entity_trackers",
+          "arguments": {
+            "entityType": "woku",
+            "entityId": "@woku"
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "remove_tracker_value",
+          "arguments": {
+            "valueId": "@wokuValue2",
+            "entityType": "woku",
+            "confirm": true
+          },
+          "dependsOn": [
+            "values",
+            "catalog"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "WokuExternalTracker",
+        "id": "@wokuValue2",
+        "delete": true
+      }
+    },
+    {
+      "id": "V3-30",
+      "question": "Pause the quarantine rule named \"Email Burst Guard\" while keeping its response limit and time window unchanged.",
+      "effect": "write",
+      "steps": [
+        {
+          "id": "find",
+          "tool": "list_quarantines",
+          "arguments": {},
+          "dependsOn": [],
+          "alternatives": []
+        },
+        {
+          "id": "write",
+          "tool": "update_quarantine",
+          "arguments": {
+            "quarantineId": "@quarantine",
+            "enabled": false
+          },
+          "dependsOn": [
+            "find"
+          ],
+          "alternatives": []
+        }
+      ],
+      "answerFacts": [],
+      "state": {
+        "model": "Quarantine",
+        "id": "@quarantine",
+        "fields": {
+          "enabled": false
+        }
+      }
+    }
+  ]
+}

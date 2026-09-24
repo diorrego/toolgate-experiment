@@ -1,0 +1,8 @@
+{
+  "goBinarySha256": "3b7af5b357104a87d11cc01db4ce739862e81bdd3f0605e06ad2e568bd7a4da2",
+  "bothRunningGoProfilesMatchMeasuredBinary": {
+    "choice": true,
+    "binary": true
+  },
+  "nativeCompiledManifestFilesVerified": 4352
+}

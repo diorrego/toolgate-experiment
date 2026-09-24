@@ -1,0 +1,98 @@
+[
+  {
+    "core": "go",
+    "profile": "choice",
+    "checks": [
+      "catalog",
+      "two independent selected schemas",
+      "profile attempt count",
+      "filter before inference",
+      "missing args individually",
+      "idempotent same bundle",
+      "idempotency conflict",
+      "child ownership",
+      "child authorization",
+      "normal child decision no inference",
+      "selector no match",
+      "selector invalid",
+      "error parity timeout",
+      "error parity http error",
+      "empty authorization no inference",
+      "overflow explicit no children",
+      "unknown request input rejected",
+      "concurrent atomic bundle"
+    ]
+  },
+  {
+    "core": "go",
+    "profile": "binary-parallel-v1",
+    "checks": [
+      "catalog",
+      "two independent selected schemas",
+      "profile attempt count",
+      "filter before inference",
+      "missing args individually",
+      "idempotent same bundle",
+      "idempotency conflict",
+      "child ownership",
+      "child authorization",
+      "normal child decision no inference",
+      "selector no match",
+      "selector invalid",
+      "error parity timeout",
+      "error parity http error",
+      "empty authorization no inference",
+      "overflow explicit no children",
+      "unknown request input rejected",
+      "concurrent atomic bundle"
+    ]
+  },
+  {
+    "core": "rust",
+    "profile": "choice",
+    "checks": [
+      "catalog",
+      "two independent selected schemas",
+      "profile attempt count",
+      "filter before inference",
+      "missing args individually",
+      "idempotent same bundle",
+      "idempotency conflict",
+      "child ownership",
+      "child authorization",
+      "normal child decision no inference",
+      "selector no match",
+      "selector invalid",
+      "error parity timeout",
+      "error parity http error",
+      "empty authorization no inference",
+      "overflow explicit no children",
+      "unknown request input rejected",
+      "concurrent atomic bundle"
+    ]
+  },
+  {
+    "core": "rust",
+    "profile": "binary-parallel-v1",
+    "checks": [
+      "catalog",
+      "two independent selected schemas",
+      "profile attempt count",
+      "filter before inference",
+      "missing args individually",
+      "idempotent same bundle",
+      "idempotency conflict",
+      "child ownership",
+      "child authorization",
+      "normal child decision no inference",
+      "selector no match",
+      "selector invalid",
+      "error parity timeout",
+      "error parity http error",
+      "empty authorization no inference",
+      "overflow explicit no children",
+      "unknown request input rejected",
+      "concurrent atomic bundle"
+    ]
+  }
+]

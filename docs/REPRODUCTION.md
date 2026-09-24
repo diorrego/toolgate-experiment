@@ -1,4 +1,4 @@
-> This page reproduces the V1 latency experiments. See [V2 accuracy](V2-ACCURACY.md) for the 143-tool, 60-requirement API experiment.
+> Historical V1 instructions follow. See [V2 accuracy](V2-ACCURACY.md) for single-tool evaluation and [V3 workflows](V3-WORKFLOWS.md) for the latest local multi-tool experiment.
 
 # Reproduce the experiment
 
@@ -178,3 +178,15 @@ checked source/public-results tree. Private state, local configs, dependencies,
 build outputs and captures are excluded. Existing archives are never overwritten;
 choose a new `--output` path for a later package. Review the public files before
 uploading. Creating an archive does not publish it or declare a license.
+## V3 workflow reproduction
+
+The latest local experiment is [V3](V3-WORKFLOWS.md): 30 requirements in each of
+four conditions, with native multi-tool workflows. Start with its protocol,
+`examples/v3-experiment.example.json`, `tools/v3/run.mjs` and the V3 verification
+directory. V1/V2 instructions below remain historical. V3 is committed locally
+only; remote publication requires a new instruction from the operator.
+
+Offline recomputation uses `make report-check`. Live repetition requires access
+to the compatible native Woku handlers, which are not vendored in this repository.
+The fixture and public provider adapter do not replace those handlers. A synthetic
+protocol test alone cannot reproduce or certify native business accuracy.

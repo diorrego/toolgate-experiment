@@ -1,0 +1,30 @@
+{
+  "complete": true,
+  "cells": 120,
+  "uniqueCells": 120,
+  "finalAnswers": 120,
+  "rawSha256": "31b1de3086abb996e6643fbdeb06aa76aa2d68f188f11fc337d20521d28e2a4d",
+  "artifactsUnchanged": {
+    "go": true,
+    "runner": true,
+    "metrics": true,
+    "sdk": true,
+    "provider": true,
+    "contract": true,
+    "stateOracle": true,
+    "apiClient": true,
+    "coreSupervisor": true,
+    "providerAdapter": true,
+    "wokuBuildManifest": true,
+    "fixture": true,
+    "idSeed": true,
+    "gateTools": true,
+    "corpus": true,
+    "catalog": true,
+    "callScheduler": true,
+    "baseMetrics": true,
+    "config": true
+  },
+  "startedAt": "2026-09-24T18:50:41.504Z",
+  "completedAt": "2026-09-24T19:21:18.409Z"
+}

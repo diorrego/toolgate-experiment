@@ -1,0 +1,103 @@
+{
+  "logs": [
+    {
+      "log": "go-check-final.log",
+      "sha256": "94c56d59dbce0b713588c259377b61cf41a938eac965bfcdd7d4e1dcfa7d7cb0"
+    },
+    {
+      "log": "rust-check-final.log",
+      "sha256": "76ca2fee554a57953a1e6eec56e6d33cd15ff4274804d0b957c1b5e3a1aff2c4"
+    },
+    {
+      "log": "sdk-check-final.log",
+      "sha256": "df7c38f0895a95b199437bd09106a25197bcb6be788d997350a2a2ba3b9d69f7"
+    },
+    {
+      "log": "workflow-conformance-final.log",
+      "sha256": "684e96f8062efc41bef2ce80c437cff49329ec06d3115a3efba1cd65411ebbc8"
+    },
+    {
+      "log": "go-integration.log",
+      "sha256": "005fcd2994c921efa3727c651c06a71e4ab164471e323a0223f81d97746952e5"
+    },
+    {
+      "log": "rust-integration.log",
+      "sha256": "8e7495fdbd1f394d60997c17085bc41b7a51823ec973312583584b190af9317a"
+    },
+    {
+      "log": "oracles-final.log",
+      "sha256": "d6b8cfe7faf99b5eea61da52f8cfe777ed481990ab7ef0cc5bbbec68a6ef8439"
+    },
+    {
+      "log": "host-test-final.log",
+      "sha256": "224ac6bb1a2bef3265482677c281fcc784ce950c62ae4d993798d16a9f32a557"
+    },
+    {
+      "log": "pack.log",
+      "sha256": "847220d02b889343df119fc0dd8244db30e1dffd4827436ed356d766498ef23b"
+    }
+  ],
+  "commands": [
+    {
+      "cwd": "backend-go",
+      "command": "make check",
+      "exitCode": 0
+    },
+    {
+      "cwd": "backend-rust",
+      "command": "make check (cargo-audit and cargo-deny on PATH)",
+      "exitCode": 0
+    },
+    {
+      "cwd": "sdk-typescript",
+      "command": "npm run check",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "node tools/pack-sdk.mjs",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "python3 tools/workflow-conformance.py (TOOLGATE_LAB_STATE and TOOLGATE_VERIFICATION_DIR configured)",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "python3 tools/core-conformance.py go --sdk (mutation lab configured)",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "python3 tools/core-conformance.py rust --sdk (mutation lab configured)",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "node --test tools/tests/v3.test.mjs",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "make unit report-check",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "python3 tools/v3/audit.py",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "python3 tools/check-repository.py",
+      "exitCode": 0
+    },
+    {
+      "cwd": ".",
+      "command": "python3 tools/contract.py check",
+      "exitCode": 0
+    }
+  ],
+  "nativeOracles": "75 real handler calls; 30 sequence/state checks, 15 requested mutations; all passed."
+}

@@ -1,0 +1,9 @@
+{
+  "cases": 30,
+  "handlerCalls": 75,
+  "allHandlersPassed": true,
+  "allStatesPassed": true,
+  "allDependenciesGrounded": true,
+  "allAnswerFactsAvailable": true,
+  "allReferenceSequencesPassed": true
+}

@@ -1,4 +1,4 @@
-> The walkthrough below reproduces the V1 read-only profile. V2 mutation support is described at the end.
+> The walkthrough preserves V1 integration. V2 mutations and V3 workflow preparation are described below; see [the V3 protocol](V3-WORKFLOWS.md) for the latest local experiment.
 
 # Bring your own backend with MCP
 
@@ -145,3 +145,13 @@ and validates the exact three entry-point schemas before any SDK call. The measu
 Woku integration supplies its real native handlers and an explicit synthetic test
 authorization policy. See [the V2 protocol](V2-ACCURACY.md) for its boundaries and
 fixture requirements.
+## Experimental workflow preparation
+
+V3 adds `ToolgateProvider.prepareWorkflow(actor, intent)` and the shared
+`workflow_tools` MCP definitions. Use it with the updated core/SDK consumers
+together. It returns up to eight ordinary operations; each still uses the existing
+read/write execution path and its own remote decision, provider approval and
+durable ledger. The agent schedules dependencies and discovers business IDs.
+Toolgate does not execute handlers or business workflows. The existing single-tool
+integration below remains available. See [the V3 protocol](V3-WORKFLOWS.md) and
+[ADR 0005](../shared/adr/0005-v3-workflow-preparation.md).

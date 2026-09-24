@@ -9,6 +9,7 @@ import type {
   ToolDescriptor,
   CatalogUpload,
   OperationView,
+  WorkflowView,
   SelectedTool,
   ExecutionDecision,
   ValidationIssue,
@@ -297,6 +298,42 @@ export class ToolgateProvider {
       this.options.registry.version,
       this.options.registry.catalog(),
     );
+  }
+  async prepareWorkflow(
+    actor: Actor,
+    intent: string,
+    options: CallOptions = {},
+  ): Promise<WorkflowView> {
+    const view = await this.options.client.prepareWorkflow(
+      {
+        actor,
+        catalog_id: this.options.catalogId,
+        catalog_version: this.options.registry.version,
+        intent,
+      },
+      options,
+    );
+    const ids = new Set<string>();
+    const toolIds = new Set<string>();
+    for (const child of view.operations) {
+      if (
+        !(child.status === "ready" || child.status === "needs_arguments") ||
+        ids.has(child.operation_id) ||
+        toolIds.has(child.selected_tool.tool_id) ||
+        !actor.allowed_tool_ids.includes(child.selected_tool.tool_id) ||
+        child.catalog_id !== this.options.catalogId ||
+        child.catalog_version !== this.options.registry.version
+      )
+        throw new RemoteError("INVALID_RESPONSE");
+      this.bindings(child, child.selected_tool, actor);
+      ids.add(child.operation_id);
+      toolIds.add(child.selected_tool.tool_id);
+    }
+    if ((view.status === "prepared") !== view.operations.length > 0)
+      throw new RemoteError("INVALID_RESPONSE");
+    for (const child of view.operations)
+      await this.options.store.put(actor, child);
+    return decodeWire("WorkflowView", JSON.parse(jcs(view)) as unknown);
   }
   async prepare(
     actor: Actor,

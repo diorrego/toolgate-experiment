@@ -76,3 +76,12 @@ The exact HTTP/error enumeration is in OpenAPI. Authentication and malformed inp
 errors are not cached. Retryable failures retain stable request keys and bounded
 budgets. Unexpected INTERNAL_ERROR is not automatically retryable. Validation
 issues contain paths/codes, never argument values or stack traces.
+
+
+## V3 experimental workflow preparation
+
+See [ADR 0005](adr/0005-v3-workflow-preparation.md) for the explicitly authorized
+additive `/v1/workflows` API. It returns up to eight independent single-tool
+operations. The agent orders their execution; all existing per-operation identity,
+validation, decision, approval and durable dispatch rules still apply.
+Legacy single-tool preparation and historical experiments retain their semantics.

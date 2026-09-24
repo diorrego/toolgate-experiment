@@ -1,0 +1,4572 @@
+{
+  "version": 3,
+  "complete": false,
+  "excluded": true,
+  "reason": "Stopped at a cell boundary to correct folder-join oracle equivalence and Go/Rust selector deadline/HTTP-error parity. No user question changed. No cells enter the definitive matrix.",
+  "rawSha256": "7ecfc93f1c3815781c2b0da0ad14d287baea25c71d86c37d71128327dfc3b002",
+  "fingerprints": {
+    "go": "f2511d3a05cce3dd0f5e177b30e76a987551dddaade5bb17e4dc7b86f32bfe46",
+    "runner": "d226e8288a5240ac48ec94ea84759f481a623999db191f1df5bd2eb70fc4043a",
+    "metrics": "6b0ecde7c4768d7891b119f5e35ae1ad0040c3917d177208773bd5280dd33993",
+    "sdk": "a7a3e5b6b23bd0194f86fffbfca7f6f49b12f80d182248be1136ce94bac995eb",
+    "provider": "8508f407c4a0dabf1a87085f8f3c4742a6f2c1aa07f30fd4e32d659163d7d880",
+    "contract": "704f6a0945a840578936645b4a96e7b9bc74a754d46a97626e97326e8170bbc8",
+    "stateOracle": "e5c50affdf487f9ab8ad1d02543195af3d992ed9529f566b0f519fe50cf9ebdc",
+    "apiClient": "24f18fc453deb2dbc2c36cb36e8ca962d917ef786d9dee99af8f2b6b99f3173d",
+    "coreSupervisor": "0aed47817b2e76d755299f034e8ea063d3cdb5f5960b239043c9ab872ee86b18",
+    "providerAdapter": "5e202148a1dc2616683fa947de9ddec0330234a1a8a51b6f354563cde192177e",
+    "wokuBuildManifest": "d8f61b8c1551aa386d797ba0accac995286167793b0c2a9212f564a08462f7a3",
+    "fixture": "56dcd4587db9d60d864785430a46d2c21dd4a44b83b303368306477ebcbc419f",
+    "idSeed": "43cfb2554d2cf53cadd3d26687f857dbf3a31aaa7873b86770dbb33a6d0179ae",
+    "gateTools": "67dc06e061cb5596274ba1e3059a182a7d526ffe50892e46c2a2bdeb7df3e920",
+    "corpus": "fcace9e28d6e2d2158aced01b5af6733382a5aa91a2fd69e6cfad3c62b981bc9",
+    "catalog": "1ba87eeb85a646a7b68899b11dccb71bfc29e289adb10be1879bec71c7845e3e",
+    "callScheduler": "c35ba343e9149210f2c07ea2c3f0ccf4ed638fd3f9bf2321d4ae14d7dada03e7",
+    "baseMetrics": "df59fc4370ae1326e1859a631fa0bab7e6c32103fad412e8725e192fc67fc818",
+    "config": "c4bd67e304429080eba415cb00228ea2e6f75f71b05833643a4c771d15ee2a26"
+  },
+  "startedAt": "2026-09-24T18:33:25.723Z",
+  "records": [
+    {
+      "caseId": "V3-01",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 17417.383541,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 4340.612613,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28236,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 28233
+            },
+            "output_tokens": 61,
+            "output_tokens_details": {
+              "reasoning_tokens": 18
+            },
+            "total_tokens": 28297
+          },
+          "costUSD": 0.00031312999999999995
+        },
+        {
+          "durationMs": 4299.733003000001,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28688,
+            "input_tokens_details": {
+              "cache_write_tokens": 452,
+              "cached_tokens": 28233
+            },
+            "output_tokens": 132,
+            "output_tokens_details": {
+              "reasoning_tokens": 61
+            },
+            "total_tokens": 28820
+          },
+          "costUSD": 0.00040512999999999996
+        },
+        {
+          "durationMs": 4512.960521000001,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29306,
+            "input_tokens_details": {
+              "cache_write_tokens": 618,
+              "cached_tokens": 28685
+            },
+            "output_tokens": 57,
+            "output_tokens_details": {
+              "reasoning_tokens": 13
+            },
+            "total_tokens": 29363
+          },
+          "costUSD": 0.0003929
+        },
+        {
+          "durationMs": 4230.377336,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29717,
+            "input_tokens_details": {
+              "cache_write_tokens": 411,
+              "cached_tokens": 29303
+            },
+            "output_tokens": 77,
+            "output_tokens_details": {
+              "reasoning_tokens": 22
+            },
+            "total_tokens": 29794
+          },
+          "costUSD": 0.00038320500000000007
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_wokus",
+        "list_trackers",
+        "list_entity_trackers"
+      ]
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 29121.564811,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 3,
+        "initialPrecision": 0.6666666666666666,
+        "initialStepCoverage": 0.6666666666666666,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 27337,
+        "outputTokens": 4102,
+        "cost": 0.001148154
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2409.7166279999983,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 671,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 97,
+            "output_tokens_details": {
+              "reasoning_tokens": 33
+            },
+            "total_tokens": 768
+          },
+          "costUSD": 0.0001156
+        },
+        {
+          "durationMs": 2844.053855000002,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2274,
+            "input_tokens_details": {
+              "cache_write_tokens": 2271,
+              "cached_tokens": 0
+            },
+            "output_tokens": 133,
+            "output_tokens_details": {
+              "reasoning_tokens": 79
+            },
+            "total_tokens": 2407
+          },
+          "costUSD": 0.000350675
+        },
+        {
+          "durationMs": 3711.990494999998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3141,
+            "input_tokens_details": {
+              "cache_write_tokens": 867,
+              "cached_tokens": 2271
+            },
+            "output_tokens": 174,
+            "output_tokens_details": {
+              "reasoning_tokens": 116
+            },
+            "total_tokens": 3315
+          },
+          "costUSD": 0.000218385
+        },
+        {
+          "durationMs": 3473.5779839999996,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3353,
+            "input_tokens_details": {
+              "cache_write_tokens": 212,
+              "cached_tokens": 3138
+            },
+            "output_tokens": 201,
+            "output_tokens_details": {
+              "reasoning_tokens": 143
+            },
+            "total_tokens": 3554
+          },
+          "costUSD": 0.00015868000000000002
+        },
+        {
+          "durationMs": 4084.6368459999976,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3592,
+            "input_tokens_details": {
+              "cache_write_tokens": 239,
+              "cached_tokens": 3350
+            },
+            "output_tokens": 290,
+            "output_tokens_details": {
+              "reasoning_tokens": 233
+            },
+            "total_tokens": 3882
+          },
+          "costUSD": 0.00020867500000000002
+        },
+        {
+          "durationMs": 2369.914907999999,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4054,
+            "input_tokens_details": {
+              "cache_write_tokens": 462,
+              "cached_tokens": 3589
+            },
+            "output_tokens": 149,
+            "output_tokens_details": {
+              "reasoning_tokens": 69
+            },
+            "total_tokens": 4203
+          },
+          "costUSD": 0.00016844
+        },
+        {
+          "durationMs": 3004.8702179999964,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4556,
+            "input_tokens_details": {
+              "cache_write_tokens": 502,
+              "cached_tokens": 4051
+            },
+            "output_tokens": 157,
+            "output_tokens_details": {
+              "reasoning_tokens": 74
+            },
+            "total_tokens": 4713
+          },
+          "costUSD": 0.00018206
+        },
+        {
+          "durationMs": 2670.830025999996,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5165,
+            "input_tokens_details": {
+              "cache_write_tokens": 609,
+              "cached_tokens": 4553
+            },
+            "output_tokens": 132,
+            "output_tokens_details": {
+              "reasoning_tokens": 67
+            },
+            "total_tokens": 5297
+          },
+          "costUSD": 0.000187955
+        },
+        {
+          "durationMs": 2427.6043500000014,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5613,
+            "input_tokens_details": {
+              "cache_write_tokens": 448,
+              "cached_tokens": 5162
+            },
+            "output_tokens": 127,
+            "output_tokens_details": {
+              "reasoning_tokens": 69
+            },
+            "total_tokens": 5740
+          },
+          "costUSD": 0.00017141999999999998
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_wokus",
+        "list_entity_trackers",
+        "list_trackers"
+      ]
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-2",
+      "status": "completed",
+      "taskMs": 13195.381172000001,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 3,
+        "initialPrecision": 0.6666666666666666,
+        "initialStepCoverage": 0.6666666666666666,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 27189,
+        "outputTokens": 4102,
+        "cost": 0.001141938
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3165.252057999998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2085,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 227,
+            "output_tokens_details": {
+              "reasoning_tokens": 74
+            },
+            "total_tokens": 2312
+          },
+          "costUSD": 0.000322
+        },
+        {
+          "durationMs": 2142.970423999999,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2872,
+            "input_tokens_details": {
+              "cache_write_tokens": 2869,
+              "cached_tokens": 0
+            },
+            "output_tokens": 104,
+            "output_tokens_details": {
+              "reasoning_tokens": 30
+            },
+            "total_tokens": 2976
+          },
+          "costUSD": 0.00041092500000000003
+        },
+        {
+          "durationMs": 2396.7299150000035,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3329,
+            "input_tokens_details": {
+              "cache_write_tokens": 457,
+              "cached_tokens": 2869
+            },
+            "output_tokens": 139,
+            "output_tokens_details": {
+              "reasoning_tokens": 44
+            },
+            "total_tokens": 3468
+          },
+          "costUSD": 0.000155615
+        },
+        {
+          "durationMs": 2032.9497330000013,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3919,
+            "input_tokens_details": {
+              "cache_write_tokens": 590,
+              "cached_tokens": 3326
+            },
+            "output_tokens": 94,
+            "output_tokens_details": {
+              "reasoning_tokens": 30
+            },
+            "total_tokens": 4013
+          },
+          "costUSD": 0.00015431
+        },
+        {
+          "durationMs": 1804.8469699999987,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4329,
+            "input_tokens_details": {
+              "cache_write_tokens": 410,
+              "cached_tokens": 3916
+            },
+            "output_tokens": 75,
+            "output_tokens_details": {
+              "reasoning_tokens": 17
+            },
+            "total_tokens": 4404
+          },
+          "costUSD": 0.00012821
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_wokus",
+        "list_entity_trackers",
+        "list_trackers"
+      ]
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 17236.05762,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 3,
+        "initialPrecision": 0.6666666666666666,
+        "initialStepCoverage": 0.6666666666666666,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 128,
+        "complete": true,
+        "inputTokens": 68388,
+        "outputTokens": 4480,
+        "cost": 0.0028722960000000003
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3250.185218999992,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2089,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 195,
+            "output_tokens_details": {
+              "reasoning_tokens": 129
+            },
+            "total_tokens": 2284
+          },
+          "costUSD": 0.0003064
+        },
+        {
+          "durationMs": 2244.4518280000048,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2674,
+            "input_tokens_details": {
+              "cache_write_tokens": 2671,
+              "cached_tokens": 0
+            },
+            "output_tokens": 82,
+            "output_tokens_details": {
+              "reasoning_tokens": 16
+            },
+            "total_tokens": 2756
+          },
+          "costUSD": 0.00037517500000000005
+        },
+        {
+          "durationMs": 2187.8825429999997,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2928,
+            "input_tokens_details": {
+              "cache_write_tokens": 254,
+              "cached_tokens": 2671
+            },
+            "output_tokens": 109,
+            "output_tokens_details": {
+              "reasoning_tokens": 31
+            },
+            "total_tokens": 3037
+          },
+          "costUSD": 0.00011326000000000001
+        },
+        {
+          "durationMs": 2495.30142399999,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3390,
+            "input_tokens_details": {
+              "cache_write_tokens": 462,
+              "cached_tokens": 2925
+            },
+            "output_tokens": 146,
+            "output_tokens_details": {
+              "reasoning_tokens": 61
+            },
+            "total_tokens": 3536
+          },
+          "costUSD": 0.0001603
+        },
+        {
+          "durationMs": 1821.5349419999984,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4447,
+            "input_tokens_details": {
+              "cache_write_tokens": 1057,
+              "cached_tokens": 3387
+            },
+            "output_tokens": 81,
+            "output_tokens_details": {
+              "reasoning_tokens": 20
+            },
+            "total_tokens": 4528
+          },
+          "costUSD": 0.000206795
+        },
+        {
+          "durationMs": 2640.7934870000026,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4844,
+            "input_tokens_details": {
+              "cache_write_tokens": 397,
+              "cached_tokens": 4444
+            },
+            "output_tokens": 82,
+            "output_tokens_details": {
+              "reasoning_tokens": 28
+            },
+            "total_tokens": 4926
+          },
+          "costUSD": 0.000135365
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_wokus",
+        "list_entity_trackers",
+        "list_trackers"
+      ]
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 13507.665725999992,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "folder": true,
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 3,
+        "idArgumentCount": 3,
+        "initialSelectedCount": 6,
+        "initialPrecision": 0.5,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 1,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13946,
+        "outputTokens": 2051,
+        "cost": 0.000585732
+      },
+      "modelCalls": [
+        {
+          "durationMs": 1902.2566340000049,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 667,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 83,
+            "output_tokens_details": {
+              "reasoning_tokens": 15
+            },
+            "total_tokens": 750
+          },
+          "costUSD": 0.0001082
+        },
+        {
+          "durationMs": 1792.1457320000045,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3078,
+            "input_tokens_details": {
+              "cache_write_tokens": 3075,
+              "cached_tokens": 0
+            },
+            "output_tokens": 81,
+            "output_tokens_details": {
+              "reasoning_tokens": 26
+            },
+            "total_tokens": 3159
+          },
+          "costUSD": 0.000425175
+        },
+        {
+          "durationMs": 5238.681951999999,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3453,
+            "input_tokens_details": {
+              "cache_write_tokens": 375,
+              "cached_tokens": 3075
+            },
+            "output_tokens": 300,
+            "output_tokens_details": {
+              "reasoning_tokens": 155
+            },
+            "total_tokens": 3753
+          },
+          "costUSD": 0.00022792499999999997
+        },
+        {
+          "durationMs": 1994.954429999998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4261,
+            "input_tokens_details": {
+              "cache_write_tokens": 808,
+              "cached_tokens": 3450
+            },
+            "output_tokens": 86,
+            "output_tokens_details": {
+              "reasoning_tokens": 16
+            },
+            "total_tokens": 4347
+          },
+          "costUSD": 0.0001788
+        },
+        {
+          "durationMs": 1596.9678489999933,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4587,
+            "input_tokens_details": {
+              "cache_write_tokens": 326,
+              "cached_tokens": 4258
+            },
+            "output_tokens": 38,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 4625
+          },
+          "costUSD": 0.00010263
+        }
+      ],
+      "businessTools": [
+        "list_folders",
+        "get_folder",
+        "list_wokus",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "design-2",
+      "status": "completed",
+      "taskMs": 8782.149163999988,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 1,
+        "steps": {
+          "folder": true,
+          "find": false,
+          "detail": false
+        },
+        "completeSequence": false,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 6,
+        "initialPrecision": 0.5,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": false,
+        "endToEndSuccess": false
+      },
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13713,
+        "outputTokens": 2051,
+        "cost": 0.000575946
+      },
+      "modelCalls": [
+        {
+          "durationMs": 4008.1867120000097,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2875,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 247,
+            "output_tokens_details": {
+              "reasoning_tokens": 123
+            },
+            "total_tokens": 3122
+          },
+          "costUSD": 0.000411
+        },
+        {
+          "durationMs": 2056.3776599999983,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3582,
+            "input_tokens_details": {
+              "cache_write_tokens": 3579,
+              "cached_tokens": 0
+            },
+            "output_tokens": 98,
+            "output_tokens_details": {
+              "reasoning_tokens": 26
+            },
+            "total_tokens": 3680
+          },
+          "costUSD": 0.000496675
+        },
+        {
+          "durationMs": 1881.5991499999946,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3920,
+            "input_tokens_details": {
+              "cache_write_tokens": 338,
+              "cached_tokens": 3579
+            },
+            "output_tokens": 40,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3960
+          },
+          "costUSD": 9.834e-05
+        }
+      ],
+      "businessTools": [
+        "list_folders",
+        "list_wokus",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 9597.494596999997,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "folder": true,
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 2,
+        "idArgumentCount": 2,
+        "initialSelectedCount": 6,
+        "initialPrecision": 0.5,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 64,
+        "complete": true,
+        "inputTokens": 32235,
+        "outputTokens": 2240,
+        "cost": 0.00135387
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2247.7559559999936,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2879,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 116,
+            "output_tokens_details": {
+              "reasoning_tokens": 62
+            },
+            "total_tokens": 2995
+          },
+          "costUSD": 0.00034590000000000006
+        },
+        {
+          "durationMs": 2222.543451999998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3289,
+            "input_tokens_details": {
+              "cache_write_tokens": 3286,
+              "cached_tokens": 0
+            },
+            "output_tokens": 99,
+            "output_tokens_details": {
+              "reasoning_tokens": 25
+            },
+            "total_tokens": 3388
+          },
+          "costUSD": 0.00046055
+        },
+        {
+          "durationMs": 2248.464573999998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3556,
+            "input_tokens_details": {
+              "cache_write_tokens": 267,
+              "cached_tokens": 3286
+            },
+            "output_tokens": 92,
+            "output_tokens_details": {
+              "reasoning_tokens": 19
+            },
+            "total_tokens": 3648
+          },
+          "costUSD": 0.000112535
+        },
+        {
+          "durationMs": 1669.7736890000087,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3888,
+            "input_tokens_details": {
+              "cache_write_tokens": 332,
+              "cached_tokens": 3553
+            },
+            "output_tokens": 38,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3926
+          },
+          "costUSD": 9.633e-05
+        }
+      ],
+      "businessTools": [
+        "list_folders",
+        "list_wokus",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 15372.112735000002,
+      "originalGrade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 1,
+        "steps": {
+          "folder": true,
+          "find": false,
+          "detail": false
+        },
+        "completeSequence": false,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": false,
+        "endToEndSuccess": false
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3438.6189840000006,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28232,
+            "input_tokens_details": {
+              "cache_write_tokens": 33,
+              "cached_tokens": 28196
+            },
+            "output_tokens": 41,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28273
+          },
+          "costUSD": 0.000306885
+        },
+        {
+          "durationMs": 5307.181255000003,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28496,
+            "input_tokens_details": {
+              "cache_write_tokens": 264,
+              "cached_tokens": 28229
+            },
+            "output_tokens": 168,
+            "output_tokens_details": {
+              "reasoning_tokens": 102
+            },
+            "total_tokens": 28664
+          },
+          "costUSD": 0.00039959
+        },
+        {
+          "durationMs": 3059.449794,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29124,
+            "input_tokens_details": {
+              "cache_write_tokens": 628,
+              "cached_tokens": 28493
+            },
+            "output_tokens": 47,
+            "output_tokens_details": {
+              "reasoning_tokens": 10
+            },
+            "total_tokens": 29171
+          },
+          "costUSD": 0.00038723
+        },
+        {
+          "durationMs": 3555.4115540000057,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29411,
+            "input_tokens_details": {
+              "cache_write_tokens": 287,
+              "cached_tokens": 29121
+            },
+            "output_tokens": 39,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29450
+          },
+          "costUSD": 0.00034688499999999996
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_wokus",
+        "list_folders",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "design-2",
+      "status": "completed",
+      "taskMs": 17425.625318000006,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "first": true,
+          "second": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 2,
+        "idArgumentCount": 2,
+        "initialSelectedCount": 3,
+        "initialPrecision": 0.3333333333333333,
+        "initialStepCoverage": 0.3333333333333333,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Mercury Reception",
+            "present": true
+          },
+          {
+            "fact": "Mercury Delivery",
+            "present": true
+          },
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 3,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 3,
+        "complete": true,
+        "inputTokens": 40037,
+        "outputTokens": 6153,
+        "cost": 0.001681554
+      },
+      "modelCalls": [
+        {
+          "durationMs": 1836.2804869999964,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1689,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 67,
+            "output_tokens_details": {
+              "reasoning_tokens": 16
+            },
+            "total_tokens": 1756
+          },
+          "costUSD": 0.00020240000000000001
+        },
+        {
+          "durationMs": 2179.432157999996,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2114,
+            "input_tokens_details": {
+              "cache_write_tokens": 2111,
+              "cached_tokens": 0
+            },
+            "output_tokens": 122,
+            "output_tokens_details": {
+              "reasoning_tokens": 35
+            },
+            "total_tokens": 2236
+          },
+          "costUSD": 0.00032517500000000003
+        },
+        {
+          "durationMs": 2541.1565439999977,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2984,
+            "input_tokens_details": {
+              "cache_write_tokens": 870,
+              "cached_tokens": 2111
+            },
+            "output_tokens": 130,
+            "output_tokens_details": {
+              "reasoning_tokens": 62
+            },
+            "total_tokens": 3114
+          },
+          "costUSD": 0.00019516
+        },
+        {
+          "durationMs": 2153.831401000003,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3353,
+            "input_tokens_details": {
+              "cache_write_tokens": 369,
+              "cached_tokens": 2981
+            },
+            "output_tokens": 70,
+            "output_tokens_details": {
+              "reasoning_tokens": 8
+            },
+            "total_tokens": 3423
+          },
+          "costUSD": 0.000111235
+        },
+        {
+          "durationMs": 3871.0129169999855,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3811,
+            "input_tokens_details": {
+              "cache_write_tokens": 458,
+              "cached_tokens": 3350
+            },
+            "output_tokens": 64,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3875
+          },
+          "costUSD": 0.00012304999999999998
+        },
+        {
+          "durationMs": 1947.2709399999876,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4113,
+            "input_tokens_details": {
+              "cache_write_tokens": 302,
+              "cached_tokens": 3808
+            },
+            "output_tokens": 42,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 4155
+          },
+          "costUSD": 9.712999999999999e-05
+        }
+      ],
+      "businessTools": [
+        "list_flows",
+        "get_woku",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 17057.52891199998,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "first": true,
+          "second": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 2,
+        "idArgumentCount": 2,
+        "initialSelectedCount": 2,
+        "initialPrecision": 0.5,
+        "initialStepCoverage": 0.3333333333333333,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Mercury Reception",
+            "present": true
+          },
+          {
+            "fact": "Mercury Delivery",
+            "present": true
+          },
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 3,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 192,
+        "complete": true,
+        "inputTokens": 101924,
+        "outputTokens": 6720,
+        "cost": 0.0042808080000000005
+      },
+      "modelCalls": [
+        {
+          "durationMs": 1824.2655760000052,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1362,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 100,
+            "output_tokens_details": {
+              "reasoning_tokens": 44
+            },
+            "total_tokens": 1462
+          },
+          "costUSD": 0.0001862
+        },
+        {
+          "durationMs": 3188.658299999981,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1820,
+            "input_tokens_details": {
+              "cache_write_tokens": 1817,
+              "cached_tokens": 0
+            },
+            "output_tokens": 173,
+            "output_tokens_details": {
+              "reasoning_tokens": 69
+            },
+            "total_tokens": 1993
+          },
+          "costUSD": 0.000313925
+        },
+        {
+          "durationMs": 2363.582542999997,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2733,
+            "input_tokens_details": {
+              "cache_write_tokens": 913,
+              "cached_tokens": 1817
+            },
+            "output_tokens": 115,
+            "output_tokens_details": {
+              "reasoning_tokens": 52
+            },
+            "total_tokens": 2848
+          },
+          "costUSD": 0.000190095
+        },
+        {
+          "durationMs": 1923.9812910000037,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3087,
+            "input_tokens_details": {
+              "cache_write_tokens": 354,
+              "cached_tokens": 2730
+            },
+            "output_tokens": 75,
+            "output_tokens_details": {
+              "reasoning_tokens": 14
+            },
+            "total_tokens": 3162
+          },
+          "costUSD": 0.00010935
+        },
+        {
+          "durationMs": 2155.8468310000026,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3550,
+            "input_tokens_details": {
+              "cache_write_tokens": 463,
+              "cached_tokens": 3084
+            },
+            "output_tokens": 64,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3614
+          },
+          "costUSD": 0.000121015
+        },
+        {
+          "durationMs": 1618.2188430000097,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3852,
+            "input_tokens_details": {
+              "cache_write_tokens": 302,
+              "cached_tokens": 3547
+            },
+            "output_tokens": 41,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3893
+          },
+          "costUSD": 9.402e-05
+        }
+      ],
+      "businessTools": [
+        "list_flows",
+        "get_woku",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 15660.365573999996,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "first": true,
+          "second": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 2,
+        "idArgumentCount": 2,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Mercury Reception",
+            "present": true
+          },
+          {
+            "fact": "Mercury Delivery",
+            "present": true
+          },
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3819.654757000011,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28228,
+            "input_tokens_details": {
+              "cache_write_tokens": 29,
+              "cached_tokens": 28196
+            },
+            "output_tokens": 38,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28266
+          },
+          "costUSD": 0.00030488499999999997
+        },
+        {
+          "durationMs": 5035.190963000001,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28489,
+            "input_tokens_details": {
+              "cache_write_tokens": 261,
+              "cached_tokens": 28225
+            },
+            "output_tokens": 59,
+            "output_tokens_details": {
+              "reasoning_tokens": 34
+            },
+            "total_tokens": 28548
+          },
+          "costUSD": 0.000344675
+        },
+        {
+          "durationMs": 3604.2250690000074,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28906,
+            "input_tokens_details": {
+              "cache_write_tokens": 417,
+              "cached_tokens": 28486
+            },
+            "output_tokens": 129,
+            "output_tokens_details": {
+              "reasoning_tokens": 52
+            },
+            "total_tokens": 29035
+          },
+          "costUSD": 0.00040178500000000004
+        },
+        {
+          "durationMs": 3177.006997999997,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29510,
+            "input_tokens_details": {
+              "cache_write_tokens": 604,
+              "cached_tokens": 28903
+            },
+            "output_tokens": 38,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29548
+          },
+          "costUSD": 0.00038383000000000004
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_flows",
+        "get_woku",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 13918.044213000016,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "first": true,
+          "second": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 2,
+        "idArgumentCount": 2,
+        "initialSelectedCount": 6,
+        "initialPrecision": 0.3333333333333333,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Mercury Reception",
+            "present": true
+          },
+          {
+            "fact": "Mercury Delivery",
+            "present": true
+          },
+          {
+            "fact": "en",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 26854,
+        "outputTokens": 4102,
+        "cost": 0.0011278680000000002
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2203.658914999978,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 663,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 78,
+            "output_tokens_details": {
+              "reasoning_tokens": 11
+            },
+            "total_tokens": 741
+          },
+          "costUSD": 0.0001053
+        },
+        {
+          "durationMs": 2306.2974089999916,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3078,
+            "input_tokens_details": {
+              "cache_write_tokens": 3075,
+              "cached_tokens": 0
+            },
+            "output_tokens": 76,
+            "output_tokens_details": {
+              "reasoning_tokens": 19
+            },
+            "total_tokens": 3154
+          },
+          "costUSD": 0.000422675
+        },
+        {
+          "durationMs": 3159.0011670000094,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3512,
+            "input_tokens_details": {
+              "cache_write_tokens": 434,
+              "cached_tokens": 3075
+            },
+            "output_tokens": 196,
+            "output_tokens_details": {
+              "reasoning_tokens": 119
+            },
+            "total_tokens": 3708
+          },
+          "costUSD": 0.0001833
+        },
+        {
+          "durationMs": 2862.6548889999976,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4100,
+            "input_tokens_details": {
+              "cache_write_tokens": 588,
+              "cached_tokens": 3509
+            },
+            "output_tokens": 186,
+            "output_tokens_details": {
+              "reasoning_tokens": 38
+            },
+            "total_tokens": 4286
+          },
+          "costUSD": 0.00020188999999999998
+        },
+        {
+          "durationMs": 1279.8524819999875,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4761,
+            "input_tokens_details": {
+              "cache_write_tokens": 661,
+              "cached_tokens": 4097
+            },
+            "output_tokens": 41,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 4802
+          },
+          "costUSD": 0.00014439500000000002
+        }
+      ],
+      "businessTools": [
+        "list_flows",
+        "get_woku",
+        "get_woku"
+      ]
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 16625.47950799999,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 2,
+        "initialPrecision": 0.5,
+        "initialStepCoverage": 0.5,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 1,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Callback reason",
+            "present": true
+          },
+          {
+            "fact": "text",
+            "present": true
+          },
+          {
+            "fact": "email",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 192,
+        "complete": false,
+        "inputTokens": null,
+        "outputTokens": null,
+        "cost": null
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2641.5556839999917,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1457,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 116,
+            "output_tokens_details": {
+              "reasoning_tokens": 68
+            },
+            "total_tokens": 1573
+          },
+          "costUSD": 0.00020370000000000002
+        },
+        {
+          "durationMs": 2307.933503999986,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1960,
+            "input_tokens_details": {
+              "cache_write_tokens": 1957,
+              "cached_tokens": 0
+            },
+            "output_tokens": 92,
+            "output_tokens_details": {
+              "reasoning_tokens": 22
+            },
+            "total_tokens": 2052
+          },
+          "costUSD": 0.000290925
+        },
+        {
+          "durationMs": 3336.610679000005,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3126,
+            "input_tokens_details": {
+              "cache_write_tokens": 1166,
+              "cached_tokens": 1957
+            },
+            "output_tokens": 212,
+            "output_tokens_details": {
+              "reasoning_tokens": 89
+            },
+            "total_tokens": 3338
+          },
+          "costUSD": 0.00027162
+        },
+        {
+          "durationMs": 2349.6867480000074,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3757,
+            "input_tokens_details": {
+              "cache_write_tokens": 631,
+              "cached_tokens": 3123
+            },
+            "output_tokens": 97,
+            "output_tokens_details": {
+              "reasoning_tokens": 30
+            },
+            "total_tokens": 3854
+          },
+          "costUSD": 0.00015890499999999998
+        },
+        {
+          "durationMs": 1917.3016720000014,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4159,
+            "input_tokens_details": {
+              "cache_write_tokens": 402,
+              "cached_tokens": 3754
+            },
+            "output_tokens": 46,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 4205
+          },
+          "costUSD": 0.00011109000000000001
+        }
+      ],
+      "businessTools": [
+        "list_wokus",
+        "list_forms",
+        "search",
+        "get_form"
+      ]
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 12598.200805,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Callback reason",
+            "present": true
+          },
+          {
+            "fact": "text",
+            "present": true
+          },
+          {
+            "fact": "email",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3164.2729980000004,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28228,
+            "input_tokens_details": {
+              "cache_write_tokens": 29,
+              "cached_tokens": 28196
+            },
+            "output_tokens": 28,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28256
+          },
+          "costUSD": 0.000299885
+        },
+        {
+          "durationMs": 3685.867418000009,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28894,
+            "input_tokens_details": {
+              "cache_write_tokens": 666,
+              "cached_tokens": 28225
+            },
+            "output_tokens": 45,
+            "output_tokens_details": {
+              "reasoning_tokens": 25
+            },
+            "total_tokens": 28939
+          },
+          "costUSD": 0.0003883
+        },
+        {
+          "durationMs": 2693.5715110000165,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29191,
+            "input_tokens_details": {
+              "cache_write_tokens": 297,
+              "cached_tokens": 28891
+            },
+            "output_tokens": 32,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29223
+          },
+          "costUSD": 0.00034233500000000004
+        },
+        {
+          "durationMs": 3039.288614000019,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29527,
+            "input_tokens_details": {
+              "cache_write_tokens": 336,
+              "cached_tokens": 29188
+            },
+            "output_tokens": 47,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29574
+          },
+          "costUSD": 0.00035768
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_forms",
+        "get_form"
+      ]
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 13034.306157999992,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 3,
+        "initialPrecision": 1,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Callback reason",
+            "present": true
+          },
+          {
+            "fact": "text",
+            "present": true
+          },
+          {
+            "fact": "email",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 27298,
+        "outputTokens": 4102,
+        "cost": 0.0011465160000000002
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2277.744395000016,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 663,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 81,
+            "output_tokens_details": {
+              "reasoning_tokens": 16
+            },
+            "total_tokens": 744
+          },
+          "costUSD": 0.0001068
+        },
+        {
+          "durationMs": 2852.4099220000207,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1821,
+            "input_tokens_details": {
+              "cache_write_tokens": 1818,
+              "cached_tokens": 0
+            },
+            "output_tokens": 170,
+            "output_tokens_details": {
+              "reasoning_tokens": 48
+            },
+            "total_tokens": 1991
+          },
+          "costUSD": 0.00031255
+        },
+        {
+          "durationMs": 1930.830541000003,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2410,
+            "input_tokens_details": {
+              "cache_write_tokens": 589,
+              "cached_tokens": 1818
+            },
+            "output_tokens": 78,
+            "output_tokens_details": {
+              "reasoning_tokens": 12
+            },
+            "total_tokens": 2488
+          },
+          "costUSD": 0.000131105
+        },
+        {
+          "durationMs": 1753.585208000004,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2878,
+            "input_tokens_details": {
+              "cache_write_tokens": 468,
+              "cached_tokens": 2407
+            },
+            "output_tokens": 63,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2941
+          },
+          "costUSD": 0.00011437
+        },
+        {
+          "durationMs": 2032.6995900000038,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3246,
+            "input_tokens_details": {
+              "cache_write_tokens": 368,
+              "cached_tokens": 2875
+            },
+            "output_tokens": 52,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3298
+          },
+          "costUSD": 0.00010104999999999999
+        }
+      ],
+      "businessTools": [
+        "search",
+        "list_forms",
+        "get_form"
+      ]
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "design-2",
+      "status": "completed",
+      "taskMs": 9880.024517999991,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 2,
+        "initialPrecision": 0.5,
+        "initialStepCoverage": 0.5,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Callback reason",
+            "present": true
+          },
+          {
+            "fact": "text",
+            "present": true
+          },
+          {
+            "fact": "email",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 26492,
+        "outputTokens": 4102,
+        "cost": 0.0011126640000000002
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2469.670948999992,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1465,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 127,
+            "output_tokens_details": {
+              "reasoning_tokens": 52
+            },
+            "total_tokens": 1592
+          },
+          "costUSD": 0.00021
+        },
+        {
+          "durationMs": 2120.7044849999947,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3123,
+            "input_tokens_details": {
+              "cache_write_tokens": 3120,
+              "cached_tokens": 0
+            },
+            "output_tokens": 68,
+            "output_tokens_details": {
+              "reasoning_tokens": 13
+            },
+            "total_tokens": 3191
+          },
+          "costUSD": 0.0004243
+        },
+        {
+          "durationMs": 1805.6859229999827,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3444,
+            "input_tokens_details": {
+              "cache_write_tokens": 321,
+              "cached_tokens": 3120
+            },
+            "output_tokens": 86,
+            "output_tokens_details": {
+              "reasoning_tokens": 16
+            },
+            "total_tokens": 3530
+          },
+          "costUSD": 0.00011462500000000001
+        },
+        {
+          "durationMs": 1878.488217999984,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3835,
+            "input_tokens_details": {
+              "cache_write_tokens": 391,
+              "cached_tokens": 3441
+            },
+            "output_tokens": 54,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3889
+          },
+          "costUSD": 0.00011058500000000001
+        }
+      ],
+      "businessTools": [
+        "list_forms",
+        "get_form"
+      ]
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 20557.28867400001,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "stats": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "morgan@example.invalid",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3170.9309950000024,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28222,
+            "input_tokens_details": {
+              "cache_write_tokens": 23,
+              "cached_tokens": 28196
+            },
+            "output_tokens": 34,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28256
+          },
+          "costUSD": 0.000302135
+        },
+        {
+          "durationMs": 5733.242192000005,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28894,
+            "input_tokens_details": {
+              "cache_write_tokens": 672,
+              "cached_tokens": 28219
+            },
+            "output_tokens": 43,
+            "output_tokens_details": {
+              "reasoning_tokens": 21
+            },
+            "total_tokens": 28937
+          },
+          "costUSD": 0.00038799
+        },
+        {
+          "durationMs": 3587.299033999996,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29241,
+            "input_tokens_details": {
+              "cache_write_tokens": 347,
+              "cached_tokens": 28891
+            },
+            "output_tokens": 79,
+            "output_tokens_details": {
+              "reasoning_tokens": 52
+            },
+            "total_tokens": 29320
+          },
+          "costUSD": 0.000372085
+        },
+        {
+          "durationMs": 3254.058665999997,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29457,
+            "input_tokens_details": {
+              "cache_write_tokens": 216,
+              "cached_tokens": 29238
+            },
+            "output_tokens": 44,
+            "output_tokens_details": {
+              "reasoning_tokens": 8
+            },
+            "total_tokens": 29501
+          },
+          "costUSD": 0.00034168
+        },
+        {
+          "durationMs": 4795.399583999999,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29884,
+            "input_tokens_details": {
+              "cache_write_tokens": 427,
+              "cached_tokens": 29454
+            },
+            "output_tokens": 73,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29957
+          },
+          "costUSD": 0.00038471500000000005
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "woku_guide",
+        "list_clients",
+        "get_client_stats"
+      ]
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 13173.366156000004,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "stats": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 4,
+        "initialPrecision": 0.25,
+        "initialStepCoverage": 0.5,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "morgan@example.invalid",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 27779,
+        "outputTokens": 4102,
+        "cost": 0.0011667180000000002
+      },
+      "modelCalls": [
+        {
+          "durationMs": 1866.2185299999546,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 657,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 72,
+            "output_tokens_details": {
+              "reasoning_tokens": 18
+            },
+            "total_tokens": 729
+          },
+          "costUSD": 0.0001017
+        },
+        {
+          "durationMs": 2328.5946519999998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2582,
+            "input_tokens_details": {
+              "cache_write_tokens": 2579,
+              "cached_tokens": 0
+            },
+            "output_tokens": 89,
+            "output_tokens_details": {
+              "reasoning_tokens": 43
+            },
+            "total_tokens": 2671
+          },
+          "costUSD": 0.000367175
+        },
+        {
+          "durationMs": 1970.1980010000407,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3121,
+            "input_tokens_details": {
+              "cache_write_tokens": 539,
+              "cached_tokens": 2579
+            },
+            "output_tokens": 66,
+            "output_tokens_details": {
+              "reasoning_tokens": 7
+            },
+            "total_tokens": 3187
+          },
+          "costUSD": 0.000126465
+        },
+        {
+          "durationMs": 3382.9886939999997,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3325,
+            "input_tokens_details": {
+              "cache_write_tokens": 204,
+              "cached_tokens": 3118
+            },
+            "output_tokens": 181,
+            "output_tokens_details": {
+              "reasoning_tokens": 113
+            },
+            "total_tokens": 3506
+          },
+          "costUSD": 0.00014748000000000002
+        },
+        {
+          "durationMs": 1934.2220279999892,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3889,
+            "input_tokens_details": {
+              "cache_write_tokens": 564,
+              "cached_tokens": 3322
+            },
+            "output_tokens": 73,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3962
+          },
+          "costUSD": 0.00014052
+        }
+      ],
+      "businessTools": [
+        "list_clients",
+        "get_client_stats"
+      ]
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "design-2",
+      "status": "completed",
+      "taskMs": 7327.926539000007,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "stats": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 8,
+        "initialPrecision": 0.25,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "morgan@example.invalid",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13658,
+        "outputTokens": 2051,
+        "cost": 0.0005736360000000001
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2209.8369910000474,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4759,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 112,
+            "output_tokens_details": {
+              "reasoning_tokens": 56
+            },
+            "total_tokens": 4871
+          },
+          "costUSD": 0.0005319
+        },
+        {
+          "durationMs": 1925.0069899999653,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5009,
+            "input_tokens_details": {
+              "cache_write_tokens": 5006,
+              "cached_tokens": 0
+            },
+            "output_tokens": 86,
+            "output_tokens_details": {
+              "reasoning_tokens": 14
+            },
+            "total_tokens": 5095
+          },
+          "costUSD": 0.0006690499999999999
+        },
+        {
+          "durationMs": 2273.185274999996,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5478,
+            "input_tokens_details": {
+              "cache_write_tokens": 469,
+              "cached_tokens": 5006
+            },
+            "output_tokens": 82,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 5560
+          },
+          "costUSD": 0.000149985
+        }
+      ],
+      "businessTools": [
+        "list_clients",
+        "get_client_stats"
+      ]
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 8183.392666,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "stats": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 8,
+        "initialPrecision": 0.25,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "morgan@example.invalid",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 64,
+        "complete": true,
+        "inputTokens": 31550,
+        "outputTokens": 2240,
+        "cost": 0.0013251
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2128.684910000011,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4760,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 83,
+            "output_tokens_details": {
+              "reasoning_tokens": 17
+            },
+            "total_tokens": 4843
+          },
+          "costUSD": 0.0005175000000000001
+        },
+        {
+          "durationMs": 2112.1804230000125,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4981,
+            "input_tokens_details": {
+              "cache_write_tokens": 4978,
+              "cached_tokens": 0
+            },
+            "output_tokens": 103,
+            "output_tokens_details": {
+              "reasoning_tokens": 36
+            },
+            "total_tokens": 5084
+          },
+          "costUSD": 0.0006740499999999999
+        },
+        {
+          "durationMs": 2419.6742409999715,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5467,
+            "input_tokens_details": {
+              "cache_write_tokens": 486,
+              "cached_tokens": 4978
+            },
+            "output_tokens": 76,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 5543
+          },
+          "costUSD": 0.00014883
+        }
+      ],
+      "businessTools": [
+        "list_clients",
+        "get_client_stats"
+      ]
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 10219.095768,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 4,
+        "initialPrecision": 0.75,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Corner damage",
+            "present": true
+          },
+          {
+            "fact": "Inspect the packaging",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13906,
+        "outputTokens": 2051,
+        "cost": 0.000584052
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2278.310854999989,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 657,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 83,
+            "output_tokens_details": {
+              "reasoning_tokens": 15
+            },
+            "total_tokens": 740
+          },
+          "costUSD": 0.0001072
+        },
+        {
+          "durationMs": 3344.586001000018,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2459,
+            "input_tokens_details": {
+              "cache_write_tokens": 2456,
+              "cached_tokens": 0
+            },
+            "output_tokens": 122,
+            "output_tokens_details": {
+              "reasoning_tokens": 67
+            },
+            "total_tokens": 2581
+          },
+          "costUSD": 0.0003683
+        },
+        {
+          "durationMs": 2122.912037000002,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2688,
+            "input_tokens_details": {
+              "cache_write_tokens": 229,
+              "cached_tokens": 2456
+            },
+            "output_tokens": 99,
+            "output_tokens_details": {
+              "reasoning_tokens": 29
+            },
+            "total_tokens": 2787
+          },
+          "costUSD": 0.00010298499999999999
+        },
+        {
+          "durationMs": 1515.11725499999,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2978,
+            "input_tokens_details": {
+              "cache_write_tokens": 290,
+              "cached_tokens": 2685
+            },
+            "output_tokens": 30,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3008
+          },
+          "costUSD": 7.840000000000001e-05
+        }
+      ],
+      "businessTools": [
+        "search",
+        "get_ticket"
+      ]
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "design-2",
+      "status": "completed",
+      "taskMs": 7935.269610000018,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 4,
+        "initialPrecision": 0.75,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Corner damage",
+            "present": true
+          },
+          {
+            "fact": "Inspect the packaging",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13065,
+        "outputTokens": 2051,
+        "cost": 0.00054873
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3386.1787730000215,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2273,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 190,
+            "output_tokens_details": {
+              "reasoning_tokens": 60
+            },
+            "total_tokens": 2463
+          },
+          "costUSD": 0.00032230000000000003
+        },
+        {
+          "durationMs": 2046.7852159999893,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2707,
+            "input_tokens_details": {
+              "cache_write_tokens": 2704,
+              "cached_tokens": 0
+            },
+            "output_tokens": 88,
+            "output_tokens_details": {
+              "reasoning_tokens": 19
+            },
+            "total_tokens": 2795
+          },
+          "costUSD": 0.0003823
+        },
+        {
+          "durationMs": 1577.762963999994,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2986,
+            "input_tokens_details": {
+              "cache_write_tokens": 279,
+              "cached_tokens": 2704
+            },
+            "output_tokens": 30,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3016
+          },
+          "costUSD": 7.7215e-05
+        }
+      ],
+      "businessTools": [
+        "search",
+        "list_tickets",
+        "get_ticket"
+      ]
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 8546.405226000003,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 4,
+        "initialPrecision": 0.75,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Corner damage",
+            "present": true
+          },
+          {
+            "fact": "Inspect the packaging",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 64,
+        "complete": true,
+        "inputTokens": 30957,
+        "outputTokens": 2240,
+        "cost": 0.0013001940000000002
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2665.090339999995,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2266,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 182,
+            "output_tokens_details": {
+              "reasoning_tokens": 63
+            },
+            "total_tokens": 2448
+          },
+          "costUSD": 0.0003176
+        },
+        {
+          "durationMs": 2268.575137000007,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2692,
+            "input_tokens_details": {
+              "cache_write_tokens": 2689,
+              "cached_tokens": 0
+            },
+            "output_tokens": 99,
+            "output_tokens_details": {
+              "reasoning_tokens": 29
+            },
+            "total_tokens": 2791
+          },
+          "costUSD": 0.000385925
+        },
+        {
+          "durationMs": 2398.8350710000377,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2982,
+            "input_tokens_details": {
+              "cache_write_tokens": 290,
+              "cached_tokens": 2689
+            },
+            "output_tokens": 102,
+            "output_tokens_details": {
+              "reasoning_tokens": 70
+            },
+            "total_tokens": 3084
+          },
+          "costUSD": 0.00011444
+        }
+      ],
+      "businessTools": [
+        "list_tickets",
+        "search",
+        "get_ticket"
+      ]
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 12143.003805999993,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Corner damage",
+            "present": true
+          },
+          {
+            "fact": "Inspect the packaging",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2791.0302500000107,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28222,
+            "input_tokens_details": {
+              "cache_write_tokens": 23,
+              "cached_tokens": 28196
+            },
+            "output_tokens": 33,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28255
+          },
+          "costUSD": 0.000301635
+        },
+        {
+          "durationMs": 3338.625863000052,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28746,
+            "input_tokens_details": {
+              "cache_write_tokens": 524,
+              "cached_tokens": 28219
+            },
+            "output_tokens": 25,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28771
+          },
+          "costUSD": 0.00036049
+        },
+        {
+          "durationMs": 3473.417689999973,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28910,
+            "input_tokens_details": {
+              "cache_write_tokens": 164,
+              "cached_tokens": 28743
+            },
+            "output_tokens": 33,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28943
+          },
+          "costUSD": 0.00032473
+        },
+        {
+          "durationMs": 2529.056429999997,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29133,
+            "input_tokens_details": {
+              "cache_write_tokens": 223,
+              "cached_tokens": 28907
+            },
+            "output_tokens": 30,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29163
+          },
+          "costUSD": 0.000332245
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_tickets",
+        "get_ticket"
+      ]
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "design-2",
+      "status": "completed",
+      "taskMs": 6607.709424000001,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 2,
+        "initialPrecision": 1,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Check callback queue",
+            "present": true
+          },
+          {
+            "fact": "Call waiting customers",
+            "present": true
+          },
+          {
+            "fact": "Reduce missed callbacks",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13524,
+        "outputTokens": 2051,
+        "cost": 0.0005680080000000001
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2010.0876980000176,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1357,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 88,
+            "output_tokens_details": {
+              "reasoning_tokens": 30
+            },
+            "total_tokens": 1445
+          },
+          "costUSD": 0.00017970000000000003
+        },
+        {
+          "durationMs": 2201.0243349999655,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1621,
+            "input_tokens_details": {
+              "cache_write_tokens": 1618,
+              "cached_tokens": 0
+            },
+            "output_tokens": 96,
+            "output_tokens_details": {
+              "reasoning_tokens": 27
+            },
+            "total_tokens": 1717
+          },
+          "costUSD": 0.00025055
+        },
+        {
+          "durationMs": 1453.23027,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2130,
+            "input_tokens_details": {
+              "cache_write_tokens": 509,
+              "cached_tokens": 1618
+            },
+            "output_tokens": 45,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2175
+          },
+          "costUSD": 0.00010260500000000001
+        }
+      ],
+      "businessTools": [
+        "search",
+        "get_action_plan"
+      ]
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 7819.572597999999,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 2,
+        "initialPrecision": 1,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Check callback queue",
+            "present": true
+          },
+          {
+            "fact": "Call waiting customers",
+            "present": true
+          },
+          {
+            "fact": "Reduce missed callbacks",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 64,
+        "complete": true,
+        "inputTokens": 31605,
+        "outputTokens": 2240,
+        "cost": 0.00132741
+      },
+      "modelCalls": [
+        {
+          "durationMs": 1760.4616829999723,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1351,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 74,
+            "output_tokens_details": {
+              "reasoning_tokens": 19
+            },
+            "total_tokens": 1425
+          },
+          "costUSD": 0.0001721
+        },
+        {
+          "durationMs": 2633.0019890000112,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 1601,
+            "input_tokens_details": {
+              "cache_write_tokens": 1598,
+              "cached_tokens": 0
+            },
+            "output_tokens": 120,
+            "output_tokens_details": {
+              "reasoning_tokens": 54
+            },
+            "total_tokens": 1721
+          },
+          "costUSD": 0.00026005
+        },
+        {
+          "durationMs": 2158.1651370000327,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2134,
+            "input_tokens_details": {
+              "cache_write_tokens": 533,
+              "cached_tokens": 1598
+            },
+            "output_tokens": 49,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 2183
+          },
+          "costUSD": 0.000107405
+        }
+      ],
+      "businessTools": [
+        "search",
+        "get_action_plan"
+      ]
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 13258.075214000011,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Check callback queue",
+            "present": true
+          },
+          {
+            "fact": "Call waiting customers",
+            "present": true
+          },
+          {
+            "fact": "Reduce missed callbacks",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 3698.409159999981,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28225,
+            "input_tokens_details": {
+              "cache_write_tokens": 26,
+              "cached_tokens": 28196
+            },
+            "output_tokens": 68,
+            "output_tokens_details": {
+              "reasoning_tokens": 27
+            },
+            "total_tokens": 28293
+          },
+          "costUSD": 0.00031951
+        },
+        {
+          "durationMs": 3140.8526210000273,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28863,
+            "input_tokens_details": {
+              "cache_write_tokens": 638,
+              "cached_tokens": 28222
+            },
+            "output_tokens": 52,
+            "output_tokens_details": {
+              "reasoning_tokens": 25
+            },
+            "total_tokens": 28915
+          },
+          "costUSD": 0.00038827
+        },
+        {
+          "durationMs": 3452.504621000029,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29255,
+            "input_tokens_details": {
+              "cache_write_tokens": 392,
+              "cached_tokens": 28860
+            },
+            "output_tokens": 44,
+            "output_tokens_details": {
+              "reasoning_tokens": 9
+            },
+            "total_tokens": 29299
+          },
+          "costUSD": 0.0003599
+        },
+        {
+          "durationMs": 2954.20162800001,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29712,
+            "input_tokens_details": {
+              "cache_write_tokens": 457,
+              "cached_tokens": 29252
+            },
+            "output_tokens": 44,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29756
+          },
+          "costUSD": 0.000371945
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_action_plans",
+        "get_action_plan"
+      ]
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 10482.477918999968,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 4,
+        "initialPrecision": 0.75,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Check callback queue",
+            "present": true
+          },
+          {
+            "fact": "Call waiting customers",
+            "present": true
+          },
+          {
+            "fact": "Reduce missed callbacks",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13872,
+        "outputTokens": 2051,
+        "cost": 0.000582624
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2593.9198050000123,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 660,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 83,
+            "output_tokens_details": {
+              "reasoning_tokens": 19
+            },
+            "total_tokens": 743
+          },
+          "costUSD": 0.00010750000000000001
+        },
+        {
+          "durationMs": 2164.2547030000133,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2429,
+            "input_tokens_details": {
+              "cache_write_tokens": 2426,
+              "cached_tokens": 0
+            },
+            "output_tokens": 89,
+            "output_tokens_details": {
+              "reasoning_tokens": 23
+            },
+            "total_tokens": 2518
+          },
+          "costUSD": 0.00034805000000000003
+        },
+        {
+          "durationMs": 2523.576549999998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 2857,
+            "input_tokens_details": {
+              "cache_write_tokens": 428,
+              "cached_tokens": 2426
+            },
+            "output_tokens": 97,
+            "output_tokens_details": {
+              "reasoning_tokens": 26
+            },
+            "total_tokens": 2954
+          },
+          "costUSD": 0.00012656
+        },
+        {
+          "durationMs": 1881.852116999973,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3367,
+            "input_tokens_details": {
+              "cache_write_tokens": 510,
+              "cached_tokens": 2854
+            },
+            "output_tokens": 44,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 3411
+          },
+          "costUSD": 0.00011459
+        }
+      ],
+      "businessTools": [
+        "list_action_plans",
+        "get_action_plan"
+      ]
+    },
+    {
+      "caseId": "V3-08",
+      "mode": "design-3",
+      "status": "completed",
+      "taskMs": 16284.555464000034,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 5,
+        "initialPrecision": 0.4,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 1,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "admin",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 128,
+        "complete": true,
+        "inputTokens": 64458,
+        "outputTokens": 4480,
+        "cost": 0.002707236
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2180.857774000033,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3055,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 85,
+            "output_tokens_details": {
+              "reasoning_tokens": 30
+            },
+            "total_tokens": 3140
+          },
+          "costUSD": 0.000348
+        },
+        {
+          "durationMs": 3074.248219000001,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3460,
+            "input_tokens_details": {
+              "cache_write_tokens": 3457,
+              "cached_tokens": 0
+            },
+            "output_tokens": 96,
+            "output_tokens_details": {
+              "reasoning_tokens": 22
+            },
+            "total_tokens": 3556
+          },
+          "costUSD": 0.00048042500000000004
+        },
+        {
+          "durationMs": 3331.4882699999725,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3870,
+            "input_tokens_details": {
+              "cache_write_tokens": 410,
+              "cached_tokens": 3457
+            },
+            "output_tokens": 127,
+            "output_tokens_details": {
+              "reasoning_tokens": 71
+            },
+            "total_tokens": 3997
+          },
+          "costUSD": 0.00014962
+        },
+        {
+          "durationMs": 2233.4584709999617,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5055,
+            "input_tokens_details": {
+              "cache_write_tokens": 1185,
+              "cached_tokens": 3867
+            },
+            "output_tokens": 59,
+            "output_tokens_details": {
+              "reasoning_tokens": 9
+            },
+            "total_tokens": 5114
+          },
+          "costUSD": 0.00021659499999999998
+        },
+        {
+          "durationMs": 2674.178682000027,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5211,
+            "input_tokens_details": {
+              "cache_write_tokens": 156,
+              "cached_tokens": 5052
+            },
+            "output_tokens": 141,
+            "output_tokens_details": {
+              "reasoning_tokens": 90
+            },
+            "total_tokens": 5352
+          },
+          "costUSD": 0.00014082
+        }
+      ],
+      "businessTools": [
+        "list_action_plan_groups",
+        "get_action_plan_group",
+        "list_company_members"
+      ]
+    },
+    {
+      "caseId": "V3-08",
+      "mode": "direct",
+      "status": "completed",
+      "taskMs": 16067.744449999998,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 1,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "admin",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2777.0617330000387,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28229,
+            "input_tokens_details": {
+              "cache_write_tokens": 30,
+              "cached_tokens": 28196
+            },
+            "output_tokens": 38,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28267
+          },
+          "costUSD": 0.00030501
+        },
+        {
+          "durationMs": 3024.256365999987,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28580,
+            "input_tokens_details": {
+              "cache_write_tokens": 351,
+              "cached_tokens": 28226
+            },
+            "output_tokens": 21,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28601
+          },
+          "costUSD": 0.000336935
+        },
+        {
+          "durationMs": 3845.93634200003,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 28922,
+            "input_tokens_details": {
+              "cache_write_tokens": 342,
+              "cached_tokens": 28577
+            },
+            "output_tokens": 38,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 28960
+          },
+          "costUSD": 0.00034782
+        },
+        {
+          "durationMs": 3142.0986889999476,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29275,
+            "input_tokens_details": {
+              "cache_write_tokens": 353,
+              "cached_tokens": 28919
+            },
+            "output_tokens": 44,
+            "output_tokens_details": {
+              "reasoning_tokens": 27
+            },
+            "total_tokens": 29319
+          },
+          "costUSD": 0.000355615
+        },
+        {
+          "durationMs": 3258.231415999995,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 29416,
+            "input_tokens_details": {
+              "cache_write_tokens": 141,
+              "cached_tokens": 29272
+            },
+            "output_tokens": 37,
+            "output_tokens_details": {
+              "reasoning_tokens": 0
+            },
+            "total_tokens": 29453
+          },
+          "costUSD": 0.00032914500000000003
+        }
+      ],
+      "businessTools": [
+        "woku_guide",
+        "list_action_plan_groups",
+        "get_action_plan_group",
+        "list_company_members"
+      ]
+    },
+    {
+      "caseId": "V3-08",
+      "mode": "design-1",
+      "status": "completed",
+      "taskMs": 24244.718943999964,
+      "originalGrade": {
+        "expectedDistinctTools": 2,
+        "expectedSteps": 2,
+        "matchedSteps": 2,
+        "steps": {
+          "find": true,
+          "detail": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 2,
+        "idArgumentCount": 2,
+        "initialSelectedCount": 5,
+        "initialPrecision": 0.4,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 2,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "admin",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 3,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "jev": {
+        "calls": 3,
+        "complete": true,
+        "inputTokens": 40208,
+        "outputTokens": 6153,
+        "cost": 0.0016887360000000001
+      },
+      "modelCalls": [
+        {
+          "durationMs": 2421.2934860000387,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 664,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 84,
+            "output_tokens_details": {
+              "reasoning_tokens": 24
+            },
+            "total_tokens": 748
+          },
+          "costUSD": 0.0001084
+        },
+        {
+          "durationMs": 1964.16104799998,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3000,
+            "input_tokens_details": {
+              "cache_write_tokens": 2997,
+              "cached_tokens": 0
+            },
+            "output_tokens": 91,
+            "output_tokens_details": {
+              "reasoning_tokens": 36
+            },
+            "total_tokens": 3091
+          },
+          "costUSD": 0.00042042500000000004
+        },
+        {
+          "durationMs": 3012.7111929999664,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 3411,
+            "input_tokens_details": {
+              "cache_write_tokens": 411,
+              "cached_tokens": 2997
+            },
+            "output_tokens": 201,
+            "output_tokens_details": {
+              "reasoning_tokens": 40
+            },
+            "total_tokens": 3612
+          },
+          "costUSD": 0.00018214499999999998
+        },
+        {
+          "durationMs": 3076.1131949999835,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4129,
+            "input_tokens_details": {
+              "cache_write_tokens": 718,
+              "cached_tokens": 3408
+            },
+            "output_tokens": 160,
+            "output_tokens_details": {
+              "reasoning_tokens": 94
+            },
+            "total_tokens": 4289
+          },
+          "costUSD": 0.00020413
+        },
+        {
+          "durationMs": 5829.886566000001,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 4700,
+            "input_tokens_details": {
+              "cache_write_tokens": 571,
+              "cached_tokens": 4126
+            },
+            "output_tokens": 154,
+            "output_tokens_details": {
+              "reasoning_tokens": 99
+            },
+            "total_tokens": 4854
+          },
+          "costUSD": 0.00018993500000000002
+        },
+        {
+          "durationMs": 1856.3224580000388,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5174,
+            "input_tokens_details": {
+              "cache_write_tokens": 474,
+              "cached_tokens": 4697
+            },
+            "output_tokens": 63,
+            "output_tokens_details": {
+              "reasoning_tokens": 10
+            },
+            "total_tokens": 5237
+          },
+          "costUSD": 0.00013801999999999998
+        },
+        {
+          "durationMs": 3127.869604000007,
+          "httpStatus": 200,
+          "model": "gpt-6-luna",
+          "status": "completed",
+          "usage": {
+            "input_tokens": 5334,
+            "input_tokens_details": {
+              "cache_write_tokens": 160,
+              "cached_tokens": 5171
+            },
+            "output_tokens": 137,
+            "output_tokens_details": {
+              "reasoning_tokens": 93
+            },
+            "total_tokens": 5471
+          },
+          "costUSD": 0.00014051
+        }
+      ],
+      "businessTools": [
+        "list_action_plan_groups",
+        "get_action_plan_group",
+        "list_action_plans",
+        "list_company_members"
+      ]
+    }
+  ]
+}

@@ -1112,6 +1112,67 @@
         "message_key"
       ],
       "type": "object"
+    },
+    "WorkflowRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "actor": {
+          "$ref": "#/$defs/Actor"
+        },
+        "catalog_id": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$",
+          "type": "string"
+        },
+        "catalog_version": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "intent": {
+          "maxLength": 8192,
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "catalog_id",
+        "catalog_version",
+        "actor",
+        "intent"
+      ],
+      "type": "object"
+    },
+    "WorkflowView": {
+      "additionalProperties": false,
+      "properties": {
+        "candidate_count": {
+          "maximum": 64,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "operations": {
+          "items": {
+            "$ref": "#/$defs/OperationView"
+          },
+          "maxItems": 8,
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "prepared",
+            "no_match",
+            "needs_refinement"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "operations",
+        "candidate_count"
+      ],
+      "type": "object"
     }
   },
   "$schema": "https://json-schema.org/draft/2020-12/schema"

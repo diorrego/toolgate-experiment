@@ -1,0 +1,2284 @@
+{
+  "model": "gpt-6-luna",
+  "requirements": 30,
+  "catalogSize": 143,
+  "matrixThroughputCasesPerSecond": 0.0653272760431269,
+  "matrixWallSeconds": 1836.905,
+  "byMode": {
+    "direct": {
+      "n": 30,
+      "serialTimedTaskThroughputCasesPerSecond": 0.05824273176853971,
+      "timedOutCases": 0,
+      "workflowSuccess": 30,
+      "workflowWilson95": [
+        0.8864866068260312,
+        0.9999999999999999
+      ],
+      "endToEndSuccess": 30,
+      "completeSequence": 30,
+      "groundedIds": 30,
+      "expectedSteps": 75,
+      "matchedSteps": 75,
+      "idArgumentCount": 50,
+      "groundedIdCount": 50,
+      "stateCorrect": 30,
+      "mutations": 15,
+      "mutationsCorrect": 15,
+      "completedAnswers": 30,
+      "answerFactsComplete": 30,
+      "wrongMutationCalls": 0,
+      "extraBusinessCalls": 8,
+      "initialCompleteCoverage": null,
+      "meanInitialPrecision": null,
+      "meanInitialStepCoverage": null,
+      "preparations": 0,
+      "casesWithFurtherPreparation": 0,
+      "abstentions": 0,
+      "refinements": 0,
+      "mcpErrors": 0,
+      "handlerErrors": 0,
+      "latencyMs": {
+        "n": 30,
+        "p50": 16318.204607499963,
+        "p95": 23405.621756100034,
+        "p99": 25937.724875679993,
+        "max": 26393.458195999963
+      },
+      "completedAnswerLatencyMs": {
+        "n": 30,
+        "p50": 16318.204607499963,
+        "p95": 23405.621756100034,
+        "p99": 25937.724875679993,
+        "max": 26393.458195999963
+      },
+      "successfulWorkflowLatencyMs": {
+        "n": 30,
+        "p50": 16318.204607499963,
+        "p95": 23405.621756100034,
+        "p99": 25937.724875679993,
+        "max": 26393.458195999963
+      },
+      "hostPrepareMs": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "modelCallMs": {
+        "n": 139,
+        "p50": 3481.9614079999737,
+        "p95": 5211.447528500066,
+        "p99": 9325.91130308002,
+        "max": 9649.691234000027
+      },
+      "mcpCallMs": {
+        "n": 118,
+        "p50": 10.290265000076033,
+        "p95": 21.844130750017932,
+        "p99": 27.256945300140647,
+        "max": 33.661105000181124
+      },
+      "sdkRemoteMs": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "selectorWallMs": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "handlerMs": {
+        "n": 118,
+        "p50": 4.281222999910824,
+        "p95": 13.024971600086428,
+        "p99": 20.32269747992977,
+        "max": 24.026660999981686
+      },
+      "modelCalls": 139,
+      "modelUsageComplete": true,
+      "modelCallsWithoutUsage": 0,
+      "modelInputTokens": 4027942,
+      "modelCachedInputTokens": 3985976,
+      "modelCacheWriteTokens": 41549,
+      "modelOutputTokens": 7887,
+      "modelReasoningTokens": 2516,
+      "mcpCalls": 118,
+      "sdkRequests": 0,
+      "businessCalls": 118,
+      "jevCalls": 0,
+      "jevInputTokens": 0,
+      "jevOutputTokens": 0,
+      "jevUsageComplete": true,
+      "jevHopsWithoutCompleteUsage": 0,
+      "jevMaxConcurrent": 0,
+      "nativeMaxConcurrent": 2,
+      "knownOpenaiCostUSD": 0.049038585000000016,
+      "knownJevCostUSD": 0,
+      "totalCostUSD": 0.049038585000000016,
+      "resources": {
+        "host": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 200,
+            "p95": 255.49999999999997,
+            "p99": 416.20000000000016,
+            "max": 480
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 170880,
+            "p95": 184866.8,
+            "p99": 186319.76,
+            "max": 186800
+          }
+        },
+        "goChoice": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 0,
+            "p95": 10,
+            "p99": 10,
+            "max": 10
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 24766,
+            "p95": 25792,
+            "p99": 26135.8,
+            "max": 26188
+          }
+        },
+        "goBinary": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 0,
+            "p95": 0,
+            "p99": 7.1000000000000085,
+            "max": 10
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 28044,
+            "p95": 28690,
+            "p99": 29002.44,
+            "max": 29108
+          }
+        },
+        "provider": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 170,
+            "p95": 368.4999999999992,
+            "p99": 979.9000000000005,
+            "max": 1180
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 403728,
+            "p95": 408337,
+            "p99": 408777.88,
+            "max": 408844
+          }
+        }
+      }
+    },
+    "design-1": {
+      "n": 30,
+      "serialTimedTaskThroughputCasesPerSecond": 0.06477010652168387,
+      "timedOutCases": 0,
+      "workflowSuccess": 29,
+      "workflowWilson95": [
+        0.8332960900859082,
+        0.9940914096183874
+      ],
+      "endToEndSuccess": 29,
+      "completeSequence": 29,
+      "groundedIds": 30,
+      "expectedSteps": 75,
+      "matchedSteps": 73,
+      "idArgumentCount": 50,
+      "groundedIdCount": 50,
+      "stateCorrect": 30,
+      "mutations": 15,
+      "mutationsCorrect": 15,
+      "completedAnswers": 30,
+      "answerFactsComplete": 30,
+      "wrongMutationCalls": 0,
+      "extraBusinessCalls": 9,
+      "initialCompleteCoverage": 21,
+      "meanInitialPrecision": 0.6642063492063492,
+      "meanInitialStepCoverage": 0.85,
+      "preparations": 50,
+      "casesWithFurtherPreparation": 12,
+      "abstentions": 3,
+      "refinements": 0,
+      "mcpErrors": 1,
+      "handlerErrors": 0,
+      "latencyMs": {
+        "n": 30,
+        "p50": 13959.29874899995,
+        "p95": 26959.689402249965,
+        "p99": 28207.89162169999,
+        "max": 28673.12773800001
+      },
+      "completedAnswerLatencyMs": {
+        "n": 30,
+        "p50": 13959.29874899995,
+        "p95": 26959.689402249965,
+        "p99": 28207.89162169999,
+        "max": 28673.12773800001
+      },
+      "successfulWorkflowLatencyMs": {
+        "n": 29,
+        "p50": 13927.64426500001,
+        "p95": 26971.820053999963,
+        "p99": 28223.93424639999,
+        "max": 28673.12773800001
+      },
+      "hostPrepareMs": {
+        "n": 0,
+        "p50": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "modelCallMs": {
+        "n": 156,
+        "p50": 2328.88289899996,
+        "p95": 4388.820533749968,
+        "p99": 5886.155572049999,
+        "max": 7138.513612000039
+      },
+      "mcpCallMs": {
+        "n": 149,
+        "p50": 102.89520899998024,
+        "p95": 1281.2666126000229,
+        "p99": 1322.3367033600807,
+        "max": 1327.976994000026
+      },
+      "sdkRemoteMs": {
+        "n": 148,
+        "p50": 37.19881500006886,
+        "p95": 1249.4526087000384,
+        "p99": 1270.7410085999734,
+        "max": 1280.8974509998225
+      },
+      "selectorWallMs": {
+        "n": 50,
+        "p50": 752.784,
+        "p95": 1199.07565,
+        "p99": 1210.47405,
+        "max": 1213.441
+      },
+      "handlerMs": {
+        "n": 98,
+        "p50": 5.187676000059582,
+        "p95": 17.395369000046028,
+        "p99": 25.516463040017996,
+        "max": 30.665774000110105
+      },
+      "modelCalls": 156,
+      "modelUsageComplete": true,
+      "modelCallsWithoutUsage": 0,
+      "modelInputTokens": 498641,
+      "modelCachedInputTokens": 348017,
+      "modelCacheWriteTokens": 130419,
+      "modelOutputTokens": 19379,
+      "modelReasoningTokens": 7766,
+      "mcpCalls": 149,
+      "sdkRequests": 148,
+      "businessCalls": 98,
+      "jevCalls": 50,
+      "jevInputTokens": 679585,
+      "jevOutputTokens": 102550,
+      "jevUsageComplete": true,
+      "jevHopsWithoutCompleteUsage": 0,
+      "jevMaxConcurrent": 1,
+      "nativeMaxConcurrent": 2,
+      "knownOpenaiCostUSD": 0.031492545000000004,
+      "knownJevCostUSD": 0.028542570000000007,
+      "totalCostUSD": 0.060035115000000014,
+      "resources": {
+        "host": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 130,
+            "p95": 210,
+            "p99": 252.60000000000005,
+            "max": 270
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 170088,
+            "p95": 184044.4,
+            "p99": 185210.88,
+            "max": 185480
+          }
+        },
+        "goChoice": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 55,
+            "p95": 125.49999999999997,
+            "p99": 158.40000000000003,
+            "max": 170
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 25172,
+            "p95": 26289.399999999998,
+            "p99": 26506.52,
+            "max": 26568
+          }
+        },
+        "goBinary": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 0,
+            "p95": 10,
+            "p99": 10,
+            "max": 10
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 28084,
+            "p95": 28698.8,
+            "p99": 28882.12,
+            "max": 28932
+          }
+        },
+        "provider": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 245,
+            "p95": 1160,
+            "p99": 1216.8000000000002,
+            "max": 1240
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 403532,
+            "p95": 407998,
+            "p99": 408555.68,
+            "max": 408732
+          }
+        }
+      }
+    },
+    "design-2": {
+      "n": 30,
+      "serialTimedTaskThroughputCasesPerSecond": 0.07824741681044925,
+      "timedOutCases": 0,
+      "workflowSuccess": 30,
+      "workflowWilson95": [
+        0.8864866068260312,
+        0.9999999999999999
+      ],
+      "endToEndSuccess": 30,
+      "completeSequence": 30,
+      "groundedIds": 30,
+      "expectedSteps": 75,
+      "matchedSteps": 75,
+      "idArgumentCount": 50,
+      "groundedIdCount": 50,
+      "stateCorrect": 30,
+      "mutations": 15,
+      "mutationsCorrect": 15,
+      "completedAnswers": 30,
+      "answerFactsComplete": 30,
+      "wrongMutationCalls": 0,
+      "extraBusinessCalls": 9,
+      "initialCompleteCoverage": 17,
+      "meanInitialPrecision": 0.6399603174603176,
+      "meanInitialStepCoverage": 0.7861111111111111,
+      "preparations": 48,
+      "casesWithFurtherPreparation": 14,
+      "abstentions": 0,
+      "refinements": 1,
+      "mcpErrors": 0,
+      "handlerErrors": 0,
+      "latencyMs": {
+        "n": 30,
+        "p50": 11878.350257000013,
+        "p95": 21646.37026,
+        "p99": 26744.725444520016,
+        "max": 27953.549964000005
+      },
+      "completedAnswerLatencyMs": {
+        "n": 30,
+        "p50": 11878.350257000013,
+        "p95": 21646.37026,
+        "p99": 26744.725444520016,
+        "max": 27953.549964000005
+      },
+      "successfulWorkflowLatencyMs": {
+        "n": 30,
+        "p50": 11878.350257000013,
+        "p95": 21646.37026,
+        "p99": 26744.725444520016,
+        "max": 27953.549964000005
+      },
+      "hostPrepareMs": {
+        "n": 30,
+        "p50": 845.4328104999731,
+        "p95": 1310.3809300999912,
+        "p99": 1389.6678539699074,
+        "max": 1418.1315879998729
+      },
+      "modelCallMs": {
+        "n": 126,
+        "p50": 2470.2956675000023,
+        "p95": 3924.58162225,
+        "p99": 5967.287004500002,
+        "max": 9542.221163999988
+      },
+      "mcpCallMs": {
+        "n": 143,
+        "p50": 92.35812500002794,
+        "p95": 914.8154610000144,
+        "p99": 1310.906336940029,
+        "max": 1418.0130339998286
+      },
+      "sdkRemoteMs": {
+        "n": 143,
+        "p50": 38.79636000003666,
+        "p95": 878.654244699958,
+        "p99": 1267.3951098800314,
+        "max": 1363.0171920000575
+      },
+      "selectorWallMs": {
+        "n": 48,
+        "p50": 737.061,
+        "p95": 1173.2707,
+        "p99": 1237.5839700000001,
+        "max": 1272.058
+      },
+      "handlerMs": {
+        "n": 95,
+        "p50": 4.583747000200674,
+        "p95": 20.338545500009776,
+        "p99": 34.964045259971236,
+        "max": 62.45699699991383
+      },
+      "modelCalls": 126,
+      "modelUsageComplete": true,
+      "modelCallsWithoutUsage": 0,
+      "modelInputTokens": 447013,
+      "modelCachedInputTokens": 249189,
+      "modelCacheWriteTokens": 126778,
+      "modelOutputTokens": 15003,
+      "modelReasoningTokens": 5865,
+      "mcpCalls": 143,
+      "sdkRequests": 143,
+      "businessCalls": 95,
+      "jevCalls": 48,
+      "jevInputTokens": 646706,
+      "jevOutputTokens": 98448,
+      "jevUsageComplete": true,
+      "jevHopsWithoutCompleteUsage": 0,
+      "jevMaxConcurrent": 1,
+      "nativeMaxConcurrent": 2,
+      "knownOpenaiCostUSD": 0.03294524000000001,
+      "knownJevCostUSD": 0.027161652,
+      "totalCostUSD": 0.06010689200000001,
+      "resources": {
+        "host": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 100,
+            "p95": 186.49999999999991,
+            "p99": 207.10000000000002,
+            "max": 210
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 169966,
+            "p95": 184180.4,
+            "p99": 185250.32,
+            "max": 185480
+          }
+        },
+        "goChoice": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 50,
+            "p95": 110,
+            "p99": 117.10000000000001,
+            "max": 120
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 25164,
+            "p95": 26004.4,
+            "p99": 26135.8,
+            "max": 26188
+          }
+        },
+        "goBinary": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 0,
+            "p95": 10,
+            "p99": 17.10000000000001,
+            "max": 20
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 28128,
+            "p95": 28854.6,
+            "p99": 29056.96,
+            "max": 29108
+          }
+        },
+        "provider": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 215,
+            "p95": 350.99999999999994,
+            "p99": 367.1,
+            "max": 370
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 403596,
+            "p95": 408091.2,
+            "p99": 408444.76,
+            "max": 408548
+          }
+        }
+      }
+    },
+    "design-3": {
+      "n": 30,
+      "serialTimedTaskThroughputCasesPerSecond": 0.07322119441974233,
+      "timedOutCases": 0,
+      "workflowSuccess": 30,
+      "workflowWilson95": [
+        0.8864866068260312,
+        0.9999999999999999
+      ],
+      "endToEndSuccess": 30,
+      "completeSequence": 30,
+      "groundedIds": 30,
+      "expectedSteps": 75,
+      "matchedSteps": 75,
+      "idArgumentCount": 47,
+      "groundedIdCount": 47,
+      "stateCorrect": 30,
+      "mutations": 15,
+      "mutationsCorrect": 15,
+      "completedAnswers": 30,
+      "answerFactsComplete": 30,
+      "wrongMutationCalls": 0,
+      "extraBusinessCalls": 5,
+      "initialCompleteCoverage": 17,
+      "meanInitialPrecision": 0.6344047619047619,
+      "meanInitialStepCoverage": 0.7861111111111111,
+      "preparations": 50,
+      "casesWithFurtherPreparation": 14,
+      "abstentions": 2,
+      "refinements": 1,
+      "mcpErrors": 1,
+      "handlerErrors": 0,
+      "latencyMs": {
+        "n": 30,
+        "p50": 11285.706208500022,
+        "p95": 22212.689750050005,
+        "p99": 30218.663127109925,
+        "max": 33320.187299999874
+      },
+      "completedAnswerLatencyMs": {
+        "n": 30,
+        "p50": 11285.706208500022,
+        "p95": 22212.689750050005,
+        "p99": 30218.663127109925,
+        "max": 33320.187299999874
+      },
+      "successfulWorkflowLatencyMs": {
+        "n": 30,
+        "p50": 11285.706208500022,
+        "p95": 22212.689750050005,
+        "p99": 30218.663127109925,
+        "max": 33320.187299999874
+      },
+      "hostPrepareMs": {
+        "n": 30,
+        "p50": 1470.9180254999956,
+        "p95": 1553.6086164000312,
+        "p99": 1585.3721199701195,
+        "max": 1597.4148650001734
+      },
+      "modelCallMs": {
+        "n": 128,
+        "p50": 2300.518652999963,
+        "p95": 4640.36738449997,
+        "p99": 6186.861681330017,
+        "max": 7710.74501199997
+      },
+      "mcpCallMs": {
+        "n": 144,
+        "p50": 95.02228749997448,
+        "p95": 1509.0039021000207,
+        "p99": 1553.519890229979,
+        "max": 1597.3907050001435
+      },
+      "sdkRemoteMs": {
+        "n": 144,
+        "p50": 39.96298149996437,
+        "p95": 1458.586736399983,
+        "p99": 1496.3081566699627,
+        "max": 1573.8041530000046
+      },
+      "selectorWallMs": {
+        "n": 50,
+        "p50": 1311.591,
+        "p95": 1427.8383,
+        "p99": 1482.28713,
+        "max": 1503.878
+      },
+      "handlerMs": {
+        "n": 93,
+        "p50": 4.0173899999354035,
+        "p95": 20.051672599976875,
+        "p99": 24.487612079912797,
+        "max": 24.776032999856398
+      },
+      "modelCalls": 128,
+      "modelUsageComplete": true,
+      "modelCallsWithoutUsage": 0,
+      "modelInputTokens": 462404,
+      "modelCachedInputTokens": 263592,
+      "modelCacheWriteTokens": 127244,
+      "modelOutputTokens": 15407,
+      "modelReasoningTokens": 6253,
+      "mcpCalls": 144,
+      "sdkRequests": 144,
+      "businessCalls": 93,
+      "jevCalls": 3200,
+      "jevInputTokens": 1612661,
+      "jevOutputTokens": 112000,
+      "jevUsageComplete": true,
+      "jevHopsWithoutCompleteUsage": 0,
+      "jevMaxConcurrent": 22,
+      "nativeMaxConcurrent": 2,
+      "knownOpenaiCostUSD": 0.033401719999999996,
+      "knownJevCostUSD": 0.06773176200000001,
+      "totalCostUSD": 0.10113348200000001,
+      "resources": {
+        "host": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 100,
+            "p95": 200.99999999999994,
+            "p99": 238.40000000000003,
+            "max": 250
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 170064,
+            "p95": 184121.4,
+            "p99": 185260,
+            "max": 185492
+          }
+        },
+        "goChoice": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 0,
+            "p95": 0,
+            "p99": 7.1000000000000085,
+            "max": 10
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 24696,
+            "p95": 25770,
+            "p99": 25990.72,
+            "max": 26000
+          }
+        },
+        "goBinary": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 190,
+            "p95": 462.49999999999955,
+            "p99": 636.5000000000001,
+            "max": 680
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 28294,
+            "p95": 29275.6,
+            "p99": 29533.44,
+            "max": 29552
+          }
+        },
+        "provider": {
+          "cpuMs": {
+            "n": 30,
+            "p50": 220,
+            "p95": 826.4999999999987,
+            "p99": 1147.8000000000002,
+            "max": 1200
+          },
+          "peakRssKiB": {
+            "n": 30,
+            "p50": 403646,
+            "p95": 408492,
+            "p99": 408790.28,
+            "max": 408868
+          }
+        }
+      }
+    }
+  },
+  "strata": {
+    "direct": {
+      "read": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.060241163025770976,
+        "timedOutCases": 0,
+        "workflowSuccess": 15,
+        "workflowWilson95": [
+          0.7961166989641515,
+          1
+        ],
+        "endToEndSuccess": 15,
+        "completeSequence": 15,
+        "groundedIds": 15,
+        "expectedSteps": 38,
+        "matchedSteps": 38,
+        "idArgumentCount": 20,
+        "groundedIdCount": 20,
+        "stateCorrect": 15,
+        "mutations": 0,
+        "mutationsCorrect": 0,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 3,
+        "initialCompleteCoverage": null,
+        "meanInitialPrecision": null,
+        "meanInitialStepCoverage": null,
+        "preparations": 0,
+        "casesWithFurtherPreparation": 0,
+        "abstentions": 0,
+        "refinements": 0,
+        "mcpErrors": 0,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 16135.807742999983,
+          "p95": 20287.9876469,
+          "p99": 21397.226974180016,
+          "max": 21674.53680600002
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 16135.807742999983,
+          "p95": 20287.9876469,
+          "p99": 21397.226974180016,
+          "max": 21674.53680600002
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 15,
+          "p50": 16135.807742999983,
+          "p95": 20287.9876469,
+          "p99": 21397.226974180016,
+          "max": 21674.53680600002
+        },
+        "hostPrepareMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "modelCallMs": {
+          "n": 68,
+          "p50": 3484.315603999974,
+          "p95": 5282.37020184998,
+          "p99": 8320.877555200046,
+          "max": 8890.555869000003
+        },
+        "mcpCallMs": {
+          "n": 59,
+          "p50": 11.114063000015449,
+          "p95": 21.232680100027935,
+          "p99": 22.342649960024286,
+          "max": 23.235610999981873
+        },
+        "sdkRemoteMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "selectorWallMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "handlerMs": {
+          "n": 59,
+          "p50": 4.079617999959737,
+          "p95": 11.060635600017843,
+          "p99": 12.487421080078931,
+          "max": 13.011204000096768
+        },
+        "modelCalls": 68,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 1970044,
+        "modelCachedInputTokens": 1948699,
+        "modelCacheWriteTokens": 21141,
+        "modelOutputTokens": 3827,
+        "modelReasoningTokens": 1053,
+        "mcpCalls": 59,
+        "sdkRequests": 0,
+        "businessCalls": 59,
+        "jevCalls": 0,
+        "jevInputTokens": 0,
+        "jevOutputTokens": 0,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 0,
+        "nativeMaxConcurrent": 2,
+        "knownOpenaiCostUSD": 0.024063515000000008,
+        "knownJevCostUSD": 0,
+        "totalCostUSD": 0.024063515000000008,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 210,
+              "p95": 325.9999999999998,
+              "p99": 449.1999999999999,
+              "max": 480
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 165772,
+              "p95": 170536.4,
+              "p99": 170686.48,
+              "max": 170724
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 10,
+              "p99": 10,
+              "max": 10
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 25048,
+              "p95": 25661.6,
+              "p99": 26082.72,
+              "max": 26188
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 2.9999999999999893,
+              "p99": 8.599999999999994,
+              "max": 10
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 28048,
+              "p95": 28531.2,
+              "p99": 28992.64,
+              "max": 29108
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 170,
+              "p95": 507.999999999999,
+              "p99": 1045.5999999999995,
+              "max": 1180
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 405148,
+              "p95": 408684.4,
+              "p99": 408812.08,
+              "max": 408844
+            }
+          }
+        }
+      },
+      "write": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.05637263449342663,
+        "timedOutCases": 0,
+        "workflowSuccess": 15,
+        "workflowWilson95": [
+          0.7961166989641515,
+          1
+        ],
+        "endToEndSuccess": 15,
+        "completeSequence": 15,
+        "groundedIds": 15,
+        "expectedSteps": 37,
+        "matchedSteps": 37,
+        "idArgumentCount": 30,
+        "groundedIdCount": 30,
+        "stateCorrect": 15,
+        "mutations": 15,
+        "mutationsCorrect": 15,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 5,
+        "initialCompleteCoverage": null,
+        "meanInitialPrecision": null,
+        "meanInitialStepCoverage": null,
+        "preparations": 0,
+        "casesWithFurtherPreparation": 0,
+        "abstentions": 0,
+        "refinements": 0,
+        "mcpErrors": 0,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 16769.019093000097,
+          "p95": 25293.41225040003,
+          "p99": 26173.449006879975,
+          "max": 26393.458195999963
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 16769.019093000097,
+          "p95": 25293.41225040003,
+          "p99": 26173.449006879975,
+          "max": 26393.458195999963
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 15,
+          "p50": 16769.019093000097,
+          "p95": 25293.41225040003,
+          "p99": 26173.449006879975,
+          "max": 26393.458195999963
+        },
+        "hostPrepareMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "modelCallMs": {
+          "n": 71,
+          "p50": 3441.208151000086,
+          "p95": 5067.7166655000765,
+          "p99": 9609.826807300025,
+          "max": 9649.691234000027
+        },
+        "mcpCallMs": {
+          "n": 59,
+          "p50": 9.57511999993585,
+          "p95": 24.12869149985489,
+          "p99": 30.119795520179917,
+          "max": 33.661105000181124
+        },
+        "sdkRemoteMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "selectorWallMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "handlerMs": {
+          "n": 59,
+          "p50": 4.466811999911442,
+          "p95": 16.461345999990584,
+          "p99": 22.227066579940733,
+          "max": 24.026660999981686
+        },
+        "modelCalls": 71,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 2057898,
+        "modelCachedInputTokens": 2037277,
+        "modelCacheWriteTokens": 20408,
+        "modelOutputTokens": 4060,
+        "modelReasoningTokens": 1463,
+        "mcpCalls": 59,
+        "sdkRequests": 0,
+        "businessCalls": 59,
+        "jevCalls": 0,
+        "jevInputTokens": 0,
+        "jevOutputTokens": 0,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 0,
+        "nativeMaxConcurrent": 2,
+        "knownOpenaiCostUSD": 0.02497507,
+        "knownJevCostUSD": 0,
+        "totalCostUSD": 0.02497507,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 180,
+              "p95": 223,
+              "p99": 228.6,
+              "max": 230
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 179104,
+              "p95": 185640.8,
+              "p99": 186568.16,
+              "max": 186800
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 10,
+              "p99": 10,
+              "max": 10
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 24664,
+              "p95": 25672,
+              "p99": 25940.8,
+              "max": 26008
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 28044,
+              "p95": 28660,
+              "p99": 28727.2,
+              "max": 28744
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 170,
+              "p95": 293.9999999999997,
+              "p99": 450.79999999999984,
+              "max": 490
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 403608,
+              "p95": 404004.4,
+              "p99": 404042.48,
+              "max": 404052
+            }
+          }
+        }
+      }
+    },
+    "design-1": {
+      "read": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.057959678144633354,
+        "timedOutCases": 0,
+        "workflowSuccess": 14,
+        "workflowWilson95": [
+          0.7018347012621998,
+          0.9881331045067315
+        ],
+        "endToEndSuccess": 14,
+        "completeSequence": 14,
+        "groundedIds": 15,
+        "expectedSteps": 38,
+        "matchedSteps": 36,
+        "idArgumentCount": 22,
+        "groundedIdCount": 22,
+        "stateCorrect": 15,
+        "mutations": 0,
+        "mutationsCorrect": 0,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 7,
+        "initialCompleteCoverage": 8,
+        "meanInitialPrecision": 0.5117460317460317,
+        "meanInitialStepCoverage": 0.7777777777777778,
+        "preparations": 29,
+        "casesWithFurtherPreparation": 8,
+        "abstentions": 3,
+        "refinements": 0,
+        "mcpErrors": 1,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 16495.228935999912,
+          "p95": 27380.314884500007,
+          "p99": 28414.56516730001,
+          "max": 28673.12773800001
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 16495.228935999912,
+          "p95": 27380.314884500007,
+          "p99": 28414.56516730001,
+          "max": 28673.12773800001
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 14,
+          "p50": 15675.030295999954,
+          "p95": 27472.658659750006,
+          "p99": 28433.03392235001,
+          "max": 28673.12773800001
+        },
+        "hostPrepareMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "modelCallMs": {
+          "n": 82,
+          "p50": 2369.1695349999354,
+          "p95": 4827.333349700017,
+          "p99": 5886.5825003500295,
+          "max": 7138.513612000039
+        },
+        "mcpCallMs": {
+          "n": 83,
+          "p50": 104.10814699996263,
+          "p95": 1269.326293199997,
+          "p99": 1318.4511286200466,
+          "max": 1327.976994000026
+        },
+        "sdkRemoteMs": {
+          "n": 82,
+          "p50": 38.833510499913245,
+          "p95": 1224.520392199952,
+          "p99": 1269.6358657999942,
+          "max": 1272.2687059999444
+        },
+        "selectorWallMs": {
+          "n": 29,
+          "p50": 742.261,
+          "p95": 1190.0221999999999,
+          "p99": 1194.84412,
+          "max": 1194.927
+        },
+        "handlerMs": {
+          "n": 53,
+          "p50": 4.459828999824822,
+          "p95": 13.145387000008485,
+          "p99": 15.317982919951891,
+          "max": 17.02526200003922
+        },
+        "modelCalls": 82,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 295524,
+        "modelCachedInputTokens": 211920,
+        "modelCacheWriteTokens": 73508,
+        "modelOutputTokens": 11609,
+        "modelReasoningTokens": 5163,
+        "mcpCalls": 83,
+        "sdkRequests": 82,
+        "businessCalls": 53,
+        "jevCalls": 29,
+        "jevInputTokens": 392056,
+        "jevOutputTokens": 59479,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 1,
+        "nativeMaxConcurrent": 2,
+        "knownOpenaiCostUSD": 0.018121799999999997,
+        "knownJevCostUSD": 0.016466352,
+        "totalCostUSD": 0.034588152,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 150,
+              "p95": 227.99999999999994,
+              "p99": 261.59999999999997,
+              "max": 270
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 164788,
+              "p95": 168500,
+              "p99": 169754.4,
+              "max": 170068
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 80,
+              "p95": 141.99999999999994,
+              "p99": 164.39999999999998,
+              "max": 170
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 25120,
+              "p95": 26079.2,
+              "p99": 26182.24,
+              "max": 26208
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 10,
+              "p99": 10,
+              "max": 10
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 28176,
+              "p95": 28811.6,
+              "p99": 28907.92,
+              "max": 28932
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 260,
+              "p95": 553.9999999999997,
+              "p99": 710.7999999999998,
+              "max": 750
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 406496,
+              "p95": 408306.4,
+              "p99": 408646.88,
+              "max": 408732
+            }
+          }
+        }
+      },
+      "write": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.07339412688257346,
+        "timedOutCases": 0,
+        "workflowSuccess": 15,
+        "workflowWilson95": [
+          0.7961166989641515,
+          1
+        ],
+        "endToEndSuccess": 15,
+        "completeSequence": 15,
+        "groundedIds": 15,
+        "expectedSteps": 37,
+        "matchedSteps": 37,
+        "idArgumentCount": 28,
+        "groundedIdCount": 28,
+        "stateCorrect": 15,
+        "mutations": 15,
+        "mutationsCorrect": 15,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 2,
+        "initialCompleteCoverage": 13,
+        "meanInitialPrecision": 0.8166666666666667,
+        "meanInitialStepCoverage": 0.9222222222222223,
+        "preparations": 21,
+        "casesWithFurtherPreparation": 4,
+        "abstentions": 0,
+        "refinements": 0,
+        "mcpErrors": 0,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 13183.400005999953,
+          "p95": 19040.527877499942,
+          "p99": 25463.197789899932,
+          "max": 27068.865267999936
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 13183.400005999953,
+          "p95": 19040.527877499942,
+          "p99": 25463.197789899932,
+          "max": 27068.865267999936
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 15,
+          "p50": 13183.400005999953,
+          "p95": 19040.527877499942,
+          "p99": 25463.197789899932,
+          "max": 27068.865267999936
+        },
+        "hostPrepareMs": {
+          "n": 0,
+          "p50": null,
+          "p95": null,
+          "p99": null,
+          "max": null
+        },
+        "modelCallMs": {
+          "n": 74,
+          "p50": 2266.641537999967,
+          "p95": 3743.3283426500157,
+          "p99": 4694.8418327300515,
+          "max": 6244.555035999976
+        },
+        "mcpCallMs": {
+          "n": 66,
+          "p50": 102.37357149994932,
+          "p95": 1281.268947500008,
+          "p99": 1321.89675730007,
+          "max": 1323.578904000111
+        },
+        "sdkRemoteMs": {
+          "n": 66,
+          "p50": 36.46363300003577,
+          "p95": 1254.0695922499872,
+          "p99": 1270.757044099993,
+          "max": 1280.8974509998225
+        },
+        "selectorWallMs": {
+          "n": 21,
+          "p50": 1159.626,
+          "p95": 1207.386,
+          "p99": 1212.23,
+          "max": 1213.441
+        },
+        "handlerMs": {
+          "n": 45,
+          "p50": 6.260312999831513,
+          "p95": 22.858979800064105,
+          "p99": 28.33000408006833,
+          "max": 30.665774000110105
+        },
+        "modelCalls": 74,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 203117,
+        "modelCachedInputTokens": 136097,
+        "modelCacheWriteTokens": 56911,
+        "modelOutputTokens": 7770,
+        "modelReasoningTokens": 2603,
+        "mcpCalls": 66,
+        "sdkRequests": 66,
+        "businessCalls": 45,
+        "jevCalls": 21,
+        "jevInputTokens": 287529,
+        "jevOutputTokens": 43071,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 1,
+        "nativeMaxConcurrent": 1,
+        "knownOpenaiCostUSD": 0.013370745000000003,
+        "knownJevCostUSD": 0.012076218,
+        "totalCostUSD": 0.025446963000000003,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 120,
+              "p95": 150,
+              "p99": 150,
+              "max": 150
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 178180,
+              "p95": 184830.4,
+              "p99": 185350.08,
+              "max": 185480
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 50,
+              "p95": 80,
+              "p99": 80,
+              "max": 80
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 25224,
+              "p95": 26419.6,
+              "p99": 26538.32,
+              "max": 26568
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 2.9999999999999893,
+              "p99": 8.599999999999994,
+              "max": 10
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 27620,
+              "p95": 28624,
+              "p99": 28624,
+              "max": 28624
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 220,
+              "p95": 1184,
+              "p99": 1228.8,
+              "max": 1240
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 403496,
+              "p95": 403780,
+              "p99": 403892,
+              "max": 403920
+            }
+          }
+        }
+      }
+    },
+    "design-2": {
+      "read": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.07231620572677379,
+        "timedOutCases": 0,
+        "workflowSuccess": 15,
+        "workflowWilson95": [
+          0.7961166989641515,
+          1
+        ],
+        "endToEndSuccess": 15,
+        "completeSequence": 15,
+        "groundedIds": 15,
+        "expectedSteps": 38,
+        "matchedSteps": 38,
+        "idArgumentCount": 22,
+        "groundedIdCount": 22,
+        "stateCorrect": 15,
+        "mutations": 0,
+        "mutationsCorrect": 0,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 7,
+        "initialCompleteCoverage": 7,
+        "meanInitialPrecision": 0.5726984126984128,
+        "meanInitialStepCoverage": 0.7222222222222222,
+        "preparations": 26,
+        "casesWithFurtherPreparation": 9,
+        "abstentions": 0,
+        "refinements": 1,
+        "mcpErrors": 0,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 13680.280031999922,
+          "p95": 20458.13732,
+          "p99": 23119.77910560002,
+          "max": 23785.189552000025
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 13680.280031999922,
+          "p95": 20458.13732,
+          "p99": 23119.77910560002,
+          "max": 23785.189552000025
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 15,
+          "p50": 13680.280031999922,
+          "p95": 20458.13732,
+          "p99": 23119.77910560002,
+          "max": 23785.189552000025
+        },
+        "hostPrepareMs": {
+          "n": 15,
+          "p50": 845.5122239999473,
+          "p95": 1302.706204099953,
+          "p99": 1316.5258656199835,
+          "max": 1319.980780999991
+        },
+        "modelCallMs": {
+          "n": 64,
+          "p50": 2612.3259330000146,
+          "p95": 4573.890762999954,
+          "p99": 7514.005403519986,
+          "max": 9542.221163999988
+        },
+        "mcpCallMs": {
+          "n": 76,
+          "p50": 93.7880844999745,
+          "p95": 981.3001370000056,
+          "p99": 1301.336772749928,
+          "max": 1319.8900709999725
+        },
+        "sdkRemoteMs": {
+          "n": 76,
+          "p50": 36.55644700006815,
+          "p95": 951.5088814999908,
+          "p99": 1247.3622432500124,
+          "max": 1279.5686570000835
+        },
+        "selectorWallMs": {
+          "n": 26,
+          "p50": 743.598,
+          "p95": 1163.58025,
+          "p99": 1190.62725,
+          "max": 1198.709
+        },
+        "handlerMs": {
+          "n": 50,
+          "p50": 4.871603999985382,
+          "p95": 21.177301750023606,
+          "p99": 31.403454459973137,
+          "max": 33.20917599997483
+        },
+        "modelCalls": 64,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 210636,
+        "modelCachedInputTokens": 113935,
+        "modelCacheWriteTokens": 63368,
+        "modelOutputTokens": 8141,
+        "modelReasoningTokens": 3183,
+        "mcpCalls": 76,
+        "sdkRequests": 76,
+        "businessCalls": 50,
+        "jevCalls": 26,
+        "jevInputTokens": 348343,
+        "jevOutputTokens": 53326,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 1,
+        "nativeMaxConcurrent": 2,
+        "knownOpenaiCostUSD": 0.016464150000000007,
+        "knownJevCostUSD": 0.014630406,
+        "totalCostUSD": 0.03109455600000001,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 110,
+              "p95": 203,
+              "p99": 208.6,
+              "max": 210
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 165408,
+              "p95": 169261.2,
+              "p99": 169689.04,
+              "max": 169796
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 60,
+              "p95": 112.99999999999999,
+              "p99": 118.6,
+              "max": 120
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 25124,
+              "p95": 26056.4,
+              "p99": 26161.68,
+              "max": 26188
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 10,
+              "p99": 10,
+              "max": 10
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 28228,
+              "p95": 28984.8,
+              "p99": 29083.36,
+              "max": 29108
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 220,
+              "p95": 363,
+              "p99": 368.6,
+              "max": 370
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 407728,
+              "p95": 408298.8,
+              "p99": 408498.16,
+              "max": 408548
+            }
+          }
+        }
+      },
+      "write": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.08523848381814025,
+        "timedOutCases": 0,
+        "workflowSuccess": 15,
+        "workflowWilson95": [
+          0.7961166989641515,
+          1
+        ],
+        "endToEndSuccess": 15,
+        "completeSequence": 15,
+        "groundedIds": 15,
+        "expectedSteps": 37,
+        "matchedSteps": 37,
+        "idArgumentCount": 28,
+        "groundedIdCount": 28,
+        "stateCorrect": 15,
+        "mutations": 15,
+        "mutationsCorrect": 15,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 2,
+        "initialCompleteCoverage": 10,
+        "meanInitialPrecision": 0.7072222222222222,
+        "meanInitialStepCoverage": 0.8499999999999999,
+        "preparations": 22,
+        "casesWithFurtherPreparation": 5,
+        "abstentions": 0,
+        "refinements": 0,
+        "mcpErrors": 0,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 9485.206513999961,
+          "p95": 20823.31379850005,
+          "p99": 26527.50273090001,
+          "max": 27953.549964000005
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 9485.206513999961,
+          "p95": 20823.31379850005,
+          "p99": 26527.50273090001,
+          "max": 27953.549964000005
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 15,
+          "p50": 9485.206513999961,
+          "p95": 20823.31379850005,
+          "p99": 26527.50273090001,
+          "max": 27953.549964000005
+        },
+        "hostPrepareMs": {
+          "n": 15,
+          "p50": 831.9199659998994,
+          "p95": 1334.492921699956,
+          "p99": 1401.4038547398895,
+          "max": 1418.1315879998729
+        },
+        "modelCallMs": {
+          "n": 62,
+          "p50": 2355.3545810000505,
+          "p95": 3576.2222933500425,
+          "p99": 3822.2577619000012,
+          "max": 3842.1494409998413
+        },
+        "mcpCallMs": {
+          "n": 67,
+          "p50": 90.2312929998152,
+          "p95": 863.534603299899,
+          "p99": 1339.1345820400122,
+          "max": 1418.0130339998286
+        },
+        "sdkRemoteMs": {
+          "n": 67,
+          "p50": 41.052672000136226,
+          "p95": 826.2660594997694,
+          "p99": 1288.8112991399928,
+          "max": 1363.0171920000575
+        },
+        "selectorWallMs": {
+          "n": 22,
+          "p50": 728.7729999999999,
+          "p95": 1175.6909,
+          "p99": 1252.09162,
+          "max": 1272.058
+        },
+        "handlerMs": {
+          "n": 45,
+          "p50": 4.462218999862671,
+          "p95": 13.732041600020603,
+          "p99": 48.18891723986722,
+          "max": 62.45699699991383
+        },
+        "modelCalls": 62,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 236377,
+        "modelCachedInputTokens": 135254,
+        "modelCacheWriteTokens": 63410,
+        "modelOutputTokens": 6862,
+        "modelReasoningTokens": 2682,
+        "mcpCalls": 67,
+        "sdkRequests": 67,
+        "businessCalls": 45,
+        "jevCalls": 22,
+        "jevInputTokens": 298363,
+        "jevOutputTokens": 45122,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 1,
+        "nativeMaxConcurrent": 2,
+        "knownOpenaiCostUSD": 0.016481090000000004,
+        "knownJevCostUSD": 0.012531245999999998,
+        "totalCostUSD": 0.029012336,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 80,
+              "p95": 163,
+              "p99": 168.6,
+              "max": 170
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 178020,
+              "p95": 184925.6,
+              "p99": 185369.12,
+              "max": 185480
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 50,
+              "p95": 102.99999999999999,
+              "p99": 108.6,
+              "max": 110
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 25204,
+              "p95": 25980,
+              "p99": 26002.4,
+              "max": 26008
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 12.99999999999999,
+              "p99": 18.599999999999994,
+              "max": 20
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 27992,
+              "p95": 28660,
+              "p99": 28727.2,
+              "max": 28744
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 160,
+              "p95": 297.99999999999994,
+              "p99": 331.59999999999997,
+              "max": 340
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 403508,
+              "p95": 403781.2,
+              "p99": 403828.24,
+              "max": 403840
+            }
+          }
+        }
+      }
+    },
+    "design-3": {
+      "read": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.06708512606831565,
+        "timedOutCases": 0,
+        "workflowSuccess": 15,
+        "workflowWilson95": [
+          0.7961166989641515,
+          1
+        ],
+        "endToEndSuccess": 15,
+        "completeSequence": 15,
+        "groundedIds": 15,
+        "expectedSteps": 38,
+        "matchedSteps": 38,
+        "idArgumentCount": 19,
+        "groundedIdCount": 19,
+        "stateCorrect": 15,
+        "mutations": 0,
+        "mutationsCorrect": 0,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 3,
+        "initialCompleteCoverage": 7,
+        "meanInitialPrecision": 0.5615873015873016,
+        "meanInitialStepCoverage": 0.7222222222222222,
+        "preparations": 28,
+        "casesWithFurtherPreparation": 9,
+        "abstentions": 2,
+        "refinements": 1,
+        "mcpErrors": 1,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 14581.16680799995,
+          "p95": 21983.474967300008,
+          "p99": 22496.91608066001,
+          "max": 22625.27635900001
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 14581.16680799995,
+          "p95": 21983.474967300008,
+          "p99": 22496.91608066001,
+          "max": 22625.27635900001
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 15,
+          "p50": 14581.16680799995,
+          "p95": 21983.474967300008,
+          "p99": 22496.91608066001,
+          "max": 22625.27635900001
+        },
+        "hostPrepareMs": {
+          "n": 15,
+          "p50": 1501.7343079999991,
+          "p95": 1542.4562787000643,
+          "p99": 1553.2017821400025,
+          "max": 1555.888157999987
+        },
+        "modelCallMs": {
+          "n": 65,
+          "p50": 2437.1037060000235,
+          "p95": 4731.504352599999,
+          "p99": 6735.67215888,
+          "max": 7710.74501199997
+        },
+        "mcpCallMs": {
+          "n": 77,
+          "p50": 97.59391499997582,
+          "p95": 1511.5696024000297,
+          "p99": 1541.1656378000507,
+          "max": 1555.7931450000033
+        },
+        "sdkRemoteMs": {
+          "n": 77,
+          "p50": 41.25118300016038,
+          "p95": 1469.7683526000242,
+          "p99": 1487.129130439977,
+          "max": 1508.2687059999444
+        },
+        "selectorWallMs": {
+          "n": 28,
+          "p50": 1243.6425,
+          "p95": 1432.7409,
+          "p99": 1457.13795,
+          "max": 1459.815
+        },
+        "handlerMs": {
+          "n": 48,
+          "p50": 4.063476499984972,
+          "p95": 16.03986064987257,
+          "p99": 23.13765390008688,
+          "max": 23.50243500014767
+        },
+        "modelCalls": 65,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 227309,
+        "modelCachedInputTokens": 127819,
+        "modelCacheWriteTokens": 65617,
+        "modelOutputTokens": 9123,
+        "modelReasoningTokens": 4018,
+        "mcpCalls": 77,
+        "sdkRequests": 77,
+        "businessCalls": 48,
+        "jevCalls": 1792,
+        "jevInputTokens": 905211,
+        "jevOutputTokens": 62720,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 22,
+        "nativeMaxConcurrent": 2,
+        "knownOpenaiCostUSD": 0.017429115000000002,
+        "knownJevCostUSD": 0.038018862,
+        "totalCostUSD": 0.055447977,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 120,
+              "p95": 221.99999999999994,
+              "p99": 244.39999999999998,
+              "max": 250
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 164260,
+              "p95": 169338,
+              "p99": 169909.2,
+              "max": 170052
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 24728,
+              "p95": 25605.2,
+              "p99": 25921.04,
+              "max": 26000
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 230,
+              "p95": 574.9999999999999,
+              "p99": 658.9999999999999,
+              "max": 680
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 28304,
+              "p95": 29507.2,
+              "p99": 29543.04,
+              "max": 29552
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 240,
+              "p95": 1073.9999999999998,
+              "p99": 1174.8,
+              "max": 1200
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 407616,
+              "p95": 408680.4,
+              "p99": 408830.48,
+              "max": 408868
+            }
+          }
+        }
+      },
+      "write": {
+        "n": 15,
+        "serialTimedTaskThroughputCasesPerSecond": 0.08059276455655418,
+        "timedOutCases": 0,
+        "workflowSuccess": 15,
+        "workflowWilson95": [
+          0.7961166989641515,
+          1
+        ],
+        "endToEndSuccess": 15,
+        "completeSequence": 15,
+        "groundedIds": 15,
+        "expectedSteps": 37,
+        "matchedSteps": 37,
+        "idArgumentCount": 28,
+        "groundedIdCount": 28,
+        "stateCorrect": 15,
+        "mutations": 15,
+        "mutationsCorrect": 15,
+        "completedAnswers": 15,
+        "answerFactsComplete": 15,
+        "wrongMutationCalls": 0,
+        "extraBusinessCalls": 2,
+        "initialCompleteCoverage": 10,
+        "meanInitialPrecision": 0.7072222222222222,
+        "meanInitialStepCoverage": 0.8499999999999999,
+        "preparations": 22,
+        "casesWithFurtherPreparation": 5,
+        "abstentions": 0,
+        "refinements": 0,
+        "mcpErrors": 0,
+        "handlerErrors": 0,
+        "latencyMs": {
+          "n": 15,
+          "p50": 9868.202610000037,
+          "p95": 23425.07599489983,
+          "p99": 31341.16503897986,
+          "max": 33320.187299999874
+        },
+        "completedAnswerLatencyMs": {
+          "n": 15,
+          "p50": 9868.202610000037,
+          "p95": 23425.07599489983,
+          "p99": 31341.16503897986,
+          "max": 33320.187299999874
+        },
+        "successfulWorkflowLatencyMs": {
+          "n": 15,
+          "p50": 9868.202610000037,
+          "p95": 23425.07599489983,
+          "p99": 31341.16503897986,
+          "max": 33320.187299999874
+        },
+        "hostPrepareMs": {
+          "n": 15,
+          "p50": 1452.970987000037,
+          "p95": 1564.800216500112,
+          "p99": 1590.891935300161,
+          "max": 1597.4148650001734
+        },
+        "modelCallMs": {
+          "n": 63,
+          "p50": 2231.565492999973,
+          "p95": 3965.08525480004,
+          "p99": 5705.517887199928,
+          "max": 6180.324544999981
+        },
+        "mcpCallMs": {
+          "n": 67,
+          "p50": 90.21740399999544,
+          "p95": 1487.3299837999396,
+          "p99": 1566.447133660014,
+          "max": 1597.3907050001435
+        },
+        "sdkRemoteMs": {
+          "n": 67,
+          "p50": 39.190371999982744,
+          "p95": 1426.3687467000213,
+          "p99": 1492.920734560015,
+          "max": 1573.8041530000046
+        },
+        "selectorWallMs": {
+          "n": 22,
+          "p50": 1326.978,
+          "p95": 1373.9838,
+          "p99": 1476.6752299999998,
+          "max": 1503.878
+        },
+        "handlerMs": {
+          "n": 45,
+          "p50": 4.0173899999354035,
+          "p95": 20.309194199973717,
+          "p99": 24.638092559883372,
+          "max": 24.776032999856398
+        },
+        "modelCalls": 63,
+        "modelUsageComplete": true,
+        "modelCallsWithoutUsage": 0,
+        "modelInputTokens": 235095,
+        "modelCachedInputTokens": 135773,
+        "modelCacheWriteTokens": 61627,
+        "modelOutputTokens": 6284,
+        "modelReasoningTokens": 2235,
+        "mcpCalls": 67,
+        "sdkRequests": 67,
+        "businessCalls": 45,
+        "jevCalls": 1408,
+        "jevInputTokens": 707450,
+        "jevOutputTokens": 49280,
+        "jevUsageComplete": true,
+        "jevHopsWithoutCompleteUsage": 0,
+        "jevMaxConcurrent": 22,
+        "nativeMaxConcurrent": 1,
+        "knownOpenaiCostUSD": 0.015972604999999997,
+        "knownJevCostUSD": 0.0297129,
+        "totalCostUSD": 0.045685505,
+        "resources": {
+          "host": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 90,
+              "p95": 175.99999999999997,
+              "p99": 187.2,
+              "max": 190
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 178116,
+              "p95": 184932,
+              "p99": 185380,
+              "max": 185492
+            }
+          },
+          "goChoice": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 0,
+              "p95": 2.9999999999999893,
+              "p99": 8.599999999999994,
+              "max": 10
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 24664,
+              "p95": 25660,
+              "p99": 25906.4,
+              "max": 25968
+            }
+          },
+          "goBinary": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 180,
+              "p95": 350,
+              "p99": 350,
+              "max": 350
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 28276,
+              "p95": 28906.8,
+              "p99": 28971.76,
+              "max": 28988
+            }
+          },
+          "provider": {
+            "cpuMs": {
+              "n": 15,
+              "p50": 190,
+              "p95": 456.9999999999998,
+              "p99": 563.3999999999999,
+              "max": 590
+            },
+            "peakRssKiB": {
+              "n": 15,
+              "p50": 403492,
+              "p95": 403819.6,
+              "p99": 403848.72,
+              "max": 403856
+            }
+          }
+        }
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "mode": "design-1",
+      "pairedLatencyDifferenceMs": {
+        "n": 30,
+        "p50": -1821.595476999937,
+        "p95": 9327.595418649998,
+        "p99": 13030.683323049987,
+        "max": 13374.161919999984
+      },
+      "bothSucceeded": 29,
+      "directOnly": 1,
+      "gateOnly": 0,
+      "neither": 0
+    },
+    {
+      "mode": "design-2",
+      "pairedLatencyDifferenceMs": {
+        "n": 30,
+        "p50": -4392.742467000055,
+        "p95": 2952.9688008999838,
+        "p99": 6153.098833570068,
+        "max": 7402.0515970001
+      },
+      "bothSucceeded": 30,
+      "directOnly": 0,
+      "gateOnly": 0,
+      "neither": 0
+    },
+    {
+      "mode": "design-3",
+      "pairedLatencyDifferenceMs": {
+        "n": 30,
+        "p50": -4179.868438000005,
+        "p95": 4342.100251650006,
+        "p99": 6250.462270579935,
+        "max": 6926.729103999911
+      },
+      "bothSucceeded": 30,
+      "directOnly": 0,
+      "gateOnly": 0,
+      "neither": 0
+    }
+  ],
+  "secondaryReview": {
+    "status": "Secondary post-run analysis; not the frozen primary metric and not a blinded independent adjudication.",
+    "byMode": {
+      "direct": {
+        "reviewedCompletion": 30,
+        "verifiedAlternatives": 0,
+        "namedMemberOmissions": 0
+      },
+      "design-1": {
+        "reviewedCompletion": 29,
+        "verifiedAlternatives": 1,
+        "namedMemberOmissions": 1
+      },
+      "design-2": {
+        "reviewedCompletion": 30,
+        "verifiedAlternatives": 0,
+        "namedMemberOmissions": 0
+      },
+      "design-3": {
+        "reviewedCompletion": 29,
+        "verifiedAlternatives": 0,
+        "namedMemberOmissions": 1
+      }
+    }
+  }
+}

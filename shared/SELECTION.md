@@ -40,3 +40,12 @@ The default profile above remains unchanged. The explicitly enabled
 authorized candidates in independent requests, with a maximum of 22 concurrent
 outbound requests, the same deadlines, and no partial-result selection. It is an
 experimental alternative, not a new default or a permission granted by a model.
+
+
+## V3 experimental workflow preparation
+
+See [ADR 0005](adr/0005-v3-workflow-preparation.md) for the explicitly authorized
+additive `/v1/workflows` API. It returns up to eight independent single-tool
+operations. The agent orders their execution; all existing per-operation identity,
+validation, decision, approval and durable dispatch rules still apply.
+Legacy single-tool preparation and historical experiments retain their semantics.

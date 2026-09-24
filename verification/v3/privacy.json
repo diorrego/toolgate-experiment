@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "filesScanned": 278,
+  "secretValuesCompared": 10,
+  "privatePathsChecked": true,
+  "rawProviderCapturesExcluded": true,
+  "stagedBytesVerified": true
+}

@@ -1,0 +1,473 @@
+{
+  "runId": "ba34bd3a-6d67-4cbf-827f-4bd42925202c",
+  "sha256": "c3f699b0dd849ff2b5b702bfebb3e148d3fe63897ed951adba699f9b4d116401",
+  "cases": 8,
+  "successfulWorkflows": 8,
+  "fingerprints": {
+    "go": "f2511d3a05cce3dd0f5e177b30e76a987551dddaade5bb17e4dc7b86f32bfe46",
+    "runner": "d226e8288a5240ac48ec94ea84759f481a623999db191f1df5bd2eb70fc4043a",
+    "metrics": "6b0ecde7c4768d7891b119f5e35ae1ad0040c3917d177208773bd5280dd33993",
+    "sdk": "a7a3e5b6b23bd0194f86fffbfca7f6f49b12f80d182248be1136ce94bac995eb",
+    "provider": "8508f407c4a0dabf1a87085f8f3c4742a6f2c1aa07f30fd4e32d659163d7d880",
+    "contract": "704f6a0945a840578936645b4a96e7b9bc74a754d46a97626e97326e8170bbc8",
+    "stateOracle": "e5c50affdf487f9ab8ad1d02543195af3d992ed9529f566b0f519fe50cf9ebdc",
+    "apiClient": "24f18fc453deb2dbc2c36cb36e8ca962d917ef786d9dee99af8f2b6b99f3173d",
+    "coreSupervisor": "0aed47817b2e76d755299f034e8ea063d3cdb5f5960b239043c9ab872ee86b18",
+    "providerAdapter": "5e202148a1dc2616683fa947de9ddec0330234a1a8a51b6f354563cde192177e",
+    "wokuBuildManifest": "d8f61b8c1551aa386d797ba0accac995286167793b0c2a9212f564a08462f7a3",
+    "fixture": "56dcd4587db9d60d864785430a46d2c21dd4a44b83b303368306477ebcbc419f",
+    "idSeed": "43cfb2554d2cf53cadd3d26687f857dbf3a31aaa7873b86770dbb33a6d0179ae",
+    "gateTools": "67dc06e061cb5596274ba1e3059a182a7d526ffe50892e46c2a2bdeb7df3e920",
+    "corpus": "fcace9e28d6e2d2158aced01b5af6733382a5aa91a2fd69e6cfad3c62b981bc9",
+    "catalog": "1ba87eeb85a646a7b68899b11dccb71bfc29e289adb10be1879bec71c7845e3e",
+    "callScheduler": "c35ba343e9149210f2c07ea2c3f0ccf4ed638fd3f9bf2321d4ae14d7dada03e7",
+    "baseMetrics": "df59fc4370ae1326e1859a631fa0bab7e6c32103fad412e8725e192fc67fc818",
+    "config": "c4bd67e304429080eba415cb00228ea2e6f75f71b05833643a4c771d15ee2a26"
+  },
+  "records": [
+    {
+      "caseId": "V3-01",
+      "mode": "direct",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 4,
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "taskMs": 15613.837432
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-1",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 2,
+        "initialPrecision": 0.5,
+        "initialStepCoverage": 0.3333333333333333,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 6,
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 27306,
+        "outputTokens": 4102,
+        "cost": 0.001146852
+      },
+      "taskMs": 22029.785228999997
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-2",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 3,
+        "initialPrecision": 0.6666666666666666,
+        "initialStepCoverage": 0.6666666666666666,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 6,
+      "jev": {
+        "calls": 2,
+        "complete": true,
+        "inputTokens": 27302,
+        "outputTokens": 4102,
+        "cost": 0.0011466840000000002
+      },
+      "taskMs": 15698.502660999999
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-3",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "values": true,
+          "catalog": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 1,
+        "idArgumentCount": 1,
+        "initialSelectedCount": 3,
+        "initialPrecision": 0.6666666666666666,
+        "initialStepCoverage": 0.6666666666666666,
+        "initialCompleteCoverage": false,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 0,
+        "answerFacts": [
+          {
+            "fact": "Support Region",
+            "present": true
+          },
+          {
+            "fact": "Central",
+            "present": true
+          },
+          {
+            "fact": "Service CRM",
+            "present": true
+          },
+          {
+            "fact": "Receipt Code",
+            "present": true
+          },
+          {
+            "fact": "RC-410",
+            "present": true
+          },
+          {
+            "fact": "Order Desk",
+            "present": true
+          }
+        ],
+        "answerFactsComplete": true,
+        "preparations": 2,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 6,
+      "jev": {
+        "calls": 128,
+        "complete": true,
+        "inputTokens": 67317,
+        "outputTokens": 4480,
+        "cost": 0.002827314
+      },
+      "taskMs": 16782.407246000002
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "design-1",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "detail": true,
+          "write": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 3,
+        "idArgumentCount": 3,
+        "initialSelectedCount": 5,
+        "initialPrecision": 0.8,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 1,
+        "answerFacts": [],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 5,
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13971,
+        "outputTokens": 2051,
+        "cost": 0.000586782
+      },
+      "taskMs": 11241.560244000008
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "design-2",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "detail": true,
+          "write": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 3,
+        "idArgumentCount": 3,
+        "initialSelectedCount": 4,
+        "initialPrecision": 1,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 1,
+        "answerFacts": [],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 5,
+      "jev": {
+        "calls": 1,
+        "complete": true,
+        "inputTokens": 13756,
+        "outputTokens": 2051,
+        "cost": 0.0005777520000000001
+      },
+      "taskMs": 13238.677832000001
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "design-3",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "detail": true,
+          "write": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 3,
+        "idArgumentCount": 3,
+        "initialSelectedCount": 4,
+        "initialPrecision": 1,
+        "initialStepCoverage": 1,
+        "initialCompleteCoverage": true,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 1,
+        "answerFacts": [],
+        "answerFactsComplete": true,
+        "preparations": 1,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 4,
+      "jev": {
+        "calls": 64,
+        "complete": true,
+        "inputTokens": 32467,
+        "outputTokens": 2240,
+        "cost": 0.001363614
+      },
+      "taskMs": 11730.989445
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "direct",
+      "grade": {
+        "expectedDistinctTools": 3,
+        "expectedSteps": 3,
+        "matchedSteps": 3,
+        "steps": {
+          "find": true,
+          "detail": true,
+          "write": true
+        },
+        "completeSequence": true,
+        "groundedIds": true,
+        "groundedIdCount": 3,
+        "idArgumentCount": 3,
+        "initialSelectedCount": 0,
+        "initialPrecision": null,
+        "initialStepCoverage": null,
+        "initialCompleteCoverage": null,
+        "extraBusinessCalls": 0,
+        "wrongMutationCalls": 0,
+        "mutationInvocations": 1,
+        "answerFacts": [],
+        "answerFactsComplete": true,
+        "preparations": 0,
+        "state": {
+          "correct": true,
+          "unchangedOthers": true
+        },
+        "workflowSuccess": true,
+        "endToEndSuccess": true
+      },
+      "modelCalls": 5,
+      "jev": {
+        "calls": 0,
+        "complete": true,
+        "inputTokens": 0,
+        "outputTokens": 0,
+        "cost": 0
+      },
+      "taskMs": 19186.314346000014
+    }
+  ]
+}

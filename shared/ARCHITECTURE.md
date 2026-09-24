@@ -36,3 +36,12 @@ Go and Rust run behind verified TLS termination in the measured laboratory. Thei
 cores and durable provider ledger use separate PostgreSQL databases. Providers
 must supply their own authenticated MCP and handlers; this repository has no Woku
 server and does not grant access to Woku data.
+
+
+## V3 experimental workflow preparation
+
+See [ADR 0005](adr/0005-v3-workflow-preparation.md) for the explicitly authorized
+additive `/v1/workflows` API. It returns up to eight independent single-tool
+operations. The agent orders their execution; all existing per-operation identity,
+validation, decision, approval and durable dispatch rules still apply.
+Legacy single-tool preparation and historical experiments retain their semantics.

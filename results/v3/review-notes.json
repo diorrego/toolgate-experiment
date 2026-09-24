@@ -1,0 +1,1006 @@
+{
+  "version": 3,
+  "rawSha256": "31b1de3086abb996e6643fbdeb06aa76aa2d68f188f11fc337d20521d28e2a4d",
+  "status": "Secondary post-run analysis; not the frozen primary metric and not a blinded independent adjudication.",
+  "reviewer": "Codex, the experiment implementation assistant; source-backed checks are implemented in tools/v3/review.mjs.",
+  "readAnswerReview": "All 60 read answers were inspected against the fixture and native outputs. Two ID-only member answers omit names under a name-based reading of who. The other requested read facts were present. This is a limited authored dataset, not a general semantic grader.",
+  "notes": [
+    {
+      "caseId": "V3-13",
+      "issue": "The frozen oracle requires list_folders. Design 1 instead uses list_generated_reports -> get_folder -> get_folder_report. All three refer to the same discovered folder, and the final summary matches its saved report. Preserve the reference miss and record a valid alternative completion."
+    },
+    {
+      "caseId": "V3-08",
+      "issue": "The frozen reference requires group lookup/detail but not list_company_members. Design 1 and design 3 return the member ID and admin role, honestly stating the name is unavailable. Direct and design 2 resolve Synthetic Operator through the company directory. This secondary stricter name-completeness check exposes an omission that the primary reference metric misses."
+    }
+  ],
+  "fixtureLimitations": [
+    "The seeded data-flow run has recordsReviewed=12 but breakdown.recordsReviewed=0. All four agents report these saved values; this inconsistency was retained identically, not silently repaired after measurement.",
+    "Seeded AI report summaries have frequency=3 while native review counts are zero and sourceReviewCount is absent. They are saved synthetic report facts, not reports generated from a coherent feedback dataset.",
+    "The action-plan history is empty. Completion tests retrieval and truthful empty-result handling, not long-history synthesis."
+  ],
+  "byMode": {
+    "direct": {
+      "reviewedCompletion": 30,
+      "verifiedAlternatives": 0,
+      "namedMemberOmissions": 0
+    },
+    "design-1": {
+      "reviewedCompletion": 29,
+      "verifiedAlternatives": 1,
+      "namedMemberOmissions": 1
+    },
+    "design-2": {
+      "reviewedCompletion": 30,
+      "verifiedAlternatives": 0,
+      "namedMemberOmissions": 0
+    },
+    "design-3": {
+      "reviewedCompletion": 29,
+      "verifiedAlternatives": 0,
+      "namedMemberOmissions": 1
+    }
+  },
+  "records": [
+    {
+      "caseId": "V3-01",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-01",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-02",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-03",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-04",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-05",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-06",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-07",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-08",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": false,
+      "reviewedCompletion": false
+    },
+    {
+      "caseId": "V3-08",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": true,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-08",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": false,
+      "reviewedCompletion": false
+    },
+    {
+      "caseId": "V3-08",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": true,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-09",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-09",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-09",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-09",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-10",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-10",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-10",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-10",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-11",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-11",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-11",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-11",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-12",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-12",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-12",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-12",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-13",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-13",
+      "mode": "design-1",
+      "frozenReferenceSuccess": false,
+      "verifiedAlternativeCompletion": true,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-13",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-13",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-14",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-14",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-14",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-14",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-15",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-15",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-15",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-15",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-16",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-16",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-16",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-16",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-17",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-17",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-17",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-17",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-18",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-18",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-18",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-18",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-19",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-19",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-19",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-19",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-20",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-20",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-20",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-20",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-21",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-21",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-21",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-21",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-22",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-23",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-23",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-23",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-23",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-24",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-24",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-24",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-24",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-25",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-25",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-25",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-25",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-26",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-26",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-26",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-26",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-27",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-27",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-27",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-27",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-28",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-28",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-28",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-28",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-29",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-29",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-29",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-29",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-30",
+      "mode": "design-1",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-30",
+      "mode": "design-2",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-30",
+      "mode": "design-3",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    },
+    {
+      "caseId": "V3-30",
+      "mode": "direct",
+      "frozenReferenceSuccess": true,
+      "verifiedAlternativeCompletion": false,
+      "namedMemberComplete": null,
+      "reviewedCompletion": true
+    }
+  ]
+}

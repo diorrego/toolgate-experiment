@@ -16,6 +16,120 @@ tags:
 - name: catalog:write
 - name: health
 paths:
+  /v1/workflows:
+    post:
+      operationId: prepareWorkflow
+      summary: Select a bounded workflow tool set without executing handlers
+      tags:
+      - runtime
+      parameters:
+      - $ref: '#/components/parameters/ContractVersion'
+      - $ref: '#/components/parameters/Traceparent'
+      - $ref: '#/components/parameters/IdempotencyKey'
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowView'
+        '400':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '403':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '404':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '409':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '410':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '413':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '422':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '502':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '504':
+          description: See shared/CONTRACT.md error registry; not all errors apply to
+            every route.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Unexpected internal error; not automatically retryable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-required-key-scope: runtime
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowRequest'
   /health/live:
     get:
       operationId: getLiveness
@@ -1696,3 +1810,50 @@ components:
       - decision_ttl_seconds
       - mcp_execution_owner
       additionalProperties: false
+
+    WorkflowRequest:
+      type: object
+      properties:
+        catalog_id:
+          type: string
+          minLength: 1
+          maxLength: 128
+          pattern: ^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$
+        catalog_version:
+          type: string
+          pattern: ^[a-f0-9]{64}$
+        actor:
+          $ref: '#/components/schemas/Actor'
+        intent:
+          type: string
+          minLength: 1
+          maxLength: 8192
+      required:
+      - catalog_id
+      - catalog_version
+      - actor
+      - intent
+      additionalProperties: false
+    WorkflowView:
+      type: object
+      additionalProperties: false
+      required:
+      - status
+      - operations
+      - candidate_count
+      properties:
+        status:
+          type: string
+          enum:
+          - prepared
+          - no_match
+          - needs_refinement
+        candidate_count:
+          type: integer
+          minimum: 0
+          maximum: 64
+        operations:
+          type: array
+          maxItems: 8
+          items:
+            $ref: '#/components/schemas/OperationView'

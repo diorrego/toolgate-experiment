@@ -30,7 +30,9 @@ export type WireValue =
   | SelectedTool
   | ToolDescriptor
   | ToolEffect
-  | ValidationIssue;
+  | ValidationIssue
+  | WorkflowRequest
+  | WorkflowView;
 export type ToolEffect = "read" | "write" | "destructive" | "unknown";
 export type DecisionResponse = DecisionIssuedResponse | NeedsArgumentsOperation;
 export type OperationView =
@@ -340,6 +342,20 @@ export interface ResolveRequest {
   expected_revision: number;
   tool_choice: string;
 }
+export interface WorkflowRequest {
+  actor: Actor;
+  catalog_id: string;
+  catalog_version: string;
+  intent: string;
+}
+export interface WorkflowView {
+  candidate_count: number;
+  /**
+   * @maxItems 8
+   */
+  operations: OperationView[];
+  status: "prepared" | "no_match" | "needs_refinement";
+}
 
 export interface WireMap {
   Actor: Actor;
@@ -372,4 +388,6 @@ export interface WireMap {
   ToolDescriptor: ToolDescriptor;
   ToolEffect: ToolEffect;
   ValidationIssue: ValidationIssue;
+  WorkflowRequest: WorkflowRequest;
+  WorkflowView: WorkflowView;
 }

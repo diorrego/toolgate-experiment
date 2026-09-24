@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "mode": "direct",
+      "cells": 30,
+      "modelCalls": 139,
+      "jevCalls": 0,
+      "medianMs": 16318.204607499963,
+      "independentKnownDecimalUSD": "0.049038585",
+      "missingModelUsage": 0,
+      "incompleteJevHops": 0
+    },
+    {
+      "mode": "design-1",
+      "cells": 30,
+      "modelCalls": 156,
+      "jevCalls": 50,
+      "medianMs": 13959.29874899995,
+      "independentKnownDecimalUSD": "0.060035115",
+      "missingModelUsage": 0,
+      "incompleteJevHops": 0
+    },
+    {
+      "mode": "design-2",
+      "cells": 30,
+      "modelCalls": 126,
+      "jevCalls": 48,
+      "medianMs": 11878.350257000013,
+      "independentKnownDecimalUSD": "0.060106892",
+      "missingModelUsage": 0,
+      "incompleteJevHops": 0
+    },
+    {
+      "mode": "design-3",
+      "cells": 30,
+      "modelCalls": 128,
+      "jevCalls": 3200,
+      "medianMs": 11285.706208500022,
+      "independentKnownDecimalUSD": "0.101133482",
+      "missingModelUsage": 0,
+      "incompleteJevHops": 0
+    }
+  ],
+  "observationsSha256": "13f89e7bd9ca867f2005146d8acc85a0fcd822277a2823aca5bb62a7f46567e4"
+}

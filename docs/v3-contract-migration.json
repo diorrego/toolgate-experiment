@@ -1,0 +1,39 @@
+{
+  "new": {
+    "contract_version": "0.1.0",
+    "files": {
+      "shared/ARCHITECTURE.md": "ac06577b68b9549ea92c8a69019afbfedd1e6dd65dd30d9daf84e9a6f69c0184",
+      "shared/CONTRACT.md": "c4c53aaf2e09eff6a16458dce71bbd70fb7a31cc2da7a81275a188006e8f2e33",
+      "shared/DATABASE.md": "907d6f701af396eac4855e3bef9f79349ab1d3e1b20e09aad4e9fde1a33157c0",
+      "shared/JSON_SCHEMA_PROFILE.md": "04bfd28428dfc803ba266625a8758758dc75f712da138828399265bd7f12a57b",
+      "shared/PRODUCT.md": "15cd15436c60fa817404f4570aff59ef381f1b5aa4d7f08727ae36789a064e30",
+      "shared/SECURITY.md": "7c99481a578797113b3b19c214d56aadcda410027158c797a38a7ae97d999caa",
+      "shared/SELECTION.md": "754fc82e59aa3252fc4150b4521840bb3acf6c12cf75c5fe34f61982a8d5b06b",
+      "shared/STATE_MACHINE.md": "24cf590bbc7aed972d8527c30a70929e975d562c226cb2aa01cff5b46d1b0c07",
+      "shared/limits.yaml": "11636a343b95b1ed8b91c83245c100b26ce18ffd29b1741667f3a9887830f1e7",
+      "shared/mcp-tools.json": "67dc06e061cb5596274ba1e3059a182a7d526ffe50892e46c2a2bdeb7df3e920",
+      "shared/openapi.yaml": "b3153c237b3a28ac780e0c77e0603f2e9095d2f8726303454d3922021ee0f1d4"
+    },
+    "format": "toolgate-reconstructed-contract-lock-v1",
+    "sha256": "ecb438ea4b0f3ac8294be2187a90adb963fbd6e74828f7173c1f0e47e15cc8f2"
+  },
+  "old": {
+    "contract_version": "0.1.0",
+    "files": {
+      "shared/ARCHITECTURE.md": "af2b6021c5f77f0a19ba542c1583ba853deaada4ba792baa0f2d49a79a308541",
+      "shared/CONTRACT.md": "fa730152b349c6584fc5fcb30ff8e5d8a6855f8c7e0430e7a4b48a9b47cf121c",
+      "shared/DATABASE.md": "907d6f701af396eac4855e3bef9f79349ab1d3e1b20e09aad4e9fde1a33157c0",
+      "shared/JSON_SCHEMA_PROFILE.md": "04bfd28428dfc803ba266625a8758758dc75f712da138828399265bd7f12a57b",
+      "shared/PRODUCT.md": "a410477bd713ecc833d9b5cf2598d5102bbcc9af0913757cf84bca48c2810267",
+      "shared/SECURITY.md": "d2d8c6a7fc8d8e61bae0c498697f8d0699e49f3a31d1a364a64e1f26366dcafe",
+      "shared/SELECTION.md": "1fc4b58a8864cd446ac8da18a1a7f3965b800a30aa9f7a0bfacd201d3834471a",
+      "shared/STATE_MACHINE.md": "997fd6e88f6a8b2a5d72aed24cb4ccb6bd041c251e0bac616a00c920310e8f4d",
+      "shared/limits.yaml": "11636a343b95b1ed8b91c83245c100b26ce18ffd29b1741667f3a9887830f1e7",
+      "shared/mcp-tools.json": "741ce0335e4d2f7f88a9716f18e93c0fd85842164b18b94d724c4f812c011c77",
+      "shared/openapi.yaml": "a6d91561aebb1be1dc04cf24e77fe05b558d69c3c1feda00aafb0a5d1ddea560"
+    },
+    "format": "toolgate-reconstructed-contract-lock-v1",
+    "sha256": "431b6fc5be13e9b6bea0bebb17bf0d834312bf30862e52ca4b02f18434a48f96"
+  },
+  "reason": "ADR 0005 additive workflow selection, no SQL or legacy behavior changes"
+}

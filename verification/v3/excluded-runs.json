@@ -1,0 +1,35 @@
+[
+  {
+    "kind": "interrupted development matrix",
+    "fileName": "run-2026-09-24T18-33-25-722Z.json",
+    "sha256": "7ecfc93f1c3815781c2b0da0ad14d287baea25c71d86c37d71128327dfc3b002",
+    "cells": 31,
+    "modelCalls": 140,
+    "jevCalls": 921,
+    "usageComplete": false,
+    "knownReportedCostLowerBoundUSD": 0.068877515,
+    "totalEstimatedUSD": null
+  },
+  {
+    "kind": "smoke",
+    "fileName": "smoke-2026-09-24T18-30-52-051Z.json",
+    "sha256": "c3f699b0dd849ff2b5b702bfebb3e148d3fe63897ed951adba699f9b4d116401",
+    "cells": 8,
+    "modelCalls": 41,
+    "jevCalls": 198,
+    "usageComplete": true,
+    "knownReportedCostLowerBoundUSD": 0.021119448,
+    "totalEstimatedUSD": 0.021119448
+  },
+  {
+    "kind": "smoke",
+    "fileName": "smoke-2026-09-24T18-47-52-649Z.json",
+    "sha256": "a04eeda1e60ec838cecc7c905b5e9f0415d062acba11a4b7bc3a7971c82b08a4",
+    "cells": 8,
+    "modelCalls": 38,
+    "jevCalls": 199,
+    "usageComplete": true,
+    "knownReportedCostLowerBoundUSD": 0.017943068,
+    "totalEstimatedUSD": 0.017943068
+  }
+]

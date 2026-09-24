@@ -384,10 +384,15 @@ impl Core {
             tx.commit().await.map_err(internal)?;
             return Ok((200, result));
         }
-        if method != "POST" || segments.len() < 2 || segments[1] != "operations" {
+        if method != "POST"
+            || segments.len() < 2
+            || (segments[1] != "operations" && path != "/v1/workflows")
+        {
             return Err(bad(400, "INVALID_REQUEST"));
         }
-        let (action, id, schema) = if segments.len() == 2 {
+        let (action, id, schema) = if path == "/v1/workflows" {
+            ("workflow", "", "WorkflowRequest")
+        } else if segments.len() == 2 {
             ("prepare", "", "PrepareRequest")
         } else if segments.len() == 4 && Uuid::parse_str(segments[2]).is_ok() {
             let schema = match segments[3] {
@@ -404,7 +409,7 @@ impl Core {
         };
         self.check(schema, &value)?;
         let actor = &value["actor"];
-        if action != "prepare" {
+        if action != "prepare" && action != "workflow" {
             let mut c = self.store.connection().await?;
             let tx = c.transaction().await.map_err(internal)?;
             scope(&tx, &binding).await?;
@@ -450,7 +455,15 @@ impl Core {
             _ => return Err(internal("claim")),
         };
         let fence = text(&claim, "fence")?;
-        let result = if action == "prepare" {
+        let result = if action == "workflow" {
+            self.finish_workflow(
+                &binding,
+                &value,
+                store::Reservation { path, key, fence },
+                metrics,
+            )
+            .await
+        } else if action == "prepare" {
             self.finish_prepare(&binding, &value, path, key, fence, metrics)
                 .await
         } else {
@@ -468,6 +481,65 @@ impl Core {
             let _cleanup = self.store.release(&binding, actor, path, key, fence).await;
         }
         result
+    }
+    async fn finish_workflow(
+        &self,
+        b: &Binding,
+        r: &Value,
+        reservation: store::Reservation<'_>,
+        metrics: &selection::SelectionMetrics,
+    ) -> Result<(u16, Value), Failure> {
+        let cat = self
+            .store
+            .catalog(b, text(r, "catalog_id")?, text(r, "catalog_version")?)
+            .await?;
+        let tools = cat["tools"].as_array().ok_or(internal("catalog"))?;
+        let allowed = r["actor"]["allowed_tool_ids"]
+            .as_array()
+            .ok_or(bad(400, "INVALID_REQUEST"))?;
+        if allowed
+            .iter()
+            .any(|id| !tools.iter().any(|t| &t["tool_id"] == id))
+        {
+            return Err(bad(400, "INVALID_REQUEST"));
+        }
+        if !allowed.is_empty() && !b.external {
+            return Err(bad(503, "DATA_PROCESSING_NOT_CONFIGURED"));
+        }
+        let candidates = retrieve(tools, &r["actor"], text(r, "intent")?, "")?;
+        let mut selected = self
+            .selector
+            .workflow(&candidates, text(r, "intent")?, metrics)
+            .await?;
+        selected.sort_by(|a, b| a["tool_id"].as_str().cmp(&b["tool_id"].as_str()));
+        let status = if selected.is_empty() {
+            "no_match"
+        } else if selected.len() > 8 {
+            "needs_refinement"
+        } else {
+            "prepared"
+        };
+        let mut operations = Vec::new();
+        if status == "prepared" {
+            for tool in selected {
+                let view = json!({"operation_id":Uuid::new_v4().to_string(),"revision":1,"catalog_id":r["catalog_id"],"catalog_version":r["catalog_version"],"expires_at":stamp(Utc::now()+chrono::Duration::minutes(15))});
+                operations.push(self.ready(b, view, &tool, &json!({}))?);
+            }
+        }
+        let result =
+            json!({"status":status,"candidate_count":candidates.len(),"operations":operations});
+        if serde_json::to_vec(&result).map_err(internal)?.len() > 262144 {
+            return Err(bad(413, "PAYLOAD_TOO_LARGE"));
+        }
+        let mut c = self.store.connection().await?;
+        let tx = c.transaction().await.map_err(internal)?;
+        scope(&tx, b).await?;
+        for op in &operations {
+            persist(&tx, b, &r["actor"], op, true).await?;
+        }
+        finish(&tx, b, &r["actor"], reservation, 201, &result).await?;
+        tx.commit().await.map_err(internal)?;
+        Ok((201, result))
     }
     async fn finish_prepare(
         &self,

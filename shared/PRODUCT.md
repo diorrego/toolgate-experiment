@@ -27,3 +27,12 @@ Host-first preparation is a separate experimental orchestration: a host calls th
 same authenticated provider MCP before model inference, passes the operation as
 untrusted context, and lets the model supply arguments and request execution. It
 does not change the public tools or remove either SDK-to-core round trip.
+
+
+## V3 experimental workflow preparation
+
+See [ADR 0005](adr/0005-v3-workflow-preparation.md) for the explicitly authorized
+additive `/v1/workflows` API. It returns up to eight independent single-tool
+operations. The agent orders their execution; all existing per-operation identity,
+validation, decision, approval and durable dispatch rules still apply.
+Legacy single-tool preparation and historical experiments retain their semantics.

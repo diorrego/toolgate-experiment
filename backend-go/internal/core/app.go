@@ -267,12 +267,16 @@ func (a *App) process(w http.ResponseWriter, r *http.Request) (int, any, error) 
 			return 200, json.RawMessage(original), tx.Commit(ctx)
 		}
 	}
-	if r.Method != "POST" || len(parts) < 2 || parts[1] != "operations" {
+	if r.Method != "POST" || len(parts) < 2 || (parts[1] != "operations" && path != "/v1/workflows") {
 		return 0, nil, fail(400, "INVALID_REQUEST")
 	}
 	action := "prepare"
 	opID := ""
 	schemaName := "PrepareRequest"
+	if path == "/v1/workflows" {
+		action = "workflow"
+		schemaName = "WorkflowRequest"
+	}
 	if len(parts) == 4 {
 		opID = parts[2]
 		action = parts[3]
@@ -337,7 +341,7 @@ func (a *App) process(w http.ResponseWriter, r *http.Request) (int, any, error) 
 		return 0, nil, e
 	}
 	// Guard ownership and policy even when a cached idempotent response exists.
-	if action != "prepare" {
+	if action != "prepare" && action != "workflow" {
 		tx, e := a.store.begin(ctx, binding)
 		if e != nil {
 			return 0, nil, e
@@ -372,6 +376,28 @@ func (a *App) process(w http.ResponseWriter, r *http.Request) (int, any, error) 
 			a.store.release(binding, request.Actor, path, key, claim.Fence)
 		}
 	}()
+	if action == "workflow" {
+		view, e := a.prepareWorkflow(ctx, binding, request)
+		if e != nil {
+			return 0, nil, e
+		}
+		tx, e := a.store.begin(ctx, binding)
+		if e != nil {
+			return 0, nil, e
+		}
+		defer rollback(tx)
+		for _, child := range view.Operations {
+			if e = persistView(ctx, tx, binding, request.Actor, child, true); e != nil {
+				return 0, nil, e
+			}
+		}
+		if e = finish(ctx, tx, binding, request.Actor, path, key, claim.Fence, 201, view); e != nil {
+			return 0, nil, e
+		}
+		commitErr := tx.Commit(ctx)
+		completed = commitErr == nil
+		return 201, view, commitErr
+	}
 	if action == "prepare" {
 		view, e := a.prepare(ctx, binding, request)
 		if e != nil {

@@ -1,4 +1,4 @@
-# Toolgate: tool selection before model inference
+# Toolgate: selecting tools for agent workflows
 
 ![Status: experimental](docs/assets/status-experimental.svg)
 ![Cores: Go and Rust](docs/assets/cores-go-rust.svg)
@@ -7,13 +7,59 @@
 An experimental comparison of direct MCP and three Toolgate designs, with Go/Rust
 cores and one TypeScript SDK. V1 studies latency with 22 read-only tools and Codex;
 V2 studies selection accuracy with all 143 active Woku tools and GPT-6 Luna API calls.
+V3 extends the same four conditions to dependent multi-tool business workflows.
 
+[V3 workflows](#v3-dependent-multi-tool-workflows) ·
 [V2 accuracy results](#v2-selection-accuracy-with-the-complete-catalog) ·
 [Architecture](#research-question-and-architecture) ·
 [V1 single-Choice results](#experiment-1-single-choice-results) ·
 [V1 parallel binary results](#experiment-2-parallel-binary-suitability) ·
 [Reproduce the experiments](docs/REPRODUCTION.md) ·
 [Connect your MCP](docs/PROVIDER_INTEGRATION.md)
+
+## V3: dependent multi-tool workflows
+
+**143 tools, 30 English requests per condition, 120 evaluated cells.** The corpus
+has 15 read workflows and 15 mutation workflows, each needing two or more tool
+types. GPT-6 Luna discovers IDs, passes them between calls and produces the answer.
+Toolgate returns up to eight schemas as independently executable operations.
+
+| Condition | Initial complete reference coverage | Reference workflow completed | Median task time | Estimated USD per 30 |
+|---|---:|---:|---:|---:|
+| Direct MCP | n/a | 30/30 | 16.32 s | $0.049039 |
+| Design 1: agent first | 21/30 | 29/30 | 13.96 s | $0.060035 |
+| Design 2: host first, joint | 17/30 | 30/30 | 11.88 s | $0.060107 |
+| Design 3: host first, parallel | 17/30 | 30/30 | 11.29 s | $0.101133 |
+
+All **120 cases produced final answers** and all **60 mutation cases matched the
+expected persisted state**, with no non-reference mutation invocations. Agent-first
+preparation covered more reference steps initially; further preparation was needed
+in 12/30, 14/30 and 14/30 gated cases. Initial coverage is not end-to-end correctness.
+
+The frozen reference metric has two limits visible in this run. Design 1 completed
+one folder-report request through a valid alternative path that the reference did
+not accept. Separately, designs 1 and 3 answered the team-members question with IDs
+and roles but could not resolve names. Direct MCP and design 2 did resolve them.
+A **secondary post-run completeness review**, accepting that alternative path and
+requiring member names, gives **30/30, 29/30, 30/30 and 29/30** respectively. This is
+reported separately; original grades and failed attempts remain unchanged.
+
+Parallel selection had the lowest aggregate median in this run, while joint
+host-first selection had the larger median paired improvement over direct MCP
+(-4.39 s versus -4.18 s). Neither establishes a general winner. Direct MCP had the
+lowest estimated API cost. There were **549 OpenAI calls and 3,298 Jev calls**;
+3,200 of the Jev calls came from the parallel condition.
+
+V3 batches one inclusion question per candidate in joint mode and sends those
+questions separately in parallel mode. It retrieves at most 64 candidates and
+returns at most eight tools. This changes the selection algorithm and agent budget
+from V2, so cross-version latency differences are not a controlled causal result.
+The authored corpus covers 39 reference tools; it is not a positive test of all 143.
+
+[Full results](results/v3/report.md) · [Protocol](docs/V3-WORKFLOWS.md) ·
+[30 workflow requirements](data/v3/corpus.en.json) · [Synthetic fixture](data/v3/fixture.json) ·
+[Observations](results/v3/observations.json) · [Interpretation audit](results/v3/review-notes.json) ·
+[Verification](verification/v3/VERIFICATION.md)
 
 ## V2: selection accuracy with the complete catalog
 
@@ -78,154 +124,153 @@ Choice requests, using fresh single-Choice controls with host-first preparation.
 
 ## Research question and architecture
 
-Can moving preparation before the first model turn remove the agent-loop overhead
-without removing authorization, remote validation or durable execution controls?
-Does replacing one multi-option Choice with parallel binary suitability checks
-improve that workflow?
+Can a small remotely selected tool set support complete workflows as accurately
+as exposing the entire MCP catalog? How do agent-first preparation, host-first
+preparation and per-candidate parallel selection affect recovery, time and cost?
 
-The four diagrams below show V2: one API agent backed by GPT-6 Luna, 143 active
-Woku tools, and a Go core. V1 used Codex, 22 read-only tools and both alternative
-cores; its measurements below retain their original methods and source hashes.
-MCP discovery happens before the measured question submission. Toolgate execution
-arrows show an accepted selection: `needs_choice` adds explicit resolution without
-another Jev call, while `no_match` stops before business execution.
+The four diagrams show V3. V1 and V2 keep their original methods, source hashes
+and observations below. In V3 the agent controls ordering and passes IDs from prior
+business results. Toolgate does not execute a workflow. Each operation selects
+one tool, and each invocation keeps its remote decision and local durable ledger.
 
 ### Control: direct MCP
 
-The API agent sees all 143 authorized business tools, selects one, supplies its arguments,
-and calls the existing provider MCP. There is no Toolgate or Jev request.
+The API agent receives all 143 schemas and can invoke multiple business tools.
+Independent reads can overlap; dependent calls wait for the required results.
 
 ```mermaid
 sequenceDiagram
     actor U as User
-    participant A as API agent - GPT-6 Luna
-    participant P as Provider MCP
-    Note over A,P: Discovery exposes all 143 authorized business tools
-    U->>A: Question - start timer
-    A->>A: Select tool and construct arguments
-    A->>P: Call business tool through authenticated MCP
-    P->>P: Validate arguments and current authorization
-    P->>P: Execute existing local handler
-    P-->>A: Business result
-    A-->>U: Complete final answer - stop timer
-```
-
-### Design 1: agent-initiated Toolgate preparation
-
-The API agent initiates preparation, receives the selected schema, then makes another MCP
-call to execute. Lexical retrieval retains up to 64 authorized candidates. Choice starts with up to
-32 and can expand once to 64 within the same deadline.
-
-```mermaid
-sequenceDiagram
-    actor U as User
-    participant A as API agent - GPT-6 Luna
-    participant P as Provider MCP + TypeScript SDK
-    participant C as Independent Go core
-    participant J as Jev API
-    Note over A,P: Discovery exposes three Toolgate entry points
-    U->>A: Question - start timer
-    A->>P: prepare_action with intent and known arguments
-    P->>C: Prepare with trusted actor, allowlist and catalog reference
-    C->>C: Filter authorization and retrieve up to 64 candidates
-    C->>J: Choice - up to 32 candidates plus none
-    J-->>C: Candidate probabilities or abstention
-    Note over C,J: Choice may expand once to at most 64 candidates
-    C->>C: Validate and persist operation
-    C-->>P: Operation, selected schema and missing fields
-    P-->>A: Preparation result
-    A->>P: execute_read_action or execute_write_action with complete arguments
-    P->>C: Request remote execution decision
-    C-->>P: Bound decision after validation
-    P->>P: Verify decision, authorization, approval and durable ledger
-    P->>P: Execute local handler and persist result
-    P-->>A: Business result
-    A-->>U: Complete final answer - stop timer
-```
-
-### Design 2: host-first Toolgate preparation
-
-The host sends the literal question to Toolgate before model inference. The API agent
-receives the selected schema as untrusted context and constructs the arguments.
-The remote decision and local execution controls remain in place.
-
-```mermaid
-sequenceDiagram
-    actor U as User
-    participant H as Experiment host
-    participant A as API agent - GPT-6 Luna
-    participant P as Provider MCP + TypeScript SDK
-    participant C as Independent Go core
-    participant J as Jev API
-    U->>H: Question - start timer
-    H->>P: prepare_action with literal question and empty arguments
-    P->>C: Prepare with trusted actor, allowlist and catalog reference
-    C->>C: Filter authorization and retrieve up to 64 candidates
-    C->>J: Choice - up to 32 candidates plus none
-    J-->>C: Candidate probabilities or abstention
-    Note over C,J: Choice may expand once to at most 64 candidates
-    C->>C: Validate and persist operation
-    C-->>P: Operation and selected schema
-    P-->>H: Preparation result
-    H->>A: Question plus preparation as untrusted context
-    A->>P: execute_read_action or execute_write_action with complete arguments
-    P->>C: Request remote execution decision
-    C-->>P: Bound decision after validation
-    P->>P: Verify decision, authorization, approval and durable ledger
-    P->>P: Execute local handler and persist result
-    P-->>A: Business result
-    A-->>U: Complete final answer - stop timer
-```
-
-### Design 3: host-first parallel binary suitability
-
-Each independent request asks whether one retrieved authorized tool serves the
-question, using a two-option Choice: that tool or `none`. The core waits for the
-whole batch and applies the acceptance and ambiguity rules. These are separate
-HTTP requests. At most 64 tools are evaluated, with at most 22 requests in flight.
-
-```mermaid
-sequenceDiagram
-    actor U as User
-    participant H as Experiment host
-    participant A as API agent - GPT-6 Luna
-    participant P as Provider MCP + TypeScript SDK
-    participant C as Independent Go core
-    participant J as Jev API
-    U->>H: Question - start timer
-    H->>P: prepare_action with literal question and empty arguments
-    P->>C: Prepare with trusted actor, allowlist and catalog reference
-    C->>C: Filter authorization and retrieve up to 64 candidates
-    Note over C,J: One request per retrieved tool, at most 22 in flight
-    par Tool 1
-        C->>J: Question + tool 1 versus none
-        J-->>C: Verdict and probabilities for tool 1
-    and Other retrieved tools
-        C->>J: Separate one-tool requests with bounded concurrency
-        J-->>C: Independent verdicts and probabilities
+    participant A as GPT-6 Luna API agent
+    participant P as Authenticated provider MCP
+    Note over A,P: Discovery exposes all 143 business tools
+    U->>A: Workflow request - start timer
+    loop Agent-managed discovery and execution
+        A->>P: Business tool with grounded arguments
+        P->>P: Validate and authorize
+        P->>P: Execute native handler
+        P-->>A: Business result and discovered IDs
     end
-    C->>C: Wait for all results, validate, apply threshold and margin
-    Note over C: Reject incomplete batches, preserve ambiguity or abstention
-    C->>C: Persist operation
-    C-->>P: Operation and selected schema for an accepted choice
-    P-->>H: Preparation result
-    H->>A: Question plus preparation as untrusted context
-    A->>P: execute_read_action or execute_write_action with complete arguments
-    P->>C: Request remote execution decision - no new Jev calls
-    C-->>P: Bound decision after validation
-    P->>P: Verify decision, authorization, approval and durable ledger
-    P->>P: Execute local handler and persist result
-    P-->>A: Business result
-    A-->>U: Complete final answer - stop timer
+    A-->>U: Final answer - stop timer
 ```
 
-Go and Rust are alternative implementations, never consecutive services. The core
-never executes provider handlers. Host-first preparation calls the same provider
-MCP with the literal question and empty known arguments, then gives the API agent the
-validated operation as untrusted context. The agent supplies complete arguments and
-requests execution. All SDK conditions retain two remote-core phases and the
-provider's authorization and durable ledger. No local selector or permission
-fallback is added to the SDK.
+### Design 1: agent-first workflow preparation
+
+The agent describes the complete workflow to Toolgate. Jev evaluates one inclusion
+question per candidate, batched in one request. The response can contain several
+schemas, including prerequisite discovery tools.
+
+```mermaid
+sequenceDiagram
+    actor U as User
+    participant A as GPT-6 Luna API agent
+    participant P as Provider MCP + TypeScript SDK
+    participant C as Independent Go core
+    participant J as Jev API
+    U->>A: Workflow request - start timer
+    A->>P: prepare_workflow with agent-written intent
+    P->>C: Workflow preparation with trusted actor and catalog
+    C->>C: Filter authorization and retrieve up to 64 candidates
+    C->>J: One request containing candidate inclusion questions
+    J-->>C: One yes/no distribution per candidate
+    C->>C: Validate complete batch and apply inclusion thresholds
+    C->>C: Atomically persist up to eight child operations
+    C-->>P: Selected schemas and independent operation IDs
+    P-->>A: Workflow preparation
+    loop Agent-managed discovery and execution
+        A->>P: Execute one operation with grounded arguments
+        P->>C: Remote execution decision for this invocation
+        C-->>P: Bound decision after validation
+        P->>P: Authorize, approve and claim durable ledger
+        P->>P: Execute native handler and persist result
+        P-->>A: Business result and discovered IDs
+    end
+    Note over A,J: Missing tools or fresh invocations require another counted preparation
+    A-->>U: Final answer - stop timer
+```
+
+### Design 2: host-first joint workflow preparation
+
+The trusted host sends the verbatim user request before Luna begins inference.
+The same joint question batch selects a tool set; Luna then controls execution.
+
+```mermaid
+sequenceDiagram
+    actor U as User
+    participant H as Trusted host
+    participant A as GPT-6 Luna API agent
+    participant P as Provider MCP + TypeScript SDK
+    participant C as Independent Go core
+    participant J as Jev API
+    U->>H: Workflow request - start timer
+    H->>P: prepare_workflow with verbatim user request
+    P->>C: Workflow preparation with trusted actor and catalog
+    C->>C: Filter authorization and retrieve up to 64 candidates
+    C->>J: One request containing candidate inclusion questions
+    J-->>C: One yes/no distribution per candidate
+    C->>C: Validate complete batch and apply inclusion thresholds
+    C->>C: Atomically persist up to eight child operations
+    C-->>P: Selected schemas and independent operation IDs
+    P-->>H: Workflow preparation
+    H->>A: User request plus untrusted preparation data
+    loop Agent-managed discovery and execution
+        A->>P: Execute one operation with grounded arguments
+        P->>C: Remote execution decision for this invocation
+        C-->>P: Bound decision after validation
+        P->>P: Authorize, approve and claim durable ledger
+        P->>P: Execute native handler and persist result
+        P-->>A: Business result and discovered IDs
+    end
+    Note over A,J: Missing tools or fresh invocations require another counted preparation
+    A-->>U: Final answer - stop timer
+```
+
+### Design 3: host-first parallel workflow preparation
+
+The host prepares before Luna, but each retrieved candidate gets a separate
+yes/no Choice request. At most 64 candidates are evaluated with 22 requests in
+flight. The core validates every answer before returning any operations.
+
+```mermaid
+sequenceDiagram
+    actor U as User
+    participant H as Trusted host
+    participant A as GPT-6 Luna API agent
+    participant P as Provider MCP + TypeScript SDK
+    participant C as Independent Go core
+    participant J as Jev API
+    U->>H: Workflow request - start timer
+    H->>P: prepare_workflow with verbatim user request
+    P->>C: Workflow preparation with trusted actor and catalog
+    C->>C: Filter authorization and retrieve up to 64 candidates
+    par Candidate 1
+        C->>J: Separate inclusion question for candidate 1
+        J-->>C: Yes/no distribution
+    and Other candidates
+        C->>J: Separate requests - at most 22 in flight
+        J-->>C: Independent yes/no distributions
+    end
+    C->>C: Validate complete batch and apply inclusion thresholds
+    C->>C: Atomically persist up to eight child operations
+    C-->>P: Selected schemas and independent operation IDs
+    P-->>H: Workflow preparation
+    H->>A: User request plus untrusted preparation data
+    loop Agent-managed discovery and execution
+        A->>P: Execute one operation with grounded arguments
+        P->>C: Remote execution decision for this invocation
+        C-->>P: Bound decision after validation
+        P->>P: Authorize, approve and claim durable ledger
+        P->>P: Execute native handler and persist result
+        P-->>A: Business result and discovered IDs
+    end
+    Note over A,J: Missing tools or fresh invocations require another counted preparation
+    A-->>U: Final answer - stop timer
+```
+
+An empty set abstains. More than eight positives requests refinement; invalid or
+incomplete Jev output rejects the entire preparation. No failed or partial bundle
+executes a handler. Go and Rust implement this shared contract as alternatives;
+only Go is measured in V2 and V3. The single SDK contains no local selector.
 
 ## V1 methods
 

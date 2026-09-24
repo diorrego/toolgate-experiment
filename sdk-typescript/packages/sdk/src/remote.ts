@@ -7,6 +7,7 @@ import type {
   WireMap,
   CatalogUpload,
   PrepareRequest,
+  WorkflowRequest,
   ResolveRequest,
   DecisionRequest,
   InspectRequest,
@@ -80,6 +81,16 @@ export class RemoteClient {
   }
   close(): void {
     this.lifecycle.abort();
+  }
+  prepareWorkflow(body: WorkflowRequest, options: CallOptions = {}) {
+    return this.call(
+      "POST",
+      "/v1/workflows",
+      "WorkflowRequest",
+      body,
+      "WorkflowView",
+      options,
+    );
   }
   getCapabilities(options: CallOptions = {}) {
     return this.call(
@@ -337,7 +348,10 @@ export class RemoteClient {
           throw new RemoteError("INVALID_RESPONSE");
         }
         if (response.ok) {
-          if (response.status !== (path === "/v1/operations" ? 201 : 200))
+          if (
+            response.status !==
+            (["/v1/operations", "/v1/workflows"].includes(path) ? 201 : 200)
+          )
             throw new RemoteError("INVALID_RESPONSE");
           try {
             return decodeWire(output, value);
