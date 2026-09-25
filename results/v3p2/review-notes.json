@@ -1,0 +1,249 @@
+{
+  "executions": 750,
+  "onlineSuccesses": 725,
+  "correctedRequirementSuccesses": 742,
+  "changedVerdicts": [
+    {
+      "caseId": "V3-15",
+      "repeat": 1,
+      "mode": "joint-8",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 1,
+      "mode": "direct",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 2,
+      "mode": "direct",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 2,
+      "mode": "joint-1",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 2,
+      "mode": "joint-3",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 2,
+      "mode": "joint-8",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-21",
+      "repeat": 2,
+      "mode": "joint-8",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 3,
+      "mode": "joint-3",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 3,
+      "mode": "joint-5",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 3,
+      "mode": "direct",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 4,
+      "mode": "joint-3",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 4,
+      "mode": "joint-5",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 4,
+      "mode": "direct",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-21",
+      "repeat": 4,
+      "mode": "joint-5",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-08",
+      "repeat": 5,
+      "mode": "joint-5",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-15",
+      "repeat": 5,
+      "mode": "joint-5",
+      "online": false,
+      "final": true
+    },
+    {
+      "caseId": "V3-20",
+      "repeat": 5,
+      "mode": "direct",
+      "online": false,
+      "final": true
+    }
+  ],
+  "retention": "Both verdicts and raw cell hashes are retained. No model execution was replaced or re-timed. Recognition corrections apply to all conditions and repetitions.",
+  "clarifications": "../../verification/v3p2/evaluator-clarification.json",
+  "remainingFailures": [
+    {
+      "caseId": "V3-08",
+      "repeat": 1,
+      "mode": "joint-5",
+      "status": "completed",
+      "missingEntities": [
+        "user"
+      ],
+      "unmetAnswerChecks": [
+        "Synthetic Operator"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    },
+    {
+      "caseId": "V3-11",
+      "repeat": 1,
+      "mode": "joint-3",
+      "status": "completed",
+      "missingEntities": [],
+      "unmetAnswerChecks": [
+        "Support Region"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    },
+    {
+      "caseId": "V3-12",
+      "repeat": 1,
+      "mode": "joint-5",
+      "status": "completed",
+      "missingEntities": [],
+      "unmetAnswerChecks": [
+        "Support Region"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    },
+    {
+      "caseId": "V3-08",
+      "repeat": 2,
+      "mode": "joint-3",
+      "status": "completed",
+      "missingEntities": [
+        "user"
+      ],
+      "unmetAnswerChecks": [
+        "Synthetic Operator"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    },
+    {
+      "caseId": "V3-14",
+      "repeat": 3,
+      "mode": "joint-3",
+      "status": "completed",
+      "missingEntities": [],
+      "unmetAnswerChecks": [
+        "waiting times"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    },
+    {
+      "caseId": "V3-06",
+      "repeat": 4,
+      "mode": "joint-1",
+      "status": "turn_limit",
+      "missingEntities": [],
+      "unmetAnswerChecks": [
+        "Corner damage",
+        "Inspect the packaging"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    },
+    {
+      "caseId": "V3-08",
+      "repeat": 4,
+      "mode": "joint-8",
+      "status": "completed",
+      "missingEntities": [
+        "user"
+      ],
+      "unmetAnswerChecks": [
+        "Synthetic Operator"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    },
+    {
+      "caseId": "V3-14",
+      "repeat": 5,
+      "mode": "joint-1",
+      "status": "completed",
+      "missingEntities": [],
+      "unmetAnswerChecks": [
+        "waiting times"
+      ],
+      "stateCorrect": true,
+      "relations": true
+    }
+  ],
+  "missingJevUsage": [
+    {
+      "caseId": "V3-04",
+      "repeat": 2,
+      "mode": "joint-8",
+      "status": 504,
+      "attemptsWithoutUsage": 1
+    },
+    {
+      "caseId": "V3-27",
+      "repeat": 5,
+      "mode": "joint-5",
+      "status": 503,
+      "attemptsWithoutUsage": 1
+    }
+  ]
+}

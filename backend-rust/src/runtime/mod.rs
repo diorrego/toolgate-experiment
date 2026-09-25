@@ -507,11 +507,26 @@ impl Core {
             return Err(bad(503, "DATA_PROCESSING_NOT_CONFIGURED"));
         }
         let candidates = retrieve(tools, &r["actor"], text(r, "intent")?, "")?;
+        let limit = r["exposure_limit"].as_u64().map(|n| n as usize);
+        let indices = |subset: &[Value]| {
+            subset
+                .iter()
+                .filter_map(|t| tools.iter().position(|c| c["tool_id"] == t["tool_id"]))
+                .collect::<Vec<_>>()
+        };
+        if limit.is_some() {
+            metrics.set_workflow_trace(json!({"catalog_version":r["catalog_version"],"retrieved":indices(&candidates),"included":null,"exposed":null}));
+        }
         let mut selected = self
             .selector
             .workflow(&candidates, text(r, "intent")?, metrics)
             .await?;
         selected.sort_by(|a, b| a["tool_id"].as_str().cmp(&b["tool_id"].as_str()));
+        if let Some(limit) = limit {
+            let included = indices(&selected);
+            selected.truncate(limit);
+            metrics.set_workflow_trace(json!({"catalog_version":r["catalog_version"],"retrieved":indices(&candidates),"included":included,"exposed":indices(&selected)}));
+        }
         let status = if selected.is_empty() {
             "no_match"
         } else if selected.len() > 8 {
@@ -739,6 +754,11 @@ async fn handle(State(core): State<Arc<Core>>, request: Request) -> Response {
         .into_response();
     let metrics = metrics.snapshot();
     let headers = response.headers_mut();
+    if let Some(trace) = metrics.workflow_trace.as_ref()
+        && let Ok(value) = trace.to_string().parse()
+    {
+        headers.insert("x-toolgate-workflow-trace", value);
+    }
     headers.insert(
         "x-toolgate-selector-profile",
         axum::http::HeaderValue::from_static(core.selector.profile()),

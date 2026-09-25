@@ -1,0 +1,30 @@
+{
+  "kind": "implementation bug in a phrase recognizer, not a changed outcome requirement",
+  "criterion": "The requested complete recorded history is empty and the answer says so, backed by native retrieval.",
+  "originalProblem": "The online regex accepted either recorded or history as one optional modifier, but not both in no recorded history events.",
+  "clarification": "Accept zero/no/0 events or entries with any combination of recorded/history/timeline/total modifiers. Keep all native evidence, identity, state and improper-mutation checks unchanged.",
+  "scope": "All applicable scenarios, conditions and repetitions; never condition-specific. Raw online grades, outputs, timing and cost are preserved.",
+  "retention": "Private cell hashes, original online verdicts and original runtime/evaluator fingerprints are unchanged. Final export retains onlineGrade alongside the clarified grade.",
+  "executionUnaffected": true,
+  "rerunOrReplacement": false,
+  "additionalRecognition": {
+    "criterion": "The requested mutation is confirmed affirmatively and has the exact expected persisted state.",
+    "originalProblem": "The finite confirmation-verb list omitted raised, which is the verb in the severity request itself. A response saying Raised the severity ... to high was rejected despite all factual and state checks passing.",
+    "clarification": "Recognize affirmative raised clauses; reject negated clauses. Apply to all conditions and repetitions. No factual, identity, state, timing or cost check is relaxed."
+  },
+  "finalAuditClarifications": [
+    {
+      "criterion": "Report the same requested phone number, allowing presentation formatting.",
+      "implementationCorrection": "Recognize +1 555-010-3030 as 15550103030. Persisted digits-only storage, entity and mutation checks remain exact."
+    },
+    {
+      "criterion": "Name group members, their roles and the total number of generated plans.",
+      "implementationCorrection": "Remove the extra draft-word requirement, because the user did not ask for the plan-status breakdown. Name, role and total-count checks remain."
+    },
+    {
+      "criterion": "Accept valid alternative routes that establish the complete recorded history.",
+      "implementationCorrection": "A successful get_action_plan for the correct ID explicitly returning events=[] and totalEvents=0 proves the full history is empty. It need not be followed by another endpoint returning the same zero total."
+    }
+  ],
+  "protocolDeviation": "The operational recognizer was not fully frozen: implementation corrections were made during/after inspection of measured outputs. The intended user-goal requirements were retained. Treat the final success counts as audited outcomes, not wholly preregistered automatic scores. Both scores are preserved; agent behavior, timing and cost were unaffected."
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "kind": "smoke",
+    "cells": 15,
+    "goalSuccesses": 13,
+    "manifestSha256": "bb2e110548ed23f3ebe9e18bb960bb474c28b3ab97975a65eb21eacbfd8775ad",
+    "agentCalls": 81,
+    "jevCalls": 30,
+    "usageComplete": true,
+    "knownCostUSD": 0.039698698000000004,
+    "totalEstimatedUSD": 0.039698698000000004
+  }
+]

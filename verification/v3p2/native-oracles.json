@@ -1,0 +1,10 @@
+{
+  "cases": 30,
+  "nativeCalls": 76,
+  "allGoalChecksPassed": true,
+  "historicalV3CorrectedEvaluation": {
+    "accepted": 118,
+    "idOnlyMemberAnswersRejected": 2,
+    "validReportFirstPathAccepted": true
+  }
+}

@@ -18,6 +18,7 @@ import (
 )
 
 type selectionMetrics struct {
+	WorkflowTrace    *WorkflowTrace
 	Calls            int
 	Duration         time.Duration
 	UsageCalls       int

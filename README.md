@@ -9,6 +9,7 @@ cores and one TypeScript SDK. V1 studies latency with 22 read-only tools and Cod
 V2 studies selection accuracy with all 143 active Woku tools and GPT-6 Luna API calls.
 V3 extends the same four conditions to dependent multi-tool business workflows.
 
+[V3 part 2: exposure caps](#v3-part-2-exposure-caps-and-successive-discovery) ·
 [V3 workflows](#v3-dependent-multi-tool-workflows) ·
 [V2 accuracy results](#v2-selection-accuracy-with-the-complete-catalog) ·
 [Architecture](#research-question-and-architecture) ·
@@ -16,6 +17,55 @@ V3 extends the same four conditions to dependent multi-tool business workflows.
 [V1 parallel binary results](#experiment-2-parallel-binary-suitability) ·
 [Reproduce the experiments](docs/REPRODUCTION.md) ·
 [Connect your MCP](docs/PROVIDER_INTEGRATION.md)
+
+## V3 part 2: exposure caps and successive discovery
+
+**750 fresh executions: 30 V3 scenarios x five repetitions x five conditions.**
+Only the final exposure cap changes among the host-first joint Toolgate arms.
+Preselection (up to 64), Jev questions/thresholds, alphabetical order, Luna prompt,
+20-turn/240-second case budget and V3 operation reuse remain fixed. No set is
+padded and no follow-up query is forced. Direct and Joint-8 are fresh controls.
+
+| Condition | Complete executions | Scenarios correct 5/5 | Median | p95 | Additional preparations | Estimated API USD |
+|---|---:|---:|---:|---:|---:|---:|
+| Direct MCP | 150/150 | 30/30 | 13.66 s | 21.64 s | 0 | $0.236797 |
+| Joint-1 | 148/150 | 28/30 | 20.62 s | 38.06 s | 568 | $0.594404 |
+| Joint-3 | 147/150 | 27/30 | 12.30 s | 23.94 s | 166 | $0.336748 |
+| Joint-5 | 148/150 | 28/30 | 9.88 s | 24.35 s | 103 | unknown; known >= $0.300462 |
+| Joint-8 | 149/150 | 29/30 | 9.78 s | 21.82 s | 96 | unknown; known >= $0.306325 |
+
+**All 375 mutation cases matched persisted-state expectations, with no improper
+mutation invocations.** There were 749 final answers; one Joint-1 case exhausted
+its turn budget. The eight incomplete tasks include missing names, missing tracker
+labels, wrong saved-report lookup and that turn-limit termination.
+
+In this workload, exposing only one tool increased successive-query overhead:
+568 additional preparations, compared with 96 for Joint-8. Joint-5 and Joint-8
+had close medians (9.88 versus 9.78 seconds); that 0.10-second difference does not
+establish a general winner. Direct MCP completed every scenario in all five
+repetitions and had the lowest recorded cost, while taking longer at the median.
+
+Joint-5 and Joint-8 each have one failed Jev attempt without reported token usage.
+Their total costs are unknown; the numbers above are known lower bounds. All
+attempts and recoveries remain included. Estimates use the fixed price snapshot,
+including cache partitions; they are not invoices.
+
+The user-goal criteria were fixed before measurement. The online recognizer had
+implementation false negatives: empty-history wording, an affirmative "raised"
+confirmation, phone formatting, an unrequested draft-status word, and an explicit
+zero-event total supplied through an alternative endpoint. The audit applies the
+same semantic requirements uniformly, retains both verdicts, and changes no call,
+response, time or cost. Online success was 725/750; audited success is 742/750.
+The recognizer corrections are a disclosed deviation from the initial operational
+freeze. Final success counts are audited outcomes, not wholly preregistered
+automatic scores or blinded human review.
+
+[Comparative report](results/v3p2/report.md) · [Protocol](docs/V3-PART2.md) ·
+[Per-scenario paired differences](results/v3p2/summary.json) ·
+[Observed exposure and stage losses](results/v3p2/observations.json) ·
+[Audit details](results/v3p2/review-notes.json)
+
+This version is committed **locally only**, without a push.
 
 ## V3: dependent multi-tool workflows
 

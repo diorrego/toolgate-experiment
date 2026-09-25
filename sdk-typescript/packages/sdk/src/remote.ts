@@ -16,6 +16,68 @@ import type {
 } from "./wire.generated.ts";
 import type { HttpTransport } from "./client.ts";
 
+export interface WorkflowTrace {
+  catalog_version: string;
+  retrieved: number[];
+  included: number[] | null;
+  exposed: number[] | null;
+}
+/** Diagnostics are observational; malformed/missing telemetry stays unknown. */
+export function decodeWorkflowTrace(raw: string | null): WorkflowTrace | null {
+  if (raw === null || raw.length > 4096) return null;
+  try {
+    const value: unknown = JSON.parse(raw);
+    if (typeof value !== "object" || value === null || Array.isArray(value))
+      return null;
+    const v = value as Record<string, unknown>;
+    const indices = (a: unknown): a is number[] =>
+      Array.isArray(a) &&
+      a.length <= 64 &&
+      a.every((n) => Number.isInteger(n) && n >= 0 && n < 10000) &&
+      new Set(a).size === a.length;
+    if (
+      Object.keys(v).sort().join() !==
+        "catalog_version,exposed,included,retrieved" ||
+      typeof v["catalog_version"] !== "string" ||
+      !/^[a-f0-9]{64}$/.test(v["catalog_version"]) ||
+      !indices(v["retrieved"])
+    )
+      return null;
+    const included = v["included"],
+      exposed = v["exposed"],
+      retrieved = v["retrieved"];
+    if (included === null) {
+      if (exposed !== null) return null;
+      return {
+        catalog_version: v["catalog_version"],
+        retrieved: v["retrieved"],
+        included: null,
+        exposed: null,
+      };
+    }
+    if (
+      !indices(included) ||
+      !indices(exposed) ||
+      exposed.length > 8 ||
+      !included.every((i) => retrieved.includes(i)) ||
+      !exposed.every((i) => included.includes(i))
+    )
+      return null;
+    return {
+      catalog_version: v["catalog_version"],
+      retrieved: v["retrieved"],
+      included,
+      exposed,
+    };
+  } catch {
+    return null;
+  }
+}
+export interface WorkflowOptions extends CallOptions {
+  /** Trusted provider limit. Never populated from model arguments. */
+  exposureLimit?: 1 | 3 | 5 | 8;
+}
+
 /** Only sanitized metadata; never arguments, service keys or business results. */
 export interface RemoteMetric {
   path: string;
@@ -36,6 +98,7 @@ export interface RemoteMetric {
     jevUsageCalls: number | null;
     jevInputTokens: number | null;
     jevOutputTokens: number | null;
+    workflowTrace?: WorkflowTrace | null;
   }[];
 }
 export interface CallOptions {
@@ -285,6 +348,13 @@ export class RemoteClient {
           requestId,
           status: response.status,
           coreTiming: response.headers.get("server-timing"),
+          ...(path === "/v1/workflows"
+            ? {
+                workflowTrace: decodeWorkflowTrace(
+                  response.headers.get("x-toolgate-workflow-trace"),
+                ),
+              }
+            : {}),
           jevCalls: metricNumber("x-toolgate-jev-calls"),
           jevMs: metricNumber("x-toolgate-jev-ms"),
           selectorMs: metricNumber("x-toolgate-selector-ms"),

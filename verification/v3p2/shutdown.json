@@ -1,0 +1,15 @@
+{
+  "ownedServicesStopped": true,
+  "portsFree": {
+    "8182": true,
+    "6390": true,
+    "19091": true,
+    "19093": true,
+    "19441": true,
+    "19443": true,
+    "55459": true,
+    "27029": true
+  },
+  "dataAndCapturesRetained": true,
+  "unrelatedServicesTouched": false
+}

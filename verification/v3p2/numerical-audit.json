@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "mode": "direct",
+      "executions": 150,
+      "scenariosAllFive": 30,
+      "agentCalls": 672,
+      "jevCalls": 0,
+      "unreportedJevUsageAttempts": 0,
+      "knownDecimalUSD": "0.236796925"
+    },
+    {
+      "mode": "joint-1",
+      "executions": 150,
+      "scenariosAllFive": 28,
+      "agentCalls": 1174,
+      "jevCalls": 718,
+      "unreportedJevUsageAttempts": 0,
+      "knownDecimalUSD": "0.594404355"
+    },
+    {
+      "mode": "joint-3",
+      "executions": 150,
+      "scenariosAllFive": 27,
+      "agentCalls": 713,
+      "jevCalls": 316,
+      "unreportedJevUsageAttempts": 0,
+      "knownDecimalUSD": "0.336747904"
+    },
+    {
+      "mode": "joint-5",
+      "executions": 150,
+      "scenariosAllFive": 28,
+      "agentCalls": 645,
+      "jevCalls": 254,
+      "unreportedJevUsageAttempts": 1,
+      "knownDecimalUSD": "0.300461534"
+    },
+    {
+      "mode": "joint-8",
+      "executions": 150,
+      "scenariosAllFive": 29,
+      "agentCalls": 634,
+      "jevCalls": 246,
+      "unreportedJevUsageAttempts": 1,
+      "knownDecimalUSD": "0.306324605"
+    }
+  ],
+  "pairedComparisons": 8,
+  "observationsSha256": "11f49cc5bc0948480983e86326682416d765d42c5ddbe55eb965d925a30efccd"
+}

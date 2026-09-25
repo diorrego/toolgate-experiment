@@ -1,0 +1,12 @@
+{
+  "stage": "before any part-2 model call",
+  "baselineCommit": "8c9ad7e69fa0d26abab4a72ab6e1a22f4bb5d6ac",
+  "operationReuse": "V3 unchanged, explicitly confirmed by operator",
+  "files": {
+    "data/v3p2/evaluation.en.json": "ec4dcdc72e9734bb7553ff6f7f5884045b1ae5c90aacda64798dad8d14ef0d47",
+    "tools/v3p2/evaluate.mjs": "c6d82aa9f034ab61e367bd3e9944aa9beabe9fcde994377771f8b848e52f42a4",
+    "tools/v3p2/run.mjs": "d1e01d9e9aab38d7135a239b70902ced3eb18dafa5a74e4220079ac7137d1d2b",
+    "tools/v3p2/provider.mjs": "19c8c027b3b5b0c11d329f673224e84dee2b7bd6247cffd8de9b9d07cfa5031e",
+    "tools/v3p2/schedule.mjs": "f765946f081bbbda63ddbf8f5f58fa0876ba0e451ac1a167858f87ab3a7fb4aa"
+  }
+}

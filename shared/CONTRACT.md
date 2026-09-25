@@ -85,3 +85,10 @@ additive `/v1/workflows` API. It returns up to eight independent single-tool
 operations. The agent orders their execution; all existing per-operation identity,
 validation, decision, approval and durable dispatch rules still apply.
 Legacy single-tool preparation and historical experiments retain their semantics.
+
+
+## V3 part 2 exposure experiment
+
+The optional trusted `exposure_limit` request field and bounded diagnostic header
+are specified in [ADR 0006](adr/0006-v3-exposure-caps.md). Only final exposure is
+changed; an omitted limit preserves V3. Diagnostics never enter model context.

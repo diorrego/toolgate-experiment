@@ -190,3 +190,19 @@ Offline recomputation uses `make report-check`. Live repetition requires access
 to the compatible native Woku handlers, which are not vendored in this repository.
 The fixture and public provider adapter do not replace those handlers. A synthetic
 protocol test alone cannot reproduce or certify native business accuracy.
+
+
+## V3 part 2 exposure experiment
+
+The latest local study is [V3 part 2](V3-PART2.md): 30 unchanged scenarios, five
+conditions and five repetitions (750 fresh executions). Use
+`examples/v3p2-experiment.example.json`, `tools/v3p2/run.mjs`, the single joint
+`tools/v3p2/core-lab.mjs` supervisor and the matching provider adapter. Start with
+the excluded smoke. The provider must support the existing V3 control interface.
+All live conditions require the compatible native handlers; they are not bundled.
+
+`make report-check` verifies every historical report and part 2. Use
+`python3 tools/v3p2/audit.py` for the independent decimal and paired-results audit.
+Read the evaluator-clarification record: the operational recognizer required
+post-freeze corrections, and both original and audited scores are preserved.
+Publication remains unauthorized: this version is a local commit only.

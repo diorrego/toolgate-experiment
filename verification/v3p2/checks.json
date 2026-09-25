@@ -1,0 +1,51 @@
+{
+  "checks": [
+    {
+      "log": "go-check.log",
+      "sha256": "e18a1eb724ecbb01621d7ac97925e99f35c78d32bd3148d19d98ab41e2b70980"
+    },
+    {
+      "log": "rust-check.log",
+      "sha256": "37f203ca473d9998a2ca862b14b70ec9fe975c08f900e0b633f9b0c8d410edb1"
+    },
+    {
+      "log": "sdk-check.log",
+      "sha256": "e4eb0c811d933f4881bb48fa929c0ecf27334eb508518db0f8a6fba3a470980f"
+    },
+    {
+      "log": "pack.log",
+      "sha256": "f5eeeb44c66bf4219cf712d6f5e6a4c6fc725c50f9b7c480aebfc7b06d8c2e83"
+    },
+    {
+      "log": "exposure-conformance.log",
+      "sha256": "678f0d86cb39b94764017d2698d416550a27aa47398c08bf0a4d381d25b41014"
+    },
+    {
+      "log": "oracles.log",
+      "sha256": "1857d64ae30f1b2b2f2f65a89c22eae8b3e4b65ffd6f6f29db3e5024fa9eaa31"
+    },
+    {
+      "log": "host-tests.log",
+      "sha256": "7b2e7adb3a18d78fa64af92b6a36837d019aaaa6e278f8bbb4b93dcb5fd33fea"
+    },
+    {
+      "log": "final-analysis-tests.log",
+      "sha256": "e83a8850a96e5c3f072533a8bd5eb7a48f8d55bcc7831b13ef4b79cbfbaec606"
+    },
+    {
+      "log": "numerical-audit.log",
+      "sha256": "b430f7cb618a893faf79b736621202bf99f54c403205b8db37c6f7a65c4d554f"
+    }
+  ],
+  "mainExecutionComplete": true,
+  "mainCells": 750,
+  "nativeOracleCalls": 76,
+  "nativeOracleSuccesses": 30,
+  "coreProfilesTested": [
+    "Go joint",
+    "Rust joint"
+  ],
+  "scope": "Commands and exclusions documented in VERIFICATION.md",
+  "finalOfflineLogSha256": "2b911824da11c34c4152258bb483ebd37cc6fa9853ecd857cb2e34d320cd7849",
+  "allCommandsExitZero": true
+}

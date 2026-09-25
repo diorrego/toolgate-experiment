@@ -15,6 +15,8 @@ export {
   RemoteError,
   type RemoteMetric,
   type CallOptions,
+  type WorkflowOptions,
+  type WorkflowTrace,
 } from "./remote.ts";
 export {
   ToolRegistry,

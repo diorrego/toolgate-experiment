@@ -745,6 +745,7 @@
           "type": "string"
         },
         "catalog_version": { "pattern": "^[a-f0-9]{64}$", "type": "string" },
+        "exposure_limit": { "enum": [1, 3, 5, 8], "type": "integer" },
         "intent": { "maxLength": 8192, "minLength": 1, "type": "string" }
       },
       "required": ["catalog_id", "catalog_version", "actor", "intent"],

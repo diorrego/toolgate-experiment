@@ -2,7 +2,12 @@ import { createRequire } from "node:module";
 import { Ajv2020 } from "ajv/dist/2020.js";
 import type { ValidateFunction, ErrorObject } from "ajv";
 import { decodeWire, jsonValue, jcs, sha } from "./codec.ts";
-import { RemoteClient, RemoteError, type CallOptions } from "./remote.ts";
+import {
+  RemoteClient,
+  RemoteError,
+  type CallOptions,
+  type WorkflowOptions,
+} from "./remote.ts";
 import { PostgresStore } from "./store.ts";
 import type {
   Actor,
@@ -302,7 +307,7 @@ export class ToolgateProvider {
   async prepareWorkflow(
     actor: Actor,
     intent: string,
-    options: CallOptions = {},
+    options: WorkflowOptions = {},
   ): Promise<WorkflowView> {
     const view = await this.options.client.prepareWorkflow(
       {
@@ -310,9 +315,17 @@ export class ToolgateProvider {
         catalog_id: this.options.catalogId,
         catalog_version: this.options.registry.version,
         intent,
+        ...(options.exposureLimit !== undefined
+          ? { exposure_limit: options.exposureLimit }
+          : {}),
       },
       options,
     );
+    if (
+      options.exposureLimit !== undefined &&
+      view.operations.length > options.exposureLimit
+    )
+      throw new RemoteError("INVALID_RESPONSE");
     const ids = new Set<string>();
     const toolIds = new Set<string>();
     for (const child of view.operations) {

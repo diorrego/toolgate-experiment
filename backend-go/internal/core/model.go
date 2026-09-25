@@ -34,20 +34,21 @@ type Catalog struct {
 	Tools   []Tool `json:"tools,omitempty"`
 }
 type Request struct {
-	Actor      Actor          `json:"actor"`
-	CatalogID  string         `json:"catalog_id,omitempty"`
-	Version    string         `json:"catalog_version,omitempty"`
-	Intent     string         `json:"intent,omitempty"`
-	Context    string         `json:"context_summary,omitempty"`
-	Locale     string         `json:"locale,omitempty"`
-	Known      map[string]any `json:"known_arguments,omitempty"`
-	Arguments  map[string]any `json:"arguments,omitempty"`
-	Expected   int64          `json:"expected_revision,omitempty"`
-	Choice     string         `json:"tool_choice,omitempty"`
-	DecisionID string         `json:"decision_id,omitempty"`
-	Outcome    string         `json:"outcome,omitempty"`
-	Duration   int64          `json:"duration_ms,omitempty"`
-	ErrorCode  string         `json:"error_code,omitempty"`
+	ExposureLimit int            `json:"exposure_limit,omitempty"`
+	Actor         Actor          `json:"actor"`
+	CatalogID     string         `json:"catalog_id,omitempty"`
+	Version       string         `json:"catalog_version,omitempty"`
+	Intent        string         `json:"intent,omitempty"`
+	Context       string         `json:"context_summary,omitempty"`
+	Locale        string         `json:"locale,omitempty"`
+	Known         map[string]any `json:"known_arguments,omitempty"`
+	Arguments     map[string]any `json:"arguments,omitempty"`
+	Expected      int64          `json:"expected_revision,omitempty"`
+	Choice        string         `json:"tool_choice,omitempty"`
+	DecisionID    string         `json:"decision_id,omitempty"`
+	Outcome       string         `json:"outcome,omitempty"`
+	Duration      int64          `json:"duration_ms,omitempty"`
+	ErrorCode     string         `json:"error_code,omitempty"`
 }
 type Selected struct {
 	ID          string         `json:"tool_id"`

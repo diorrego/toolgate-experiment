@@ -1814,6 +1814,9 @@ components:
     WorkflowRequest:
       type: object
       properties:
+        exposure_limit:
+          type: integer
+          enum: [1, 3, 5, 8]
         catalog_id:
           type: string
           minLength: 1

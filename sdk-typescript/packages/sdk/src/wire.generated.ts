@@ -346,6 +346,7 @@ export interface WorkflowRequest {
   actor: Actor;
   catalog_id: string;
   catalog_version: string;
+  exposure_limit?: 1 | 3 | 5 | 8;
   intent: string;
 }
 export interface WorkflowView {

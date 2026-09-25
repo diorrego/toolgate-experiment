@@ -1,0 +1,38 @@
+{
+  "baselineCommit": "8c9ad7e69fa0d26abab4a72ab6e1a22f4bb5d6ac",
+  "fingerprints": {
+    "go": "02cbd8131ef98a086597d2ef89739358d9b72ca202e911e4871c4992aadbe8a3",
+    "runner": "d1e01d9e9aab38d7135a239b70902ced3eb18dafa5a74e4220079ac7137d1d2b",
+    "sdk": "dcdd38c3c4570777f6f250e30778327df3592508a8d43bf3e233eecc8b47cf31",
+    "provider": "8f2276a3886b28f4498af4d07d23c7288e8114d44969d106328aeaf278b115dd",
+    "contract": "adc17bb6af58fc13128873e7ef3662def5471ffa2760f7b03eaa12d764286415",
+    "stateOracle": "e5c50affdf487f9ab8ad1d02543195af3d992ed9529f566b0f519fe50cf9ebdc",
+    "apiClient": "24f18fc453deb2dbc2c36cb36e8ca962d917ef786d9dee99af8f2b6b99f3173d",
+    "coreSupervisor": "1f623c8a67cfa4e43f4b755cc7341de330f32b40125a6b9c7664d7eb20399e7d",
+    "providerAdapter": "19c8c027b3b5b0c11d329f673224e84dee2b7bd6247cffd8de9b9d07cfa5031e",
+    "wokuBuildManifest": "d8f61b8c1551aa386d797ba0accac995286167793b0c2a9212f564a08462f7a3",
+    "fixture": "56dcd4587db9d60d864785430a46d2c21dd4a44b83b303368306477ebcbc419f",
+    "idSeed": "43cfb2554d2cf53cadd3d26687f857dbf3a31aaa7873b86770dbb33a6d0179ae",
+    "gateTools": "67dc06e061cb5596274ba1e3059a182a7d526ffe50892e46c2a2bdeb7df3e920",
+    "corpus": "ec4dcdc72e9734bb7553ff6f7f5884045b1ae5c90aacda64798dad8d14ef0d47",
+    "catalog": "1ba87eeb85a646a7b68899b11dccb71bfc29e289adb10be1879bec71c7845e3e",
+    "callScheduler": "c35ba343e9149210f2c07ea2c3f0ccf4ed638fd3f9bf2321d4ae14d7dada03e7",
+    "baseMetrics": "df59fc4370ae1326e1859a631fa0bab7e6c32103fad412e8725e192fc67fc818",
+    "evaluator": "c6d82aa9f034ab61e367bd3e9944aa9beabe9fcde994377771f8b848e52f42a4",
+    "scheduler": "f765946f081bbbda63ddbf8f5f58fa0876ba0e451ac1a167858f87ab3a7fb4aa",
+    "legacyGrade": "98154edcc8feeb7533db3e7a606ca8cca145ccbb119dae267165daace6440a4a",
+    "config": "b40868651540cff0d03059684983df48671d1a15700d74321b8283e2f43abce2"
+  },
+  "conditions": [
+    "direct",
+    "joint-1",
+    "joint-3",
+    "joint-5",
+    "joint-8"
+  ],
+  "repetitions": 5,
+  "cases": 30,
+  "executions": 750,
+  "smokeExcluded": true,
+  "criteriaUnchangedAfterSmoke": true
+}

@@ -118,6 +118,7 @@ pub(super) fn retrieve(
 }
 #[derive(Default)]
 struct Counters {
+    workflow_trace: std::sync::Mutex<Option<Value>>,
     calls: std::sync::atomic::AtomicU64,
     nanos: std::sync::atomic::AtomicU64,
     selector_nanos: std::sync::atomic::AtomicU64,
@@ -137,11 +138,18 @@ pub(super) struct MetricsSnapshot {
     pub input_tokens: u64,
     pub output_tokens: u64,
     pub max_concurrent: u64,
+    pub workflow_trace: Option<Value>,
 }
 use std::sync::atomic::Ordering::Relaxed;
 impl SelectionMetrics {
+    pub fn set_workflow_trace(&self, value: Value) {
+        if let Ok(mut trace) = self.0.workflow_trace.lock() {
+            *trace = Some(value);
+        }
+    }
     pub fn snapshot(&self) -> MetricsSnapshot {
         MetricsSnapshot {
+            workflow_trace: self.0.workflow_trace.lock().ok().and_then(|v| v.clone()),
             calls: self.0.calls.load(Relaxed),
             millis: self.0.nanos.load(Relaxed) as f64 / 1_000_000.0,
             selector_millis: self.0.selector_nanos.load(Relaxed) as f64 / 1_000_000.0,

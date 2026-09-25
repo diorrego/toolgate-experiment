@@ -77,6 +77,11 @@ func (a *App) serve(w http.ResponseWriter, r *http.Request) {
 	metrics := &selectionMetrics{}
 	r = r.WithContext(context.WithValue(r.Context(), metricsContextKey{}, metrics))
 	status, body, err := a.process(w, r)
+	if metrics.WorkflowTrace != nil {
+		if encoded, e := json.Marshal(metrics.WorkflowTrace); e == nil {
+			w.Header().Set("X-Toolgate-Workflow-Trace", string(encoded))
+		}
+	}
 	w.Header().Set("X-Toolgate-Jev-Calls", strconv.Itoa(metrics.Calls))
 	w.Header().Set("X-Toolgate-Jev-Ms", formatMS(metrics.Duration))
 	w.Header().Set("X-Toolgate-Selector-Ms", formatMS(metrics.SelectorDuration))

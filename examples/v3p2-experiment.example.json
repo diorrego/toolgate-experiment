@@ -1,0 +1,40 @@
+{
+  "state": "../.local/lab.json",
+  "apiKeyFile": "../.env",
+  "privateDir": "../.local/v3p2/runs",
+  "sdkConsumer": "../.local/consumer/package.json",
+  "mcpConsumer": "../../your-provider/package.json",
+  "corpus": "../data/v3p2/evaluation.en.json",
+  "catalog": "../data/v2/catalog.json",
+  "gateTools": "../shared/mcp-tools.json",
+  "businessUrl": "http://127.0.0.1:8182",
+  "controlToken": "REPLACE_WITH_YOUR_SYNTHETIC_PROVIDER_TOKEN",
+  "coreUrls": {
+    "choice": "https://localhost:19441"
+  },
+  "pidFiles": {
+    "goChoice": "../.local/v3p2/choice.pid",
+    "provider": "../../your-provider/.local/provider.pid"
+  },
+  "artifacts": {
+    "go": "../backend-go/bin/toolgate",
+    "sdk": "../.local/artifacts/toolgate-sdk-0.1.0.tgz",
+    "runner": "../tools/v3p2/run.mjs",
+    "apiClient": "../tools/v2/openai.mjs",
+    "stateOracle": "../tools/v3/state.mjs",
+    "providerAdapter": "../tools/v3p2/provider.mjs",
+    "provider": "../../your-provider/experiment-provider.mjs",
+    "contract": "../shared/contract.lock.json",
+    "baseMetrics": "../tools/v2/metrics.mjs",
+    "callScheduler": "../tools/v3/calls.mjs",
+    "fixture": "../data/v3/fixture.json",
+    "corpus": "../data/v3p2/evaluation.en.json",
+    "catalog": "../data/v2/catalog.json",
+    "gateTools": "../shared/mcp-tools.json",
+    "idSeed": "../../your-provider/.local/v3/id-seed",
+    "evaluator": "../tools/v3p2/evaluate.mjs",
+    "scheduler": "../tools/v3p2/schedule.mjs",
+    "legacyGrade": "../tools/v3/metrics.mjs",
+    "coreSupervisor": "../tools/v3p2/core-lab.mjs"
+  }
+}

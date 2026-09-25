@@ -25,3 +25,4 @@ report-check:
 	python3 tools/check-results.py --name binary
 	node tools/v2/analyze.mjs --check
 	node tools/v3/analyze.mjs --check
+	node tools/v3p2/report.mjs --check
